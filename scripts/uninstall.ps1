@@ -1,6 +1,7 @@
 <#
 .SYNOPSIS
-  Removes the doomfix registration (ImplicitLayers, LoaderSettings) and the installed layer files.
+  Removes the doomfix registration (ImplicitLayers, LoaderSettings), the Steam mode variable and the
+  installed layer files.
   Log files in %LOCALAPPDATA%\doomfix\logs are kept; delete that folder by hand if you do not need them.
 #>
 param(
@@ -26,6 +27,11 @@ if (Test-Path $ImplicitKey) {
 if ((Test-Path $SettingsKey) -and ((Get-Item $SettingsKey).Property -contains $SettingsFile)) {
     Remove-ItemProperty -Path $SettingsKey -Name $SettingsFile
     Write-Host "Removed: $SettingsKey -> $SettingsFile"
+}
+# Steam mode (enable_steam_mode.bat) leaves DOOMFIX_ENABLE in the user's variables.
+if ([Environment]::GetEnvironmentVariable('DOOMFIX_ENABLE', 'User')) {
+    [Environment]::SetEnvironmentVariable('DOOMFIX_ENABLE', $null, 'User')
+    Write-Host 'Removed the DOOMFIX_ENABLE user variable (Steam mode). Restart Steam if it is running.'
 }
 foreach ($dir in $SettingsDir, $InstallDir) {
     if (Test-Path $dir) {

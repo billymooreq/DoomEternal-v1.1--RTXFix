@@ -90,8 +90,9 @@ The launchers and the installer work both in the repository (DLL in `build\bin\`
 doomfix-<version>\
   bin\doomfix_layer.dll
   bin\VK_LAYER_DOOMFIX.json
-  scripts\install.ps1  scripts\uninstall.ps1  scripts\launch.ps1
+  scripts\install.ps1  scripts\uninstall.ps1  scripts\launch.ps1  scripts\steam_mode.ps1
   install.bat  uninstall.bat  run_doom_fixed.bat  run_fix_off.bat  run_fix_aggressive.bat
+  enable_steam_mode.bat  disable_steam_mode.bat
   README.md  README.ru.md  LICENSE
 ```
 
@@ -102,8 +103,8 @@ powershell -ExecutionPolicy Bypass -File scripts\build.ps1 -Config Release -Buil
 $v = 'doomfix-0.2.0'; $d = "dist\$v"
 New-Item -ItemType Directory -Force "$d\bin", "$d\scripts" | Out-Null
 Copy-Item build-release\bin\doomfix_layer.dll, build-release\bin\VK_LAYER_DOOMFIX.json "$d\bin"
-Copy-Item scripts\install.ps1, scripts\uninstall.ps1, scripts\launch.ps1 "$d\scripts"
-Copy-Item install.bat, uninstall.bat, run_doom_fixed.bat, run_fix_off.bat, run_fix_aggressive.bat, README.md, README.ru.md, LICENSE $d
+Copy-Item scripts\install.ps1, scripts\uninstall.ps1, scripts\launch.ps1, scripts\steam_mode.ps1 "$d\scripts"
+Copy-Item install.bat, uninstall.bat, run_doom_fixed.bat, run_fix_off.bat, run_fix_aggressive.bat, enable_steam_mode.bat, disable_steam_mode.bat, README.md, README.ru.md, LICENSE $d
 Compress-Archive -Path $d -DestinationPath "dist\$v.zip" -Force
 ```
 

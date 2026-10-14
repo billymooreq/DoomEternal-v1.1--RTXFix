@@ -47,23 +47,14 @@ GPU, driver version, game version and whether the weapon looks right.
 
 ### Starting the game
 
-**With the launcher (recommended):** run `run_doom_fixed.bat`. The first time, it finds DOOM Eternal in your Steam
-libraries (or asks where the game is) and remembers the folder in `doomfix_game_path.txt` next to the launcher.
-Keep Steam running. To pick another folder later, delete that file.
+Double-click **`run_doom_fixed.bat`**. That's it.
 
-**From Steam:** the layer only switches on in programs that have the environment variable `DOOMFIX_ENABLE=1`.
-Set it for your Windows user, then fully restart Steam so that it picks the variable up:
+The first time, it finds DOOM Eternal in your Steam library and asks you to confirm the folder
+(or asks you to type it in if the game is somewhere else). The folder is remembered, so from then on the game
+just starts. Keep Steam running.
 
-```bat
-setx DOOMFIX_ENABLE 1
-```
-
-With the variable set, every Vulkan program you start gets the layer. That is harmless, but if you prefer, use the
-launcher instead. To remove the variable:
-
-```bat
-reg delete HKCU\Environment /v DOOMFIX_ENABLE /f
-```
+**Optional, starting from Steam:** if you would rather press Play in Steam, run `enable_steam_mode.bat` once
+(it offers to restart Steam for you). `disable_steam_mode.bat` turns this off again.
 
 ### Checking that it works
 
@@ -92,15 +83,14 @@ The fix has three modes, selected with the `DOOMFIX_INDIRECT_FIX` variable. Each
 
 1. Run `uninstall.bat`.
 2. Delete the doomfix folder.
-3. Optional: delete `%LOCALAPPDATA%\doomfix` (only log files are left there), and if you used `setx`,
-   remove the variable as shown above.
+3. Optional: delete `%LOCALAPPDATA%\doomfix` (only log files are left there).
 
 ## Troubleshooting
 
 **The game starts, but the weapon is still black and no new log appears.**
 DOOM Eternal can restart itself through Steam, and the restarted game no longer has the doomfix variables.
 The launcher prevents this by setting `SteamAppId=782330`; make sure Steam is running before you use it.
-If you start the game from Steam, set `DOOMFIX_ENABLE` with `setx` and restart Steam completely (exit it from the tray).
+If you start the game from Steam, run `enable_steam_mode.bat` and let it restart Steam.
 
 **`install.bat` warns about another loader settings file.**
 That file comes from Vulkan Configurator (vkconfig), part of the Vulkan SDK. The Vulkan loader only uses one such file,
@@ -113,7 +103,7 @@ for the doomfix folder and `%LOCALAPPDATA%\doomfix\layer`.
 
 **There is no log at all.**
 Check that `install.bat` finished without errors, and that the game was started with `DOOMFIX_ENABLE=1`
-(through the launcher, or `setx` plus a Steam restart). `run_doom_fixed.bat -DryRun` checks the installation and
+(through the launcher, or from Steam after `enable_steam_mode.bat`). `run_doom_fixed.bat -DryRun` checks the installation and
 the game folder without starting the game.
 
 ## How it works
