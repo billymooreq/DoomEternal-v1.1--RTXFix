@@ -59,6 +59,15 @@ Config Load() {
 
   c.extraHiddenDeviceExtensions = SplitList(GetEnv(L"DOOMFIX_HIDE_DEVICE_EXTENSIONS"));
 
+  const std::wstring indirectFix = Lower(Trim(GetEnv(L"DOOMFIX_INDIRECT_FIX")));
+  c.indirectFixRaw = ToUtf8(indirectFix);
+  if (indirectFix == L"off" || indirectFix == L"0" || indirectFix == L"false") {
+    c.indirectFixMode = IndirectFixMode::Off;
+  } else if (indirectFix == L"aggressive" || indirectFix == L"full") {
+    c.indirectFixMode = IndirectFixMode::Aggressive;
+  } else {
+    c.indirectFixMode = IndirectFixMode::On;  // "", "on", "1" и неизвестные значения
+  }
   return c;
 }
 

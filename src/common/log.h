@@ -14,6 +14,9 @@ bool Open(const std::filesystem::path& dir, Level minLevel);
 
 std::filesystem::path CurrentPath();
 
+// Будет ли записано сообщение этого уровня (чтобы не готовить дорогие строки впустую).
+bool Enabled(Level level);
+
 void Write(Level level, _Printf_format_string_ const char* format, ...);
 
 }  // namespace doomfix::log

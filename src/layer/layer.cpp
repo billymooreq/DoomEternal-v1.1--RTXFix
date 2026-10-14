@@ -278,15 +278,119 @@ VKAPI_ATTR void VKAPI_CALL DestroyDevice(VkDevice device, const VkAllocationCall
   data->vk.DestroyDevice(device, pAllocator);
 }
 
+// --- Запись барьеров ------------------------------------------------------------------------
+// Вызываются при записи командных буферов (в том числе многопоточной), поэтому без логирования
+// и аллокаций; вся логика — в фичах.
+
+VKAPI_ATTR void VKAPI_CALL CmdPipelineBarrier(
+    VkCommandBuffer commandBuffer, VkPipelineStageFlags srcStageMask,
+    VkPipelineStageFlags dstStageMask, VkDependencyFlags dependencyFlags,
+    uint32_t memoryBarrierCount, const VkMemoryBarrier* pMemoryBarriers,
+    uint32_t bufferMemoryBarrierCount, const VkBufferMemoryBarrier* pBufferMemoryBarriers,
+    uint32_t imageMemoryBarrierCount, const VkImageMemoryBarrier* pImageMemoryBarriers) {
+  DeviceData* device = g_devices.Find(DispatchKey(commandBuffer));
+  if (!device) return;
+  BarrierSet b{srcStageMask,          dstStageMask,         memoryBarrierCount,
+               pMemoryBarriers,       bufferMemoryBarrierCount, pBufferMemoryBarriers,
+               imageMemoryBarrierCount, pImageMemoryBarriers};
+  for (const auto& feature : g_features) {
+    feature->OnCmdPipelineBarrier(*device, commandBuffer, dependencyFlags, b);
+  }
+  device->vk.CmdPipelineBarrier(commandBuffer, b.srcStageMask, b.dstStageMask, dependencyFlags,
+                                b.memoryBarrierCount, b.pMemoryBarriers, b.bufferMemoryBarrierCount,
+                                b.pBufferMemoryBarriers, b.imageMemoryBarrierCount,
+                                b.pImageMemoryBarriers);
+}
+
+VKAPI_ATTR void VKAPI_CALL CmdWaitEvents(
+    VkCommandBuffer commandBuffer, uint32_t eventCount, const VkEvent* pEvents,
+    VkPipelineStageFlags srcStageMask, VkPipelineStageFlags dstStageMask,
+    uint32_t memoryBarrierCount, const VkMemoryBarrier* pMemoryBarriers,
+    uint32_t bufferMemoryBarrierCount, const VkBufferMemoryBarrier* pBufferMemoryBarriers,
+    uint32_t imageMemoryBarrierCount, const VkImageMemoryBarrier* pImageMemoryBarriers) {
+  DeviceData* device = g_devices.Find(DispatchKey(commandBuffer));
+  if (!device) return;
+  BarrierSet b{srcStageMask,          dstStageMask,         memoryBarrierCount,
+               pMemoryBarriers,       bufferMemoryBarrierCount, pBufferMemoryBarriers,
+               imageMemoryBarrierCount, pImageMemoryBarriers};
+  for (const auto& feature : g_features) {
+    feature->OnCmdWaitEvents(*device, commandBuffer, eventCount, pEvents, b);
+  }
+  device->vk.CmdWaitEvents(commandBuffer, eventCount, pEvents, b.srcStageMask, b.dstStageMask,
+                           b.memoryBarrierCount, b.pMemoryBarriers, b.bufferMemoryBarrierCount,
+                           b.pBufferMemoryBarriers, b.imageMemoryBarrierCount,
+                           b.pImageMemoryBarriers);
+}
+
+template <PFN_vkCmdPipelineBarrier2 DeviceDispatch::*Next>
+VKAPI_ATTR void VKAPI_CALL CmdPipelineBarrier2T(VkCommandBuffer commandBuffer,
+                                                const VkDependencyInfo* pDependencyInfo,
+                                                const char* entryPoint) {
+  DeviceData* device = g_devices.Find(DispatchKey(commandBuffer));
+  if (!device) return;
+  for (const auto& feature : g_features) {
+    feature->OnCmdPipelineBarrier2(*device, commandBuffer, entryPoint, pDependencyInfo);
+  }
+  (device->vk.*Next)(commandBuffer, pDependencyInfo);
+}
+
+VKAPI_ATTR void VKAPI_CALL CmdPipelineBarrier2(VkCommandBuffer commandBuffer,
+                                               const VkDependencyInfo* pDependencyInfo) {
+  CmdPipelineBarrier2T<&DeviceDispatch::CmdPipelineBarrier2>(commandBuffer, pDependencyInfo,
+                                                             "vkCmdPipelineBarrier2");
+}
+
+VKAPI_ATTR void VKAPI_CALL CmdPipelineBarrier2KHR(VkCommandBuffer commandBuffer,
+                                                  const VkDependencyInfo* pDependencyInfo) {
+  CmdPipelineBarrier2T<&DeviceDispatch::CmdPipelineBarrier2KHR>(commandBuffer, pDependencyInfo,
+                                                                "vkCmdPipelineBarrier2KHR");
+}
+
+template <PFN_vkCmdWaitEvents2 DeviceDispatch::*Next>
+VKAPI_ATTR void VKAPI_CALL CmdWaitEvents2T(VkCommandBuffer commandBuffer, uint32_t eventCount,
+                                           const VkEvent* pEvents,
+                                           const VkDependencyInfo* pDependencyInfos,
+                                           const char* entryPoint) {
+  DeviceData* device = g_devices.Find(DispatchKey(commandBuffer));
+  if (!device) return;
+  for (const auto& feature : g_features) {
+    feature->OnCmdWaitEvents2(*device, commandBuffer, entryPoint, eventCount, pEvents,
+                              pDependencyInfos);
+  }
+  (device->vk.*Next)(commandBuffer, eventCount, pEvents, pDependencyInfos);
+}
+
+VKAPI_ATTR void VKAPI_CALL CmdWaitEvents2(VkCommandBuffer commandBuffer, uint32_t eventCount,
+                                          const VkEvent* pEvents,
+                                          const VkDependencyInfo* pDependencyInfos) {
+  CmdWaitEvents2T<&DeviceDispatch::CmdWaitEvents2>(commandBuffer, eventCount, pEvents,
+                                                   pDependencyInfos, "vkCmdWaitEvents2");
+}
+
+VKAPI_ATTR void VKAPI_CALL CmdWaitEvents2KHR(VkCommandBuffer commandBuffer, uint32_t eventCount,
+                                             const VkEvent* pEvents,
+                                             const VkDependencyInfo* pDependencyInfos) {
+  CmdWaitEvents2T<&DeviceDispatch::CmdWaitEvents2KHR>(commandBuffer, eventCount, pEvents,
+                                                      pDependencyInfos, "vkCmdWaitEvents2KHR");
+}
+
 // --- Таблицы перехвата ----------------------------------------------------------------------
 
 struct NamedHook {
   const char* name;
   PFN_vkVoidFunction function;
+  // Для функций, которых может не быть у устройства (расширения, Vulkan 1.3): хук отдаётся,
+  // только если функция есть у следующего звена. nullptr — функция есть всегда.
+  bool (*available)(const DeviceDispatch&) = nullptr;
 };
 
 #define DOOMFIX_HOOK(name) \
   { "vk" #name, reinterpret_cast<PFN_vkVoidFunction>(&name) }
+#define DOOMFIX_OPTIONAL_HOOK(name)                                  \
+  {                                                                  \
+    "vk" #name, reinterpret_cast<PFN_vkVoidFunction>(&name),         \
+        [](const DeviceDispatch& d) { return d.name != nullptr; } \
+  }
 
 const NamedHook kInstanceHooks[] = {
     {"vkGetInstanceProcAddr", reinterpret_cast<PFN_vkVoidFunction>(&DoomFix_GetInstanceProcAddr)},
@@ -299,16 +403,29 @@ const NamedHook kInstanceHooks[] = {
 const NamedHook kDeviceHooks[] = {
     {"vkGetDeviceProcAddr", reinterpret_cast<PFN_vkVoidFunction>(&DoomFix_GetDeviceProcAddr)},
     DOOMFIX_HOOK(DestroyDevice),
+    DOOMFIX_HOOK(CmdPipelineBarrier),
+    DOOMFIX_HOOK(CmdWaitEvents),
+    DOOMFIX_OPTIONAL_HOOK(CmdPipelineBarrier2),
+    DOOMFIX_OPTIONAL_HOOK(CmdPipelineBarrier2KHR),
+    DOOMFIX_OPTIONAL_HOOK(CmdWaitEvents2),
+    DOOMFIX_OPTIONAL_HOOK(CmdWaitEvents2KHR),
 };
 
 #undef DOOMFIX_HOOK
+#undef DOOMFIX_OPTIONAL_HOOK
+
+template <size_t N>
+const NamedHook* FindHookEntry(const NamedHook (&hooks)[N], const char* name) {
+  for (const NamedHook& hook : hooks) {
+    if (std::strcmp(hook.name, name) == 0) return &hook;
+  }
+  return nullptr;
+}
 
 template <size_t N>
 PFN_vkVoidFunction FindHook(const NamedHook (&hooks)[N], const char* name) {
-  for (const NamedHook& hook : hooks) {
-    if (std::strcmp(hook.name, name) == 0) return hook.function;
-  }
-  return nullptr;
+  const NamedHook* hook = FindHookEntry(hooks, name);
+  return hook ? hook->function : nullptr;
 }
 
 }  // namespace
@@ -323,10 +440,14 @@ VKAPI_ATTR PFN_vkVoidFunction VKAPI_CALL DoomFix_GetInstanceProcAddr(VkInstance 
   using namespace doomfix;
   if (!pName) return nullptr;
   if (auto fn = FindHook(kInstanceHooks, pName)) return fn;
+  InstanceData* data = instance ? g_instances.Find(DispatchKey(instance)) : nullptr;
   // По спецификации vkGetInstanceProcAddr обязан отдавать и функции уровня устройства.
-  if (auto fn = FindHook(kDeviceHooks, pName)) return fn;
+  // Необязательные отдаём, только если их знает следующее звено.
+  if (const NamedHook* hook = FindHookEntry(kDeviceHooks, pName)) {
+    if (!hook->available || !data) return hook->function;
+    return data->vk.GetInstanceProcAddr(instance, pName) ? hook->function : nullptr;
+  }
   if (!instance) return nullptr;
-  InstanceData* data = g_instances.Find(DispatchKey(instance));
   return data ? data->vk.GetInstanceProcAddr(instance, pName) : nullptr;
 }
 
@@ -334,8 +455,12 @@ VKAPI_ATTR PFN_vkVoidFunction VKAPI_CALL DoomFix_GetDeviceProcAddr(VkDevice devi
                                                                    const char* pName) {
   using namespace doomfix;
   if (!pName || !device) return nullptr;
-  if (auto fn = FindHook(kDeviceHooks, pName)) return fn;
   DeviceData* data = g_devices.Find(DispatchKey(device));
+  if (const NamedHook* hook = FindHookEntry(kDeviceHooks, pName)) {
+    // Функцию, не включённую у устройства, нельзя отдавать: по спецификации ответ — NULL.
+    if (!hook->available || (data && hook->available(data->vk))) return hook->function;
+    return nullptr;
+  }
   return data ? data->vk.GetDeviceProcAddr(device, pName) : nullptr;
 }
 

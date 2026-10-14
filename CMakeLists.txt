@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(doomfix VERSION 0.1.0 LANGUAGES CXX)
+project(doomfix VERSION 0.2.0 LANGUAGES CXX)
 
 if(NOT WIN32)
   message(FATAL_ERROR "doomfix собирается только под Windows")
@@ -52,6 +52,7 @@ add_library(doomfix_layer SHARED
   src/layer/vk_util.cpp
   src/features/features.cpp
   src/features/hide_device_extensions.cpp
+  src/features/indirect_barrier_fix.cpp
 )
 target_include_directories(doomfix_layer PRIVATE src)
 target_link_libraries(doomfix_layer PRIVATE Vulkan::Headers)

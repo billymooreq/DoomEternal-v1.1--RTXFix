@@ -20,9 +20,16 @@ namespace doomfix {
   X(GetPhysicalDeviceProperties)
 
 // Сюда добавятся CreateShaderModule, CreateGraphicsPipelines, CreateComputePipelines и т.д.
-// для дампа и замены шейдеров.
+// для дампа и замены шейдеров. Функции расширений и новых версий API могут отсутствовать
+// у устройства: тогда указатель остаётся nullptr (см. kDeviceHooks в layer.cpp).
 #define DOOMFIX_DEVICE_FUNCS(X) \
-  X(DestroyDevice)
+  X(DestroyDevice)              \
+  X(CmdPipelineBarrier)         \
+  X(CmdPipelineBarrier2)        \
+  X(CmdPipelineBarrier2KHR)     \
+  X(CmdWaitEvents)              \
+  X(CmdWaitEvents2)             \
+  X(CmdWaitEvents2KHR)
 
 struct InstanceDispatch {
   PFN_vkGetInstanceProcAddr GetInstanceProcAddr = nullptr;

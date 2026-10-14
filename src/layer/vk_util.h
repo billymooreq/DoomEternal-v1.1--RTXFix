@@ -19,4 +19,9 @@ std::string ApiVersionString(uint32_t version);
 // "VK_STRUCTURE_TYPE_... (N)" для известных типов, иначе "sType N".
 std::string DescribeStructureType(VkStructureType type);
 
+// Маски стадий/доступа в виде "COMPUTE_SHADER|DRAW_INDIRECT". Принимают и 32-битные маски
+// VkPipelineStageFlags/VkAccessFlags (их биты совпадают с младшими битами *2-версий).
+std::string StageMaskString(VkPipelineStageFlags2 mask);
+std::string AccessMaskString(VkAccessFlags2 mask);
+
 }  // namespace doomfix

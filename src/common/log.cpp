@@ -19,6 +19,7 @@ std::mutex g_mutex;
 FILE* g_file = nullptr;
 std::filesystem::path g_path;
 std::atomic<int> g_minLevel{static_cast<int>(Level::Info)};
+std::atomic<bool> g_opened{false};
 
 const char* LevelTag(Level level) {
   switch (level) {
@@ -61,12 +62,18 @@ bool Open(const std::filesystem::path& dir, Level minLevel) {
   g_path = dir / name;
   // _SH_DENYWR: лог можно читать, пока игра запущена.
   g_file = _wfsopen(g_path.c_str(), L"wb", _SH_DENYWR);
+  g_opened = g_file != nullptr;
   return g_file != nullptr;
 }
 
 std::filesystem::path CurrentPath() {
   std::lock_guard lock(g_mutex);
   return g_path;
+}
+
+bool Enabled(Level level) {
+  return static_cast<int>(level) >= g_minLevel.load(std::memory_order_relaxed) &&
+         g_opened.load(std::memory_order_relaxed);
 }
 
 void Write(Level level, const char* format, ...) {
