@@ -196,7 +196,7 @@ VKAPI_ATTR VkResult VKAPI_CALL EnumerateDeviceExtensionProperties(
     DF_LOG_INFO("vkEnumerateDeviceExtensionProperties [%s]: %zu reported below, %zu visible "
                 "to app, hidden: %s",
                 PhysicalDeviceName(*instance, physicalDevice).c_str(), all.size(), visible.size(),
-                hidden.empty() ? "(none - not exposed by driver)" : hidden.c_str());
+                hidden.empty() ? "(none)" : hidden.c_str());
   }
 
   if (!pProperties) {

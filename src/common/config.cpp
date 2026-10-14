@@ -57,6 +57,7 @@ Config Load() {
   const std::wstring logDir = GetEnv(L"DOOMFIX_LOG_DIR");
   c.logDir = logDir.empty() ? c.dataDir / L"logs" : std::filesystem::path(logDir);
 
+  c.hideOverallocation = GetEnv(L"DOOMFIX_HIDE_OVERALLOCATION") == L"1";
   c.extraHiddenDeviceExtensions = SplitList(GetEnv(L"DOOMFIX_HIDE_DEVICE_EXTENSIONS"));
 
   const std::wstring indirectFix = Lower(Trim(GetEnv(L"DOOMFIX_INDIRECT_FIX")));

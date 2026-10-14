@@ -81,7 +81,17 @@ class HideDeviceExtensions final : public Feature {
 }  // namespace
 
 std::unique_ptr<Feature> CreateHideDeviceExtensionsFeature(const Config& config) {
-  std::vector<HiddenExtension> rules = BuiltInRules();
+  // Скрытие VK_AMD_memory_overallocation_behavior нужно только для захватов RenderDoc, игре и фиксу
+  // оно не требуется, поэтому по умолчанию выключено.
+  std::vector<HiddenExtension> rules;
+  if (config.hideOverallocation) {
+    rules = BuiltInRules();
+    DF_LOG_INFO("  hide-device-extensions: %s hiding ON (DOOMFIX_HIDE_OVERALLOCATION=1)",
+                VK_AMD_MEMORY_OVERALLOCATION_BEHAVIOR_EXTENSION_NAME);
+  } else {
+    DF_LOG_INFO("  hide-device-extensions: %s hiding OFF (set DOOMFIX_HIDE_OVERALLOCATION=1 for RenderDoc captures)",
+                VK_AMD_MEMORY_OVERALLOCATION_BEHAVIOR_EXTENSION_NAME);
+  }
   for (const std::string& name : config.extraHiddenDeviceExtensions) {
     rules.push_back({name, {}});
   }

@@ -3,6 +3,8 @@
 // Создаёт устройство и записывает в командный буфер барьеры с масками из захвата DOOM Eternal
 // (EID 15778/15818/15828) и граничные случаи; ничего не отправляет на GPU. Что слой передал
 // драйверу, видно в его логе (запускать с DOOMFIX_ENABLE=1 DOOMFIX_LOG_LEVEL=debug).
+// Заодно печатает, видно ли приложению VK_AMD_memory_overallocation_behavior: по умолчанию да,
+// с DOOMFIX_HIDE_OVERALLOCATION=1 — нет (если драйвер вообще его предоставляет).
 //
 //   build\bin\doomfix_barrier_test.exe           все случаи по одному разу
 //   build\bin\doomfix_barrier_test.exe --soak    плюс 4 потока ~12 с перезаписывают командные
@@ -68,6 +70,20 @@ int main(int argc, char** argv) {
   Load<PFN_vkGetPhysicalDeviceProperties>(instance, "vkGetPhysicalDeviceProperties")(pd, &props);
   std::printf("device: %s, api %u.%u\n", props.deviceName, VK_API_VERSION_MAJOR(props.apiVersion),
               VK_API_VERSION_MINOR(props.apiVersion));
+
+  // hide-device-extensions: VK_AMD_memory_overallocation_behavior must be visible by default and hidden
+  // only with DOOMFIX_HIDE_OVERALLOCATION=1 (if the driver exposes it at all).
+  auto enumExt = Load<PFN_vkEnumerateDeviceExtensionProperties>(instance, "vkEnumerateDeviceExtensionProperties");
+  uint32_t extCount = 0;
+  CHECK(enumExt(pd, nullptr, &extCount, nullptr));
+  std::vector<VkExtensionProperties> exts(extCount);
+  CHECK(enumExt(pd, nullptr, &extCount, exts.data()));
+  bool overallocation = false;
+  for (const VkExtensionProperties& e : exts) {
+    overallocation |= std::strcmp(e.extensionName, VK_AMD_MEMORY_OVERALLOCATION_BEHAVIOR_EXTENSION_NAME) == 0;
+  }
+  std::printf("%s visible to the app: %s\n", VK_AMD_MEMORY_OVERALLOCATION_BEHAVIOR_EXTENSION_NAME,
+              overallocation ? "yes" : "no");
 
   // Vulkan 1.3 с synchronization2, чтобы проверить и vkCmdPipelineBarrier2 / vkCmdWaitEvents2.
   VkPhysicalDeviceVulkan13Features f13{VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_FEATURES};
