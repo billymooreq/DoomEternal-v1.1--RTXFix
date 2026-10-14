@@ -88,6 +88,12 @@ The fix has four modes, selected with the `DOOMFIX_INDIRECT_FIX` variable. Each 
 
 ## Troubleshooting
 
+**The fix does not work: the weapon is still black.**
+Make sure that nothing involved runs **as administrator**: not the game, not Steam, not `run_doom_fixed.bat`.
+Windows does not load doomfix into programs started as administrator, so the game then runs without the fix.
+Also check the *Compatibility* tab in the properties of `DOOMEternalx64vk.exe` and `steam.exe`: the box
+*Run this program as an administrator* must be unticked. The launcher warns you if it was started as administrator.
+
 **The game starts, but the weapon is still black and no new log appears.**
 DOOM Eternal can restart itself through Steam, and the restarted game no longer has the doomfix variables.
 The launcher prevents this by setting `SteamAppId=782330`; make sure Steam is running before you use it.

@@ -74,6 +74,21 @@ function Read-GameDir {
     }
 }
 
+# --- 0. Not as administrator -----------------------------------------------------------------
+# The Vulkan loader ignores layers registered for the current user (HKCU, where install.bat puts doomfix)
+# in programs that run elevated. A game started from an elevated launcher would run without the fix.
+$elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(
+    [Security.Principal.WindowsBuiltInRole]::Administrator)
+if ($elevated) {
+    Write-Warning ('This launcher is running as administrator. Windows does not load the doomfix layer into ' +
+        'programs started as administrator, so the fix will NOT work. Close this window and start ' +
+        'run_doom_fixed.bat with a normal double-click, not "Run as administrator".')
+    if (-not $DryRun -and -not ((Read-Host 'Start the game anyway, without the fix? [y/N]') -match '^\s*y')) {
+        Write-Host 'Cancelled.'
+        exit 1
+    }
+}
+
 # --- 1. Game folder --------------------------------------------------------------------------
 $gameDir = $null
 if (-not $Reconfigure -and (Test-Path -LiteralPath $ConfigFile)) {
