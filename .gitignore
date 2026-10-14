@@ -1,0 +1,36 @@
+# --- Build output -------------------------------------------------------------------------------
+/build/
+/out/
+/.vs/
+CMakeUserPresets.json
+
+# --- Python -------------------------------------------------------------------------------------
+__pycache__/
+*.pyc
+
+# --- RenderDoc captures (game frames, gigabytes) ------------------------------------------------
+*.rdc
+
+# --- Game-derived material (id Software): never commit -----------------------------------------
+# Shader dumps and decompiled shaders.
+analysis/shaders/
+analysis/shader_diff/
+analysis/ubo_cases/
+analysis/*/shaders/
+*.spv
+*.spvasm
+*.rd_disasm.txt
+analysis/**/*.glsl
+analysis/**/*.hlsl
+# Shader debugger traces (contain the game's shader disassembly line by line).
+analysis/**/*_trace.txt
+analysis/**/*_trace_clean.txt
+# Pipeline state dumps (uniform buffer contents) and raw buffer / render-target dumps.
+analysis/**/*_state.txt
+analysis/**/*.bin
+analysis/**/*.csv
+# Full-frame renders of the game (several MB each).
+analysis/**/swapchain_*.png
+analysis/**/scene_hdr_*.png
+analysis/final_swapchain.png
+analysis/post_*.png

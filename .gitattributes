@@ -1,0 +1,7 @@
+# Text files are stored with LF; Windows-only scripts keep CRLF (PowerShell scripts also keep their BOM,
+# which Windows PowerShell 5.1 needs to read UTF-8 Cyrillic correctly).
+* text=auto
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.png binary
