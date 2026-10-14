@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(doomfix VERSION 0.3.0 LANGUAGES CXX)
+project(doomfix VERSION 0.3.1 LANGUAGES CXX)
 
 if(NOT WIN32)
   message(FATAL_ERROR "doomfix собирается только под Windows")
