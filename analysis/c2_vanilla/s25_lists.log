@@ -1,0 +1,18 @@
+capture C:/Users/vippr/Documents/doomfix/capture2_vanillaDOOM.rdc opened in 14.7s
+args after 15511: 1163:[2, 3, 3, 1, 1, 0, 0, 0]  1175:[5, 2, 1, 1, 1, 0, 0, 0]  1189:[1, 1, 1, 2, 1, 2, 0, 0]
+args after 15561: 1163:[2, 6, 9, 18, 22, 21, 12, 0]  1175:[3, 5, 7, 3, 3, 1, 0, 0]  1189:[1, 1, 3, 9, 23, 31, 112, 0]
+args after 15660: 1163:[2, 6, 9, 18, 22, 21, 12, 0]  1175:[3, 5, 7, 3, 3, 1, 0, 0]  1189:[1, 1, 3, 9, 23, 31, 112, 0]
+light list @384000: clusters 3000, mean entries/cluster 1.94, max 14, empty 0; histogram {1: 1875, 2: 293, 3: 465, 4: 172, 5: 98, 6: 31, 7: 19, 8: 9, 9: 16, 10: 10, 11: 9, 12: 1, 13: 1, 14: 1}; distinct ids 37
+   cluster 2736: (4, 0, 1, 21, 33, 32, 31, 11)
+probe list @1152000: clusters 3000, mean entries/cluster 0.00, max 0, empty 3000; histogram {0: 3000}; distinct ids 0
+   cluster 2736: (0, 0, 0, 0, 0, 0, 0, 0)
+decal list @4981760: clusters 3000, mean entries/cluster 1.02, max 21, empty 1790; histogram {0: 1790, 1: 492, 2: 349, 3: 150, 4: 85, 5: 38, 6: 26, 7: 13, 8: 12, 9: 7, 10: 6, 11: 5, 12: 5, 13: 9, 14: 6, 15: 1, 16: 2, 17: 2, 19: 1, 21: 1}; distinct ids 200
+   cluster 2736: (1, 175, 185, 173, 167, 0, 0, 0)
+replay to 15541 (vkCmdDispatchIndirect(<1, 1, 1>)): light tile buckets non-zero bytes 62520, light bitfield non-zero bytes 18
+replay to 15542 (api event): light tile buckets non-zero bytes 62520, light bitfield non-zero bytes 18
+replay to 15551 (vkCmdDispatchIndirect(<2, 1, 1>)): light tile buckets non-zero bytes 62510, light bitfield non-zero bytes 637
+replay to 15552 (api event): light tile buckets non-zero bytes 62510, light bitfield non-zero bytes 637
+replay to 15607 (vkCmdDispatchIndirect(<112, 1, 1>)): light tile buckets non-zero bytes 64322, light bitfield non-zero bytes 2082
+replay to 15608 (api event): light tile buckets non-zero bytes 64322, light bitfield non-zero bytes 2082
+replay to 15617 (vkCmdDispatch()): light tile buckets non-zero bytes 61983, light bitfield non-zero bytes 0
+done in 21.7s

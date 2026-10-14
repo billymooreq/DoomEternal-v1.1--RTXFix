@@ -1,0 +1,14 @@
+capture C:/Users/vippr/Documents/doomfix/capture2_vanillaDOOM.rdc opened in 15.2s
+=== case weapon (1437,917) on 1348
+[weapon] draw 15696 dumped; issues: ['Vertex main: uniforms724 (set0 b0) 864 bytes needed, 816 provided (VkBuffer len 786432, offset 4608)', 'Vertex main: uniforms282 (set2 b0) 144 bytes needed, 112 provided (VkBuffer len 112, offset 0)', 'Pixel main: uniforms750 (set0 b0) 864 bytes needed, 816 provided (VkBuffer len 786432, offset 4608)', 'Pixel main: uniforms1133 (set2 b0) 144 bytes needed, 112 provided (VkBuffer len 112, offset 0)']
+  spirv-dis.exe rc=0 
+  spirv-cross.exe rc=0 
+  spirv-cross.exe rc=0 
+exported shader C:\Users\vippr\Documents\doomfix\analysis\c2_vanilla\shaders\vert_63367 targets: ['SPIR-V (RenderDoc)', 'KHR_pipeline_executable_properties', 'AMDIL', 'GCN (gfx804)', 'GCN (gfx900)', 'GCN (gfx902)', 'GCN (gfx906)', 'RDNA (gfx1010)', 'RDNA (gfx1012)', 'RDNA2 (gfx1030)', 'RDNA2 (gfx1031)', 'RDNA2 (gfx1032)', 'RDNA2 (gfx1034)', 'RDNA2 (gfx1035)']
+  spirv-dis.exe rc=0 
+  spirv-cross.exe rc=0 
+  spirv-cross.exe rc=1 SPIRV-Cross threw an exception: Shader model 5.1 or higher is required to use bindless resources or NonUniformResourceIndex.
+
+exported shader C:\Users\vippr\Documents\doomfix\analysis\c2_vanilla\shaders\frag_63365 targets: ['SPIR-V (RenderDoc)', 'KHR_pipeline_executable_properties', 'AMDIL', 'GCN (gfx804)', 'GCN (gfx900)', 'GCN (gfx902)', 'GCN (gfx906)', 'RDNA (gfx1010)', 'RDNA (gfx1012)', 'RDNA2 (gfx1030)', 'RDNA2 (gfx1031)', 'RDNA2 (gfx1032)', 'RDNA2 (gfx1034)', 'RDNA2 (gfx1035)']
+[weapon] debug trace 3323 steps -> C:\Users\vippr\Documents\doomfix\analysis\c2_vanilla\weapon_draw15696_px1437_917_trace.txt ; NaN/Inf=45
+done in 22.7s

@@ -1,0 +1,77 @@
+capture C:/Users/vippr/Documents/doomfix/capture1.rdc opened in 15.1s
+ 15741 vkEndCommandBuffer{CommandBuffer=636, BakedCommandBuffer=801530}
+ 15742 vkBeginCommandBuffer{CommandBuffer=673, BeginInfo{sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO, pNext=, flags=VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT, pInheritanceInfo=}, BakedCommandBuffer=8
+ 15743 BARRIER VERTEX_SHADER|FRAGMENT_SHADER|COMPUTE_SHADER -> VERTEX_SHADER|FRAGMENT_SHADER|COMPUTE_SHADER | access: UNIFORM_READ|SHADER_READ|SHADER_WRITE->UNIFORM_READ|SHADER_READ|SHADER_WRITE; UNIFORM_READ|SHADER_READ|SHADER_WRITE->UNIFORM_READ|SHADER_READ|SHADER_WRITE; UNIFORM_READ|SHADER_READ|SHADER_WRITE->UNIFORM_READ|SHADER_READ|SHADER_WRITE | buf=0 img=2
+ 15744 vkEndCommandBuffer{CommandBuffer=673, BakedCommandBuffer=801783}
+ 15745 vkBeginCommandBuffer{CommandBuffer=669, BeginInfo{sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO, pNext=, flags=VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT, pInheritanceInfo=}, BakedCommandBuffer=8
+ 15748 vkCmdDispatch()                      cs=14685
+ 15751 vkCmdDispatch()                      cs=14649
+ 15754 vkCmdDispatch()                      cs=14681
+ 15757 vkCmdDispatch()                      cs=14651
+ 15758 BARRIER COMPUTE_SHADER -> COMPUTE_SHADER | access: UNIFORM_READ|SHADER_READ|SHADER_WRITE->UNIFORM_READ|SHADER_READ|SHADER_WRITE | buf=0 img=0
+ 15761 vkCmdDispatch()                      cs=14683
+ 15764 vkCmdDispatch()                      cs=14647
+ 15767 vkCmdDispatch()                      cs=14679
+ 15768 BARRIER COMPUTE_SHADER -> COMPUTE_SHADER | access: UNIFORM_READ|SHADER_READ|SHADER_WRITE->UNIFORM_READ|SHADER_READ|SHADER_WRITE | buf=0 img=0
+ 15771 vkCmdDispatch()                      cs=14676
+ 15774 vkCmdDispatch()                      cs=14645
+ 15777 vkCmdDispatch()                      cs=14668
+ 15778 BARRIER VERTEX_SHADER|FRAGMENT_SHADER|COMPUTE_SHADER -> TOP_OF_PIPE|DRAW_INDIRECT|COMPUTE_SHADER | access: UNIFORM_READ|SHADER_READ|SHADER_WRITE->UNIFORM_READ|SHADER_READ|SHADER_WRITE | buf=0 img=0
+ 15781 vkCmdDispatchIndirect(<2, 1, 1>)     cs=14672 args=1079+0
+ 15783 vkCmdDispatchIndirect(<4, 1, 1>)     cs=14672 args=1079+16
+ 15785 vkCmdDispatchIndirect(<2, 1, 1>)     cs=14672 args=1079+32
+ 15787 vkCmdDispatchIndirect(<1, 1, 1>)     cs=14672 args=1079+48
+ 15789 vkCmdDispatchIndirect(<1, 1, 1>)     cs=14672 args=1079+64
+ 15791 vkCmdDispatchIndirect(<0, 1, 1>)     cs=14672 args=1079+80
+ 15794 vkCmdDispatchIndirect(<5, 1, 1>)     cs=14643 args=1091+0
+ 15796 vkCmdDispatchIndirect(<2, 1, 1>)     cs=14643 args=1091+16
+ 15798 vkCmdDispatchIndirect(<1, 1, 1>)     cs=14643 args=1091+32
+ 15800 vkCmdDispatchIndirect(<1, 1, 1>)     cs=14643 args=1091+48
+ 15802 vkCmdDispatchIndirect(<1, 1, 1>)     cs=14643 args=1091+64
+ 15804 vkCmdDispatchIndirect(<0, 1, 1>)     cs=14643 args=1091+80
+ 15807 vkCmdDispatchIndirect(<1, 1, 1>)     cs=14664 args=1105+0
+ 15809 vkCmdDispatchIndirect(<1, 1, 1>)     cs=14664 args=1105+16
+ 15811 vkCmdDispatchIndirect(<1, 1, 1>)     cs=14664 args=1105+32
+ 15813 vkCmdDispatchIndirect(<2, 1, 1>)     cs=14664 args=1105+48
+ 15815 vkCmdDispatchIndirect(<1, 1, 1>)     cs=14664 args=1105+64
+ 15817 vkCmdDispatchIndirect(<2, 1, 1>)     cs=14664 args=1105+80
+ 15818 BARRIER VERTEX_SHADER|FRAGMENT_SHADER|COMPUTE_SHADER -> TOP_OF_PIPE|DRAW_INDIRECT|COMPUTE_SHADER | access: UNIFORM_READ|SHADER_READ|SHADER_WRITE->UNIFORM_READ|SHADER_READ|SHADER_WRITE | buf=0 img=0
+ 15821 vkCmdDispatch()                      cs=14674
+ 15824 vkCmdDispatch()                      cs=14641
+ 15827 vkCmdDispatch()                      cs=14666
+ 15828 BARRIER VERTEX_SHADER|FRAGMENT_SHADER|COMPUTE_SHADER -> TOP_OF_PIPE|DRAW_INDIRECT|COMPUTE_SHADER | access: UNIFORM_READ|SHADER_READ|SHADER_WRITE->UNIFORM_READ|SHADER_READ|SHADER_WRITE | buf=0 img=0
+ 15831 vkCmdDispatchIndirect(<0, 1, 1>)     cs=14670 args=1079+0
+ 15833 vkCmdDispatchIndirect(<0, 1, 1>)     cs=14670 args=1079+16
+ 15835 vkCmdDispatchIndirect(<0, 1, 1>)     cs=14670 args=1079+32
+ 15837 vkCmdDispatchIndirect(<0, 1, 1>)     cs=14670 args=1079+48
+ 15839 vkCmdDispatchIndirect(<0, 1, 1>)     cs=14670 args=1079+64
+ 15841 vkCmdDispatchIndirect(<0, 1, 1>)     cs=14670 args=1079+80
+ 15843 vkCmdDispatchIndirect(<0, 1, 1>)     cs=14670 args=1079+96
+ 15846 vkCmdDispatchIndirect(<0, 1, 1>)     cs=14639 args=1091+0
+ 15848 vkCmdDispatchIndirect(<0, 1, 1>)     cs=14639 args=1091+16
+ 15850 vkCmdDispatchIndirect(<0, 1, 1>)     cs=14639 args=1091+32
+ 15852 vkCmdDispatchIndirect(<0, 1, 1>)     cs=14639 args=1091+48
+ 15854 vkCmdDispatchIndirect(<0, 1, 1>)     cs=14639 args=1091+64
+ 15856 vkCmdDispatchIndirect(<0, 1, 1>)     cs=14639 args=1091+80
+ 15858 vkCmdDispatchIndirect(<0, 1, 1>)     cs=14639 args=1091+96
+ 15861 vkCmdDispatchIndirect(<1, 1, 1>)     cs=14662 args=1105+0
+ 15863 vkCmdDispatchIndirect(<1, 1, 1>)     cs=14662 args=1105+16
+ 15865 vkCmdDispatchIndirect(<3, 1, 1>)     cs=14662 args=1105+32
+ 15867 vkCmdDispatchIndirect(<10, 1, 1>)    cs=14662 args=1105+48
+ 15869 vkCmdDispatchIndirect(<27, 1, 1>)    cs=14662 args=1105+64
+ 15871 vkCmdDispatchIndirect(<34, 1, 1>)    cs=14662 args=1105+80
+ 15873 vkCmdDispatchIndirect(<115, 1, 1>)   cs=14662 args=1105+96
+ 15876 vkCmdDispatch()                      cs=14654
+ 15877 BARRIER COMPUTE_SHADER -> COMPUTE_SHADER | access: UNIFORM_READ|SHADER_READ|SHADER_WRITE->UNIFORM_READ|SHADER_READ|SHADER_WRITE | buf=0 img=0
+ 15880 vkCmdDispatch()                      cs=14660
+ 15883 vkCmdDispatch()                      cs=14657
+ 15884 BARRIER VERTEX_SHADER|FRAGMENT_SHADER|EARLY_FRAGMENT_TESTS|LATE_FRAGMENT_TESTS|COLOR_ATTACHMENT_OUTPUT|COMPUTE_SHADER -> VERTEX_SHADER|FRAGMENT_SHADER|COMPUTE_SHADER | access: UNIFORM_READ|SHADER_READ|SHADER_WRITE|COLOR_ATTACHMENT_READ|COLOR_ATTACHMENT_WRITE|DEPTH_STENCIL_ATTACHMENT_READ|DEPTH_STENCIL_ATTACHMENT_WRITE->UNIFORM_READ|SHADER_READ|SHADER_WRITE; UNIFORM_READ|SHADER_READ|SHADER_WRITE|DEPTH_STENCIL_ATTACHMENT_READ->UNIFORM_READ|SHADER_READ|SHADER_WRITE; NONE->UNIFORM_READ|SHADER_READ|SHADER_WRITE | buf=0 img=7
+ 15885 vkEndCommandBuffer{CommandBuffer=669, BakedCommandBuffer=801531}
+ 15887 vkQueueSubmit{queue=172, submitCount=1, pSubmits{$el{sType=VK_STRUCTURE_TYPE_SUBMIT_INFO, pNext=, waitSemaphoreCount=1, pWaitSemaphores{...}, pWaitDstStageMask{...}, commandBufferCount=1, pCommandBuff
+ 15888 vkBeginCommandBuffer{CommandBuffer=289, BeginInfo{sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO, pNext=, flags=VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT, pInheritanceInfo=}, BakedCommandBuffer=8
+ 15891 vkCmdDispatch()                      cs=15323
+ 15892 BARRIER COMPUTE_SHADER -> COMPUTE_SHADER | access: UNIFORM_READ|SHADER_READ|SHADER_WRITE->UNIFORM_READ|SHADER_READ|SHADER_WRITE | buf=0 img=0
+ 15895 vkCmdDispatch()                      cs=15378
+ 15896 BARRIER COMPUTE_SHADER -> COMPUTE_SHADER | access: UNIFORM_READ|SHADER_READ|SHADER_WRITE->UNIFORM_READ|SHADER_READ|SHADER_WRITE | buf=0 img=0
+ 15899 vkCmdDispatch()                      cs=15373
+done in 31.3s

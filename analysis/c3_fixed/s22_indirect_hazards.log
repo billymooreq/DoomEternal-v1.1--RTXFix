@@ -1,0 +1,14 @@
+capture C:/Users/vippr/Documents/doomfix/capture3_11_fixed.rdc opened in 15.3s
+barriers: 71 (normalized list in barriers_normalized.txt)
+
+== heuristic stage/access mismatches ==
+
+== indirect commands: args buffer, last writer, synchronization ==
+  vkCmdDispatchIndirect args=Buffer 1079 (6 calls, first 18568, last 18578): last write CS_RWResource@18558 OK (barrier 18565)
+  vkCmdDispatchIndirect args=Buffer 1091 (6 calls, first 18581, last 18591): last write CS_RWResource@18561 OK (barrier 18565)
+  vkCmdDispatchIndirect args=Buffer 1105 (6 calls, first 18594, last 18604): last write CS_RWResource@18564 OK (barrier 18565)
+  vkCmdDispatchIndirect args=Buffer 1079 (7 calls, first 18618, last 18630): last write CS_RWResource@18608 OK (barrier 18615)
+  vkCmdDispatchIndirect args=Buffer 1091 (7 calls, first 18633, last 18645): last write CS_RWResource@18611 OK (barrier 18615)
+  vkCmdDispatchIndirect args=Buffer 1105 (7 calls, first 18648, last 18660): last write CS_RWResource@18614 OK (barrier 18615)
+  vkCmdDrawIndexedIndirect args=Buffer 1887 (86 calls, first 32335, last 33628): last write CS_RWResource@18710 submit boundary [18715, 18730]
+done in 22.4s

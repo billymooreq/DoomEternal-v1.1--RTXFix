@@ -1,0 +1,36 @@
+capture C:/Users/vippr/Documents/doomfix/capture2_vanillaDOOM.rdc opened in 15.1s
+save 2D Color Attachment 1348 -> <Result: 'Success'>
+save Swapchain Image 100578 -> <Result: 'Success'>
+save Swapchain Image 100579 -> <Result: 'Success'>
+
+== Pixel History 2D Color Attachment 1348 @1437,917 ==
+  eid  15682 vkCmdBeginRenderPass(Clear passed=True  depth=-1.00000 shaderOut=(0 0 0) post=(0 0 0) 
+  eid  15696 vkCmdDrawIndexed()         passed=True  depth=0.43409 shaderOut=(0.001473 0.0016972 0.0018429) post=(0.0014648 0.0016937 0.0018311) vs=63367 ps=63365 pipe=63399 idx=27420
+  eid  15696 vkCmdDrawIndexed()         passed=False depth=0.43409 shaderOut=(0.0014408 0.0014382 0.0013289) post=(0.0014648 0.0016937 0.0018311) vs=63367 ps=63365 pipe=63399 idx=27420
+  eid  15701 vkCmdDrawIndexed()         passed=False depth=0.43409 shaderOut=(0.0025339 0.0027499 0.0021908) post=(0.0014648 0.0016937 0.0018311) vs=63367 ps=63365 pipe=63399 idx=13659
+  eid  15706 vkCmdDrawIndexed()         passed=False depth=0.43409 shaderOut=(0.00023444 0.00011854 3.7273e-05) post=(0.0014648 0.0016937 0.0018311) vs=63367 ps=63365 pipe=63399 idx=12102
+  eid  15816 vkCmdDrawIndexed()         passed=False depth=0.43409 shaderOut=(0.00013256 0 0) post=(0.0014648 0.0016937 0.0018311) vs=63111 ps=63109 pipe=63141 idx=37584
+  eid  15816 vkCmdDrawIndexed()         passed=False depth=0.43409 shaderOut=(0.00089456 0 0) post=(0.0014648 0.0016937 0.0018311) vs=63111 ps=63109 pipe=63141 idx=37584
+  eid  15826 vkCmdDrawIndexed()         passed=False depth=0.43409 shaderOut=(0 0 0) post=(0.0014648 0.0016937 0.0018311) vs=63111 ps=63109 pipe=63141 idx=20760
+  eid  27288 vkCmdDrawIndexed()         passed=False depth=0.43409 shaderOut=(6.4818e-06 8.0245e-07 1.0344e-07) post=(0.0014648 0.0016937 0.0018311) vs=63539 ps=63537 pipe=63713 idx=4866
+  eid  28368 vkCmdDrawIndexed()         passed=False depth=0.43409 shaderOut=(0.0010815 0.00037459 0.00013838) post=(0.0014648 0.0016937 0.0018311) vs=63265 ps=63264 pipe=63355 idx=6
+  eid  28423 vkCmdDrawIndexed()         passed=False depth=0.43409 shaderOut=(0 0 0) post=(0.0014648 0.0016937 0.0018311) vs=63265 ps=63264 pipe=63355 idx=6
+  eid  28428 vkCmdDrawIndexed()         passed=False depth=0.43409 shaderOut=(0.007242 0.00070176 6.7587e-05) post=(0.0014648 0.0016937 0.0018311) vs=63265 ps=63264 pipe=63355 idx=6
+  eid  28478 vkCmdDrawIndexed()         passed=False depth=0.43409 shaderOut=(0 0 0) post=(0.0014648 0.0016937 0.0018311) vs=63265 ps=63264 pipe=63355 idx=12
+  eid  28608 vkCmdDrawIndexed()         passed=False depth=0.43409 shaderOut=(0.00077885 0.00023955 6.806e-05) post=(0.0014648 0.0016937 0.0018311) vs=63265 ps=63264 pipe=63355 idx=6
+  eid  28757 vkCmdDispatch()            passed=True  depth=-1.00000 shaderOut=(0 0 0) post=(0.0014648 0.0016937 0.0018311) 
+
+== Pixel History 2D Color Attachment 1348 @1290,805 ==
+  eid  15682 vkCmdBeginRenderPass(Clear passed=True  depth=-1.00000 shaderOut=(0 0 0) post=(0 0 0) 
+  eid  15701 vkCmdDrawIndexed()         passed=True  depth=0.37123 shaderOut=(0.0030096 0.0037796 0.0044083) post=(0.0029907 0.0037537 0.0043945) vs=63367 ps=63365 pipe=63399 idx=13659
+  eid  15701 vkCmdDrawIndexed()         passed=False depth=0.37123 shaderOut=(0.0033441 0.0035893 0.0028093) post=(0.0029907 0.0037537 0.0043945) vs=63367 ps=63365 pipe=63399 idx=13659
+  eid  15816 vkCmdDrawIndexed()         passed=False depth=0.37123 shaderOut=(0.0014122 0 0) post=(0.0029907 0.0037537 0.0043945) vs=63111 ps=63109 pipe=63141 idx=37584
+  eid  15816 vkCmdDrawIndexed()         passed=False depth=0.37123 shaderOut=(0.0037621 0.00038829 0.00011598) post=(0.0029907 0.0037537 0.0043945) vs=63111 ps=63109 pipe=63141 idx=37584
+  eid  15831 vkCmdDrawIndexed()         passed=False depth=0.37123 shaderOut=(0 0 0) post=(0.0029907 0.0037537 0.0043945) vs=63111 ps=63109 pipe=63141 idx=13344
+  eid  27478 vkCmdDrawIndexed()         passed=False depth=0.37123 shaderOut=(9.119e-06 1.1634e-06 2.3056e-07) post=(0.0029907 0.0037537 0.0043945) vs=63539 ps=63537 pipe=63713 idx=4866
+  eid  28368 vkCmdDrawIndexed()         passed=False depth=0.37123 shaderOut=(0.00055428 0.00030463 0.000115) post=(0.0029907 0.0037537 0.0043945) vs=63265 ps=63264 pipe=63355 idx=6
+  eid  28423 vkCmdDrawIndexed()         passed=False depth=0.37123 shaderOut=(0 0 0) post=(0.0029907 0.0037537 0.0043945) vs=63265 ps=63264 pipe=63355 idx=6
+  eid  28428 vkCmdDrawIndexed()         passed=False depth=0.37123 shaderOut=(0.0097749 0.001715 0.00022459) post=(0.0029907 0.0037537 0.0043945) vs=63265 ps=63264 pipe=63355 idx=6
+  eid  28478 vkCmdDrawIndexed()         passed=False depth=0.37123 shaderOut=(0 0 0) post=(0.0029907 0.0037537 0.0043945) vs=63265 ps=63264 pipe=63355 idx=12
+  eid  28608 vkCmdDrawIndexed()         passed=False depth=0.37123 shaderOut=(0.00084092 0.00027768 8.6714e-05) post=(0.0029907 0.0037537 0.0043945) vs=63265 ps=63264 pipe=63355 idx=6
+done in 30.0s

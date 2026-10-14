@@ -1,0 +1,5 @@
+capture C:/Users/vippr/Documents/doomfix/capture2_vanillaDOOM.rdc opened in 14.9s
+visbox bitfield Buffer 574285: 1024 bytes, non-zero bytes 38, set bits 130
+list buffer 1899 usage CS_RWResource: n=76, dispatches [15515, 15517, 15519, 15521, 15523, 15525, 15528, 15530, 15532, 15534, 15536, 15538]
+list buffer 1899 usage PS_RWResource: n=8433, dispatches []
+done in 17.3s

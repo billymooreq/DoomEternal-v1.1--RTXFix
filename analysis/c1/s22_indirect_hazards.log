@@ -1,0 +1,20 @@
+capture C:/Users/vippr/Documents/doomfix/capture1.rdc opened in 15.2s
+barriers: 79 (normalized list in barriers_normalized.txt)
+
+== heuristic stage/access mismatches ==
+   15778 DRAW_INDIRECT w/o INDIRECT_COMMAND_READ
+         VERTEX_SHADER|FRAGMENT_SHADER|COMPUTE_SHADER -> TOP_OF_PIPE|DRAW_INDIRECT|COMPUTE_SHADER | UNIFORM_READ|SHADER_READ|SHADER_WRITE->UNIFORM_READ|SHADER_READ|SHADER_WRITE | img:  | next: vkCmdDispatchIndirect
+   15818 DRAW_INDIRECT w/o INDIRECT_COMMAND_READ
+         VERTEX_SHADER|FRAGMENT_SHADER|COMPUTE_SHADER -> TOP_OF_PIPE|DRAW_INDIRECT|COMPUTE_SHADER | UNIFORM_READ|SHADER_READ|SHADER_WRITE->UNIFORM_READ|SHADER_READ|SHADER_WRITE | img:  | next: vkCmdDispatch
+   15828 DRAW_INDIRECT w/o INDIRECT_COMMAND_READ
+         VERTEX_SHADER|FRAGMENT_SHADER|COMPUTE_SHADER -> TOP_OF_PIPE|DRAW_INDIRECT|COMPUTE_SHADER | UNIFORM_READ|SHADER_READ|SHADER_WRITE->UNIFORM_READ|SHADER_READ|SHADER_WRITE | img:  | next: vkCmdDispatchIndirect
+
+== indirect commands: args buffer, last writer, synchronization ==
+  vkCmdDispatchIndirect args=Buffer 1079 (6 calls, first 15781, last 15791): last write CS_RWResource@15771 NO VISIBILITY (stage-only barriers [15778])
+  vkCmdDispatchIndirect args=Buffer 1091 (6 calls, first 15794, last 15804): last write CS_RWResource@15774 NO VISIBILITY (stage-only barriers [15778])
+  vkCmdDispatchIndirect args=Buffer 1105 (6 calls, first 15807, last 15817): last write CS_RWResource@15777 NO VISIBILITY (stage-only barriers [15778])
+  vkCmdDispatchIndirect args=Buffer 1079 (7 calls, first 15831, last 15843): last write CS_RWResource@15821 NO VISIBILITY (stage-only barriers [15828])
+  vkCmdDispatchIndirect args=Buffer 1091 (7 calls, first 15846, last 15858): last write CS_RWResource@15824 NO VISIBILITY (stage-only barriers [15828])
+  vkCmdDispatchIndirect args=Buffer 1105 (7 calls, first 15861, last 15873): last write CS_RWResource@15827 NO VISIBILITY (stage-only barriers [15828])
+  vkCmdDrawIndexedIndirect args=Buffer 1887 (63 calls, first 27883, last 28758): last write CS_RWResource@15923 submit boundary [15927, 15942]
+done in 21.5s

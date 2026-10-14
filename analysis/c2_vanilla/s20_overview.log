@@ -1,0 +1,191 @@
+capture C:/Users/vippr/Documents/doomfix/capture2_vanillaDOOM.rdc opened in 14.8s
+API: GraphicsAPI.Vulkan vendor=GPUVendor.nVidia localRenderer=GraphicsAPI.Vulkan
+vkCreateDevice ppEnabledExtensionNames{$el=VK_KHR_swapchain, $el=VK_KHR_dedicated_allocation, $el=VK_KHR_8bit_storage, $el=VK_KHR_16bit_storage, $el=VK_KHR_shader_float16_int8, $el=VK_EXT_descriptor_indexing, $el=VK_KHR_driver_properties, $el=VK_EXT_calibrated_timestamps, $el=VK_EXT_hdr_metadata, $el=VK_EXT_full_screen_exclusive, $el=VK_KHR_external_memory_win32}, pEnabledFeatures=}, pAllocator=, Device=9}
+  Indirect sub-command                 63
+  vkBeginCommandBuffer                 44
+  vkCmdDispatch                        101
+  vkCmdDispatchIndirect                39
+  vkCmdDrawIndexedIndirect             63
+  vkCmdPipelineBarrier                 77
+  vkQueueSubmit                        9
+total actions: 6376
+barrier calls in frame: 77
+
+== indirect commands: 102 ==
+ 15515 vkCmdDispatchIndirect(<2, 1, 1>)             cs=65331 rw=[ssbo78=1158@0, ssbo123=1162@0, ssbo150=1157@0, ssbo933=1160@0, ssbo975=1899@5749760, ssbo1006=1194@0, ssbo1057=1899@4213760]
+        preceding barrier 15512 vkCmdPipelineBarrier: src=['VK_PIPELINE_STAGE_VERTEX_SHADER_BIT | VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT'] dst=['VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT'] dstAccess=['VK_ACCESS_INDIRECT_COMMAND_READ_BIT | VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT']
+ 15517 vkCmdDispatchIndirect(<3, 1, 1>)             cs=65331 rw=[ssbo78=1158@0, ssbo123=1162@0, ssbo150=1157@0, ssbo933=1160@0, ssbo975=1899@5749760, ssbo1006=1194@0, ssbo1057=1899@4213760]
+ 15519 vkCmdDispatchIndirect(<3, 1, 1>)             cs=65331 rw=[ssbo78=1158@0, ssbo123=1162@0, ssbo150=1157@0, ssbo933=1160@0, ssbo975=1899@5749760, ssbo1006=1194@0, ssbo1057=1899@4213760]
+ 15521 vkCmdDispatchIndirect(<1, 1, 1>)             cs=65331 rw=[ssbo78=1158@0, ssbo123=1162@0, ssbo150=1157@0, ssbo933=1160@0, ssbo975=1899@5749760, ssbo1006=1194@0, ssbo1057=1899@4213760]
+ 15523 vkCmdDispatchIndirect(<1, 1, 1>)             cs=65331 rw=[ssbo78=1158@0, ssbo123=1162@0, ssbo150=1157@0, ssbo933=1160@0, ssbo975=1899@5749760, ssbo1006=1194@0, ssbo1057=1899@4213760]
+ 15525 vkCmdDispatchIndirect(<0, 1, 1>)             cs=65331 rw=[ssbo78=1158@0, ssbo123=1162@0, ssbo150=1157@0, ssbo933=1160@0, ssbo975=1899@5749760, ssbo1006=1194@0, ssbo1057=1899@4213760]
+ 15528 vkCmdDispatchIndirect(<5, 1, 1>)             cs=65346 rw=[ssbo78=1170@0, ssbo123=1174@0, ssbo150=1169@0, ssbo933=1172@0, ssbo975=1899@10337280]
+ 15530 vkCmdDispatchIndirect(<2, 1, 1>)             cs=65346 rw=[ssbo78=1170@0, ssbo123=1174@0, ssbo150=1169@0, ssbo933=1172@0, ssbo975=1899@10337280]
+ 15532 vkCmdDispatchIndirect(<1, 1, 1>)             cs=65346 rw=[ssbo78=1170@0, ssbo123=1174@0, ssbo150=1169@0, ssbo933=1172@0, ssbo975=1899@10337280]
+ 15534 vkCmdDispatchIndirect(<1, 1, 1>)             cs=65346 rw=[ssbo78=1170@0, ssbo123=1174@0, ssbo150=1169@0, ssbo933=1172@0, ssbo975=1899@10337280]
+ 15536 vkCmdDispatchIndirect(<1, 1, 1>)             cs=65346 rw=[ssbo78=1170@0, ssbo123=1174@0, ssbo150=1169@0, ssbo933=1172@0, ssbo975=1899@10337280]
+ 15538 vkCmdDispatchIndirect(<0, 1, 1>)             cs=65346 rw=[ssbo78=1170@0, ssbo123=1174@0, ssbo150=1169@0, ssbo933=1172@0, ssbo975=1899@10337280]
+ 15541 vkCmdDispatchIndirect(<1, 1, 1>)             cs=65337 rw=[ssbo78=1184@0, ssbo123=1188@0, ssbo150=1183@0, ssbo836=1190@0, ssbo941=1186@0, ssbo983=1899@1920000, ssbo1014=1194@0, ssbo1065=1899@0]
+ 15543 vkCmdDispatchIndirect(<1, 1, 1>)             cs=65337 rw=[ssbo78=1184@0, ssbo123=1188@0, ssbo150=1183@0, ssbo836=1190@0, ssbo941=1186@0, ssbo983=1899@1920000, ssbo1014=1194@0, ssbo1065=1899@0]
+ 15545 vkCmdDispatchIndirect(<1, 1, 1>)             cs=65337 rw=[ssbo78=1184@0, ssbo123=1188@0, ssbo150=1183@0, ssbo836=1190@0, ssbo941=1186@0, ssbo983=1899@1920000, ssbo1014=1194@0, ssbo1065=1899@0]
+ 15547 vkCmdDispatchIndirect(<2, 1, 1>)             cs=65337 rw=[ssbo78=1184@0, ssbo123=1188@0, ssbo150=1183@0, ssbo836=1190@0, ssbo941=1186@0, ssbo983=1899@1920000, ssbo1014=1194@0, ssbo1065=1899@0]
+ 15549 vkCmdDispatchIndirect(<1, 1, 1>)             cs=65337 rw=[ssbo78=1184@0, ssbo123=1188@0, ssbo150=1183@0, ssbo836=1190@0, ssbo941=1186@0, ssbo983=1899@1920000, ssbo1014=1194@0, ssbo1065=1899@0]
+ 15551 vkCmdDispatchIndirect(<2, 1, 1>)             cs=65337 rw=[ssbo78=1184@0, ssbo123=1188@0, ssbo150=1183@0, ssbo836=1190@0, ssbo941=1186@0, ssbo983=1899@1920000, ssbo1014=1194@0, ssbo1065=1899@0]
+ 15565 vkCmdDispatchIndirect(<2, 1, 1>)             cs=65318 rw=[ssbo78=1160@0, ssbo134=1899@5749760, ssbo173=1157@0, ssbo954=1899@4213760]
+        preceding barrier 15562 vkCmdPipelineBarrier: src=['VK_PIPELINE_STAGE_VERTEX_SHADER_BIT | VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT'] dst=['VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT'] dstAccess=['VK_ACCESS_INDIRECT_COMMAND_READ_BIT | VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT']
+ 15567 vkCmdDispatchIndirect(<6, 1, 1>)             cs=65318 rw=[ssbo78=1160@0, ssbo134=1899@5749760, ssbo173=1157@0, ssbo954=1899@4213760]
+ 15569 vkCmdDispatchIndirect(<9, 1, 1>)             cs=65318 rw=[ssbo78=1160@0, ssbo134=1899@5749760, ssbo173=1157@0, ssbo954=1899@4213760]
+ 15571 vkCmdDispatchIndirect(<18, 1, 1>)            cs=65318 rw=[ssbo78=1160@0, ssbo134=1899@5749760, ssbo173=1157@0, ssbo954=1899@4213760]
+ 15573 vkCmdDispatchIndirect(<22, 1, 1>)            cs=65318 rw=[ssbo78=1160@0, ssbo134=1899@5749760, ssbo173=1157@0, ssbo954=1899@4213760]
+ 15575 vkCmdDispatchIndirect(<21, 1, 1>)            cs=65318 rw=[ssbo78=1160@0, ssbo134=1899@5749760, ssbo173=1157@0, ssbo954=1899@4213760]
+ 15577 vkCmdDispatchIndirect(<12, 1, 1>)            cs=65318 rw=[ssbo78=1160@0, ssbo134=1899@5749760, ssbo173=1157@0, ssbo954=1899@4213760]
+ 15580 vkCmdDispatchIndirect(<3, 1, 1>)             cs=65316 rw=[ssbo78=1172@0, ssbo134=1899@10337280, ssbo173=1169@0, ssbo934=574285@0]
+ 15582 vkCmdDispatchIndirect(<5, 1, 1>)             cs=65316 rw=[ssbo78=1172@0, ssbo134=1899@10337280, ssbo173=1169@0, ssbo934=574285@0]
+ 15584 vkCmdDispatchIndirect(<7, 1, 1>)             cs=65316 rw=[ssbo78=1172@0, ssbo134=1899@10337280, ssbo173=1169@0, ssbo934=574285@0]
+ 15586 vkCmdDispatchIndirect(<3, 1, 1>)             cs=65316 rw=[ssbo78=1172@0, ssbo134=1899@10337280, ssbo173=1169@0, ssbo934=574285@0]
+ 15588 vkCmdDispatchIndirect(<3, 1, 1>)             cs=65316 rw=[ssbo78=1172@0, ssbo134=1899@10337280, ssbo173=1169@0, ssbo934=574285@0]
+ 15590 vkCmdDispatchIndirect(<1, 1, 1>)             cs=65316 rw=[ssbo78=1172@0, ssbo134=1899@10337280, ssbo173=1169@0, ssbo934=574285@0]
+ 15592 vkCmdDispatchIndirect(<0, 1, 1>)             cs=65316 rw=[ssbo78=1172@0, ssbo134=1899@10337280, ssbo173=1169@0, ssbo934=574285@0]
+ 15595 vkCmdDispatchIndirect(<1, 1, 1>)             cs=65313 rw=[ssbo128=1186@0, ssbo178=1899@1920000, ssbo217=1183@0, ssbo930=1190@0, ssbo938=1913@0, ssbo1004=1176@0, ssbo2080=1899@0, ssbo2125=1911@0]
+ 15597 vkCmdDispatchIndirect(<1, 1, 1>)             cs=65313 rw=[ssbo128=1186@0, ssbo178=1899@1920000, ssbo217=1183@0, ssbo930=1190@0, ssbo938=1913@0, ssbo1004=1176@0, ssbo2080=1899@0, ssbo2125=1911@0]
+ 15599 vkCmdDispatchIndirect(<3, 1, 1>)             cs=65313 rw=[ssbo128=1186@0, ssbo178=1899@1920000, ssbo217=1183@0, ssbo930=1190@0, ssbo938=1913@0, ssbo1004=1176@0, ssbo2080=1899@0, ssbo2125=1911@0]
+ 15601 vkCmdDispatchIndirect(<9, 1, 1>)             cs=65313 rw=[ssbo128=1186@0, ssbo178=1899@1920000, ssbo217=1183@0, ssbo930=1190@0, ssbo938=1913@0, ssbo1004=1176@0, ssbo2080=1899@0, ssbo2125=1911@0]
+ 15603 vkCmdDispatchIndirect(<23, 1, 1>)            cs=65313 rw=[ssbo128=1186@0, ssbo178=1899@1920000, ssbo217=1183@0, ssbo930=1190@0, ssbo938=1913@0, ssbo1004=1176@0, ssbo2080=1899@0, ssbo2125=1911@0]
+ 15605 vkCmdDispatchIndirect(<31, 1, 1>)            cs=65313 rw=[ssbo128=1186@0, ssbo178=1899@1920000, ssbo217=1183@0, ssbo930=1190@0, ssbo938=1913@0, ssbo1004=1176@0, ssbo2080=1899@0, ssbo2125=1911@0]
+ 15607 vkCmdDispatchIndirect(<112, 1, 1>)           cs=65313 rw=[ssbo128=1186@0, ssbo178=1899@1920000, ssbo217=1183@0, ssbo930=1190@0, ssbo938=1913@0, ssbo1004=1176@0, ssbo2080=1899@0, ssbo2125=1911@0]
+ 28814 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+        preceding barrier 28784 vkCmdPipelineBarrier: src=['VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT'] dst=['VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT'] dstAccess=['VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT']
+ 28836 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 28858 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 28870 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 28902 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 28924 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 28946 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 28958 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 28985 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 28991 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29024 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29030 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29052 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29058 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29075 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29081 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29087 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29093 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29110 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29116 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29133 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29150 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29156 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29183 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29189 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29206 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29228 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29234 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29262 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29268 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29274 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29280 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29297 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29303 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29316 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29338 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29360 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29366 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29372 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29389 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29395 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29422 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29439 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29461 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29467 vkCmdDrawIndexedIndirect(1) => <552, 1>     
+ 29493 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+        preceding barrier 29477 vkCmdPipelineBarrier: src=['VK_PIPELINE_STAGE_VERTEX_SHADER_BIT | VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT'] dst=['VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT | VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT | VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT'] dstAccess=['VK_ACCESS_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT', 'VK_ACCESS_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT']
+ 29499 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29516 vkCmdDrawIndexedIndirect(1) => <78, 1>      
+ 29522 vkCmdDrawIndexedIndirect(1) => <132, 1>     
+ 29539 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29545 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29551 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29557 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29563 vkCmdDrawIndexedIndirect(1) => <6, 1>       
+ 29569 vkCmdDrawIndexedIndirect(1) => <6, 1>       
+ 29586 vkCmdDrawIndexedIndirect(1) => <114, 1>     
+ 29592 vkCmdDrawIndexedIndirect(1) => <102, 1>     
+ 29624 vkCmdDrawIndexedIndirect(1) => <108, 1>     
+ 29646 vkCmdDrawIndexedIndirect(1) => <30, 1>      
+ 29658 vkCmdDrawIndexedIndirect(1) => <924, 1>     
+ 29685 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29691 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 29697 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+
+== barriers with DRAW_INDIRECT in dst stage ==
+   15512 vkCmdPipelineBarrier OK  dst=VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT dstAccess=['VK_ACCESS_INDIRECT_COMMAND_READ_BIT | VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT']
+   15552 vkCmdPipelineBarrier OK  dst=VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT dstAccess=['VK_ACCESS_INDIRECT_COMMAND_READ_BIT | VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT']
+   15562 vkCmdPipelineBarrier OK  dst=VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT dstAccess=['VK_ACCESS_INDIRECT_COMMAND_READ_BIT | VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT']
+   15655 vkCmdPipelineBarrier OK  dst=VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT dstAccess=['VK_ACCESS_INDIRECT_COMMAND_READ_BIT | VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT']
+  total 4, lacking INDIRECT_COMMAND_READ/MEMORY_READ: 0
+
+== render passes (>= 5 draws) ==
+  pass 464..1911 draws=373 outs=[] depth=79417
+  pass 1921..1970 draws=8 outs=['1356(1920x1080 R16G16_FLOAT)', '1364(1920x1080 R8_UNORM)'] depth=1740
+  pass 1971..5544 draws=793 outs=[] depth=1740
+  pass 5547..8590 draws=607 outs=[] depth=1740
+  pass 8593..11637 draws=607 outs=[] depth=1740
+  pass 11643..14683 draws=605 outs=[] depth=1740
+  pass 14684..14887 draws=40 outs=['1356(1920x1080 R16G16_FLOAT)'] depth=1740
+  pass 14895..15474 draws=104 outs=['1610(1920x1080 R8_UNORM)'] depth=1740
+  pass 15684..19535 draws=843 outs=['1348(1920x1080 R11G11B10_FLOAT)'] depth=1740
+  pass 19538..22572 draws=605 outs=['1348(1920x1080 R11G11B10_FLOAT)'] depth=1740
+  pass 22575..25634 draws=610 outs=['1348(1920x1080 R11G11B10_FLOAT)'] depth=1740
+  pass 25640..28666 draws=602 outs=['1348(1920x1080 R11G11B10_FLOAT)'] depth=1740
+  pass 28678..28742 draws=12 outs=['1329(2048x2048 R11G11B10_FLOAT)', '1333(2048x2048 R8G8B8A8_UNORM)'] depth=0
+  pass 28785..29008 draws=39 outs=['1348(1920x1080 R11G11B10_FLOAT)'] depth=1740
+  pass 29011..29246 draws=40 outs=['1348(1920x1080 R11G11B10_FLOAT)'] depth=1740
+  pass 29249..29474 draws=38 outs=['1348(1920x1080 R11G11B10_FLOAT)'] depth=1740
+  pass 29480..29698 draws=37 outs=['1348(1920x1080 R11G11B10_FLOAT)'] depth=1740
+  pass 29701..29749 draws=11 outs=['1915(480x270 R8G8B8A8_UNORM)'] depth=0
+  pass 29760..30049 draws=42 outs=['1372(1920x1080 R8G8B8A8_UNORM)'] depth=1376
+
+== last 40 actions ==
+   30049 vkCmdEndRenderPass(C=Store, DS=Store) outs=[1372]
+   30053 vkCmdDispatch() outs=[]
+   30054 => vkQueueSubmit(9)[6]: vkEndCommandBuffer(ResourceId::801573) outs=[]
+   30055 => vkQueueSubmit(9)[7]: vkBeginCommandBuffer(ResourceId::801826) outs=[]
+   30057 => vkQueueSubmit(9)[7]: vkEndCommandBuffer(ResourceId::801826) outs=[]
+   30058 => vkQueueSubmit(9)[8]: vkBeginCommandBuffer(ResourceId::801574) outs=[]
+   30061 => vkQueueSubmit(9)[8]: vkEndCommandBuffer(ResourceId::801574) outs=[]
+   30064 => vkQueueSubmit(1)[0]: vkBeginCommandBuffer(ResourceId::801524) outs=[]
+   30067 vkCmdDispatch() outs=[]
+   30070 vkCmdDispatch() outs=[]
+   30074 vkCmdDispatch() outs=[]
+   30077 vkCmdDispatch() outs=[]
+   30080 vkCmdDispatch() outs=[]
+   30083 vkCmdDispatch() outs=[]
+   30086 vkCmdDispatch() outs=[]
+   30089 vkCmdDispatch() outs=[]
+   30092 vkCmdDispatch() outs=[]
+   30095 vkCmdDispatch() outs=[]
+   30099 vkCmdDispatch() outs=[]
+   30103 vkCmdDispatch() outs=[]
+   30106 vkCmdDispatch() outs=[]
+   30109 vkCmdDispatch() outs=[]
+   30112 vkCmdDispatch() outs=[]
+   30115 vkCmdDispatch() outs=[]
+   30119 vkCmdDispatch() outs=[]
+   30122 vkCmdDispatch() outs=[]
+   30125 vkCmdDispatch() outs=[]
+   30128 vkCmdDispatch() outs=[]
+   30131 vkCmdDispatch() outs=[]
+   30134 vkCmdDispatch() outs=[]
+   30137 vkCmdDispatch() outs=[]
+   30140 vkCmdDispatch() outs=[]
+   30143 vkCmdDispatch() outs=[]
+   30146 vkCmdDispatch() outs=[]
+   30150 vkCmdDispatch() outs=[]
+   30154 vkCmdDispatch() outs=[]
+   30156 => vkQueueSubmit(1)[0]: vkEndCommandBuffer(ResourceId::801524) outs=[]
+   30159 => vkQueueSubmit(1)[0]: vkBeginCommandBuffer(ResourceId::801814) outs=[]
+   30161 => vkQueueSubmit(1)[0]: vkEndCommandBuffer(ResourceId::801814) outs=[]
+   30162 vkQueuePresentKHR(ResourceId::100579) outs=[]
+done in 30.5s

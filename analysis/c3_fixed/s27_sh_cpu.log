@@ -1,0 +1,13 @@
+capture C:/Users/vippr/Documents/doomfix/capture3_11_fixed.rdc opened in 15.1s
+camera origin used: [28.145, -1613.56, 18.8076]
+viewVector taken from outputs: ['vofi_Scalar4', 'vofi_Scalar5', 'vofi_Scalar6']
+vertex 1765: world=[28.263, -1613.332, 18.712] leaf=[0.3059, 0.2196, 0.3765, 0.5255] key=0x8660384e SHkey=[204, 112, 78] SH0(CPU)=[0.0, 0.0, 0.0, 0.0]
+vertex 932: world=[28.264, -1613.317, 18.711] leaf=[0.3059, 0.2196, 0.3765, 0.5255] key=0x8660384e SHkey=[204, 112, 78] SH0(CPU)=[0.0, 0.0, 0.0, 0.0]
+vertex 930: world=[28.265, -1613.316, 18.717] leaf=[0.3059, 0.2196, 0.3765, 0.5255] key=0x8660384e SHkey=[204, 112, 78] SH0(CPU)=[0.0, 0.0, 0.0, 0.0]
+
+sensitivity around the weapon (step 0.25 units, +-1 unit):
+  grid points with zero SH: 486, non-zero: 243; SH keys hit: [((204, 112, 78), 486), ((32, 114, 78), 243)]
+  camera             [28.14, -1613.56, 18.81] -> SHkey [204, 112, 78] SH0 [0.0, 0.0, 0.0, 0.0]
+  1 unit forward/up  [28.14, -1612.56, 19.81] -> SHkey [32, 114, 78] SH0 [0.00553, 0.00163, 0.00069, -0.00202]
+  4 units +x         [32.14, -1613.56, 18.81] -> SHkey [36, 114, 78] SH0 [0.0226, 0.00433, 0.00155, -0.00234]
+done in 18.8s

@@ -3,8 +3,13 @@
 import os, sys, time, traceback
 import renderdoc as rd
 
-CAPTURE = r"C:\Users\vippr\Documents\doomfix\capture1.rdc"
-OUTDIR = r"C:\Users\vippr\Documents\doomfix\analysis"
+# DOOMFIX_CAPTURE — путь к захвату (по умолчанию capture1.rdc), DOOMFIX_OUT — подкаталог analysis/
+# для результатов (по умолчанию сам analysis/, как при разборе capture1).
+ROOT = r"C:\Users\vippr\Documents\doomfix"
+CAPTURE = os.environ.get("DOOMFIX_CAPTURE") or os.path.join(ROOT, "capture1.rdc")
+BASE_OUTDIR = os.path.join(ROOT, "analysis")
+OUTDIR = os.path.join(BASE_OUTDIR, os.environ["DOOMFIX_OUT"]) if os.environ.get("DOOMFIX_OUT") else BASE_OUTDIR
+os.makedirs(OUTDIR, exist_ok=True)
 
 
 class Log:
@@ -31,7 +36,7 @@ def open_capture(log):
     res, ctrl = cap.OpenCapture(rd.ReplayOptions(), None)
     if res != rd.ResultCode.Succeeded:
         raise RuntimeError("OpenCapture failed: %s" % res)
-    log("capture opened in %.1fs" % (time.time() - t))
+    log("capture %s opened in %.1fs" % (CAPTURE, time.time() - t))
     return cap, ctrl
 
 

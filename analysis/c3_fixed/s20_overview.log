@@ -1,0 +1,213 @@
+capture C:/Users/vippr/Documents/doomfix/capture3_11_fixed.rdc opened in 15.2s
+API: GraphicsAPI.Vulkan vendor=GPUVendor.nVidia localRenderer=GraphicsAPI.Vulkan
+vkCreateDevice ppEnabledExtensionNames{$el=VK_KHR_swapchain, $el=VK_KHR_dedicated_allocation, $el=VK_KHR_8bit_storage, $el=VK_KHR_16bit_storage, $el=VK_KHR_shader_float16_int8, $el=VK_EXT_descriptor_indexing, $el=VK_KHR_driver_properties, $el=VK_EXT_hdr_metadata, $el=VK_EXT_full_screen_exclusive, $el=VK_KHR_external_memory_win32}, pEnabledFeatures=}, pAllocator=, Device=9}
+  Indirect sub-command                 86
+  vkBeginCommandBuffer                 42
+  vkCmdDispatch                        101
+  vkCmdDispatchIndirect                39
+  vkCmdDrawIndexedIndirect             86
+  vkCmdPipelineBarrier                 71
+  vkQueueSubmit                        9
+total actions: 7464
+barrier calls in frame: 71
+
+== indirect commands: 125 ==
+ 18568 vkCmdDispatchIndirect(<2, 1, 1>)             cs=14672 rw=[decalcoarsetileworkbucketnumentries_b_var=1074@0, decalcoarsetileworkbuckets_b_var=1078@0, decalboxesclippedbuffer_b_var=1073@0, decaltileworkbucketnumentriesrw_b_var=1076@0, decaltileworkbucketsrw_b_var=1753@8043520, clusterzbounds_b_var=1111@0, decalbitfieldbufferrw_b_var=1753@6507520]
+        preceding barrier 18565 vkCmdPipelineBarrier: src=['VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT | VK_PIPELINE_STAGE_VERTEX_SHADER_BIT | VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT'] dst=['VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT | VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT'] dstAccess=['VK_ACCESS_INDIRECT_COMMAND_READ_BIT | VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT']
+ 18570 vkCmdDispatchIndirect(<4, 1, 1>)             cs=14672 rw=[decalcoarsetileworkbucketnumentries_b_var=1074@0, decalcoarsetileworkbuckets_b_var=1078@0, decalboxesclippedbuffer_b_var=1073@0, decaltileworkbucketnumentriesrw_b_var=1076@0, decaltileworkbucketsrw_b_var=1753@8043520, clusterzbounds_b_var=1111@0, decalbitfieldbufferrw_b_var=1753@6507520]
+ 18572 vkCmdDispatchIndirect(<3, 1, 1>)             cs=14672 rw=[decalcoarsetileworkbucketnumentries_b_var=1074@0, decalcoarsetileworkbuckets_b_var=1078@0, decalboxesclippedbuffer_b_var=1073@0, decaltileworkbucketnumentriesrw_b_var=1076@0, decaltileworkbucketsrw_b_var=1753@8043520, clusterzbounds_b_var=1111@0, decalbitfieldbufferrw_b_var=1753@6507520]
+ 18574 vkCmdDispatchIndirect(<1, 1, 1>)             cs=14672 rw=[decalcoarsetileworkbucketnumentries_b_var=1074@0, decalcoarsetileworkbuckets_b_var=1078@0, decalboxesclippedbuffer_b_var=1073@0, decaltileworkbucketnumentriesrw_b_var=1076@0, decaltileworkbucketsrw_b_var=1753@8043520, clusterzbounds_b_var=1111@0, decalbitfieldbufferrw_b_var=1753@6507520]
+ 18576 vkCmdDispatchIndirect(<1, 1, 1>)             cs=14672 rw=[decalcoarsetileworkbucketnumentries_b_var=1074@0, decalcoarsetileworkbuckets_b_var=1078@0, decalboxesclippedbuffer_b_var=1073@0, decaltileworkbucketnumentriesrw_b_var=1076@0, decaltileworkbucketsrw_b_var=1753@8043520, clusterzbounds_b_var=1111@0, decalbitfieldbufferrw_b_var=1753@6507520]
+ 18578 vkCmdDispatchIndirect(<0, 1, 1>)             cs=14672 rw=[decalcoarsetileworkbucketnumentries_b_var=1074@0, decalcoarsetileworkbuckets_b_var=1078@0, decalboxesclippedbuffer_b_var=1073@0, decaltileworkbucketnumentriesrw_b_var=1076@0, decaltileworkbucketsrw_b_var=1753@8043520, clusterzbounds_b_var=1111@0, decalbitfieldbufferrw_b_var=1753@6507520]
+ 18581 vkCmdDispatchIndirect(<5, 1, 1>)             cs=14643 rw=[visboxescoarsetileworkbucketnumentries_b_var=1086@0, visboxescoarsetileworkbuckets_b_var=1090@0, visboxesclippedbuffer_b_var=1085@0, visboxestileworkbucketnumentriesrw_b_var=1088@0, visboxestileworkbucketsrw_b_var=1753@17218560]
+ 18583 vkCmdDispatchIndirect(<2, 1, 1>)             cs=14643 rw=[visboxescoarsetileworkbucketnumentries_b_var=1086@0, visboxescoarsetileworkbuckets_b_var=1090@0, visboxesclippedbuffer_b_var=1085@0, visboxestileworkbucketnumentriesrw_b_var=1088@0, visboxestileworkbucketsrw_b_var=1753@17218560]
+ 18585 vkCmdDispatchIndirect(<1, 1, 1>)             cs=14643 rw=[visboxescoarsetileworkbucketnumentries_b_var=1086@0, visboxescoarsetileworkbuckets_b_var=1090@0, visboxesclippedbuffer_b_var=1085@0, visboxestileworkbucketnumentriesrw_b_var=1088@0, visboxestileworkbucketsrw_b_var=1753@17218560]
+ 18587 vkCmdDispatchIndirect(<1, 1, 1>)             cs=14643 rw=[visboxescoarsetileworkbucketnumentries_b_var=1086@0, visboxescoarsetileworkbuckets_b_var=1090@0, visboxesclippedbuffer_b_var=1085@0, visboxestileworkbucketnumentriesrw_b_var=1088@0, visboxestileworkbucketsrw_b_var=1753@17218560]
+ 18589 vkCmdDispatchIndirect(<1, 1, 1>)             cs=14643 rw=[visboxescoarsetileworkbucketnumentries_b_var=1086@0, visboxescoarsetileworkbuckets_b_var=1090@0, visboxesclippedbuffer_b_var=1085@0, visboxestileworkbucketnumentriesrw_b_var=1088@0, visboxestileworkbucketsrw_b_var=1753@17218560]
+ 18591 vkCmdDispatchIndirect(<0, 1, 1>)             cs=14643 rw=[visboxescoarsetileworkbucketnumentries_b_var=1086@0, visboxescoarsetileworkbuckets_b_var=1090@0, visboxesclippedbuffer_b_var=1085@0, visboxestileworkbucketnumentriesrw_b_var=1088@0, visboxestileworkbucketsrw_b_var=1753@17218560]
+ 18594 vkCmdDispatchIndirect(<1, 1, 1>)             cs=14664 rw=[lightfrustumscoarsetileworkbucketnumentries_b_var=1100@0, lightfrustumscoarsetileworkbuckets_b_var=1104@0, lightfrustumsclippedbuffer_b_var=1099@0, frustumlighttolightindexbuffer_b_var=1107@0, lightfrustumstileworkbucketnumentriesrw_b_var=1102@0, lightfrustumstileworkbucketsrw_b_var=1753@1920000, clusterzbounds_b_var=1111@0, lightbitfieldbufferrw_b_var=1753@0]
+ 18596 vkCmdDispatchIndirect(<1, 1, 1>)             cs=14664 rw=[lightfrustumscoarsetileworkbucketnumentries_b_var=1100@0, lightfrustumscoarsetileworkbuckets_b_var=1104@0, lightfrustumsclippedbuffer_b_var=1099@0, frustumlighttolightindexbuffer_b_var=1107@0, lightfrustumstileworkbucketnumentriesrw_b_var=1102@0, lightfrustumstileworkbucketsrw_b_var=1753@1920000, clusterzbounds_b_var=1111@0, lightbitfieldbufferrw_b_var=1753@0]
+ 18598 vkCmdDispatchIndirect(<1, 1, 1>)             cs=14664 rw=[lightfrustumscoarsetileworkbucketnumentries_b_var=1100@0, lightfrustumscoarsetileworkbuckets_b_var=1104@0, lightfrustumsclippedbuffer_b_var=1099@0, frustumlighttolightindexbuffer_b_var=1107@0, lightfrustumstileworkbucketnumentriesrw_b_var=1102@0, lightfrustumstileworkbucketsrw_b_var=1753@1920000, clusterzbounds_b_var=1111@0, lightbitfieldbufferrw_b_var=1753@0]
+ 18600 vkCmdDispatchIndirect(<2, 1, 1>)             cs=14664 rw=[lightfrustumscoarsetileworkbucketnumentries_b_var=1100@0, lightfrustumscoarsetileworkbuckets_b_var=1104@0, lightfrustumsclippedbuffer_b_var=1099@0, frustumlighttolightindexbuffer_b_var=1107@0, lightfrustumstileworkbucketnumentriesrw_b_var=1102@0, lightfrustumstileworkbucketsrw_b_var=1753@1920000, clusterzbounds_b_var=1111@0, lightbitfieldbufferrw_b_var=1753@0]
+ 18602 vkCmdDispatchIndirect(<1, 1, 1>)             cs=14664 rw=[lightfrustumscoarsetileworkbucketnumentries_b_var=1100@0, lightfrustumscoarsetileworkbuckets_b_var=1104@0, lightfrustumsclippedbuffer_b_var=1099@0, frustumlighttolightindexbuffer_b_var=1107@0, lightfrustumstileworkbucketnumentriesrw_b_var=1102@0, lightfrustumstileworkbucketsrw_b_var=1753@1920000, clusterzbounds_b_var=1111@0, lightbitfieldbufferrw_b_var=1753@0]
+ 18604 vkCmdDispatchIndirect(<2, 1, 1>)             cs=14664 rw=[lightfrustumscoarsetileworkbucketnumentries_b_var=1100@0, lightfrustumscoarsetileworkbuckets_b_var=1104@0, lightfrustumsclippedbuffer_b_var=1099@0, frustumlighttolightindexbuffer_b_var=1107@0, lightfrustumstileworkbucketnumentriesrw_b_var=1102@0, lightfrustumstileworkbucketsrw_b_var=1753@1920000, clusterzbounds_b_var=1111@0, lightbitfieldbufferrw_b_var=1753@0]
+ 18618 vkCmdDispatchIndirect(<2, 1, 1>)             cs=14670 rw=[decaltileworkbucketnumentries_b_var=1076@0, decaltileworkbuckets_b_var=1753@8043520, decalboxesclippedbuffer_b_var=1073@0, decalbitfieldbufferrw_b_var=1753@6507520]
+        preceding barrier 18615 vkCmdPipelineBarrier: src=['VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT | VK_PIPELINE_STAGE_VERTEX_SHADER_BIT | VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT'] dst=['VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT | VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT'] dstAccess=['VK_ACCESS_INDIRECT_COMMAND_READ_BIT | VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT']
+ 18620 vkCmdDispatchIndirect(<6, 1, 1>)             cs=14670 rw=[decaltileworkbucketnumentries_b_var=1076@0, decaltileworkbuckets_b_var=1753@8043520, decalboxesclippedbuffer_b_var=1073@0, decalbitfieldbufferrw_b_var=1753@6507520]
+ 18622 vkCmdDispatchIndirect(<9, 1, 1>)             cs=14670 rw=[decaltileworkbucketnumentries_b_var=1076@0, decaltileworkbuckets_b_var=1753@8043520, decalboxesclippedbuffer_b_var=1073@0, decalbitfieldbufferrw_b_var=1753@6507520]
+ 18624 vkCmdDispatchIndirect(<18, 1, 1>)            cs=14670 rw=[decaltileworkbucketnumentries_b_var=1076@0, decaltileworkbuckets_b_var=1753@8043520, decalboxesclippedbuffer_b_var=1073@0, decalbitfieldbufferrw_b_var=1753@6507520]
+ 18626 vkCmdDispatchIndirect(<24, 1, 1>)            cs=14670 rw=[decaltileworkbucketnumentries_b_var=1076@0, decaltileworkbuckets_b_var=1753@8043520, decalboxesclippedbuffer_b_var=1073@0, decalbitfieldbufferrw_b_var=1753@6507520]
+ 18628 vkCmdDispatchIndirect(<21, 1, 1>)            cs=14670 rw=[decaltileworkbucketnumentries_b_var=1076@0, decaltileworkbuckets_b_var=1753@8043520, decalboxesclippedbuffer_b_var=1073@0, decalbitfieldbufferrw_b_var=1753@6507520]
+ 18630 vkCmdDispatchIndirect(<11, 1, 1>)            cs=14670 rw=[decaltileworkbucketnumentries_b_var=1076@0, decaltileworkbuckets_b_var=1753@8043520, decalboxesclippedbuffer_b_var=1073@0, decalbitfieldbufferrw_b_var=1753@6507520]
+ 18633 vkCmdDispatchIndirect(<4, 1, 1>)             cs=14639 rw=[visboxestileworkbucketnumentries_b_var=1088@0, visboxestileworkbuckets_b_var=1753@17218560, visboxesclippedbuffer_b_var=1085@0, visboxesbitfieldbufferrw_b_var=201511@0]
+ 18635 vkCmdDispatchIndirect(<5, 1, 1>)             cs=14639 rw=[visboxestileworkbucketnumentries_b_var=1088@0, visboxestileworkbuckets_b_var=1753@17218560, visboxesclippedbuffer_b_var=1085@0, visboxesbitfieldbufferrw_b_var=201511@0]
+ 18637 vkCmdDispatchIndirect(<6, 1, 1>)             cs=14639 rw=[visboxestileworkbucketnumentries_b_var=1088@0, visboxestileworkbuckets_b_var=1753@17218560, visboxesclippedbuffer_b_var=1085@0, visboxesbitfieldbufferrw_b_var=201511@0]
+ 18639 vkCmdDispatchIndirect(<3, 1, 1>)             cs=14639 rw=[visboxestileworkbucketnumentries_b_var=1088@0, visboxestileworkbuckets_b_var=1753@17218560, visboxesclippedbuffer_b_var=1085@0, visboxesbitfieldbufferrw_b_var=201511@0]
+ 18641 vkCmdDispatchIndirect(<2, 1, 1>)             cs=14639 rw=[visboxestileworkbucketnumentries_b_var=1088@0, visboxestileworkbuckets_b_var=1753@17218560, visboxesclippedbuffer_b_var=1085@0, visboxesbitfieldbufferrw_b_var=201511@0]
+ 18643 vkCmdDispatchIndirect(<2, 1, 1>)             cs=14639 rw=[visboxestileworkbucketnumentries_b_var=1088@0, visboxestileworkbuckets_b_var=1753@17218560, visboxesclippedbuffer_b_var=1085@0, visboxesbitfieldbufferrw_b_var=201511@0]
+ 18645 vkCmdDispatchIndirect(<0, 1, 1>)             cs=14639 rw=[visboxestileworkbucketnumentries_b_var=1088@0, visboxestileworkbuckets_b_var=1753@17218560, visboxesclippedbuffer_b_var=1085@0, visboxesbitfieldbufferrw_b_var=201511@0]
+ 18648 vkCmdDispatchIndirect(<1, 1, 1>)             cs=14662 rw=[lightfrustumstileworkbucketnumentries_b_var=1102@0, lightfrustumstileworkbuckets_b_var=1753@1920000, lightfrustumsclippedbuffer_b_var=1099@0, frustumlighttolightindexbuffer_b_var=1107@0, frustumlighttoworldlightindexbuffer_b_var=1766@0, lightfrustumsbuffer_b_var=1093@0, lightbitfieldbufferrw_b_var=1753@0, visiblelightsbitfieldrw_b_var=1764@0]
+ 18650 vkCmdDispatchIndirect(<2, 1, 1>)             cs=14662 rw=[lightfrustumstileworkbucketnumentries_b_var=1102@0, lightfrustumstileworkbuckets_b_var=1753@1920000, lightfrustumsclippedbuffer_b_var=1099@0, frustumlighttolightindexbuffer_b_var=1107@0, frustumlighttoworldlightindexbuffer_b_var=1766@0, lightfrustumsbuffer_b_var=1093@0, lightbitfieldbufferrw_b_var=1753@0, visiblelightsbitfieldrw_b_var=1764@0]
+ 18652 vkCmdDispatchIndirect(<3, 1, 1>)             cs=14662 rw=[lightfrustumstileworkbucketnumentries_b_var=1102@0, lightfrustumstileworkbuckets_b_var=1753@1920000, lightfrustumsclippedbuffer_b_var=1099@0, frustumlighttolightindexbuffer_b_var=1107@0, frustumlighttoworldlightindexbuffer_b_var=1766@0, lightfrustumsbuffer_b_var=1093@0, lightbitfieldbufferrw_b_var=1753@0, visiblelightsbitfieldrw_b_var=1764@0]
+ 18654 vkCmdDispatchIndirect(<9, 1, 1>)             cs=14662 rw=[lightfrustumstileworkbucketnumentries_b_var=1102@0, lightfrustumstileworkbuckets_b_var=1753@1920000, lightfrustumsclippedbuffer_b_var=1099@0, frustumlighttolightindexbuffer_b_var=1107@0, frustumlighttoworldlightindexbuffer_b_var=1766@0, lightfrustumsbuffer_b_var=1093@0, lightbitfieldbufferrw_b_var=1753@0, visiblelightsbitfieldrw_b_var=1764@0]
+ 18656 vkCmdDispatchIndirect(<23, 1, 1>)            cs=14662 rw=[lightfrustumstileworkbucketnumentries_b_var=1102@0, lightfrustumstileworkbuckets_b_var=1753@1920000, lightfrustumsclippedbuffer_b_var=1099@0, frustumlighttolightindexbuffer_b_var=1107@0, frustumlighttoworldlightindexbuffer_b_var=1766@0, lightfrustumsbuffer_b_var=1093@0, lightbitfieldbufferrw_b_var=1753@0, visiblelightsbitfieldrw_b_var=1764@0]
+ 18658 vkCmdDispatchIndirect(<31, 1, 1>)            cs=14662 rw=[lightfrustumstileworkbucketnumentries_b_var=1102@0, lightfrustumstileworkbuckets_b_var=1753@1920000, lightfrustumsclippedbuffer_b_var=1099@0, frustumlighttolightindexbuffer_b_var=1107@0, frustumlighttoworldlightindexbuffer_b_var=1766@0, lightfrustumsbuffer_b_var=1093@0, lightbitfieldbufferrw_b_var=1753@0, visiblelightsbitfieldrw_b_var=1764@0]
+ 18660 vkCmdDispatchIndirect(<112, 1, 1>)           cs=14662 rw=[lightfrustumstileworkbucketnumentries_b_var=1102@0, lightfrustumstileworkbuckets_b_var=1753@1920000, lightfrustumsclippedbuffer_b_var=1099@0, frustumlighttolightindexbuffer_b_var=1107@0, frustumlighttoworldlightindexbuffer_b_var=1766@0, lightfrustumsbuffer_b_var=1093@0, lightbitfieldbufferrw_b_var=1753@0, visiblelightsbitfieldrw_b_var=1764@0]
+ 32335 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+        preceding barrier 32311 vkCmdPipelineBarrier: src=['VK_PIPELINE_STAGE_TRANSFER_BIT'] dst=['VK_PIPELINE_STAGE_VERTEX_SHADER_BIT | VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT'] dstAccess=['VK_ACCESS_MEMORY_READ_BIT']
+ 32356 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32367 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32388 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32414 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32430 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32451 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32462 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32488 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32509 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32530 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32536 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32542 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32573 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32599 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32610 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32621 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32663 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32689 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32700 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32721 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32747 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32758 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32784 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32805 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32816 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32857 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32888 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32894 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32915 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32921 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32952 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32958 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32985 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32991 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 32997 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33003 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33009 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33025 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33031 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33057 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33063 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33079 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33095 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33101 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33127 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33133 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33149 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33170 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33176 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33192 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33198 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33204 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33210 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33226 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33237 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33255 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33276 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33297 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33303 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33323 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+        preceding barrier 33307 vkCmdPipelineBarrier: src=['VK_PIPELINE_STAGE_VERTEX_SHADER_BIT | VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT'] dst=['VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT | VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT | VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT'] dstAccess=['VK_ACCESS_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT', 'VK_ACCESS_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT']
+ 33339 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33345 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33371 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33387 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33408 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33414 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33420 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33426 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33432 vkCmdDrawIndexedIndirect(1) => <606, 1>     
+ 33443 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33449 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33455 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33461 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33467 vkCmdDrawIndexedIndirect(1) => <6, 1>       
+ 33473 vkCmdDrawIndexedIndirect(1) => <6, 1>       
+ 33489 vkCmdDrawIndexedIndirect(1) => <132, 1>     
+ 33495 vkCmdDrawIndexedIndirect(1) => <144, 1>     
+ 33521 vkCmdDrawIndexedIndirect(1) => <114, 1>     
+ 33527 vkCmdDrawIndexedIndirect(1) => <126, 1>     
+ 33558 vkCmdDrawIndexedIndirect(1) => <84, 1>      
+ 33579 vkCmdDrawIndexedIndirect(1) => <54, 1>      
+ 33590 vkCmdDrawIndexedIndirect(1) => <1026, 1>    
+ 33616 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33622 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+ 33628 vkCmdDrawIndexedIndirect(1) => <0, 1>       
+
+== barriers with DRAW_INDIRECT in dst stage ==
+   18565 vkCmdPipelineBarrier OK  dst=VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT | VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT dstAccess=['VK_ACCESS_INDIRECT_COMMAND_READ_BIT | VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT']
+   18605 vkCmdPipelineBarrier OK  dst=VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT | VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT dstAccess=['VK_ACCESS_INDIRECT_COMMAND_READ_BIT | VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT']
+   18615 vkCmdPipelineBarrier OK  dst=VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT | VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT dstAccess=['VK_ACCESS_INDIRECT_COMMAND_READ_BIT | VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT']
+  total 3, lacking INDIRECT_COMMAND_READ/MEMORY_READ: 0
+
+== render passes (>= 5 draws) ==
+  pass 493..4523 draws=1190 outs=[] depth=59072
+  pass 4533..4582 draws=8 outs=['53382(1920x1080 R16G16_FLOAT)', '53386(1920x1080 R8_UNORM)'] depth=1615
+  pass 4583..7731 draws=629 outs=[] depth=1615
+  pass 7734..10889 draws=629 outs=[] depth=1615
+  pass 10892..14046 draws=629 outs=[] depth=1615
+  pass 14052..17740 draws=814 outs=[] depth=1615
+  pass 17741..17919 draws=35 outs=['53382(1920x1080 R16G16_FLOAT)'] depth=1615
+  pass 17927..18527 draws=108 outs=['53394(1920x1080 R8_UNORM)'] depth=1615
+  pass 18736..22137 draws=674 outs=['53374(1920x1080 R11G11B10_FLOAT)'] depth=1615
+  pass 22140..25287 draws=627 outs=['53374(1920x1080 R11G11B10_FLOAT)'] depth=1615
+  pass 25290..28459 draws=632 outs=['53374(1920x1080 R11G11B10_FLOAT)'] depth=1615
+  pass 28465..32138 draws=811 outs=['53374(1920x1080 R11G11B10_FLOAT)'] depth=1615
+  pass 32150..32284 draws=26 outs=['1243(2048x2048 R11G11B10_FLOAT)', '1247(2048x2048 R8G8B8A8_UNORM)'] depth=0
+  pass 32312..32637 draws=60 outs=['53374(1920x1080 R11G11B10_FLOAT)'] depth=1615
+  pass 32640..32969 draws=61 outs=['53374(1920x1080 R11G11B10_FLOAT)'] depth=1615
+  pass 32972..33304 draws=59 outs=['53374(1920x1080 R11G11B10_FLOAT)'] depth=1615
+  pass 33310..33629 draws=57 outs=['53374(1920x1080 R11G11B10_FLOAT)'] depth=1615
+  pass 33632..33680 draws=11 outs=['1767(480x270 R8G8B8A8_UNORM)'] depth=0
+  pass 33691..33955 draws=47 outs=['53398(1920x1080 R8G8B8A8_UNORM)'] depth=53402
+
+== last 40 actions ==
+   33955 vkCmdEndRenderPass(C=Store, DS=Store) outs=[53398]
+   33959 vkCmdDispatch() outs=[]
+   33960 => vkQueueSubmit(9)[6]: vkEndCommandBuffer(ResourceId::390819) outs=[]
+   33961 => vkQueueSubmit(9)[7]: vkBeginCommandBuffer(ResourceId::391081) outs=[]
+   33963 => vkQueueSubmit(9)[7]: vkEndCommandBuffer(ResourceId::391081) outs=[]
+   33964 => vkQueueSubmit(9)[8]: vkBeginCommandBuffer(ResourceId::390820) outs=[]
+   33967 => vkQueueSubmit(9)[8]: vkEndCommandBuffer(ResourceId::390820) outs=[]
+   33970 => vkQueueSubmit(1)[0]: vkBeginCommandBuffer(ResourceId::390773) outs=[]
+   33973 vkCmdDispatch() outs=[]
+   33976 vkCmdDispatch() outs=[]
+   33980 vkCmdDispatch() outs=[]
+   33983 vkCmdDispatch() outs=[]
+   33986 vkCmdDispatch() outs=[]
+   33989 vkCmdDispatch() outs=[]
+   33992 vkCmdDispatch() outs=[]
+   33995 vkCmdDispatch() outs=[]
+   33998 vkCmdDispatch() outs=[]
+   34001 vkCmdDispatch() outs=[]
+   34005 vkCmdDispatch() outs=[]
+   34009 vkCmdDispatch() outs=[]
+   34012 vkCmdDispatch() outs=[]
+   34015 vkCmdDispatch() outs=[]
+   34018 vkCmdDispatch() outs=[]
+   34021 vkCmdDispatch() outs=[]
+   34025 vkCmdDispatch() outs=[]
+   34028 vkCmdDispatch() outs=[]
+   34031 vkCmdDispatch() outs=[]
+   34034 vkCmdDispatch() outs=[]
+   34037 vkCmdDispatch() outs=[]
+   34040 vkCmdDispatch() outs=[]
+   34043 vkCmdDispatch() outs=[]
+   34046 vkCmdDispatch() outs=[]
+   34049 vkCmdDispatch() outs=[]
+   34052 vkCmdDispatch() outs=[]
+   34056 vkCmdDispatch() outs=[]
+   34060 vkCmdDispatch() outs=[]
+   34062 => vkQueueSubmit(1)[0]: vkEndCommandBuffer(ResourceId::390773) outs=[]
+   34065 => vkQueueSubmit(1)[0]: vkBeginCommandBuffer(ResourceId::391069) outs=[]
+   34067 => vkQueueSubmit(1)[0]: vkEndCommandBuffer(ResourceId::391069) outs=[]
+   34068 vkQueuePresentKHR(ResourceId::54581) outs=[]
+done in 29.4s

@@ -1,0 +1,62 @@
+capture C:/Users/vippr/Documents/doomfix/capture2_vanillaDOOM.rdc opened in 15.3s
+     1 vkQueueSubmit queue=171 batches=1 cbs=['1'] waits=['1962'] masks=['ALL_COMMANDS'] signals=['1949']
+   267 vkQueueSubmit queue=173 batches=1 cbs=['1'] waits=[] masks=[] signals=['233']
+   334 vkQueueSubmit queue=174 batches=1 cbs=['1'] waits=['1949'] masks=['ALL_COMMANDS'] signals=['1966']
+   338 vkQueueSubmit queue=172 batches=1 cbs=['1'] waits=['1966'] masks=['ALL_COMMANDS'] signals=['1953']
+   353 vkQueueSubmit queue=171 batches=2 cbs=['0', '16'] waits=['233'] masks=['ALL_COMMANDS'] signals=['297']
+   355 vkQueueSubmit queue=171 batches=2 cbs=['0', '16'] waits=['233'] masks=['ALL_COMMANDS'] signals=['297']
+ 15622 vkQueueSubmit queue=172 batches=1 cbs=['1'] waits=['297'] masks=['ALL_COMMANDS'] signals=['299']
+ 15663 vkQueueSubmit queue=171 batches=3 cbs=['4', '8', '9'] waits=['356', '299'] masks=['ALL_COMMANDS', 'ALL_COMMANDS'] signals=['355']
+ 15678 vkQueueSubmit queue=171 batches=3 cbs=['4', '8', '9'] waits=['356', '299'] masks=['ALL_COMMANDS', 'ALL_COMMANDS'] signals=['355']
+ 28767 vkQueueSubmit queue=171 batches=3 cbs=['4', '8', '9'] waits=['356', '299'] masks=['ALL_COMMANDS', 'ALL_COMMANDS'] signals=['355']
+ 30063 vkQueueSubmit queue=172 batches=1 cbs=['1'] waits=['355, 100618'] masks=['ALL_COMMANDS, ALL_COMMANDS'] signals=['357, 236']
+ 30158 vkQueueSubmit queue=171 batches=1 cbs=['1'] waits=[] masks=[] signals=[]
+
+command buffers (submit index, position, cb id): eid range
+  (1, 0, 801503): 2..3
+  (1, 0, 801711): 268..333
+  (1, 0, 801577): 335..337
+  (1, 0, 801576): 339..340
+  (16, 0, 801553): 356..360
+  (16, 1, 801554): 361..362
+  (16, 2, 801555): 363..447
+  (16, 3, 801556): 448..449
+  (16, 4, 801557): 450..451
+  (16, 5, 801558): 452..453
+  (16, 6, 801815): 454..456
+  (16, 7, 801559): 457..1912
+  (16, 8, 801816): 1913..1915
+  (16, 9, 801560): 1916..5545
+  (16, 10, 801561): 5546..8591
+  (16, 11, 801562): 8592..11638
+  (16, 12, 801817): 11639..11641
+  (16, 13, 801563): 11642..15475
+  (16, 14, 801818): 15476..15478
+  (16, 15, 801564): 15479..15619
+  (1, 0, 801523): 15623..15659
+  (4, 0, 801734): 15664..15665
+  (4, 1, 801819): 15666..15668
+  (4, 2, 801565): 15669..15674
+  (4, 3, 801820): 15675..15677
+  (8, 0, 801599): 15679..19536
+  (8, 1, 801566): 19537..22573
+  (8, 2, 801567): 22574..25635
+  (8, 3, 801821): 25636..25638
+  (8, 4, 801568): 25639..28758
+  (8, 5, 801822): 28759..28761
+  (8, 6, 801569): 28762..28763
+  (8, 7, 801823): 28764..28766
+  (9, 0, 801584): 28768..29009
+  (9, 1, 801570): 29010..29247
+  (9, 2, 801571): 29248..29475
+  (9, 3, 801824): 29476..29478
+  (9, 4, 801572): 29479..29750
+  (9, 5, 801825): 29751..29753
+  (9, 6, 801573): 29754..30054
+  (9, 7, 801826): 30055..30057
+  (9, 8, 801574): 30058..30061
+  (1, 0, 801524): 30064..30156
+  (1, 0, 801814): 30159..30161
+
+args writer 15658 in (1, 0, 801523) ; first indirect draw 28814 in (9, 0, 801584)
+done in 17.2s
