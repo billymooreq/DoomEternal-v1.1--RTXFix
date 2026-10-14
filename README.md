@@ -21,7 +21,7 @@ and the world loses its local lights, decals and volumetric light. doomfix is a 
 - **Easy to remove:** `uninstall.bat` takes it out completely.
 
 ## Compatibility
-
+| | |
 |---|---|
 | **Tested** | GeForce RTX 4070, NVIDIA driver 617.42, DOOM Eternal 1.1 (Steam) |
 |            | RTX 3070, Driver (616.64)                                       |
