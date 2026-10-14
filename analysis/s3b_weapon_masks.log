@@ -1,0 +1,28 @@
+capture opened in 15.0s
+53374 bytes 8294400
+overlay tex 1000000000000028665
+draw 15960 depth-pass px 31518
+overlay tex 1000000000000028665
+draw 15965 depth-pass px 0
+overlay tex 1000000000000028665
+draw 15970 depth-pass px 0
+overlay tex 1000000000000028665
+draw 15976 depth-pass px 29276
+overlay tex 1000000000000028665
+draw 15981 depth-pass px 76062
+overlay tex 1000000000000028665
+draw 15986 depth-pass px 80786
+overlay tex 1000000000000028665
+draw 15991 depth-pass px 2884
+overlay tex 1000000000000028665
+draw 15996 depth-pass px 17851
+draw 15960: px=31518 nonzero=0 max=0.0 best=None
+draw 15965: px=0 nonzero=0 max=0 best=None
+draw 15970: px=0 nonzero=0 max=0 best=None
+draw 15976: px=29276 nonzero=0 max=0.0 best=None
+draw 15981: px=76062 nonzero=0 max=0.0 best=None
+draw 15986: px=80786 nonzero=0 max=0.0 best=None
+draw 15991: px=2884 nonzero=0 max=0.0 best=None
+draw 15996: px=17851 nonzero=0 max=0.0 best=None
+nonzero weapon pixels (2px grid): 0 []
+done in 31.1s

@@ -1,0 +1,675 @@
+capture opened in 17.5s
+total actions: 6393
+
+=== actions eid >= 27000 ===
+ 27004 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27009 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27014 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27019 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27024 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27029 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27034 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27039 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27044 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27049 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27054 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27059 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27064 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27069 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27074 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27079 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27084 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27089 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27095 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27100 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27105 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27110 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27115 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27120 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27125 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27130 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27135 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27140 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27143 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27146 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27149 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27152 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27155 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27158 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27161 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27164 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27167 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27170 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27173 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27176 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27179 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27182 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27185 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27189 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27193 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27196 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27199 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27202 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27205 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27208 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27211 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27214 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27217 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27220 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27223 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27226 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27229 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27232 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27235 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27238 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27242 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27245 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27248 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27251 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27254 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27258 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27262 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27266 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27269 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27272 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27275 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27278 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27281 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27284 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27287 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27291 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27294 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27297 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27300 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27303 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27306 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27309 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27312 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27315 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27318 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27321 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27324 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27327 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27331 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27335 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27339 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27342 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27345 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27348 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27351 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27354 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27357 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27360 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27363 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27366 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27369 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27372 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27375 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27379 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27382 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27385 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27388 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27391 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27394 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27397 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27400 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27403 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27406 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27409 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27412 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27415 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27418 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27421 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27424 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27428 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27432 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27435 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27438 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27441 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27444 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27447 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27450 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27453 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27456 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27459 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27462 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27465 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27468 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27471 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27474 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27477 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27481 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27484 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27487 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27490 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27493 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27496 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27499 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27502 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27505 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27508 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27511 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27514 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27517 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27520 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27523 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27526 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27529 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27532 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27535 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27538 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27541 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27544 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27547 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27550 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27554 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27558 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27561 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27564 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27567 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27570 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27573 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27576 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27579 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27582 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27585 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27588 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27591 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27594 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27597 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27600 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27603 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27606 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27609 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27612 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27615 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27618 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27622 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27625 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27628 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27631 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27634 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27637 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27640 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27643 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27646 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27649 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27652 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27655 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27658 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27662 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27666 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27670 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27673 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27676 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27679 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27682 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27685 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27688 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27691 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27694 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27698 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27701 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27704 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27707 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27711 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27714 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27717 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27720 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27723 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27726 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27730 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27733 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27736 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27739 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27742 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27745 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27746 vkCmdEndRenderPass(C=Store, DS=Store)                        flags=EndPass|PassBoundary outs=[53374] depth=1615
+ 27748 vkCmdBeginRenderPass(DS=Load)                                flags=BeginPass|PassBoundary outs=[] depth=53402
+ 27753 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[] depth=53402
+ 27754 vkCmdEndRenderPass(DS=Store)                                 flags=EndPass|PassBoundary outs=[] depth=53402
+ 27756 vkCmdBeginRenderPass(Clear)                                  flags=BeginPass|PassBoundary outs=[1243, 1247] depth=0
+ 27757 vkCmdEndRenderPass(Store)                                    flags=EndPass|PassBoundary outs=[1243, 1247] depth=0
+ 27758 vkCmdBeginRenderPass(Load)                                   flags=BeginPass|PassBoundary outs=[1243, 1247] depth=0
+ 27766 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1243, 1247] depth=0
+ 27771 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1243, 1247] depth=0
+ 27776 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1243, 1247] depth=0
+ 27781 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1243, 1247] depth=0
+ 27786 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1243, 1247] depth=0
+ 27791 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1243, 1247] depth=0
+ 27796 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1243, 1247] depth=0
+ 27801 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1243, 1247] depth=0
+ 27806 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1243, 1247] depth=0
+ 27811 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1243, 1247] depth=0
+ 27816 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1243, 1247] depth=0
+ 27821 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1243, 1247] depth=0
+ 27826 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1243, 1247] depth=0
+ 27831 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1243, 1247] depth=0
+ 27832 vkCmdEndRenderPass(Store)                                    flags=EndPass|PassBoundary outs=[1243, 1247] depth=0
+ 27835 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 27839 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 27843 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 27847 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 27848 => vkQueueSubmit(8)[4]: vkEndCommandBuffer(ResourceId::80153 flags=CommandBufferBoundary|EndPass|PassBoundary outs=[] depth=0
+ 27849 => vkQueueSubmit(8)[5]: vkBeginCommandBuffer(ResourceId::801 flags=CommandBufferBoundary|BeginPass|PassBoundary outs=[] depth=0
+ 27851 => vkQueueSubmit(8)[5]: vkEndCommandBuffer(ResourceId::80178 flags=CommandBufferBoundary|EndPass|PassBoundary outs=[] depth=0
+ 27852 => vkQueueSubmit(8)[6]: vkBeginCommandBuffer(ResourceId::801 flags=CommandBufferBoundary|BeginPass|PassBoundary outs=[] depth=0
+ 27853 => vkQueueSubmit(8)[6]: vkEndCommandBuffer(ResourceId::80153 flags=CommandBufferBoundary|EndPass|PassBoundary outs=[] depth=0
+ 27854 => vkQueueSubmit(8)[7]: vkBeginCommandBuffer(ResourceId::801 flags=CommandBufferBoundary|BeginPass|PassBoundary outs=[] depth=0
+ 27856 => vkQueueSubmit(8)[7]: vkEndCommandBuffer(ResourceId::80178 flags=CommandBufferBoundary|EndPass|PassBoundary outs=[] depth=0
+ 27858 => vkQueueSubmit(9)[0]: vkBeginCommandBuffer(ResourceId::801 flags=CommandBufferBoundary|BeginPass|PassBoundary outs=[] depth=0
+ 27860 vkCmdBeginRenderPass(C=Load, DS=Load)                        flags=BeginPass|PassBoundary outs=[53374] depth=1615
+ 27872 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27877 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27883 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27888 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27893 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27898 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27904 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27909 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27914 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27919 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27925 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27930 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27935 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27940 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27946 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27951 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27957 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27962 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27967 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27972 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27977 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27982 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27988 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27993 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 27998 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28003 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28009 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28014 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28020 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28025 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28030 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28035 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28040 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28046 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28052 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28057 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28062 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28067 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28072 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28078 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28079 vkCmdEndRenderPass(C=Store, DS=Store)                        flags=EndPass|PassBoundary outs=[53374] depth=1615
+ 28080 => vkQueueSubmit(9)[0]: vkEndCommandBuffer(ResourceId::80155 flags=CommandBufferBoundary|EndPass|PassBoundary outs=[] depth=0
+ 28081 => vkQueueSubmit(9)[1]: vkBeginCommandBuffer(ResourceId::801 flags=CommandBufferBoundary|BeginPass|PassBoundary outs=[] depth=0
+ 28082 vkCmdBeginRenderPass(C=Load, DS=Load)                        flags=BeginPass|PassBoundary outs=[53374] depth=1615
+ 28095 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28100 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28105 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28110 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28115 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28121 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28127 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28132 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28137 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28143 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28149 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28154 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28159 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28165 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28171 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28177 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28182 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28187 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28193 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28199 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28204 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28209 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28215 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28220 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28225 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28231 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28237 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28242 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28247 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28252 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28257 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28263 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28269 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28274 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28279 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28284 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28290 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28295 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28300 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28306 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28307 vkCmdEndRenderPass(C=Store, DS=Store)                        flags=EndPass|PassBoundary outs=[53374] depth=1615
+ 28308 => vkQueueSubmit(9)[1]: vkEndCommandBuffer(ResourceId::80153 flags=CommandBufferBoundary|EndPass|PassBoundary outs=[] depth=0
+ 28309 => vkQueueSubmit(9)[2]: vkBeginCommandBuffer(ResourceId::801 flags=CommandBufferBoundary|BeginPass|PassBoundary outs=[] depth=0
+ 28310 vkCmdBeginRenderPass(C=Load, DS=Load)                        flags=BeginPass|PassBoundary outs=[53374] depth=1615
+ 28323 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28328 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28333 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28339 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28345 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28350 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28355 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28361 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28367 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28373 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28379 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28385 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28390 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28397 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28402 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28407 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28412 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28418 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28423 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28428 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28433 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28439 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28445 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28451 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28456 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28461 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28467 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28473 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28478 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28483 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28488 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28493 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28499 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28504 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28509 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28515 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28520 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28525 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28530 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28536 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28537 vkCmdEndRenderPass(C=Store, DS=Store)                        flags=EndPass|PassBoundary outs=[53374] depth=1615
+ 28538 => vkQueueSubmit(9)[2]: vkEndCommandBuffer(ResourceId::80153 flags=CommandBufferBoundary|EndPass|PassBoundary outs=[] depth=0
+ 28539 => vkQueueSubmit(9)[3]: vkBeginCommandBuffer(ResourceId::801 flags=CommandBufferBoundary|BeginPass|PassBoundary outs=[] depth=0
+ 28541 => vkQueueSubmit(9)[3]: vkEndCommandBuffer(ResourceId::80178 flags=CommandBufferBoundary|EndPass|PassBoundary outs=[] depth=0
+ 28542 => vkQueueSubmit(9)[4]: vkBeginCommandBuffer(ResourceId::801 flags=CommandBufferBoundary|BeginPass|PassBoundary outs=[] depth=0
+ 28543 vkCmdBeginRenderPass(C=Load, DS=Load)                        flags=BeginPass|PassBoundary outs=[53374] depth=1615
+ 28556 vkCmdDrawIndexedIndirect(1) => <612, 1>                      flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28561 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28566 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28571 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28577 vkCmdDrawIndexedIndirect(1) => <126, 1>                      flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28583 vkCmdDrawIndexedIndirect(1) => <138, 1>                      flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28588 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28593 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28598 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28603 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28608 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28614 vkCmdDrawIndexedIndirect(1) => <108, 1>                      flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28619 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28624 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28630 vkCmdDrawIndexedIndirect(1) => <72, 1>                       flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28636 vkCmdDrawIndexedIndirect(1) => <138, 1>                      flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28641 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28646 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28652 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28657 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28662 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28667 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28673 vkCmdDrawIndexedIndirect(1) => <66, 1>                       flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28679 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28684 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28690 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28696 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28702 vkCmdDrawIndexedIndirect(1) => <6, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28708 vkCmdDrawIndexedIndirect(1) => <1086, 1>                     flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28714 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28719 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28724 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28729 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28734 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28740 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28746 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28752 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28758 vkCmdDrawIndexedIndirect(1) => <0, 1>                        flags=Indirect|Instanced|Indexed|Drawcall outs=[53374] depth=1615
+ 28759 vkCmdEndRenderPass(C=Store, DS=Store)                        flags=EndPass|PassBoundary outs=[53374] depth=1615
+ 28760 vkCmdBeginRenderPass(Clear)                                  flags=BeginPass|PassBoundary outs=[1767] depth=0
+ 28761 vkCmdEndRenderPass(Store)                                    flags=EndPass|PassBoundary outs=[1767] depth=0
+ 28762 vkCmdBeginRenderPass(Load)                                   flags=BeginPass|PassBoundary outs=[1767] depth=0
+ 28769 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1767] depth=0
+ 28773 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1767] depth=0
+ 28777 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1767] depth=0
+ 28781 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1767] depth=0
+ 28785 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1767] depth=0
+ 28789 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1767] depth=0
+ 28793 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1767] depth=0
+ 28797 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1767] depth=0
+ 28801 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1767] depth=0
+ 28805 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1767] depth=0
+ 28809 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[1767] depth=0
+ 28810 vkCmdEndRenderPass(Store)                                    flags=EndPass|PassBoundary outs=[1767] depth=0
+ 28811 => vkQueueSubmit(9)[4]: vkEndCommandBuffer(ResourceId::80153 flags=CommandBufferBoundary|EndPass|PassBoundary outs=[] depth=0
+ 28812 => vkQueueSubmit(9)[5]: vkBeginCommandBuffer(ResourceId::801 flags=CommandBufferBoundary|BeginPass|PassBoundary outs=[] depth=0
+ 28814 => vkQueueSubmit(9)[5]: vkEndCommandBuffer(ResourceId::80179 flags=CommandBufferBoundary|EndPass|PassBoundary outs=[] depth=0
+ 28815 => vkQueueSubmit(9)[6]: vkBeginCommandBuffer(ResourceId::801 flags=CommandBufferBoundary|BeginPass|PassBoundary outs=[] depth=0
+ 28816 vkCmdBeginRenderPass(C=Clear, D=Load, S=Clear)               flags=BeginPass|PassBoundary outs=[53398] depth=53402
+ 28817 vkCmdEndRenderPass(C=Store, DS=Store)                        flags=EndPass|PassBoundary outs=[53398] depth=53402
+ 28818 vkCmdBeginRenderPass(D=Load, S=Clear)                        flags=BeginPass|PassBoundary outs=[] depth=53402
+ 28819 vkCmdEndRenderPass(DS=Store)                                 flags=EndPass|PassBoundary outs=[] depth=53402
+ 28821 vkCmdBeginRenderPass(C=Load, DS=Load)                        flags=BeginPass|PassBoundary outs=[53398] depth=53402
+ 28832 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28836 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28843 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28849 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28855 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28862 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28866 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28870 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28874 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28878 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28882 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28887 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28892 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28897 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28904 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28910 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28914 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28920 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28927 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28934 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28940 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28946 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28953 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28957 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28961 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28965 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28969 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28974 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28979 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28984 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28989 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 28993 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 29000 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 29006 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 29012 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 29019 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 29023 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 29027 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 29032 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 29039 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 29045 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 29051 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 29058 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 29065 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 29071 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 29077 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 29084 vkCmdDrawIndexed()                                           flags=Instanced|Indexed|Drawcall outs=[53398] depth=53402
+ 29085 vkCmdEndRenderPass(C=Store, DS=Store)                        flags=EndPass|PassBoundary outs=[53398] depth=53402
+ 29089 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29090 => vkQueueSubmit(9)[6]: vkEndCommandBuffer(ResourceId::80154 flags=CommandBufferBoundary|EndPass|PassBoundary outs=[] depth=0
+ 29091 => vkQueueSubmit(9)[7]: vkBeginCommandBuffer(ResourceId::801 flags=CommandBufferBoundary|BeginPass|PassBoundary outs=[] depth=0
+ 29093 => vkQueueSubmit(9)[7]: vkEndCommandBuffer(ResourceId::80179 flags=CommandBufferBoundary|EndPass|PassBoundary outs=[] depth=0
+ 29094 => vkQueueSubmit(9)[8]: vkBeginCommandBuffer(ResourceId::801 flags=CommandBufferBoundary|BeginPass|PassBoundary outs=[] depth=0
+ 29097 => vkQueueSubmit(9)[8]: vkEndCommandBuffer(ResourceId::80154 flags=CommandBufferBoundary|EndPass|PassBoundary outs=[] depth=0
+ 29100 => vkQueueSubmit(1)[0]: vkBeginCommandBuffer(ResourceId::801 flags=CommandBufferBoundary|BeginPass|PassBoundary outs=[] depth=0
+ 29103 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29106 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29110 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29113 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29116 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29119 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29122 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29125 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29128 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29131 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29135 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29139 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29142 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29145 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29148 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29151 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29155 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29158 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29161 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29164 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29167 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29170 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29173 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29176 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29179 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29182 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29186 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29190 vkCmdDispatch()                                              flags=Dispatch outs=[] depth=0
+ 29192 => vkQueueSubmit(1)[0]: vkEndCommandBuffer(ResourceId::80151 flags=CommandBufferBoundary|EndPass|PassBoundary outs=[] depth=0
+ 29195 => vkQueueSubmit(1)[0]: vkBeginCommandBuffer(ResourceId::801 flags=CommandBufferBoundary|BeginPass|PassBoundary outs=[] depth=0
+ 29197 => vkQueueSubmit(1)[0]: vkEndCommandBuffer(ResourceId::80177 flags=CommandBufferBoundary|EndPass|PassBoundary outs=[] depth=0
+ 29201 => vkQueueSubmit(1)[0]: vkBeginCommandBuffer(ResourceId::801 flags=CommandBufferBoundary|BeginPass|PassBoundary outs=[] depth=0
+ 29206 vkCmdCopyImage()                                             flags=Copy outs=[] depth=0
+ 29209 vkCmdCopyImageToBuffer()                                     flags=Copy outs=[] depth=0
+ 29212 => vkQueueSubmit(1)[0]: vkEndCommandBuffer(ResourceId::80181 flags=CommandBufferBoundary|EndPass|PassBoundary outs=[] depth=0
+ 29213 vkQueuePresentKHR(ResourceId::685990)                        flags=Present outs=[] depth=0
+
+=== compute descriptors eid 29100..29190 ===
+-- 29103 vkCmdDispatch()
+   RO   53414 '2D Color Attachment 53414' TEX 30x16x1 mips=1 TextureType.Texture2D fmt=R16G16_FLOAT
+   RO   53406 '2D Color Attachment 53406' TEX 1920x1080x1 mips=1 TextureType.Texture2D fmt=R16G16_FLOAT
+   RO   1771 '2D Color Attachment 1771' TEX 1920x1080x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RW   1779 '2D Color Attachment 1779' TEX 1920x1080x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+-- 29106 vkCmdDispatch()
+   RO   53414 '2D Color Attachment 53414' TEX 30x16x1 mips=1 TextureType.Texture2D fmt=R16G16_FLOAT
+   RO   53406 '2D Color Attachment 53406' TEX 1920x1080x1 mips=1 TextureType.Texture2D fmt=R16G16_FLOAT
+   RO   1779 '2D Color Attachment 1779' TEX 1920x1080x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RW   1783 '2D Color Attachment 1783' TEX 1920x1080x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+-- 29110 vkCmdDispatch()
+   RO   1783 '2D Color Attachment 1783' TEX 1920x1080x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RW   53422 '2D Color Attachment 53422' TEX 960x540x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+-- 29113 vkCmdDispatch()
+   RO   53422 '2D Color Attachment 53422' TEX 960x540x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RW   1657 '2D Color Attachment 1657' TEX 128x128x1 mips=1 TextureType.Texture2D fmt=R16_FLOAT
+-- 29116 vkCmdDispatch()
+   RO   1657 '2D Color Attachment 1657' TEX 128x128x1 mips=1 TextureType.Texture2D fmt=R16_FLOAT
+   RW   1653 '2D Color Attachment 1653' TEX 64x64x1 mips=1 TextureType.Texture2D fmt=R16_FLOAT
+-- 29119 vkCmdDispatch()
+   RO   1653 '2D Color Attachment 1653' TEX 64x64x1 mips=1 TextureType.Texture2D fmt=R16_FLOAT
+   RW   1649 '2D Color Attachment 1649' TEX 32x32x1 mips=1 TextureType.Texture2D fmt=R16_FLOAT
+-- 29122 vkCmdDispatch()
+   RO   1649 '2D Color Attachment 1649' TEX 32x32x1 mips=1 TextureType.Texture2D fmt=R16_FLOAT
+   RW   1645 '2D Color Attachment 1645' TEX 16x16x1 mips=1 TextureType.Texture2D fmt=R16_FLOAT
+-- 29125 vkCmdDispatch()
+   RO   1645 '2D Color Attachment 1645' TEX 16x16x1 mips=1 TextureType.Texture2D fmt=R16_FLOAT
+   RW   1641 '2D Color Attachment 1641' TEX 8x8x1 mips=1 TextureType.Texture2D fmt=R16_FLOAT
+-- 29128 vkCmdDispatch()
+   RO   1641 '2D Color Attachment 1641' TEX 8x8x1 mips=1 TextureType.Texture2D fmt=R16_FLOAT
+   RW   1637 '2D Color Attachment 1637' TEX 4x4x1 mips=1 TextureType.Texture2D fmt=R16_FLOAT
+-- 29131 vkCmdDispatch()
+   RO   1637 '2D Color Attachment 1637' TEX 4x4x1 mips=1 TextureType.Texture2D fmt=R16_FLOAT
+   RW   1633 '2D Color Attachment 1633' TEX 2x2x1 mips=1 TextureType.Texture2D fmt=R16_FLOAT
+-- 29135 vkCmdDispatch()
+   RO   1633 '2D Color Attachment 1633' TEX 2x2x1 mips=1 TextureType.Texture2D fmt=R16_FLOAT
+   RO   1661 '2D Color Attachment 1661' TEX 2x2x1 mips=1 TextureType.Texture2D fmt=R16_FLOAT
+   RW   1665 '2D Color Attachment 1665' TEX 2x2x1 mips=1 TextureType.Texture2D fmt=R16_FLOAT
+-- 29139 vkCmdDispatch()
+   RO   53422 '2D Color Attachment 53422' TEX 960x540x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RW   53434 '2D Color Attachment 53434' TEX 480x270x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+-- 29142 vkCmdDispatch()
+   RO   53434 '2D Color Attachment 53434' TEX 480x270x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RW   53446 '2D Color Attachment 53446' TEX 240x135x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+-- 29145 vkCmdDispatch()
+   RO   53446 '2D Color Attachment 53446' TEX 240x135x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RW   53458 '2D Color Attachment 53458' TEX 120x67x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+-- 29148 vkCmdDispatch()
+   RO   53458 '2D Color Attachment 53458' TEX 120x67x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RW   53470 '2D Color Attachment 53470' TEX 60x33x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+-- 29151 vkCmdDispatch()
+   RO   53470 '2D Color Attachment 53470' TEX 60x33x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RW   53482 '2D Color Attachment 53482' TEX 30x16x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+-- 29155 vkCmdDispatch()
+   RO   53482 '2D Color Attachment 53482' TEX 30x16x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RO   1145 '2D Image 1145' TEX 16x16x1 mips=1 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RW   53486 '2D Color Attachment 53486' TEX 30x16x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+-- 29158 vkCmdDispatch()
+   RO   53486 '2D Color Attachment 53486' TEX 30x16x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RO   1145 '2D Image 1145' TEX 16x16x1 mips=1 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RW   53482 '2D Color Attachment 53482' TEX 30x16x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+-- 29161 vkCmdDispatch()
+   RO   53470 '2D Color Attachment 53470' TEX 60x33x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RO   1145 '2D Image 1145' TEX 16x16x1 mips=1 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RW   53474 '2D Color Attachment 53474' TEX 60x33x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+-- 29164 vkCmdDispatch()
+   RO   53474 '2D Color Attachment 53474' TEX 60x33x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RO   53482 '2D Color Attachment 53482' TEX 30x16x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RW   53470 '2D Color Attachment 53470' TEX 60x33x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+-- 29167 vkCmdDispatch()
+   RO   53458 '2D Color Attachment 53458' TEX 120x67x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RO   1145 '2D Image 1145' TEX 16x16x1 mips=1 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RW   53462 '2D Color Attachment 53462' TEX 120x67x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+-- 29170 vkCmdDispatch()
+   RO   53462 '2D Color Attachment 53462' TEX 120x67x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RO   53470 '2D Color Attachment 53470' TEX 60x33x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RW   53458 '2D Color Attachment 53458' TEX 120x67x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+-- 29173 vkCmdDispatch()
+   RO   53446 '2D Color Attachment 53446' TEX 240x135x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RO   1145 '2D Image 1145' TEX 16x16x1 mips=1 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RW   53450 '2D Color Attachment 53450' TEX 240x135x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+-- 29176 vkCmdDispatch()
+   RO   53450 '2D Color Attachment 53450' TEX 240x135x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RO   53458 '2D Color Attachment 53458' TEX 120x67x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RW   53446 '2D Color Attachment 53446' TEX 240x135x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+-- 29179 vkCmdDispatch()
+   RO   53434 '2D Color Attachment 53434' TEX 480x270x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RO   1145 '2D Image 1145' TEX 16x16x1 mips=1 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RW   53438 '2D Color Attachment 53438' TEX 480x270x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+-- 29182 vkCmdDispatch()
+   RO   53438 '2D Color Attachment 53438' TEX 480x270x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RO   53446 '2D Color Attachment 53446' TEX 240x135x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RW   53434 '2D Color Attachment 53434' TEX 480x270x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+-- 29186 vkCmdDispatch()
+   RO   1767 '2D Color Attachment 1767' TEX 480x270x1 mips=1 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RO   1147 '2D Image 1147' TEX 16x16x1 mips=1 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RO   1665 '2D Color Attachment 1665' TEX 2x2x1 mips=1 TextureType.Texture2D fmt=R16_FLOAT
+   RO   53434 '2D Color Attachment 53434' TEX 480x270x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RO   1913 '2D Image 1913' TEX 1024x1024x1 mips=11 TextureType.Texture2D fmt=BC7_UNORM
+   RO   1145 '2D Image 1145' TEX 16x16x1 mips=1 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RO   53402 '2D Depth/Stencil Attachment 53402' TEX 1920x1080x1 mips=1 TextureType.Texture2D fmt=D32S8
+   RO   1133 '2D Image 1133' TEX 16x16x1 mips=1 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RO   1133 '2D Image 1133' TEX 16x16x1 mips=1 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RO   1133 '2D Image 1133' TEX 16x16x1 mips=1 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RO   1133 '2D Image 1133' TEX 16x16x1 mips=1 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RO   1133 '2D Image 1133' TEX 16x16x1 mips=1 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RO   1133 '2D Image 1133' TEX 16x16x1 mips=1 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RO   1592 '3D Image 1592' TEX 33x33x33 mips=1 TextureType.Texture3D fmt=R16G16B16A16_FLOAT
+   RO   53422 '2D Color Attachment 53422' TEX 960x540x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RO   1783 '2D Color Attachment 1783' TEX 1920x1080x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RO   1145 '2D Image 1145' TEX 16x16x1 mips=1 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RO   1971 '2D Image 1971' TEX 512x512x1 mips=1 TextureType.Texture2D fmt=BC4_UNORM
+   RO   1164 '3D Image 1164' TEX 4x4x4 mips=1 TextureType.Texture3D fmt=BC3_UNORM
+   RO   1133 '2D Image 1133' TEX 16x16x1 mips=1 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RO   1947 '2D Image 1947' TEX 1024x1024x1 mips=11 TextureType.Texture2D fmt=BC7_UNORM
+   RO   1965 '2D Image 1965' TEX 512x512x1 mips=10 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RW   1147 '2D Image 1147' TEX 16x16x1 mips=1 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RW   53390 '2D Color Attachment 53390' TEX 1920x1080x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+-- 29190 vkCmdDispatch()
+   RO   53390 '2D Color Attachment 53390' TEX 1920x1080x1 mips=1 TextureType.Texture2D fmt=R11G11B10_FLOAT
+   RO   53398 '2D Color Attachment 53398' TEX 1920x1080x1 mips=1 TextureType.Texture2D fmt=R8G8B8A8_UNORM
+   RW   685990 'Swapchain Image 685990' TEX 1920x1080x1 mips=1 TextureType.Texture2D fmt=B8G8R8A8_UNORM
+53390 @1437,917 after 29186: [0.0, 0.0, 0.0, 1.0]
+done in 26.8s

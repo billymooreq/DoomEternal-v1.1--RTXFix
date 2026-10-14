@@ -1,0 +1,95 @@
+capture opened in 15.3s
+-- 15761 vkCmdDispatch() cs=14683
+   RW decalboxesvertices_b_var             Buffer 1072 @0+262144
+   RW decalboxesclippedbufferrw_b_var      Buffer 1073 @0+393216
+   RW decalcoarsetileworkbucketnumentriesrw_b_var Buffer 1074 @0+224
+   RW decalcoarsetileworkbucketsrw_b_var   Buffer 1078 @0+114688
+-- 15764 vkCmdDispatch() cs=14647
+   RW visboxesbuffer_b_var                 Buffer 1083 @0+98304
+   RW visboxesvertices_b_var               Buffer 1084 @0+262144
+   RW visboxesclippedbufferrw_b_var        Buffer 1085 @0+393216
+   RW visboxescoarsetileworkbucketnumentriesrw_b_var Buffer 1086 @0+224
+   RW visboxescoarsetileworkbucketsrw_b_var Buffer 1090 @0+114688
+-- 15767 vkCmdDispatch() cs=14679
+   RW lightfrustumsvertices_b_var          Buffer 1098 @0+131072
+   RW lightfrustumsclippedbufferrw_b_var   Buffer 1099 @0+196608
+   RW lightfrustumscoarsetileworkbucketnumentriesrw_b_var Buffer 1100 @0+224
+   RW lightfrustumscoarsetileworkbucketsrw_b_var Buffer 1104 @0+57344
+-- 15771 vkCmdDispatch() cs=14676
+   RW decalcoarsetileworkbucketnumentries_b_var Buffer 1074 @0+224
+   RW decaltileworkdispatchindirectargs_b_var Buffer 1079 @0+224
+-- 15774 vkCmdDispatch() cs=14645
+   RW visboxescoarsetileworkbucketnumentries_b_var Buffer 1086 @0+224
+   RW visboxestileworkdispatchindirectargs_b_var Buffer 1091 @0+224
+-- 15777 vkCmdDispatch() cs=14668
+   RW lightfrustumscoarsetileworkbucketnumentries_b_var Buffer 1100 @0+224
+   RW lightfrustumstileworkdispatchindirectargs_b_var Buffer 1105 @0+224
+-- 15781 vkCmdDispatchIndirect(<2, 1, 1>) cs=14672
+   RW decalcoarsetileworkbucketnumentries_b_var Buffer 1074 @0+224
+   RW decalcoarsetileworkbuckets_b_var     Buffer 1078 @0+114688
+   RW decalboxesclippedbuffer_b_var        Buffer 1073 @0+393216
+   RW decaltileworkbucketnumentriesrw_b_var Buffer 1076 @0+112
+   RW decaltileworkbucketsrw_b_var         Buffer 1753 @8043520+9175040
+   RW clusterzbounds_b_var                 Buffer 1111 @0+192
+   RW decalbitfieldbufferrw_b_var          Buffer 1753 @6507520+768000
+-- 15794 vkCmdDispatchIndirect(<5, 1, 1>) cs=14643
+   RW visboxescoarsetileworkbucketnumentries_b_var Buffer 1086 @0+224
+   RW visboxescoarsetileworkbuckets_b_var  Buffer 1090 @0+114688
+   RW visboxesclippedbuffer_b_var          Buffer 1085 @0+393216
+   RW visboxestileworkbucketnumentriesrw_b_var Buffer 1088 @0+112
+   RW visboxestileworkbucketsrw_b_var      Buffer 1753 @17218560+9175040
+-- 15807 vkCmdDispatchIndirect(<1, 1, 1>) cs=14664
+   RW lightfrustumscoarsetileworkbucketnumentries_b_var Buffer 1100 @0+224
+   RW lightfrustumscoarsetileworkbuckets_b_var Buffer 1104 @0+57344
+   RW lightfrustumsclippedbuffer_b_var     Buffer 1099 @0+196608
+   RW frustumlighttolightindexbuffer_b_var Buffer 1107 @0+4096
+   RW lightfrustumstileworkbucketnumentriesrw_b_var Buffer 1102 @0+112
+   RW lightfrustumstileworkbucketsrw_b_var Buffer 1753 @1920000+4587520
+   RW clusterzbounds_b_var                 Buffer 1111 @0+192
+   RW lightbitfieldbufferrw_b_var          Buffer 1753 @0+384000
+-- 15821 vkCmdDispatch() cs=14674
+   RW decaltileworkbucketnumentries_b_var  Buffer 1076 @0+112
+   RW decaltileworkdispatchindirectargs_b_var Buffer 1079 @0+224
+-- 15824 vkCmdDispatch() cs=14641
+   RW visboxestileworkbucketnumentries_b_var Buffer 1088 @0+112
+   RW visboxestileworkdispatchindirectargs_b_var Buffer 1091 @0+224
+-- 15827 vkCmdDispatch() cs=14666
+   RW lightfrustumstileworkbucketnumentries_b_var Buffer 1102 @0+112
+   RW lightfrustumstileworkdispatchindirectargs_b_var Buffer 1105 @0+224
+-- 15831 vkCmdDispatchIndirect(<0, 1, 1>) cs=14670
+   RO texture_viewdepthdownres32xmapmaxz   2D Color Attachment 1438 @5+0
+   RO texture_viewdepthdownres32xmapminz   2D Color Attachment 1442 @5+0
+   RW decaltileworkbucketnumentries_b_var  Buffer 1076 @0+112
+   RW decaltileworkbuckets_b_var           Buffer 1753 @8043520+9175040
+   RW decalboxesclippedbuffer_b_var        Buffer 1073 @0+393216
+   RW decalbitfieldbufferrw_b_var          Buffer 1753 @6507520+768000
+-- 15846 vkCmdDispatchIndirect(<0, 1, 1>) cs=14639
+   RO texture_viewdepthdownres32xmapmaxz   2D Color Attachment 1438 @5+0
+   RW visboxestileworkbucketnumentries_b_var Buffer 1088 @0+112
+   RW visboxestileworkbuckets_b_var        Buffer 1753 @17218560+9175040
+   RW visboxesclippedbuffer_b_var          Buffer 1085 @0+393216
+   RW visboxesbitfieldbufferrw_b_var       Buffer 216814 @0+1024
+-- 15861 vkCmdDispatchIndirect(<1, 1, 1>) cs=14662
+   RO texture_viewdepthdownres32xmapmaxz   2D Color Attachment 1438 @5+0
+   RO texture_viewdepthdownres32xmapminz   2D Color Attachment 1442 @5+0
+   RW lightfrustumstileworkbucketnumentries_b_var Buffer 1102 @0+112
+   RW lightfrustumstileworkbuckets_b_var   Buffer 1753 @1920000+4587520
+   RW lightfrustumsclippedbuffer_b_var     Buffer 1099 @0+196608
+   RW frustumlighttolightindexbuffer_b_var Buffer 1107 @0+4096
+   RW frustumlighttoworldlightindexbuffer_b_var Buffer 1766 @0+4096
+   RW lightfrustumsbuffer_b_var            Buffer 1093 @0+81920
+   RW lightbitfieldbufferrw_b_var          Buffer 1753 @0+384000
+   RW visiblelightsbitfieldrw_b_var        Buffer 1764 @0+512
+-- 15876 vkCmdDispatch() cs=14654
+   RW decallistbufferrw_b_var              Buffer 1753 @7275520+768000
+   RW lightlistbufferrw_b_var              Buffer 1753 @384000+768000
+   RW probelistbufferrw_b_var              Buffer 1753 @1152000+768000
+   RW parallellightsindexbuffer_b_var      Buffer 1109 @0+128
+-- 15880 vkCmdDispatch() cs=14660
+   RW decalbitfieldbufferrw_b_var          Buffer 1753 @6507520+768000
+   RW decallistbufferrw_b_var              Buffer 1753 @7275520+768000
+-- 15883 vkCmdDispatch() cs=14657
+   RW lightlistbufferrw_b_var              Buffer 1753 @384000+768000
+   RW lightbitfieldbufferrw_b_var          Buffer 1753 @0+384000
+   RW probelistbufferrw_b_var              Buffer 1753 @1152000+768000
+done in 21.4s

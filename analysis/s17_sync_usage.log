@@ -1,0 +1,25 @@
+capture opened in 15.1s
+vkCreateDevice: synchronization2 mentioned: False
+  ppEnabledExtensionNames{$el=VK_KHR_swapchain, $el=VK_KHR_dedicated_allocation, $el=VK_KHR_8bit_storage, $el=VK_KHR_16bit_storage, $el=VK_KHR_shader_float16_int8, $el=VK_EXT_descriptor_indexing, $el=VK_KHR_driver_properties, $el=VK_EXT_hdr_metadata, $el=VK_EXT_full_screen_exclusive, $el=VK_KHR_external_memory_win32}, pEnabledFeatures=}, pAllocator=, Device=9}
+  vkBeginCommandBuffer{CommandBuffer=1793, BeginInfo{sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO, pNext=, flags=VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT, pInheritanceInfo=}, BakedCommandBuffer=801491, device=9, AllocateInfo{sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO, pNext=, commandPool=1789, level=VK_COMMAND_BUFFER_LEVEL_PRIMARY, commandBufferCount=1}}
+  vkBeginCommandBuffer{CommandBuffer=289, BeginInfo{sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO, pNext=, flags=VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT, pInheritanceInfo=}, BakedCommandBuffer=801511, device=9, AllocateInfo{sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO, pNext=, commandPool=288, level=VK_COMMAND_BUFFER_LEVEL_PRIMARY, commandBufferCount=1}}
+  vkBeginCommandBuffer{CommandBuffer=346, BeginInfo{sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO, pNext=, flags=VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT, pInheritanceInfo=}, BakedCommandBuffer=801512, device=9, AllocateInfo{sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO, pNext=, commandPool=343, level=VK_COMMAND_BUFFER_LEVEL_PRIMARY, commandBufferCount=1}}
+vkCmdPipelineBarrier             79
+vkCmdPipelineBarrier2            0
+vkCmdPipelineBarrier2KHR         0
+vkCmdWaitEvents                  0
+vkCmdWaitEvents2                 0
+vkCmdWaitEvents2KHR              0
+vkCmdSetEvent                    0
+vkCmdSetEvent2                   0
+vkCmdSetEvent2KHR                0
+vkCmdResetEvent                  0
+vkCmdDispatchIndirect            39
+vkCmdDrawIndirect                0
+vkCmdDrawIndexedIndirect         63
+vkCmdDrawIndirectCount           0
+vkCmdDrawIndexedIndirectCount    0
+vkCmdExecuteCommands             0
+vkBeginCommandBuffer             43
+all chunk names with 'Event' or 'Barrier': {'vkCmdPipelineBarrier': 79}
+done in 17.2s

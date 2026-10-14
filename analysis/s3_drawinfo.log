@@ -1,0 +1,51 @@
+capture opened in 15.5s
+render pass containing 15976: 15948..18974
+draws in pass: 599
+   15960 idx=57417 inst=1 vs=15521 ps=15520 pipe=50975
+   15965 idx=2586 inst=1 vs=15521 ps=15520 pipe=50975
+   15970 idx=4428 inst=1 vs=15521 ps=15520 pipe=50975
+   15976 idx=27420 inst=1 vs=15508 ps=15507 pipe=50985
+   15981 idx=13659 inst=1 vs=15508 ps=15507 pipe=50985
+   15986 idx=12102 inst=1 vs=15508 ps=15507 pipe=50985
+   15991 idx=474 inst=1 vs=15508 ps=15507 pipe=50985
+   15996 idx=4746 inst=1 vs=15508 ps=15507 pipe=50985
+   16005 idx=37584 inst=1 vs=14369 ps=14368 pipe=50921
+   16010 idx=432 inst=1 vs=14369 ps=14368 pipe=50921
+   16015 idx=20760 inst=1 vs=14369 ps=14368 pipe=50921
+   16020 idx=13344 inst=1 vs=14369 ps=14368 pipe=50921
+   16025 idx=4320 inst=1 vs=14369 ps=14368 pipe=50921
+   16030 idx=37584 inst=1 vs=14369 ps=14368 pipe=50921
+   16035 idx=432 inst=1 vs=14369 ps=14368 pipe=50921
+   16040 idx=20760 inst=1 vs=14369 ps=14368 pipe=50921
+   16045 idx=13344 inst=1 vs=14369 ps=14368 pipe=50921
+   16050 idx=4320 inst=1 vs=14369 ps=14368 pipe=50921
+   16055 idx=16800 inst=1 vs=14369 ps=14368 pipe=50921
+   16060 idx=222 inst=1 vs=14369 ps=14368 pipe=50921
+   16065 idx=10443 inst=1 vs=14369 ps=14368 pipe=50921
+   16070 idx=7107 inst=1 vs=14369 ps=14368 pipe=50921
+   16075 idx=3534 inst=1 vs=14369 ps=14368 pipe=50921
+   16080 idx=37584 inst=1 vs=14369 ps=14368 pipe=50921
+   16085 idx=432 inst=1 vs=14369 ps=14368 pipe=50921
+   16090 idx=20760 inst=1 vs=14369 ps=14368 pipe=50921
+   16095 idx=13344 inst=1 vs=14369 ps=14368 pipe=50921
+   16100 idx=4320 inst=1 vs=14369 ps=14368 pipe=50921
+   16105 idx=16800 inst=1 vs=14369 ps=14368 pipe=50921
+   16110 idx=222 inst=1 vs=14369 ps=14368 pipe=50921
+   16115 idx=10443 inst=1 vs=14369 ps=14368 pipe=50921
+   16120 idx=7107 inst=1 vs=14369 ps=14368 pipe=50921
+   16125 idx=3534 inst=1 vs=14369 ps=14368 pipe=50921
+   16134 idx=3264 inst=1 vs=14636 ps=14635 pipe=51257
+   16139 idx=1965 inst=1 vs=14636 ps=14635 pipe=51257
+   16144 idx=2064 inst=1 vs=14636 ps=14635 pipe=51257
+   16149 idx=1233 inst=1 vs=14636 ps=14635 pipe=51257
+   16154 idx=3264 inst=1 vs=14636 ps=14635 pipe=51257
+   16159 idx=1965 inst=1 vs=14636 ps=14635 pipe=51257
+   16164 idx=2064 inst=1 vs=14636 ps=14635 pipe=51257
+overlay tex 1000000000000028782
+overlay bytes 16588800 bpp 8
+depth-pass pixels of draw 15976: 29276 bbox x 1319..1919 y 892..1079; mask[1437,917]=1
+save scene_hdr_after_pass.png <Result: 'Success'>
+save final_swapchain.png <Result: 'Success'>
+save post_53390.png <Result: 'Success'>
+sampled 1795
+done in 40.7s

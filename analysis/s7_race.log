@@ -1,0 +1,72 @@
+capture opened in 16.0s
+== resource usage over the frame ==
+Buffer 1753 (1753): 7796 usages
+    CS_RWResource          n=76   [15781, 15781, 15783, 15783, 15785, 15785, 15787, 15787, 15789, 15789, 15791, 15791, 15794, 15796, 15798, 15800, 15802, 15804, 15807, 15807, 15809, 15809, 15811, 15811, 15813, 15813, 15815, 15815, 15817, 15817, 15831, 15831, 15833, 15833, 15835, 15835, 15837, 15837, 15839, 15839] ...
+    PS_RWResource          n=7720 [15960, 15960, 15965, 15965, 15970, 15970, 15976, 15976, 15981, 15981, 15986, 15986, 15991, 15991, 15996, 15996, 16005, 16005, 16005, 16010, 16010, 16010, 16015, 16015, 16015, 16020, 16020, 16020, 16025, 16025, 16025, 16030, 16030, 16030, 16035, 16035, 16035, 16040, 16040, 16040] ...
+3D Image 201672 (201672): 451 usages
+    CS_Resource            n=2    [15923, 27839]
+    VS_Resource            n=449  first=15960 last=28758
+3D Image 201675 (201675): 451 usages
+    CS_Resource            n=2    [15923, 27839]
+    VS_Resource            n=449  first=15960 last=28758
+Buffer 1062 (1062): 2591 usages
+    CopyDst                n=1    [327]
+    CS_Constants           n=3    [15883, 15923, 27839]
+    PS_Constants           n=2587 first=15960 last=28758
+Buffer 1063 (1063): 2591 usages
+    CopyDst                n=1    [329]
+    CS_Constants           n=3    [15883, 15923, 27839]
+    PS_Constants           n=2587 first=15960 last=28758
+Buffer 1060 (1060): 2590 usages
+    CopyDst                n=1    [330]
+    CS_Constants           n=2    [15923, 27839]
+    PS_Constants           n=2587 first=15960 last=28758
+Buffer 1061 (1061): 9 usages
+    CopyDst                n=1    [331]
+    PS_Constants           n=8    first=15960 last=15996
+2D Depth Attachment 59303 (59303): 3473 usages
+    Barrier                n=4    [455, 477, 15884, 15940]
+    DepthStencilTarget     n=878  first=469 last=3411
+    PS_Resource            n=2589 first=469 last=28758
+    CS_Resource            n=2    [15923, 27839]
+Buffer 345131 (345131): 10 usages
+    VS_Constants           n=5    [15976, 15981, 15986, 15991, 15996]
+    PS_Constants           n=5    [15976, 15981, 15986, 15991, 15996]
+Buffer 345270 (345270): 2 usages
+    VS_Constants           n=1    [15976]
+    PS_Constants           n=1    [15976]
+Buffer 259 (259): 893 usages
+    CS_Constants           n=22   first=375 last=29179
+    VS_Constants           n=778  first=1646 last=28809
+    PS_Constants           n=93   first=13569 last=28809
+Buffer 1993 (1993): 2414 usages
+    PS_Constants           n=2414 first=15960 last=27745
+
+== light/probe list word for cluster 2736 at various events ==
+  after eid     1: lightlist[2736*64..] = (1, 0, 0, 0, 0)   probelist hash = (0, 0)
+  after eid 15947: lightlist[2736*64..] = (1, 0, 0, 0, 0)   probelist hash = (0, 0)
+  after eid 15975: lightlist[2736*64..] = (1, 0, 0, 0, 0)   probelist hash = (0, 0)
+  after eid 15976: lightlist[2736*64..] = (1, 0, 0, 0, 0)   probelist hash = (0, 0)
+  after eid 18974: lightlist[2736*64..] = (1, 0, 0, 0, 0)   probelist hash = (0, 0)
+  after eid 27838: lightlist[2736*64..] = (1, 0, 0, 0, 0)   probelist hash = (0, 0)
+  after eid 27839: lightlist[2736*64..] = (1, 0, 0, 0, 0)   probelist hash = (0, 0)
+  after eid 27840: lightlist[2736*64..] = (1, 0, 0, 0, 0)   probelist hash = (0, 0)
+  after eid 29213: lightlist[2736*64..] = (1, 0, 0, 0, 0)   probelist hash = (0, 0)
+
+== repeatability of the weapon draw output at (1437,917) ==
+  original SPIR-V          (0 0 0)  (0.001236 0.0015259 0.0015259)  (0 0 0)  (0 0 0)
+  numLights                (1 1 0.25)  (1 1 0.25)  (1 1 0.25)  (1 1 0.25)
+  output_x1000             (0 0 0)  (0 0 0)  (0 0 0)  (0 0 0)
+  recompiled_unmodified    (0 0 0)  (0 0 0)  (0 0 0)  (0.001236 0.0015259 0.0015259)
+
+== Debug Vertex for primitive 3081 ==
+index buffer Buffer 1029 stride 2 -> vertex indices (933, 1765, 930) (baseVertex 0)
+postVS: vb=1000000000000028723 off=0 stride=112 ib=1000000000000028705 ibstride=2 numIndices=27420
+assumed postVS layout: [('gl_Position', 0, 4), ('vofi_TexCoord8', 16, 4), ('vofi_TexCoord9', 32, 4), ('vofi_TexCoord10', 48, 4), ('vofi_Scalar2', 64, 1), ('vofi_Scalar3', 68, 1), ('vofi_Scalar4', 72, 1), ('vofi_Scalar5', 76, 1), ('vofi_Scalar6', 80, 1), ('vofi_Scalar7', 84, 1), ('vofi_Scalar8', 88, 1), ('vofi_Scalar9', 92, 1), ('vofi_Scalar10', 96, 1), ('vofi_Scalar11', 100, 1), ('vofi_Scalar12', 104, 1), ('vofi_Scalar13', 108, 1)] total 112
+  GPU VS out, vertex 933: pos=(0.12777842581272125, 0.17208167910575867, 0.10739479959011078, 0.236980602145195) SH0=(0.0, 0.0, 0.0, 0.0) SH1=(0.0, 0.0, 0.0, 0.0) SH2=(0.0, 0.0, 0.0, 0.0)
+  Debug Vertex 933: 2176 steps -> C:\Users\vippr\Documents\doomfix\analysis\weapon_vs_draw15976_vtx933_trace.txt
+  GPU VS out, vertex 1765: pos=(0.12520767748355865, 0.18646326661109924, 0.10899970680475235, 0.24500542879104614) SH0=(0.0, 0.0, 0.0, 0.0) SH1=(0.0, 0.0, 0.0, 0.0) SH2=(0.0, 0.0, 0.0, 0.0)
+  Debug Vertex 1765: 2176 steps -> C:\Users\vippr\Documents\doomfix\analysis\weapon_vs_draw15976_vtx1765_trace.txt
+  GPU VS out, vertex 930: pos=(0.1265791803598404, 0.1720132678747177, 0.1120971143245697, 0.26049304008483887) SH0=(0.0, 0.0, 0.0, 0.0) SH1=(0.0, 0.0, 0.0, 0.0) SH2=(0.0, 0.0, 0.0, 0.0)
+  Debug Vertex 930: 2176 steps -> C:\Users\vippr\Documents\doomfix\analysis\weapon_vs_draw15976_vtx930_trace.txt
+done in 39.1s

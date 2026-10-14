@@ -1,0 +1,91 @@
+capture opened in 15.6s
+-- dispatch 27835
+   RW 1629 3D Image 1629 128x32 R11G11B10_FLOAT
+-- dispatch 27839
+   RO 1430 2D Color Attachment 1430 120x68 R32_FLOAT
+   RO 1438 2D Color Attachment 1438 60x34 R32_FLOAT
+   RO 59303 2D Depth Attachment 59303 4096x2048 D16
+   RO 201672 3D Image 201672 256x256 R8G8B8A8_UNORM
+   RO 201675 3D Image 201675 256x256 R16G16B16A16_FLOAT
+   RO 1133 2D Image 1133 16x16 R8G8B8A8_UNORM
+   RO 1971 2D Image 1971 512x512 BC4_UNORM
+   RO 1166 2D Image 1166 256x256 R8G8_UNORM
+   RO 1705 3D Image 1705 120x67 R11G11B10_FLOAT
+   RO 1697 3D Image 1697 120x67 R11G11B10_FLOAT
+   RW 1753 Buffer 1753 
+   RW 1701 3D Image 1701 120x67 R11G11B10_FLOAT
+   RW 1709 3D Image 1709 120x67 R11G11B10_FLOAT
+-- dispatch 27843
+   RO 1430 2D Color Attachment 1430 120x68 R32_FLOAT
+   RO 1438 2D Color Attachment 1438 60x34 R32_FLOAT
+   RW 1701 3D Image 1701 120x67 R11G11B10_FLOAT
+   RW 1709 3D Image 1709 120x67 R11G11B10_FLOAT
+   RW 1713 3D Image 1713 120x67 R11G11B10_FLOAT
+   RW 1717 3D Image 1717 120x67 R11G11B10_FLOAT
+-- dispatch 27847
+   RO 1615 2D Depth/Stencil Attachment 1615 1920x1080 D32S8
+   RO 1713 3D Image 1713 120x67 R11G11B10_FLOAT
+   RO 1717 3D Image 1717 120x67 R11G11B10_FLOAT
+   RO 1629 3D Image 1629 128x32 R11G11B10_FLOAT
+   RO 1971 2D Image 1971 512x512 BC4_UNORM
+   RW 53374 2D Color Attachment 53374 1920x1080 R11G11B10_FLOAT
+   RW 1779 2D Color Attachment 1779 1920x1080 R11G11B10_FLOAT
+-- dispatch 29089
+   RO 1615 2D Depth/Stencil Attachment 1615 1920x1080 D32S8
+   RO 1779 2D Color Attachment 1779 1920x1080 R11G11B10_FLOAT
+   RO 53382 2D Color Attachment 53382 1920x1080 R16G16_FLOAT
+   RO 53374 2D Color Attachment 53374 1920x1080 R11G11B10_FLOAT
+   RO 53386 2D Color Attachment 53386 1920x1080 R8_UNORM
+   RO 1775 2D Color Attachment 1775 1920x1080 R11G11B10_FLOAT
+   RO 53534 2D Color Attachment 53534 1920x1080 R8_UNORM
+   RW 53406 2D Color Attachment 53406 1920x1080 R16G16_FLOAT
+   RW 53538 2D Color Attachment 53538 1920x1080 R8_UNORM
+   RW 1771 2D Color Attachment 1771 1920x1080 R11G11B10_FLOAT
+final 1771 @1437,917 = (0, 0, 0, 1)
+final 1771 @1290,805 = (0, 0, 0, 1)
+
+=== PixelHistory 1771 @1437,917 ===
+eid  29089 vkCmdDispatch()              prim=0 frag=0 passed=True direct=True unbound=False pre=(1000, 1000, 992, 1) shaderOut=(0, 0, 0, 0) post=(0, 0, 0, 1) depth pre/post=-1/-1 flags[cull=False depthclip=False depthtest=False stencil=False scissor=False backface=False]
+final 1779 @1437,917 = (0, 0, 0, 1)
+final 1779 @1290,805 = (0, 0, 0, 1)
+
+=== PixelHistory 1779 @1437,917 ===
+eid  27847 vkCmdDispatch()              prim=0 frag=0 passed=True direct=True unbound=False pre=(1000, 1000, 992, 1) shaderOut=(0, 0, 0, 0) post=(0, 0, 0, 1) depth pre/post=-1/-1 flags[cull=False depthclip=False depthtest=False stencil=False scissor=False backface=False]
+eid  29103 vkCmdDispatch()              prim=0 frag=0 passed=True direct=True unbound=False pre=(1000, 1000, 992, 1) shaderOut=(0, 0, 0, 0) post=(0, 0, 0, 1) depth pre/post=-1/-1 flags[cull=False depthclip=False depthtest=False stencil=False scissor=False backface=False]
+final 1783 @1437,917 = (0.0012207, 0.0014648, 0.0015259, 1)
+final 1783 @1290,805 = (0.0028687, 0.0034485, 0.0037231, 1)
+
+=== PixelHistory 1783 @1437,917 ===
+eid  29106 vkCmdDispatch()              prim=0 frag=0 passed=True direct=True unbound=False pre=(1000, 1000, 992, 1) shaderOut=(0, 0, 0, 0) post=(0, 0, 0, 1) depth pre/post=-1/-1 flags[cull=False depthclip=False depthtest=False stencil=False scissor=False backface=False]
+final 53374 @1437,917 = (0, 0, 0, 1)
+final 53374 @1290,805 = (0, 0, 0, 1)
+
+=== PixelHistory 53374 @1437,917 ===
+eid  15946 vkCmdBeginRenderPass(Clear)  prim=0 frag=0 passed=True direct=False unbound=False pre=(1000, 1000, 992, 1) shaderOut=(0, 0, 0, 0) post=(0, 0, 0, 1) depth pre/post=-1/-1 flags[cull=False depthclip=False depthtest=False stencil=False scissor=False backface=False]
+eid  15976 vkCmdDrawIndexed()           prim=3081 frag=0 passed=True direct=False unbound=False pre=(0, 0, 0, 1) shaderOut=(0, 0, 0, 0) post=(0, 0, 0, 1) depth pre/post=0.43658/0.43658 flags[cull=False depthclip=False depthtest=False stencil=False scissor=False backface=False]
+eid  15981 vkCmdDrawIndexed()           prim=3444 frag=0 passed=False direct=False unbound=False pre=(0, 0, 0, 1) shaderOut=(0, 0, 0, 0) post=(0, 0, 0, 1) depth pre/post=0.43658/0.43658 flags[cull=False depthclip=False depthtest=True stencil=False scissor=False backface=False]
+eid  15986 vkCmdDrawIndexed()           prim=2407 frag=0 passed=False direct=False unbound=False pre=(0, 0, 0, 1) shaderOut=(0, 0, 0, 0) post=(0, 0, 0, 1) depth pre/post=0.43658/0.43658 flags[cull=False depthclip=False depthtest=True stencil=False scissor=False backface=False]
+eid  16080 vkCmdDrawIndexed()           prim=6103 frag=0 passed=False direct=False unbound=False pre=(0, 0, 0, 1) shaderOut=(0.0020153, 0.00012788, 2.7026e-05, 0) post=(0, 0, 0, 1) depth pre/post=0.43658/0.43658 flags[cull=False depthclip=False depthtest=True stencil=False scissor=False backface=False]
+eid  26060 vkCmdDrawIndexed()           prim=1604 frag=0 passed=False direct=False unbound=False pre=(0, 0, 0, 1) shaderOut=(4.7184e-06, 9.0593e-07, 1.2987e-07, 0) post=(0, 0, 0, 1) depth pre/post=0.43658/0.43658 flags[cull=False depthclip=False depthtest=True stencil=False scissor=False backface=False]
+eid  26819 vkCmdDrawIndexed()           prim=1 frag=0 passed=False direct=False unbound=False pre=(0, 0, 0, 1) shaderOut=(0.0011792, 0.00035648, 0.00013211, 0) post=(0, 0, 0, 1) depth pre/post=0.43658/0.43658 flags[cull=False depthclip=False depthtest=True stencil=False scissor=False backface=False]
+eid  26874 vkCmdDrawIndexed()           prim=0 frag=0 passed=False direct=False unbound=False pre=(0, 0, 0, 1) shaderOut=(0, 0, 0, 0) post=(0, 0, 0, 1) depth pre/post=0.43658/0.43658 flags[cull=False depthclip=False depthtest=True stencil=False scissor=False backface=True]
+eid  26879 vkCmdDrawIndexed()           prim=0 frag=0 passed=False direct=False unbound=False pre=(0, 0, 0, 1) shaderOut=(0.0044457, 0.00044698, 5.4548e-05, 0) post=(0, 0, 0, 1) depth pre/post=0.43658/0.43658 flags[cull=False depthclip=False depthtest=True stencil=False scissor=False backface=False]
+eid  26929 vkCmdDrawIndexed()           prim=0 frag=0 passed=False direct=False unbound=False pre=(0, 0, 0, 1) shaderOut=(0, 0, 0, 0) post=(0, 0, 0, 1) depth pre/post=0.43658/0.43658 flags[cull=False depthclip=False depthtest=True stencil=False scissor=False backface=True]
+eid  27064 vkCmdDrawIndexed()           prim=1 frag=0 passed=False direct=False unbound=False pre=(0, 0, 0, 1) shaderOut=(0.00027193, 8.5198e-05, 2.7064e-05, 0) post=(0, 0, 0, 1) depth pre/post=0.43658/0.43658 flags[cull=False depthclip=False depthtest=True stencil=False scissor=False backface=False]
+eid  27847 vkCmdDispatch()              prim=0 frag=0 passed=True direct=True unbound=False pre=(0, 0, 0, 1) shaderOut=(0, 0, 0, 0) post=(0, 0, 0, 1) depth pre/post=-1/-1 flags[cull=False depthclip=False depthtest=False stencil=False scissor=False backface=False]
+final 53398 @1437,917 = (0, 0, 0, 0)
+final 53398 @1290,805 = (0, 0, 0, 0)
+
+=== PixelHistory 53398 @1437,917 ===
+eid  28816 vkCmdBeginRenderPass(C=Clear prim=0 frag=0 passed=True direct=False unbound=False pre=(1, 1, 1, 1) shaderOut=(0, 0, 0, 0) post=(0, 0, 0, 0) depth pre/post=-1/-1 flags[cull=False depthclip=False depthtest=False stencil=False scissor=False backface=False]
+final 53390 @1437,917 = (0, 0, 0, 1)
+final 53390 @1290,805 = (0.0024414, 0.0024414, 0.0024414, 1)
+
+=== PixelHistory 53390 @1437,917 ===
+eid  29186 vkCmdDispatch()              prim=0 frag=0 passed=True direct=True unbound=False pre=(1000, 1000, 992, 1) shaderOut=(0, 0, 0, 0) post=(0, 0, 0, 1) depth pre/post=-1/-1 flags[cull=False depthclip=False depthtest=False stencil=False scissor=False backface=False]
+final 685990 @1437,917 = (0, 0, 0, 1)
+final 685990 @1290,805 = (0.027451, 0.027451, 0.027451, 1)
+
+=== PixelHistory 685990 @1437,917 ===
+eid  29190 vkCmdDispatch()              prim=0 frag=0 passed=True direct=True unbound=False pre=(0, 0, 0, 1) shaderOut=(0, 0, 0, 0) post=(0, 0, 0, 1) depth pre/post=-1/-1 flags[cull=False depthclip=False depthtest=False stencil=False scissor=False backface=False]
+done in 28.9s

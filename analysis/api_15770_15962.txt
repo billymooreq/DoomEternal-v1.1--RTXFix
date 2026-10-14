@@ -1,0 +1,193 @@
+ 15768 vkCmdPipelineBarrier{commandBuffer=669, srcStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, destStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, dependencyFlags=VkDependencyFlagBits(0), memoryBarrierCount=1, pMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT}}, bufferMemoryBarrierCount=0, pBufferMemoryBarriers=, imageMemoryBarrierCount=0, pImageMemoryBarriers=, DebugMessages=}
+ 15769 vkCmdBindPipeline
+ 15770 vkCmdBindDescriptorSets
+ 15771 vkCmdDispatch{commandBuffer=669, x=1, y=1, z=1, DebugMessages=}
+ 15772 vkCmdBindPipeline
+ 15773 vkCmdBindDescriptorSets
+ 15774 vkCmdDispatch{commandBuffer=669, x=1, y=1, z=1, DebugMessages=}
+ 15775 vkCmdBindPipeline
+ 15776 vkCmdBindDescriptorSets
+ 15777 vkCmdDispatch{commandBuffer=669, x=1, y=1, z=1, DebugMessages=}
+ 15778 vkCmdPipelineBarrier{commandBuffer=669, srcStageMask=VK_PIPELINE_STAGE_VERTEX_SHADER_BIT | VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, destStageMask=VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT | VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, dependencyFlags=VkDependencyFlagBits(0), memoryBarrierCount=1, pMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT}}, bufferMemoryBarrierCount=0, pBufferMemoryBarriers=, imageMemoryBarrierCount=0, pImageMemoryBarriers=, DebugMessages=}
+ 15779 vkCmdBindPipeline
+ 15780 vkCmdBindDescriptorSets
+ 15781 vkCmdDispatchIndirect{commandBuffer=669, buffer=1079, offset=0, DebugMessages=}
+ 15782 vkCmdBindDescriptorSets
+ 15783 vkCmdDispatchIndirect{commandBuffer=669, buffer=1079, offset=16, DebugMessages=}
+ 15784 vkCmdBindDescriptorSets
+ 15785 vkCmdDispatchIndirect{commandBuffer=669, buffer=1079, offset=32, DebugMessages=}
+ 15786 vkCmdBindDescriptorSets
+ 15787 vkCmdDispatchIndirect{commandBuffer=669, buffer=1079, offset=48, DebugMessages=}
+ 15788 vkCmdBindDescriptorSets
+ 15789 vkCmdDispatchIndirect{commandBuffer=669, buffer=1079, offset=64, DebugMessages=}
+ 15790 vkCmdBindDescriptorSets
+ 15791 vkCmdDispatchIndirect{commandBuffer=669, buffer=1079, offset=80, DebugMessages=}
+ 15792 vkCmdBindPipeline
+ 15793 vkCmdBindDescriptorSets
+ 15794 vkCmdDispatchIndirect{commandBuffer=669, buffer=1091, offset=0, DebugMessages=}
+ 15795 vkCmdBindDescriptorSets
+ 15796 vkCmdDispatchIndirect{commandBuffer=669, buffer=1091, offset=16, DebugMessages=}
+ 15797 vkCmdBindDescriptorSets
+ 15798 vkCmdDispatchIndirect{commandBuffer=669, buffer=1091, offset=32, DebugMessages=}
+ 15799 vkCmdBindDescriptorSets
+ 15800 vkCmdDispatchIndirect{commandBuffer=669, buffer=1091, offset=48, DebugMessages=}
+ 15801 vkCmdBindDescriptorSets
+ 15802 vkCmdDispatchIndirect{commandBuffer=669, buffer=1091, offset=64, DebugMessages=}
+ 15803 vkCmdBindDescriptorSets
+ 15804 vkCmdDispatchIndirect{commandBuffer=669, buffer=1091, offset=80, DebugMessages=}
+ 15805 vkCmdBindPipeline
+ 15806 vkCmdBindDescriptorSets
+ 15807 vkCmdDispatchIndirect{commandBuffer=669, buffer=1105, offset=0, DebugMessages=}
+ 15808 vkCmdBindDescriptorSets
+ 15809 vkCmdDispatchIndirect{commandBuffer=669, buffer=1105, offset=16, DebugMessages=}
+ 15810 vkCmdBindDescriptorSets
+ 15811 vkCmdDispatchIndirect{commandBuffer=669, buffer=1105, offset=32, DebugMessages=}
+ 15812 vkCmdBindDescriptorSets
+ 15813 vkCmdDispatchIndirect{commandBuffer=669, buffer=1105, offset=48, DebugMessages=}
+ 15814 vkCmdBindDescriptorSets
+ 15815 vkCmdDispatchIndirect{commandBuffer=669, buffer=1105, offset=64, DebugMessages=}
+ 15816 vkCmdBindDescriptorSets
+ 15817 vkCmdDispatchIndirect{commandBuffer=669, buffer=1105, offset=80, DebugMessages=}
+ 15818 vkCmdPipelineBarrier{commandBuffer=669, srcStageMask=VK_PIPELINE_STAGE_VERTEX_SHADER_BIT | VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, destStageMask=VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT | VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, dependencyFlags=VkDependencyFlagBits(0), memoryBarrierCount=1, pMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT}}, bufferMemoryBarrierCount=0, pBufferMemoryBarriers=, imageMemoryBarrierCount=0, pImageMemoryBarriers=, DebugMessages=}
+ 15819 vkCmdBindPipeline
+ 15820 vkCmdBindDescriptorSets
+ 15821 vkCmdDispatch{commandBuffer=669, x=1, y=1, z=1, DebugMessages=}
+ 15822 vkCmdBindPipeline
+ 15823 vkCmdBindDescriptorSets
+ 15824 vkCmdDispatch{commandBuffer=669, x=1, y=1, z=1, DebugMessages=}
+ 15825 vkCmdBindPipeline
+ 15826 vkCmdBindDescriptorSets
+ 15827 vkCmdDispatch{commandBuffer=669, x=1, y=1, z=1, DebugMessages=}
+ 15828 vkCmdPipelineBarrier{commandBuffer=669, srcStageMask=VK_PIPELINE_STAGE_VERTEX_SHADER_BIT | VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, destStageMask=VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT | VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, dependencyFlags=VkDependencyFlagBits(0), memoryBarrierCount=1, pMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT}}, bufferMemoryBarrierCount=0, pBufferMemoryBarriers=, imageMemoryBarrierCount=0, pImageMemoryBarriers=, DebugMessages=}
+ 15829 vkCmdBindPipeline
+ 15830 vkCmdBindDescriptorSets
+ 15831 vkCmdDispatchIndirect{commandBuffer=669, buffer=1079, offset=0, DebugMessages=}
+ 15832 vkCmdBindDescriptorSets
+ 15833 vkCmdDispatchIndirect{commandBuffer=669, buffer=1079, offset=16, DebugMessages=}
+ 15834 vkCmdBindDescriptorSets
+ 15835 vkCmdDispatchIndirect{commandBuffer=669, buffer=1079, offset=32, DebugMessages=}
+ 15836 vkCmdBindDescriptorSets
+ 15837 vkCmdDispatchIndirect{commandBuffer=669, buffer=1079, offset=48, DebugMessages=}
+ 15838 vkCmdBindDescriptorSets
+ 15839 vkCmdDispatchIndirect{commandBuffer=669, buffer=1079, offset=64, DebugMessages=}
+ 15840 vkCmdBindDescriptorSets
+ 15841 vkCmdDispatchIndirect{commandBuffer=669, buffer=1079, offset=80, DebugMessages=}
+ 15842 vkCmdBindDescriptorSets
+ 15843 vkCmdDispatchIndirect{commandBuffer=669, buffer=1079, offset=96, DebugMessages=}
+ 15844 vkCmdBindPipeline
+ 15845 vkCmdBindDescriptorSets
+ 15846 vkCmdDispatchIndirect{commandBuffer=669, buffer=1091, offset=0, DebugMessages=}
+ 15847 vkCmdBindDescriptorSets
+ 15848 vkCmdDispatchIndirect{commandBuffer=669, buffer=1091, offset=16, DebugMessages=}
+ 15849 vkCmdBindDescriptorSets
+ 15850 vkCmdDispatchIndirect{commandBuffer=669, buffer=1091, offset=32, DebugMessages=}
+ 15851 vkCmdBindDescriptorSets
+ 15852 vkCmdDispatchIndirect{commandBuffer=669, buffer=1091, offset=48, DebugMessages=}
+ 15853 vkCmdBindDescriptorSets
+ 15854 vkCmdDispatchIndirect{commandBuffer=669, buffer=1091, offset=64, DebugMessages=}
+ 15855 vkCmdBindDescriptorSets
+ 15856 vkCmdDispatchIndirect{commandBuffer=669, buffer=1091, offset=80, DebugMessages=}
+ 15857 vkCmdBindDescriptorSets
+ 15858 vkCmdDispatchIndirect{commandBuffer=669, buffer=1091, offset=96, DebugMessages=}
+ 15859 vkCmdBindPipeline
+ 15860 vkCmdBindDescriptorSets
+ 15861 vkCmdDispatchIndirect{commandBuffer=669, buffer=1105, offset=0, DebugMessages=}
+ 15862 vkCmdBindDescriptorSets
+ 15863 vkCmdDispatchIndirect{commandBuffer=669, buffer=1105, offset=16, DebugMessages=}
+ 15864 vkCmdBindDescriptorSets
+ 15865 vkCmdDispatchIndirect{commandBuffer=669, buffer=1105, offset=32, DebugMessages=}
+ 15866 vkCmdBindDescriptorSets
+ 15867 vkCmdDispatchIndirect{commandBuffer=669, buffer=1105, offset=48, DebugMessages=}
+ 15868 vkCmdBindDescriptorSets
+ 15869 vkCmdDispatchIndirect{commandBuffer=669, buffer=1105, offset=64, DebugMessages=}
+ 15870 vkCmdBindDescriptorSets
+ 15871 vkCmdDispatchIndirect{commandBuffer=669, buffer=1105, offset=80, DebugMessages=}
+ 15872 vkCmdBindDescriptorSets
+ 15873 vkCmdDispatchIndirect{commandBuffer=669, buffer=1105, offset=96, DebugMessages=}
+ 15874 vkCmdBindPipeline
+ 15875 vkCmdBindDescriptorSets
+ 15876 vkCmdDispatch{commandBuffer=669, x=47, y=1, z=1, DebugMessages=}
+ 15877 vkCmdPipelineBarrier{commandBuffer=669, srcStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, destStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, dependencyFlags=VkDependencyFlagBits(0), memoryBarrierCount=1, pMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT}}, bufferMemoryBarrierCount=0, pBufferMemoryBarriers=, imageMemoryBarrierCount=0, pImageMemoryBarriers=, DebugMessages=}
+ 15878 vkCmdBindPipeline
+ 15879 vkCmdBindDescriptorSets
+ 15880 vkCmdDispatch{commandBuffer=669, x=1, y=3000, z=1, DebugMessages=}
+ 15881 vkCmdBindPipeline
+ 15882 vkCmdBindDescriptorSets
+ 15883 vkCmdDispatch{commandBuffer=669, x=1, y=3000, z=1, DebugMessages=}
+ 15884 vkCmdPipelineBarrier{commandBuffer=669, srcStageMask=VK_PIPELINE_STAGE_VERTEX_SHADER_BIT | VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT | VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT | VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT | VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, destStageMask=VK_PIPELINE_STAGE_VERTEX_SHADER_BIT | VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, dependencyFlags=VkDependencyFlagBits(0), memoryBarrierCount=1, pMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT | VK_ACCESS_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT}}, bufferMemoryBarrierCount=0, pBufferMemoryBarriers=, imageMemoryBarrierCount=7, pImageMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, oldLayout=VK_IMAGE_LAYOUT_GENERAL, newLayout=VK_IMAGE_LAYOUT_GENERAL, srcQueueFamilyIndex=-1, dstQueueFamilyIndex=-1, image=1615, subresourceRange{aspectMask=VK_IMAGE_ASPECT_DEPTH_BIT | VK_IMAGE_ASPECT_STENCIL_BIT, baseMipLevel=0, levelCount=1, baseArrayLayer=0, layerCount=1}}, $el{sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_NONE, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, oldLayout=VK_IMAGE_LAYOUT_UNDEFINED, newLayout=VK_IMAGE_LAYOUT_GENERAL, srcQueueFamilyIndex=-1, dstQueueFamilyIndex=-1, image=1619, subresourceRange{aspectMask=VK_IMAGE_ASPECT_COLOR_BIT, baseMipLevel=0, levelCount=1, baseArrayLayer=0, layerCount=1}}, $el{sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_NONE, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, oldLayout=VK_IMAGE_LAYOUT_UNDEFINED, newLayout=VK_IMAGE_LAYOUT_GENERAL, srcQueueFamilyIndex=-1, dstQueueFamilyIndex=-1, image=1619, subresourceRange{aspectMask=VK_IMAGE_ASPECT_COLOR_BIT, baseMipLevel=1, levelCount=1, baseArrayLayer=0, layerCount=1}}, $el{sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_NONE, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, oldLayout=VK_IMAGE_LAYOUT_UNDEFINED, newLayout=VK_IMAGE_LAYOUT_GENERAL, srcQueueFamilyIndex=-1, dstQueueFamilyIndex=-1, image=1619, subresourceRange{aspectMask=VK_IMAGE_ASPECT_COLOR_BIT, baseMipLevel=2, levelCount=1, baseArrayLayer=0, layerCount=1}}, $el{sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_NONE, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, oldLayout=VK_IMAGE_LAYOUT_UNDEFINED, newLayout=VK_IMAGE_LAYOUT_GENERAL, srcQueueFamilyIndex=-1, dstQueueFamilyIndex=-1, image=1619, subresourceRange{aspectMask=VK_IMAGE_ASPECT_COLOR_BIT, baseMipLevel=3, levelCount=1, baseArrayLayer=0, layerCount=1}}, $el{sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_NONE, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, oldLayout=VK_IMAGE_LAYOUT_UNDEFINED, newLayout=VK_IMAGE_LAYOUT_GENERAL, srcQueueFamilyIndex=-1, dstQueueFamilyIndex=-1, image=1619, subresourceRange{aspectMask=VK_IMAGE_ASPECT_COLOR_BIT, baseMipLevel=4, levelCount=1, baseArrayLayer=0, layerCount=1}}, $el{sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, oldLayout=VK_IMAGE_LAYOUT_GENERAL, newLayout=VK_IMAGE_LAYOUT_GENERAL, srcQueueFamilyIndex=-1, dstQueueFamilyIndex=-1, image=59303, subresourceRange{aspectMask=VK_IMAGE_ASPECT_DEPTH_BIT, baseMipLevel=0, levelCount=1, baseArrayLayer=0, layerCount=1}}}, DebugMessages=}
+ 15885 vkEndCommandBuffer
+ 15886 vkResetFences
+ 15887 vkQueueSubmit{queue=172, submitCount=1, pSubmits{$el{sType=VK_STRUCTURE_TYPE_SUBMIT_INFO, pNext=, waitSemaphoreCount=1, pWaitSemaphores{$el=295}, pWaitDstStageMask{$el=VK_PIPELINE_STAGE_ALL_COMMANDS_BIT}, commandBufferCount=1, pCommandBuffers{$el=289}, signalSemaphoreCount=1, pSignalSemaphores{$el=296}}}, fence=293, DebugMessages=}
+ 15888 vkBeginCommandBuffer
+ 15889 vkCmdBindPipeline
+ 15890 vkCmdBindDescriptorSets
+ 15891 vkCmdDispatch{commandBuffer=289, x=60, y=34, z=1, DebugMessages=}
+ 15892 vkCmdPipelineBarrier{commandBuffer=289, srcStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, destStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, dependencyFlags=VkDependencyFlagBits(0), memoryBarrierCount=1, pMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT}}, bufferMemoryBarrierCount=0, pBufferMemoryBarriers=, imageMemoryBarrierCount=0, pImageMemoryBarriers=, DebugMessages=}
+ 15893 vkCmdBindPipeline
+ 15894 vkCmdBindDescriptorSets
+ 15895 vkCmdDispatch{commandBuffer=289, x=346, y=1, z=1, DebugMessages=}
+ 15896 vkCmdPipelineBarrier{commandBuffer=289, srcStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, destStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, dependencyFlags=VkDependencyFlagBits(0), memoryBarrierCount=1, pMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT}}, bufferMemoryBarrierCount=0, pBufferMemoryBarriers=, imageMemoryBarrierCount=0, pImageMemoryBarriers=, DebugMessages=}
+ 15897 vkCmdBindPipeline
+ 15898 vkCmdBindDescriptorSets
+ 15899 vkCmdDispatch{commandBuffer=289, x=65, y=1, z=1, DebugMessages=}
+ 15900 vkCmdPipelineBarrier{commandBuffer=289, srcStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, destStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, dependencyFlags=VkDependencyFlagBits(0), memoryBarrierCount=1, pMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT}}, bufferMemoryBarrierCount=0, pBufferMemoryBarriers=, imageMemoryBarrierCount=0, pImageMemoryBarriers=, DebugMessages=}
+ 15901 vkCmdBindPipeline
+ 15902 vkCmdBindDescriptorSets
+ 15903 vkCmdDispatch{commandBuffer=289, x=65, y=1, z=1, DebugMessages=}
+ 15904 vkCmdPipelineBarrier{commandBuffer=289, srcStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, destStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, dependencyFlags=VkDependencyFlagBits(0), memoryBarrierCount=1, pMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT}}, bufferMemoryBarrierCount=0, pBufferMemoryBarriers=, imageMemoryBarrierCount=0, pImageMemoryBarriers=, DebugMessages=}
+ 15905 vkCmdBindPipeline
+ 15906 vkCmdBindDescriptorSets
+ 15907 vkCmdDispatch{commandBuffer=289, x=346, y=1, z=1, DebugMessages=}
+ 15908 vkCmdPipelineBarrier{commandBuffer=289, srcStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, destStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, dependencyFlags=VkDependencyFlagBits(0), memoryBarrierCount=1, pMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT}}, bufferMemoryBarrierCount=0, pBufferMemoryBarriers=, imageMemoryBarrierCount=0, pImageMemoryBarriers=, DebugMessages=}
+ 15909 vkCmdBindPipeline
+ 15910 vkCmdBindDescriptorSets
+ 15911 vkCmdDispatch{commandBuffer=289, x=32, y=1, z=1, DebugMessages=}
+ 15912 vkCmdPipelineBarrier{commandBuffer=289, srcStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, destStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, dependencyFlags=VkDependencyFlagBits(0), memoryBarrierCount=1, pMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT}}, bufferMemoryBarrierCount=0, pBufferMemoryBarriers=, imageMemoryBarrierCount=5, pImageMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, oldLayout=VK_IMAGE_LAYOUT_GENERAL, newLayout=VK_IMAGE_LAYOUT_GENERAL, srcQueueFamilyIndex=-1, dstQueueFamilyIndex=-1, image=1619, subresourceRange{aspectMask=VK_IMAGE_ASPECT_COLOR_BIT, baseMipLevel=0, levelCount=1, baseArrayLayer=0, layerCount=1}}, $el{sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, oldLayout=VK_IMAGE_LAYOUT_GENERAL, newLayout=VK_IMAGE_LAYOUT_GENERAL, srcQueueFamilyIndex=-1, dstQueueFamilyIndex=-1, image=1619, subresourceRange{aspectMask=VK_IMAGE_ASPECT_COLOR_BIT, baseMipLevel=1, levelCount=1, baseArrayLayer=0, layerCount=1}}, $el{sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, oldLayout=VK_IMAGE_LAYOUT_GENERAL, newLayout=VK_IMAGE_LAYOUT_GENERAL, srcQueueFamilyIndex=-1, dstQueueFamilyIndex=-1, image=1619, subresourceRange{aspectMask=VK_IMAGE_ASPECT_COLOR_BIT, baseMipLevel=2, levelCount=1, baseArrayLayer=0, layerCount=1}}, $el{sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, oldLayout=VK_IMAGE_LAYOUT_GENERAL, newLayout=VK_IMAGE_LAYOUT_GENERAL, srcQueueFamilyIndex=-1, dstQueueFamilyIndex=-1, image=1619, subresourceRange{aspectMask=VK_IMAGE_ASPECT_COLOR_BIT, baseMipLevel=3, levelCount=1, baseArrayLayer=0, layerCount=1}}, $el{sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, oldLayout=VK_IMAGE_LAYOUT_GENERAL, newLayout=VK_IMAGE_LAYOUT_GENERAL, srcQueueFamilyIndex=-1, dstQueueFamilyIndex=-1, image=1619, subresourceRange{aspectMask=VK_IMAGE_ASPECT_COLOR_BIT, baseMipLevel=4, levelCount=1, baseArrayLayer=0, layerCount=1}}}, DebugMessages=}
+ 15913 vkCmdBindPipeline
+ 15914 vkCmdBindDescriptorSets
+ 15915 vkCmdDispatch{commandBuffer=289, x=346, y=1, z=1, DebugMessages=}
+ 15916 vkCmdPipelineBarrier{commandBuffer=289, srcStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, destStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, dependencyFlags=VkDependencyFlagBits(0), memoryBarrierCount=1, pMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT}}, bufferMemoryBarrierCount=0, pBufferMemoryBarriers=, imageMemoryBarrierCount=0, pImageMemoryBarriers=, DebugMessages=}
+ 15917 vkCmdBindPipeline
+ 15918 vkCmdBindDescriptorSets
+ 15919 vkCmdDispatch{commandBuffer=289, x=65, y=1, z=1, DebugMessages=}
+ 15920 vkCmdPipelineBarrier{commandBuffer=289, srcStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, destStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, dependencyFlags=VkDependencyFlagBits(0), memoryBarrierCount=1, pMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT}}, bufferMemoryBarrierCount=0, pBufferMemoryBarriers=, imageMemoryBarrierCount=0, pImageMemoryBarriers=, DebugMessages=}
+ 15921 vkCmdBindPipeline
+ 15922 vkCmdBindDescriptorSets
+ 15923 vkCmdDispatch{commandBuffer=289, x=346, y=1, z=1, DebugMessages=}
+ 15924 vkEndCommandBuffer
+ 15925 vkWaitForFences
+ 15926 Internal::Coherent Mapped Memory Write
+ 15927 vkQueueSubmit{queue=171, submitCount=3, pSubmits{$el{sType=VK_STRUCTURE_TYPE_SUBMIT_INFO, pNext=, waitSemaphoreCount=0, pWaitSemaphores=, pWaitDstStageMask=, commandBufferCount=4, pCommandBuffers{$el=677, $el=706, $el=702, $el=714}, signalSemaphoreCount=0, pSignalSemaphores=}, $el{sType=VK_STRUCTURE_TYPE_SUBMIT_INFO, pNext=, waitSemaphoreCount=1, pWaitSemaphores{$el=354}, pWaitDstStageMask{$el=VK_PIPELINE_STAGE_ALL_COMMANDS_BIT}, commandBufferCount=8, pCommandBuffers{$el=710, $el=735, $el=768, $el=805, $el=801, $el=838, $el=834, $el=846}, signalSemaphoreCount=0, pSignalSemaphores=}, $el{sType=VK_STRUCTURE_TYPE_SUBMIT_INFO, pNext=, waitSemaphoreCount=1, pWaitSemaphores{$el=296}, pWaitDstStageMask{$el=VK_PIPELINE_STAGE_ALL_COMMANDS_BIT}, commandBufferCount=9, pCommandBuffers{$el=842, $el=867, $el=900, $el=937, $el=933, $el=970, $el=966, $el=1003, $el=999}, signalSemaphoreCount=1, pSignalSemaphores{$el=353}}}, fence=0, DebugMessages=}
+ 15928 vkBeginCommandBuffer
+ 15929 vkEndCommandBuffer
+ 15930 vkBeginCommandBuffer
+ 15931 vkCmdPipelineBarrier{commandBuffer=706, srcStageMask=VK_PIPELINE_STAGE_VERTEX_SHADER_BIT | VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT | VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT | VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT | VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, destStageMask=VK_PIPELINE_STAGE_VERTEX_SHADER_BIT | VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT | VK_PIPELINE_STAGE_HOST_BIT, dependencyFlags=VkDependencyFlagBits(0), memoryBarrierCount=1, pMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT | VK_ACCESS_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT | VK_ACCESS_HOST_READ_BIT}}, bufferMemoryBarrierCount=0, pBufferMemoryBarriers=, imageMemoryBarrierCount=2, pImageMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, oldLayout=VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL, newLayout=VK_IMAGE_LAYOUT_GENERAL, srcQueueFamilyIndex=-1, dstQueueFamilyIndex=-1, image=53382, subresourceRange{aspectMask=VK_IMAGE_ASPECT_COLOR_BIT, baseMipLevel=0, levelCount=1, baseArrayLayer=0, layerCount=1}}, $el{sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_NONE, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, oldLayout=VK_IMAGE_LAYOUT_UNDEFINED, newLayout=VK_IMAGE_LAYOUT_GENERAL, srcQueueFamilyIndex=-1, dstQueueFamilyIndex=-1, image=53414, subresourceRange{aspectMask=VK_IMAGE_ASPECT_COLOR_BIT, baseMipLevel=0, levelCount=1, baseArrayLayer=0, layerCount=1}}}, DebugMessages=}
+ 15932 vkEndCommandBuffer
+ 15933 vkBeginCommandBuffer
+ 15934 vkCmdBindPipeline
+ 15935 vkCmdBindDescriptorSets
+ 15936 vkCmdDispatch{commandBuffer=702, x=30, y=17, z=1, DebugMessages=}
+ 15937 vkCmdWriteTimestamp
+ 15938 vkEndCommandBuffer
+ 15939 vkBeginCommandBuffer
+ 15940 vkCmdPipelineBarrier{commandBuffer=714, srcStageMask=VK_PIPELINE_STAGE_VERTEX_SHADER_BIT | VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT | VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT | VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT | VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, destStageMask=VK_PIPELINE_STAGE_VERTEX_SHADER_BIT | VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT | VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT | VK_PIPELINE_STAGE_LATE_FRAGMENT_TESTS_BIT | VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT | VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, dependencyFlags=VkDependencyFlagBits(0), memoryBarrierCount=1, pMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT | VK_ACCESS_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT | VK_ACCESS_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT}}, bufferMemoryBarrierCount=0, pBufferMemoryBarriers=, imageMemoryBarrierCount=5, pImageMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, oldLayout=VK_IMAGE_LAYOUT_GENERAL, newLayout=VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL, srcQueueFamilyIndex=-1, dstQueueFamilyIndex=-1, image=1398, subresourceRange{aspectMask=VK_IMAGE_ASPECT_COLOR_BIT, baseMipLevel=0, levelCount=1, baseArrayLayer=0, layerCount=1}}, $el{sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, oldLayout=VK_IMAGE_LAYOUT_GENERAL, newLayout=VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL, srcQueueFamilyIndex=-1, dstQueueFamilyIndex=-1, image=1418, subresourceRange{aspectMask=VK_IMAGE_ASPECT_COLOR_BIT, baseMipLevel=0, levelCount=1, baseArrayLayer=0, layerCount=1}}, $el{sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_NONE, dstAccessMask=VK_ACCESS_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT, oldLayout=VK_IMAGE_LAYOUT_UNDEFINED, newLayout=VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL, srcQueueFamilyIndex=-1, dstQueueFamilyIndex=-1, image=53374, subresourceRange{aspectMask=VK_IMAGE_ASPECT_COLOR_BIT, baseMipLevel=0, levelCount=1, baseArrayLayer=0, layerCount=1}}, $el{sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, oldLayout=VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL, newLayout=VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL, srcQueueFamilyIndex=-1, dstQueueFamilyIndex=-1, image=53394, subresourceRange{aspectMask=VK_IMAGE_ASPECT_COLOR_BIT, baseMipLevel=0, levelCount=1, baseArrayLayer=0, layerCount=1}}, $el{sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_COLOR_ATTACHMENT_READ_BIT | VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, oldLayout=VK_IMAGE_LAYOUT_GENERAL, newLayout=VK_IMAGE_LAYOUT_GENERAL, srcQueueFamilyIndex=-1, dstQueueFamilyIndex=-1, image=59303, subresourceRange{aspectMask=VK_IMAGE_ASPECT_DEPTH_BIT, baseMipLevel=0, levelCount=1, baseArrayLayer=0, layerCount=1}}}, DebugMessages=}
+ 15941 vkEndCommandBuffer
+ 15942 vkQueueSubmit{queue=171, submitCount=3, pSubmits{$el{sType=VK_STRUCTURE_TYPE_SUBMIT_INFO, pNext=, waitSemaphoreCount=0, pWaitSemaphores=, pWaitDstStageMask=, commandBufferCount=4, pCommandBuffers{$el=677, $el=706, $el=702, $el=714}, signalSemaphoreCount=0, pSignalSemaphores=}, $el{sType=VK_STRUCTURE_TYPE_SUBMIT_INFO, pNext=, waitSemaphoreCount=1, pWaitSemaphores{$el=354}, pWaitDstStageMask{$el=VK_PIPELINE_STAGE_ALL_COMMANDS_BIT}, commandBufferCount=8, pCommandBuffers{$el=710, $el=735, $el=768, $el=805, $el=801, $el=838, $el=834, $el=846}, signalSemaphoreCount=0, pSignalSemaphores=}, $el{sType=VK_STRUCTURE_TYPE_SUBMIT_INFO, pNext=, waitSemaphoreCount=1, pWaitSemaphores{$el=296}, pWaitDstStageMask{$el=VK_PIPELINE_STAGE_ALL_COMMANDS_BIT}, commandBufferCount=9, pCommandBuffers{$el=842, $el=867, $el=900, $el=937, $el=933, $el=970, $el=966, $el=1003, $el=999}, signalSemaphoreCount=1, pSignalSemaphores{$el=353}}}, fence=0, DebugMessages=}
+ 15943 vkBeginCommandBuffer
+ 15944 vkCmdWriteTimestamp
+ 15945 vkCmdPipelineBarrier{commandBuffer=710, srcStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, destStageMask=VK_PIPELINE_STAGE_COMPUTE_SHADER_BIT, dependencyFlags=VkDependencyFlagBits(0), memoryBarrierCount=1, pMemoryBarriers{$el{sType=VK_STRUCTURE_TYPE_MEMORY_BARRIER, pNext=, srcAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT, dstAccessMask=VK_ACCESS_UNIFORM_READ_BIT | VK_ACCESS_SHADER_READ_BIT | VK_ACCESS_SHADER_WRITE_BIT}}, bufferMemoryBarrierCount=0, pBufferMemoryBarriers=, imageMemoryBarrierCount=0, pImageMemoryBarriers=, DebugMessages=}
+ 15946 vkCmdBeginRenderPass{commandBuffer=710, RenderPassBegin{sType=VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO, pNext=, renderPass=53842, framebuffer=686060, renderArea{offset{x=0, y=0}, extent{width=1920, height=1080}}, clearValueCount=1, pClearValues{$el{color{float32{$el=0, $el=0, $el=0, $el=0}, int32{$el=0, $el=0, $el=0, $el=0}, uint32{$el=0, $el=0, $el=0, $el=0}}, depthStencil{depth=0, stencil=0}}}}, contents=VK_SUBPASS_CONTENTS_INLINE, DebugMessages=}
+ 15947 vkCmdEndRenderPass
+ 15948 vkCmdBeginRenderPass{commandBuffer=710, RenderPassBegin{sType=VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO, pNext=, renderPass=71294, framebuffer=695216, renderArea{offset{x=0, y=0}, extent{width=1920, height=1080}}, clearValueCount=0, pClearValues=}, contents=VK_SUBPASS_CONTENTS_INLINE, DebugMessages=}
+ 15949 vkCmdBindPipeline
+ 15950 vkCmdBindDescriptorSets
+ 15951 vkCmdSetViewport
+ 15952 vkCmdSetScissor
+ 15953 vkCmdSetLineWidth
+ 15954 vkCmdSetStencilCompareMask
+ 15955 vkCmdSetStencilWriteMask
+ 15956 vkCmdSetStencilReference
+ 15957 vkCmdBindVertexBuffers
+ 15958 vkCmdBindIndexBuffer
+ 15959 vkCmdPushConstants
+ 15960 vkCmdDrawIndexed

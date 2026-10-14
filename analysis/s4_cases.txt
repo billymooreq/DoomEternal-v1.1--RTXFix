@@ -1,0 +1,3 @@
+# tag x y target draw
+world_floor_near 1000 850 53374 -
+world_lit_right 1650 700 53374 -

@@ -1,0 +1,31 @@
+capture opened in 15.1s
+=== case world_floor_near (1000,850) on 53374
+   hist eid 15946 passed=True out=[0.0, 0.0, 0.0] post=[0.0, 0.0, 0.0]
+   hist eid 26819 passed=False out=[0.0002863534027710557, 0.00013850070536136627, 4.685333260567859e-05] post=[0.0, 0.0, 0.0]
+   hist eid 26874 passed=False out=[0.0, 0.0, 0.0] post=[0.0, 0.0, 0.0]
+   hist eid 26929 passed=False out=[0.0, 0.0, 0.0] post=[0.0, 0.0, 0.0]
+   hist eid 27064 passed=True out=[0.0026305420324206352, 0.000879632483702153, 0.0002758761402219534] post=[0.00262451171875, 0.00087738037109375, 0.000274658203125]
+   hist eid 27847 passed=True out=[0.0, 0.0, 0.0] post=[0.002593994140625, 0.00086212158203125, 0.00026702880859375]
+   last passing draw: 27064
+[world_floor_near] draw 27064 dumped; issues: ['Vertex main: _viewUniforms (set0 b0) 560 bytes needed, 544 provided (VkBuffer len 524288, offset 4096)', 'Vertex main: _instanceUniforms (set1 b0) 176 bytes needed, 128 provided (VkBuffer len 128, offset 0)', 'Pixel main: _viewUniforms (set0 b0) 560 bytes needed, 544 provided (VkBuffer len 524288, offset 4096)', 'Pixel main: _instanceUniforms (set1 b0) 176 bytes needed, 128 provided (VkBuffer len 128, offset 0)']
+  spirv-dis.exe rc=0 
+  spirv-cross.exe rc=0 
+  spirv-cross.exe rc=0 
+exported shader C:\Users\vippr\Documents\doomfix\analysis\shaders\vert_14338 targets: ['SPIR-V (RenderDoc)', 'KHR_pipeline_executable_properties', 'AMDIL', 'GCN (gfx804)', 'GCN (gfx900)', 'GCN (gfx902)', 'GCN (gfx906)', 'RDNA (gfx1010)', 'RDNA (gfx1012)', 'RDNA2 (gfx1030)', 'RDNA2 (gfx1031)', 'RDNA2 (gfx1032)', 'RDNA2 (gfx1034)', 'RDNA2 (gfx1035)']
+  spirv-dis.exe rc=0 
+  spirv-cross.exe rc=0 
+  spirv-cross.exe rc=1 SPIRV-Cross threw an exception: Shader model 5.1 or higher is required to use bindless resources or NonUniformResourceIndex.
+
+exported shader C:\Users\vippr\Documents\doomfix\analysis\shaders\frag_14337 targets: ['SPIR-V (RenderDoc)', 'KHR_pipeline_executable_properties', 'AMDIL', 'GCN (gfx804)', 'GCN (gfx900)', 'GCN (gfx902)', 'GCN (gfx906)', 'RDNA (gfx1010)', 'RDNA (gfx1012)', 'RDNA2 (gfx1030)', 'RDNA2 (gfx1031)', 'RDNA2 (gfx1032)', 'RDNA2 (gfx1034)', 'RDNA2 (gfx1035)']
+[world_floor_near] debug trace 3360 steps -> C:\Users\vippr\Documents\doomfix\analysis\world_floor_near_draw27064_px1000_850_trace.txt ; NaN/Inf=0
+=== case world_lit_right (1650,700) on 53374
+   hist eid 15946 passed=True out=[0.0, 0.0, 0.0] post=[0.0, 0.0, 0.0]
+   hist eid 16030 passed=False out=[0.001502395374700427, 0.00044204253936186433, 9.568756649969146e-05] post=[0.0, 0.0, 0.0]
+   hist eid 16040 passed=False out=[0.00048033279017545283, 0.00019451093976385891, 4.9372225475963205e-05] post=[0.0, 0.0, 0.0]
+   hist eid 16050 passed=False out=[0.0007132925093173981, 0.00043984808144159615, 0.00010238654795102775] post=[0.0, 0.0, 0.0]
+   hist eid 21688 passed=True out=[0.005765151232481003, 0.001672395970672369, 0.0006271983729675412] post=[0.0057373046875, 0.0016632080078125, 0.0006256103515625]
+   hist eid 26879 passed=False out=[0.0005620515439659357, 0.00016127136768773198, 6.042724271537736e-05] post=[0.0057373046875, 0.0016632080078125, 0.0006256103515625]
+   last passing draw: 21688
+[world_lit_right] draw 21688 dumped; issues: ['Vertex main: _viewUniforms (set0 b0) 560 bytes needed, 544 provided (VkBuffer len 524288, offset 3072)', 'Vertex main: _instanceUniforms (set1 b0) 176 bytes needed, 128 provided (VkBuffer len 128, offset 0)', 'Pixel main: _viewUniforms (set0 b0) 560 bytes needed, 544 provided (VkBuffer len 524288, offset 3072)', 'Pixel main: _instanceUniforms (set1 b0) 176 bytes needed, 128 provided (VkBuffer len 128, offset 0)']
+[world_lit_right] debug trace 3360 steps -> C:\Users\vippr\Documents\doomfix\analysis\world_lit_right_draw21688_px1650_700_trace.txt ; NaN/Inf=0
+done in 33.8s

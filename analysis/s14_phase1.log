@@ -1,0 +1,20 @@
+capture opened in 15.3s
+--- replay 0
+  after 15778: decalbuckets[md5=21a04285 nonzero_bytes=0]  visboxbuckets[md5=21a04285 nonzero_bytes=0]  lightbuckets[md5=1d76825c nonzero_bytes=0]  lightbitfield[md5=48673bf5 nonzero_bytes=0]  decalbitfield[md5=b3b34cf9 nonzero_bytes=0]
+  after 15817: decalbuckets[md5=21a04285 nonzero_bytes=0]  visboxbuckets[md5=21a04285 nonzero_bytes=0]  lightbuckets[md5=9aa24a2a nonzero_bytes=335]  lightbitfield[md5=57ca0835 nonzero_bytes=308]  decalbitfield[md5=b3b34cf9 nonzero_bytes=0]
+  after 15828: decalbuckets[md5=21a04285 nonzero_bytes=0]  visboxbuckets[md5=21a04285 nonzero_bytes=0]  lightbuckets[md5=1d76825c nonzero_bytes=0]  lightbitfield[md5=48673bf5 nonzero_bytes=0]  decalbitfield[md5=b3b34cf9 nonzero_bytes=0]
+  after 15873: decalbuckets[md5=21a04285 nonzero_bytes=0]  visboxbuckets[md5=21a04285 nonzero_bytes=0]  lightbuckets[md5=1d76825c nonzero_bytes=0]  lightbitfield[md5=48673bf5 nonzero_bytes=0]  decalbitfield[md5=b3b34cf9 nonzero_bytes=0]
+  after 15883: decalbuckets[md5=21a04285 nonzero_bytes=0]  visboxbuckets[md5=21a04285 nonzero_bytes=0]  lightbuckets[md5=1d76825c nonzero_bytes=0]  lightbitfield[md5=48673bf5 nonzero_bytes=0]  decalbitfield[md5=b3b34cf9 nonzero_bytes=0]
+--- replay 1
+  after 15778: decalbuckets[md5=21a04285 nonzero_bytes=0]  visboxbuckets[md5=21a04285 nonzero_bytes=0]  lightbuckets[md5=1d76825c nonzero_bytes=0]  lightbitfield[md5=48673bf5 nonzero_bytes=0]  decalbitfield[md5=b3b34cf9 nonzero_bytes=0]
+  after 15817: decalbuckets[md5=21a04285 nonzero_bytes=0]  visboxbuckets[md5=21a04285 nonzero_bytes=0]  lightbuckets[md5=9aa24a2a nonzero_bytes=335]  lightbitfield[md5=57ca0835 nonzero_bytes=308]  decalbitfield[md5=b3b34cf9 nonzero_bytes=0]
+  after 15828: decalbuckets[md5=21a04285 nonzero_bytes=0]  visboxbuckets[md5=21a04285 nonzero_bytes=0]  lightbuckets[md5=1d76825c nonzero_bytes=0]  lightbitfield[md5=48673bf5 nonzero_bytes=0]  decalbitfield[md5=b3b34cf9 nonzero_bytes=0]
+  after 15873: decalbuckets[md5=21a04285 nonzero_bytes=0]  visboxbuckets[md5=21a04285 nonzero_bytes=0]  lightbuckets[md5=1d76825c nonzero_bytes=0]  lightbitfield[md5=48673bf5 nonzero_bytes=0]  decalbitfield[md5=b3b34cf9 nonzero_bytes=0]
+  after 15883: decalbuckets[md5=21a04285 nonzero_bytes=0]  visboxbuckets[md5=21a04285 nonzero_bytes=0]  lightbuckets[md5=1d76825c nonzero_bytes=0]  lightbitfield[md5=48673bf5 nonzero_bytes=0]  decalbitfield[md5=b3b34cf9 nonzero_bytes=0]
+--- replay 2
+  after 15778: decalbuckets[md5=21a04285 nonzero_bytes=0]  visboxbuckets[md5=21a04285 nonzero_bytes=0]  lightbuckets[md5=1d76825c nonzero_bytes=0]  lightbitfield[md5=48673bf5 nonzero_bytes=0]  decalbitfield[md5=b3b34cf9 nonzero_bytes=0]
+  after 15817: decalbuckets[md5=21a04285 nonzero_bytes=0]  visboxbuckets[md5=21a04285 nonzero_bytes=0]  lightbuckets[md5=9aa24a2a nonzero_bytes=335]  lightbitfield[md5=57ca0835 nonzero_bytes=308]  decalbitfield[md5=b3b34cf9 nonzero_bytes=0]
+  after 15828: decalbuckets[md5=21a04285 nonzero_bytes=0]  visboxbuckets[md5=21a04285 nonzero_bytes=0]  lightbuckets[md5=1d76825c nonzero_bytes=0]  lightbitfield[md5=48673bf5 nonzero_bytes=0]  decalbitfield[md5=b3b34cf9 nonzero_bytes=0]
+  after 15873: decalbuckets[md5=21a04285 nonzero_bytes=0]  visboxbuckets[md5=21a04285 nonzero_bytes=0]  lightbuckets[md5=1d76825c nonzero_bytes=0]  lightbitfield[md5=48673bf5 nonzero_bytes=0]  decalbitfield[md5=b3b34cf9 nonzero_bytes=0]
+  after 15883: decalbuckets[md5=21a04285 nonzero_bytes=0]  visboxbuckets[md5=21a04285 nonzero_bytes=0]  lightbuckets[md5=1d76825c nonzero_bytes=0]  lightbitfield[md5=48673bf5 nonzero_bytes=0]  decalbitfield[md5=b3b34cf9 nonzero_bytes=0]
+done in 25.5s

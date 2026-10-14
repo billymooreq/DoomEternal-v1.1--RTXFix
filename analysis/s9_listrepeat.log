@@ -1,0 +1,60 @@
+capture opened in 16.0s
+dispatches with 1753 bound as RW: [15781, 15783, 15785, 15787, 15789, 15791, 15794, 15796, 15798, 15800, 15802, 15804, 15807, 15809, 15811, 15813, 15815, 15817, 15831, 15833, 15835, 15837, 15839, 15841, 15843, 15846, 15848, 15850, 15852, 15854, 15856, 15858, 15861, 15863, 15865, 15867, 15869, 15871, 15873, 15876, 15880, 15883, 15923, 27839]
+  15781 vkCmdDispatchIndirect(<2, 1, 1>) cs=14672 ['decaltileworkbucketsrw_b_var@8043520+9175040', 'decalbitfieldbufferrw_b_var@6507520+768000']
+  15783 vkCmdDispatchIndirect(<4, 1, 1>) cs=14672 ['decaltileworkbucketsrw_b_var@8043520+9175040', 'decalbitfieldbufferrw_b_var@6507520+768000']
+  15785 vkCmdDispatchIndirect(<2, 1, 1>) cs=14672 ['decaltileworkbucketsrw_b_var@8043520+9175040', 'decalbitfieldbufferrw_b_var@6507520+768000']
+  15787 vkCmdDispatchIndirect(<1, 1, 1>) cs=14672 ['decaltileworkbucketsrw_b_var@8043520+9175040', 'decalbitfieldbufferrw_b_var@6507520+768000']
+  15789 vkCmdDispatchIndirect(<1, 1, 1>) cs=14672 ['decaltileworkbucketsrw_b_var@8043520+9175040', 'decalbitfieldbufferrw_b_var@6507520+768000']
+  15791 vkCmdDispatchIndirect(<0, 1, 1>) cs=14672 ['decaltileworkbucketsrw_b_var@8043520+9175040', 'decalbitfieldbufferrw_b_var@6507520+768000']
+  15794 vkCmdDispatchIndirect(<5, 1, 1>) cs=14643 ['visboxestileworkbucketsrw_b_var@17218560+9175040']
+  15796 vkCmdDispatchIndirect(<2, 1, 1>) cs=14643 ['visboxestileworkbucketsrw_b_var@17218560+9175040']
+  15798 vkCmdDispatchIndirect(<1, 1, 1>) cs=14643 ['visboxestileworkbucketsrw_b_var@17218560+9175040']
+  15800 vkCmdDispatchIndirect(<1, 1, 1>) cs=14643 ['visboxestileworkbucketsrw_b_var@17218560+9175040']
+  15802 vkCmdDispatchIndirect(<1, 1, 1>) cs=14643 ['visboxestileworkbucketsrw_b_var@17218560+9175040']
+  15804 vkCmdDispatchIndirect(<0, 1, 1>) cs=14643 ['visboxestileworkbucketsrw_b_var@17218560+9175040']
+  15807 vkCmdDispatchIndirect(<1, 1, 1>) cs=14664 ['lightfrustumstileworkbucketsrw_b_var@1920000+4587520', 'lightbitfieldbufferrw_b_var@0+384000']
+  15809 vkCmdDispatchIndirect(<1, 1, 1>) cs=14664 ['lightfrustumstileworkbucketsrw_b_var@1920000+4587520', 'lightbitfieldbufferrw_b_var@0+384000']
+  15811 vkCmdDispatchIndirect(<1, 1, 1>) cs=14664 ['lightfrustumstileworkbucketsrw_b_var@1920000+4587520', 'lightbitfieldbufferrw_b_var@0+384000']
+  15813 vkCmdDispatchIndirect(<2, 1, 1>) cs=14664 ['lightfrustumstileworkbucketsrw_b_var@1920000+4587520', 'lightbitfieldbufferrw_b_var@0+384000']
+  15815 vkCmdDispatchIndirect(<1, 1, 1>) cs=14664 ['lightfrustumstileworkbucketsrw_b_var@1920000+4587520', 'lightbitfieldbufferrw_b_var@0+384000']
+  15817 vkCmdDispatchIndirect(<2, 1, 1>) cs=14664 ['lightfrustumstileworkbucketsrw_b_var@1920000+4587520', 'lightbitfieldbufferrw_b_var@0+384000']
+  15831 vkCmdDispatchIndirect(<0, 1, 1>) cs=14670 ['decaltileworkbuckets_b_var@8043520+9175040', 'decalbitfieldbufferrw_b_var@6507520+768000']
+  15833 vkCmdDispatchIndirect(<0, 1, 1>) cs=14670 ['decaltileworkbuckets_b_var@8043520+9175040', 'decalbitfieldbufferrw_b_var@6507520+768000']
+  15835 vkCmdDispatchIndirect(<0, 1, 1>) cs=14670 ['decaltileworkbuckets_b_var@8043520+9175040', 'decalbitfieldbufferrw_b_var@6507520+768000']
+  15837 vkCmdDispatchIndirect(<0, 1, 1>) cs=14670 ['decaltileworkbuckets_b_var@8043520+9175040', 'decalbitfieldbufferrw_b_var@6507520+768000']
+  15839 vkCmdDispatchIndirect(<0, 1, 1>) cs=14670 ['decaltileworkbuckets_b_var@8043520+9175040', 'decalbitfieldbufferrw_b_var@6507520+768000']
+  15841 vkCmdDispatchIndirect(<0, 1, 1>) cs=14670 ['decaltileworkbuckets_b_var@8043520+9175040', 'decalbitfieldbufferrw_b_var@6507520+768000']
+  15843 vkCmdDispatchIndirect(<0, 1, 1>) cs=14670 ['decaltileworkbuckets_b_var@8043520+9175040', 'decalbitfieldbufferrw_b_var@6507520+768000']
+  15846 vkCmdDispatchIndirect(<0, 1, 1>) cs=14639 ['visboxestileworkbuckets_b_var@17218560+9175040']
+  15848 vkCmdDispatchIndirect(<0, 1, 1>) cs=14639 ['visboxestileworkbuckets_b_var@17218560+9175040']
+  15850 vkCmdDispatchIndirect(<0, 1, 1>) cs=14639 ['visboxestileworkbuckets_b_var@17218560+9175040']
+  15852 vkCmdDispatchIndirect(<0, 1, 1>) cs=14639 ['visboxestileworkbuckets_b_var@17218560+9175040']
+  15854 vkCmdDispatchIndirect(<0, 1, 1>) cs=14639 ['visboxestileworkbuckets_b_var@17218560+9175040']
+  15856 vkCmdDispatchIndirect(<0, 1, 1>) cs=14639 ['visboxestileworkbuckets_b_var@17218560+9175040']
+  15858 vkCmdDispatchIndirect(<0, 1, 1>) cs=14639 ['visboxestileworkbuckets_b_var@17218560+9175040']
+  15861 vkCmdDispatchIndirect(<1, 1, 1>) cs=14662 ['lightfrustumstileworkbuckets_b_var@1920000+4587520', 'lightbitfieldbufferrw_b_var@0+384000']
+  15863 vkCmdDispatchIndirect(<1, 1, 1>) cs=14662 ['lightfrustumstileworkbuckets_b_var@1920000+4587520', 'lightbitfieldbufferrw_b_var@0+384000']
+  15865 vkCmdDispatchIndirect(<3, 1, 1>) cs=14662 ['lightfrustumstileworkbuckets_b_var@1920000+4587520', 'lightbitfieldbufferrw_b_var@0+384000']
+  15867 vkCmdDispatchIndirect(<10, 1, 1>) cs=14662 ['lightfrustumstileworkbuckets_b_var@1920000+4587520', 'lightbitfieldbufferrw_b_var@0+384000']
+  15869 vkCmdDispatchIndirect(<27, 1, 1>) cs=14662 ['lightfrustumstileworkbuckets_b_var@1920000+4587520', 'lightbitfieldbufferrw_b_var@0+384000']
+  15871 vkCmdDispatchIndirect(<34, 1, 1>) cs=14662 ['lightfrustumstileworkbuckets_b_var@1920000+4587520', 'lightbitfieldbufferrw_b_var@0+384000']
+  15873 vkCmdDispatchIndirect(<115, 1, 1>) cs=14662 ['lightfrustumstileworkbuckets_b_var@1920000+4587520', 'lightbitfieldbufferrw_b_var@0+384000']
+  15876 vkCmdDispatch() cs=14654 ['decallistbufferrw_b_var@7275520+768000', 'lightlistbufferrw_b_var@384000+768000', 'probelistbufferrw_b_var@1152000+768000']
+  15880 vkCmdDispatch() cs=14660 ['decalbitfieldbufferrw_b_var@6507520+768000', 'decallistbufferrw_b_var@7275520+768000']
+  15883 vkCmdDispatch() cs=14657 ['lightlistbufferrw_b_var@384000+768000', 'lightbitfieldbufferrw_b_var@0+384000', 'probelistbufferrw_b_var@1152000+768000']
+  15923 vkCmdDispatch() cs=15363 ['probelistbuffer_b_var@1152000+768000', 'lightlistbuffer_b_var@384000+768000']
+
+repeated replays, state after eid 15947:
+  run 0: lightlist md5=1d4c4ff463 nonempty clusters=3000  cluster2736=(1, 0, 0, 0, 0, 0, 0, 0) | probelist md5=b3b34cf9f1 nonempty=0
+  run 1: lightlist md5=1d4c4ff463 nonempty clusters=3000  cluster2736=(1, 0, 0, 0, 0, 0, 0, 0) | probelist md5=b3b34cf9f1 nonempty=0
+  run 2: lightlist md5=1d4c4ff463 nonempty clusters=3000  cluster2736=(1, 0, 0, 0, 0, 0, 0, 0) | probelist md5=b3b34cf9f1 nonempty=0
+  run 3: lightlist md5=1d4c4ff463 nonempty clusters=3000  cluster2736=(1, 0, 0, 0, 0, 0, 0, 0) | probelist md5=b3b34cf9f1 nonempty=0
+  run 4: lightlist md5=1d4c4ff463 nonempty clusters=3000  cluster2736=(1, 0, 0, 0, 0, 0, 0, 0) | probelist md5=b3b34cf9f1 nonempty=0
+
+repeated replays, state after eid 15976:
+  run 0: lightlist md5=1d4c4ff463 nonempty clusters=3000  cluster2736=(1, 0, 0, 0, 0, 0, 0, 0) | probelist md5=b3b34cf9f1 nonempty=0
+  run 1: lightlist md5=1d4c4ff463 nonempty clusters=3000  cluster2736=(1, 0, 0, 0, 0, 0, 0, 0) | probelist md5=b3b34cf9f1 nonempty=0
+  run 2: lightlist md5=1d4c4ff463 nonempty clusters=3000  cluster2736=(1, 0, 0, 0, 0, 0, 0, 0) | probelist md5=b3b34cf9f1 nonempty=0
+  run 3: lightlist md5=1d4c4ff463 nonempty clusters=3000  cluster2736=(1, 0, 0, 0, 0, 0, 0, 0) | probelist md5=b3b34cf9f1 nonempty=0
+  run 4: lightlist md5=1d4c4ff463 nonempty clusters=3000  cluster2736=(1, 0, 0, 0, 0, 0, 0, 0) | probelist md5=b3b34cf9f1 nonempty=0
+done in 39.2s

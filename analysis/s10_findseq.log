@@ -1,0 +1,26 @@
+capture opened in 15.6s
+after eid 1: buffer 26393600 bytes; [hash&255=4, 0,1,23,29] found at word indices []
+    word at byte 700416 (index 175104 without descriptor offset): (1, 0, 0, 0, 0, 0)
+    word at byte 1084416 (index 175104 with offset 384000):     (1, 0, 0, 0, 0, 0)
+    word at byte 1852416 (probelist w/ offset):                 (0, 0)
+after eid 15976: buffer 26393600 bytes; [hash&255=4, 0,1,23,29] found at word indices []
+    word at byte 700416 (index 175104 without descriptor offset): (1, 0, 0, 0, 0, 0)
+    word at byte 1084416 (index 175104 with offset 384000):     (1, 0, 0, 0, 0, 0)
+    word at byte 1852416 (probelist w/ offset):                 (0, 0)
+after eid 27840: buffer 26393600 bytes; [hash&255=4, 0,1,23,29] found at word indices []
+    word at byte 700416 (index 175104 without descriptor offset): (1, 0, 0, 0, 0, 0)
+    word at byte 1084416 (index 175104 with offset 384000):     (1, 0, 0, 0, 0, 0)
+    word at byte 1852416 (probelist w/ offset):                 (0, 0)
+after eid 29213: buffer 26393600 bytes; [hash&255=4, 0,1,23,29] found at word indices []
+    word at byte 700416 (index 175104 without descriptor offset): (1, 0, 0, 0, 0, 0)
+    word at byte 1084416 (index 175104 with offset 384000):     (1, 0, 0, 0, 0, 0)
+    word at byte 1852416 (probelist w/ offset):                 (0, 0)
+lightparms1[light 0] = (-0.5067, -0.4138, 0.7563, 0.0, 28.6268, -1612.9454, 18.8279, 0.0278, 0.0, 0.0, 0.0001, 0.5, 0.0, 0.0, 1.0, 0.0)  (w0 as uint=0x003f260a, [3].x uint=0x0000045f)
+lightparms1[light 1] = (35.4861, -1620.918, 21.4596, 0.0, 0.0, 0.0, 0.0, 0.0069, 0.0019, 0.1039, -0.0564, 169.613, 0.0, 0.0, 30.0, 0.0)  (w0 as uint=0x00002601, [3].x uint=0x00000462)
+lightparms1[light 23] = (36.2552, -1623.1255, 18.2638, 0.0, 0.0, 0.0, 0.0, 0.0093, 0.0, 0.0, 0.0482, -0.3799, 0.0, 0.0, 10.0, 0.0)  (w0 as uint=0x00002600, [3].x uint=0x00000460)
+lightparms1[light 29] = (26.7122, -1609.7434, 21.3136, 0.0, 0.0, 0.0, 0.0, 0.0204, -0.1135, 0.2255, 3.3238, 305.6456, 0.0, 0.0, 10.0, 0.0)  (w0 as uint=0x00002610, [3].x uint=0x00000467)
+lightparms2[light 0] = (0.0, -0.0, 0.0, 0.5, 0.0, 0.0, 0.0, 0.5, 0.0, 0.0, 0.0, 1.0, 0.0931, 0.0887, 0.063, 1.0)  (w0 as uint=0x3f000000, [3].x uint=0x3dbe95b5)
+lightparms2[light 1] = (0.3977, 0.4377, -0.2285, 700.2505, 0.0153, 0.2662, -0.5577, 442.8528, 0.016, 0.8789, -0.4767, 1434.345, 30.0, 16.5604, 6.1524, 1.0)  (w0 as uint=0x442f1008, [3].x uint=0x41f00000)
+lightparms2[light 23] = (-0.0, -0.0482, 0.0, -77.7012, 0.0482, -0.0, 0.0, -1.2468, 0.0, 0.0, 0.0, 1.0, 10.0, 2.6225, 0.4374, 1.0)  (w0 as uint=0xc29b6701, [3].x uint=0x41200000)
+lightparms2[light 29] = (0.1536, 0.9862, -0.0617, 1588.2629, -2.4689, 0.3776, -0.1099, 681.555, 0.0, 0.0, 0.0, 1.0, 1.8782, 2.1223, 2.1586, 0.35)  (w0 as uint=0x44c6886a, [3].x uint=0x3ff0691f)
+done in 25.9s
