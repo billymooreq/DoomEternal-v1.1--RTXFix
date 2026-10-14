@@ -1,27 +1,30 @@
-﻿<#
+<#
 .SYNOPSIS
-  Устанавливает doomfix как implicit Vulkan layer для текущего пользователя (без прав администратора).
+  Installs doomfix as an implicit Vulkan layer for the current user (no administrator rights needed).
 
 .DESCRIPTION
-  1. Копирует doomfix_layer.dll и манифест из build\bin в %LOCALAPPDATA%\doomfix\layer.
-  2. Регистрирует манифест в HKCU\SOFTWARE\Khronos\Vulkan\ImplicitLayers.
-  3. Задаёт порядок слоёв через loader settings (HKCU\SOFTWARE\Khronos\Vulkan\LoaderSettings ->
-     vk_loader_settings.json): doomfix ставится первым, то есть ближе всех к приложению и выше
-     RenderDoc. Без этого шага loader читает implicit-слои из HKLM раньше, чем из HKCU, и
-     RenderDoc (зарегистрирован в HKLM) оказался бы выше doomfix.
+  1. Copies doomfix_layer.dll and its manifest to %LOCALAPPDATA%\doomfix\layer.
+  2. Registers the manifest under HKCU\SOFTWARE\Khronos\Vulkan\ImplicitLayers.
+  3. Sets the layer order through a loader settings file (HKCU\SOFTWARE\Khronos\Vulkan\LoaderSettings ->
+     vk_loader_settings.json): doomfix goes first, i.e. closest to the game and above tools such as
+     RenderDoc. Without this step the loader reads HKLM implicit layers before HKCU ones, and a layer
+     registered in HKLM (RenderDoc does that) would sit above doomfix.
 
-  Слой включается только при DOOMFIX_ENABLE=1, поэтому для остальных приложений он неактивен.
+  The layer only activates in processes started with DOOMFIX_ENABLE=1, so other applications are not affected.
+
+.PARAMETER SourceDir
+  Folder with doomfix_layer.dll and VK_LAYER_DOOMFIX.json. Default: ..\bin (release zip), then
+  ..\build\bin (built from source), relative to this script.
 
 .PARAMETER GameExe
-  Если задан, правило порядка слоёв применяется только к этому exe (поле app_keys).
-  Loader сравнивает путь посимвольно с учётом регистра, поэтому путь должен совпадать
-  с тем, как процесс запускается. По умолчанию правило глобальное.
+  If set, the layer-order rule applies only to this exe (loader settings "app_keys"). The loader compares
+  the path case-sensitively, so it must match exactly how the game is started. Default: the rule is global.
 
 .PARAMETER NoOrdering
-  Не создавать loader settings: только регистрация в ImplicitLayers (doomfix окажется НИЖЕ RenderDoc).
+  Skip the loader settings file and only register the layer (doomfix may then end up BELOW RenderDoc).
 #>
 param(
-    [string]$BuildDir = (Join-Path $PSScriptRoot '..\build'),
+    [string]$SourceDir = '',
     [string]$InstallDir = (Join-Path $env:LOCALAPPDATA 'doomfix\layer'),
     [string]$GameExe = '',
     [switch]$NoOrdering
@@ -32,7 +35,7 @@ $LayerName = 'VK_LAYER_DOOMFIX'
 $ImplicitKey = 'HKCU:\SOFTWARE\Khronos\Vulkan\ImplicitLayers'
 $SettingsKey = 'HKCU:\SOFTWARE\Khronos\Vulkan\LoaderSettings'
 $SettingsDir = Join-Path $env:LOCALAPPDATA 'doomfix\loader'
-$SettingsFile = Join-Path $SettingsDir 'vk_loader_settings.json'   # имя файла фиксировано loader'ом
+$SettingsFile = Join-Path $SettingsDir 'vk_loader_settings.json'   # the file name is fixed by the loader
 
 function Set-RegistryDword([string]$Key, [string]$Name) {
     if (-not (Test-Path $Key)) { New-Item -Path $Key -Force | Out-Null }
@@ -48,43 +51,50 @@ function Write-Utf8NoBom([string]$Path, [string]$Text) {
     [System.IO.File]::WriteAllText($Path, $Text, (New-Object System.Text.UTF8Encoding $false))
 }
 
-# --- 1. Копирование файлов ---------------------------------------------------------------
-$bin = Join-Path $BuildDir 'bin'
-$dll = Join-Path $bin 'doomfix_layer.dll'
-$manifest = Join-Path $bin "$LayerName.json"
+# --- 1. Copy the files ------------------------------------------------------------------------
+if (-not $SourceDir) {
+    $candidates = @((Join-Path $PSScriptRoot '..\bin'), (Join-Path $PSScriptRoot '..\build\bin'))
+    $SourceDir = $candidates | Where-Object { Test-Path (Join-Path $_ 'doomfix_layer.dll') } | Select-Object -First 1
+    if (-not $SourceDir) {
+        throw "doomfix_layer.dll not found in $($candidates -join ' or '). Download a release zip, or build " +
+              "the project first (see docs/BUILDING.md), or pass -SourceDir."
+    }
+}
+$dll = Join-Path $SourceDir 'doomfix_layer.dll'
+$manifest = Join-Path $SourceDir "$LayerName.json"
 foreach ($f in $dll, $manifest) {
-    if (-not (Test-Path $f)) { throw "Не найден $f. Сначала соберите проект: scripts\build.ps1" }
+    if (-not (Test-Path $f)) { throw "Not found: $f" }
 }
 New-Item -ItemType Directory -Force -Path $InstallDir | Out-Null
-foreach ($f in @($dll, $manifest) + @(Get-ChildItem $bin -Filter 'doomfix_layer.pdb' | ForEach-Object FullName)) {
+foreach ($f in @($dll, $manifest) + @(Get-ChildItem $SourceDir -Filter 'doomfix_layer.pdb' | ForEach-Object FullName)) {
     Copy-Item $f $InstallDir -Force
 }
 $installedManifest = (Resolve-Path (Join-Path $InstallDir "$LayerName.json")).Path
-Write-Host "Файлы слоя: $InstallDir"
+Write-Host "Layer files: $InstallDir"
 
-# --- 2. ImplicitLayers ------------------------------------------------------------------
-# Удаляем старые регистрации doomfix из других каталогов, чтобы не было дублей.
+# --- 2. ImplicitLayers ------------------------------------------------------------------------
+# Remove older doomfix registrations from other folders to avoid duplicates.
 foreach ($name in Get-RegistryValueNames $ImplicitKey) {
     if ((Split-Path $name -Leaf) -ieq "$LayerName.json" -and $name -ne $installedManifest) {
         Remove-ItemProperty -Path $ImplicitKey -Name $name
-        Write-Host "Удалена старая регистрация: $name"
+        Write-Host "Removed old registration: $name"
     }
 }
 Set-RegistryDword $ImplicitKey $installedManifest
-Write-Host "Зарегистрирован implicit layer: $ImplicitKey -> $installedManifest"
+Write-Host "Registered implicit layer: $ImplicitKey -> $installedManifest"
 
-# --- 3. Порядок слоёв (loader settings) ---------------------------------------------------
+# --- 3. Layer order (loader settings) ---------------------------------------------------------
 if ($NoOrdering) {
-    Write-Warning "Порядок слоёв не настроен (-NoOrdering): RenderDoc будет ближе к приложению, чем doomfix."
+    Write-Warning "Layer order not configured (-NoOrdering): tools registered in HKLM (e.g. RenderDoc) will sit above doomfix."
 } else {
     $foreign = Get-RegistryValueNames $SettingsKey | Where-Object {
         $_ -ne $SettingsFile -and (Split-Path $_ -Leaf) -ieq 'vk_loader_settings.json' -and (Test-Path $_)
     }
     if ($foreign) {
-        Write-Warning ("В $SettingsKey уже зарегистрирован чужой файл настроек loader'а (вероятно, от Vulkan Configurator):`n  " +
+        Write-Warning ("Another loader settings file is already registered in $SettingsKey (probably by Vulkan Configurator):`n  " +
             ($foreign -join "`n  ") +
-            "`nLoader использует только один такой файл, поэтому doomfix его не трогает. Закройте vkconfig " +
-            "(или выключите в нём 'Vulkan Loader Management') и запустите install.ps1 снова.")
+            "`nThe loader uses only one such file, so doomfix leaves it alone. Close vkconfig (or turn off its " +
+            "'Vulkan Loader Management') and run install.bat again.")
     } else {
         $layers = @(
             [ordered]@{ control = 'auto'; name = $LayerName; path = $installedManifest; treat_as_implicit_manifest = $true },
@@ -98,12 +108,12 @@ if ($NoOrdering) {
         New-Item -ItemType Directory -Force -Path $SettingsDir | Out-Null
         Write-Utf8NoBom $SettingsFile ($doc | ConvertTo-Json -Depth 10)
         Set-RegistryDword $SettingsKey $SettingsFile
-        $scope = if ($GameExe) { "только для $GameExe" } else { 'для всех приложений (слой активен только при DOOMFIX_ENABLE=1)' }
-        Write-Host "Порядок слоёв: $LayerName первым, ближе к приложению; $scope"
+        $scope = if ($GameExe) { "only for $GameExe" } else { 'for all applications (the layer is active only with DOOMFIX_ENABLE=1)' }
+        Write-Host "Layer order: $LayerName first, closest to the application; $scope"
         Write-Host "  $SettingsKey -> $SettingsFile"
     }
 }
 
 Write-Host ""
-Write-Host "Включение: переменная окружения DOOMFIX_ENABLE=1 у процесса игры (см. README.md)."
-Write-Host "Логи: $(Join-Path $env:LOCALAPPDATA 'doomfix\logs')"
+Write-Host "Done. Start the game with run_doom_fixed.bat (see README.md)."
+Write-Host "Logs: $(Join-Path $env:LOCALAPPDATA 'doomfix\logs')"

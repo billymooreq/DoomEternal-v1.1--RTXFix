@@ -6,7 +6,7 @@
     "library_path": ".\\$<TARGET_FILE_NAME:doomfix_layer>",
     "api_version": "1.4.341",
     "implementation_version": "1",
-    "description": "doomfix @PROJECT_VERSION@: hides VK_AMD_memory_overallocation_behavior from the application",
+    "description": "doomfix @PROJECT_VERSION@: fixes missing indirect-argument barriers in DOOM Eternal 1.1 (black weapon on NVIDIA)",
     "functions": {
       "vkNegotiateLoaderLayerInterfaceVersion": "DoomFix_NegotiateLoaderLayerInterfaceVersion",
       "vkGetInstanceProcAddr": "DoomFix_GetInstanceProcAddr",

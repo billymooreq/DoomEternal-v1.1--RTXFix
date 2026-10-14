@@ -1,8 +1,13 @@
 # --- Build output -------------------------------------------------------------------------------
 /build/
+/build-*/
+/dist/
 /out/
 /.vs/
 CMakeUserPresets.json
+
+# --- Local settings written by the launchers (game folder of this machine) ---------------------
+doomfix_game_path.txt
 
 # --- Python -------------------------------------------------------------------------------------
 __pycache__/

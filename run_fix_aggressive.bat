@@ -1,16 +1,6 @@
 @echo off
-rem DOOM Eternal 1.1 with doomfix layer, DOOMFIX_INDIRECT_FIX=aggressive (no RenderDoc).
-setlocal
-set "GAME_DIR=C:\Steam\steamapps\common\DOOMEternal"
-set "GAME_EXE=DOOMEternalx64vk.exe"
-if not exist "%GAME_DIR%\%GAME_EXE%" (
-  echo Not found: %GAME_DIR%\%GAME_EXE%
-  pause
-  exit /b 1
-)
-set "DOOMFIX_ENABLE=1"
-set "SteamAppId=782330"
-set "DOOMFIX_INDIRECT_FIX=aggressive"
-cd /d "%GAME_DIR%"
-start "" "%GAME_DIR%\%GAME_EXE%"
-endlocal
+rem Starts DOOM Eternal with the doomfix layer: indirect barrier fix in AGGRESSIVE mode (full barriers; fallback, normally not needed).
+rem On the first run the game folder is found in your Steam libraries or asked for, and saved
+rem to doomfix_game_path.txt next to this file. Extra arguments go to scripts\launch.ps1 (e.g. -Reconfigure).
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\launch.ps1" -Mode aggressive -ConfigFile "%~dp0doomfix_game_path.txt" %*
+if errorlevel 1 pause
