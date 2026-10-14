@@ -51,6 +51,7 @@ add_library(doomfix_layer SHARED
   src/layer/layer.cpp
   src/layer/vk_util.cpp
   src/features/features.cpp
+  src/features/hide_device_extensions.cpp
 )
 target_include_directories(doomfix_layer PRIVATE src)
 target_link_libraries(doomfix_layer PRIVATE Vulkan::Headers)
