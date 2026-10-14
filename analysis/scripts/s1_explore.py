@@ -1,6 +1,5 @@
 import sys, os
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)) if '__file__' in globals() else r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
-sys.path.insert(0, r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
+sys.path.insert(0, os.environ.get("DOOMFIX_SCRIPTS", "."))  # set by analysis/run_analysis.ps1
 import renderdoc as rd
 from rdcommon import *
 

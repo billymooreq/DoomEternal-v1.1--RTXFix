@@ -1,12 +1,12 @@
 # 1) Every barrier of the frame in a normalized, version-independent form (for diffing 1.1 vs current).
 # 2) For every indirect command: the args buffer, its last writer before the command and the barriers /
 #    submit boundaries between them — does any make the write visible to INDIRECT_COMMAND_READ?
-import sys, re
-sys.path.insert(0, r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
+import os, sys, re
+sys.path.insert(0, os.environ.get("DOOMFIX_SCRIPTS", "."))  # set by analysis/run_analysis.ps1
 import renderdoc as rd
 from rdcommon import *
 g = {"_IMPORT_ONLY": True}
-exec(open(r"C:\Users\vippr\Documents\doomfix\analysis\scripts\s8_barriers_atlas.py").read().split("def body")[0], g)
+exec(open(os.path.join(SCRIPTS_DIR, "s8_barriers_atlas.py")).read().split("def body")[0], g)
 sd_str = g["sd_str"]
 
 WRITE_USAGE = ("RWResource", "CopyDst", "Clear", "ResolveDst", "GenMips", "CPUWrite", "ColorTarget", "DepthStencilTarget")

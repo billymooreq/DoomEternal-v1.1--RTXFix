@@ -1,7 +1,7 @@
 # Save the final swapchain image and the HDR scene target, and run Pixel History at given pixels.
 # Env: DOOMFIX_TARGET=<HDR target resource id>, DOOMFIX_PIXELS="x,y;x,y".
 import sys, os
-sys.path.insert(0, r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
+sys.path.insert(0, os.environ.get("DOOMFIX_SCRIPTS", "."))  # set by analysis/run_analysis.ps1
 import renderdoc as rd
 from rdcommon import *
 

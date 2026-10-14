@@ -1,6 +1,6 @@
 # Do other draws that sample texture_ambientshatlas in the vertex shader get non-zero ambient SH?
 import sys, os, struct
-sys.path.insert(0, r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
+sys.path.insert(0, os.environ.get("DOOMFIX_SCRIPTS", "."))  # set by analysis/run_analysis.ps1
 import renderdoc as rd
 from rdcommon import *
 

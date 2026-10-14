@@ -1,6 +1,6 @@
 # Is the clustered light/probe list content stable across replays? Which dispatches write it?
 import sys, os, struct, hashlib
-sys.path.insert(0, r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
+sys.path.insert(0, os.environ.get("DOOMFIX_SCRIPTS", "."))  # set by analysis/run_analysis.ps1
 import renderdoc as rd
 from rdcommon import *
 

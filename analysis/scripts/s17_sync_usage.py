@@ -1,10 +1,10 @@
 # Which synchronization entry points does the game record in this frame, and is synchronization2 enabled?
-import sys
-sys.path.insert(0, r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
+import os, sys
+sys.path.insert(0, os.environ.get("DOOMFIX_SCRIPTS", "."))  # set by analysis/run_analysis.ps1
 import renderdoc as rd
 from rdcommon import *
 g = {"_IMPORT_ONLY": True}
-exec(open(r"C:\Users\vippr\Documents\doomfix\analysis\scripts\s8_barriers_atlas.py").read().split("def body")[0], g)
+exec(open(os.path.join(SCRIPTS_DIR, "s8_barriers_atlas.py")).read().split("def body")[0], g)
 sd_str = g["sd_str"]
 
 WATCH = ("vkCmdPipelineBarrier", "vkCmdPipelineBarrier2", "vkCmdPipelineBarrier2KHR", "vkCmdWaitEvents",

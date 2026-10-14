@@ -2,11 +2,11 @@
 # command-buffer EID ranges they contain. Plus the chain for the DrawIndexedIndirect args producer.
 # Env: DOOMFIX_WRITER (eid writing the args), DOOMFIX_READER (first indirect draw).
 import sys, os, re
-sys.path.insert(0, r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
+sys.path.insert(0, os.environ.get("DOOMFIX_SCRIPTS", "."))  # set by analysis/run_analysis.ps1
 import renderdoc as rd
 from rdcommon import *
 g = {"_IMPORT_ONLY": True}
-exec(open(r"C:\Users\vippr\Documents\doomfix\analysis\scripts\s8_barriers_atlas.py").read().split("def body")[0], g)
+exec(open(os.path.join(SCRIPTS_DIR, "s8_barriers_atlas.py")).read().split("def body")[0], g)
 sd_str = g["sd_str"]
 
 WRITER = int(os.environ["DOOMFIX_WRITER"]); READER = int(os.environ["DOOMFIX_READER"])

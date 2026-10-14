@@ -2,7 +2,7 @@
 # vertices, using the GPU post-VS viewVector and the camera origin. Independent of the shader debugger.
 # Env: DOOMFIX_DRAW, DOOMFIX_TARGET, DOOMFIX_PIXEL, DOOMFIX_CAM="x,y,z" (camera / localvieworigin).
 import sys, os, struct, math
-sys.path.insert(0, r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
+sys.path.insert(0, os.environ.get("DOOMFIX_SCRIPTS", "."))  # set by analysis/run_analysis.ps1
 import renderdoc as rd
 from rdcommon import *
 

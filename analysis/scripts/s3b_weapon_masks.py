@@ -1,8 +1,8 @@
-import sys, struct, zlib
-sys.path.insert(0, r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
+import os, sys, struct, zlib
+sys.path.insert(0, os.environ.get("DOOMFIX_SCRIPTS", "."))  # set by analysis/run_analysis.ps1
 import renderdoc as rd
 from rdcommon import *
-exec(open(r"C:\Users\vippr\Documents\doomfix\analysis\scripts\s3_drawinfo.py").read().split("def body")[0].split("from rdcommon import *")[1])
+exec(open(os.path.join(SCRIPTS_DIR, "s3_drawinfo.py")).read().split("def body")[0].split("from rdcommon import *")[1])
 
 DRAWS = [15960, 15965, 15970, 15976, 15981, 15986, 15991, 15996]
 PASS_END = 18974

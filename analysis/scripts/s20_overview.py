@@ -1,12 +1,12 @@
 # Overview of a capture for cross-version comparison: device/API info, sync & indirect call statistics,
 # indirect commands with their bound buffers, barriers relevant to indirect args, main render passes.
 # Usage: DOOMFIX_CAPTURE=<rdc> DOOMFIX_OUT=<subdir> qrenderdoc --python s20_overview.py
-import sys, re
-sys.path.insert(0, r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
+import os, sys, re
+sys.path.insert(0, os.environ.get("DOOMFIX_SCRIPTS", "."))  # set by analysis/run_analysis.ps1
 import renderdoc as rd
 from rdcommon import *
 g = {"_IMPORT_ONLY": True}
-exec(open(r"C:\Users\vippr\Documents\doomfix\analysis\scripts\s8_barriers_atlas.py").read().split("def body")[0], g)
+exec(open(os.path.join(SCRIPTS_DIR, "s8_barriers_atlas.py")).read().split("def body")[0], g)
 sd_str = g["sd_str"]
 
 BARRIER_CHUNKS = ("vkCmdPipelineBarrier", "vkCmdPipelineBarrier2", "vkCmdPipelineBarrier2KHR",

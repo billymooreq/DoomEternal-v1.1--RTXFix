@@ -1,6 +1,6 @@
 # Scan every draw/dispatch for uniform buffers bound with a range smaller than the shader's block size.
-import sys
-sys.path.insert(0, r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
+import os, sys
+sys.path.insert(0, os.environ.get("DOOMFIX_SCRIPTS", "."))  # set by analysis/run_analysis.ps1
 import renderdoc as rd
 from rdcommon import *
 

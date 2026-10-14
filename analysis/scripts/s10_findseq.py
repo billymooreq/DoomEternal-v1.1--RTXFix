@@ -1,7 +1,7 @@
 # Locate the light list the shader debugger saw ([4, 0, 1, 23, 29]) inside Buffer 1753 and check the
 # first-person shadow / light parameters of light 0 and light 29.
 import sys, os, struct
-sys.path.insert(0, r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
+sys.path.insert(0, os.environ.get("DOOMFIX_SCRIPTS", "."))  # set by analysis/run_analysis.ps1
 import renderdoc as rd
 from rdcommon import *
 

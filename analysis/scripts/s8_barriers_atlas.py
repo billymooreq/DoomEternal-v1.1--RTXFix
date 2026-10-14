@@ -2,7 +2,7 @@
 # 2) contents of the ambient SH atlas at the key used by the weapon vertices
 # 3) GPU post-VS ambient SH of a correctly lit enemy for comparison
 import sys, os, struct
-sys.path.insert(0, r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
+sys.path.insert(0, os.environ.get("DOOMFIX_SCRIPTS", "."))  # set by analysis/run_analysis.ps1
 import renderdoc as rd
 from rdcommon import *
 

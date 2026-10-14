@@ -1,7 +1,23 @@
 # Structural diff of two SPIR-V shaders whose debug names differ (current DOOM Eternal strips OpName):
 # strip OpName/OpMemberName from both, decompile with spirv-cross, normalise _<id> identifiers, diff.
+# Plain Python 3. Usage:
+#   python shader_diff.py <old.spv> <new.spv> <tag> [--renderdoc <RenderDoc install folder>]
+# spirv-cross is taken from <RenderDoc>/plugins/spirv; the folder can also come from DOOMFIX_RENDERDOC.
+# Results go to analysis/shader_diff/ (not committed: it contains game shader code).
 import sys, struct, subprocess, re, difflib, os
-SPV_CROSS = r"C:\Program Files\RenderDoc\plugins\spirv\spirv-cross.exe"
+
+args = sys.argv[1:]
+renderdoc = os.environ.get("DOOMFIX_RENDERDOC", "")
+if "--renderdoc" in args:
+    i = args.index("--renderdoc")
+    renderdoc = args[i + 1] if i + 1 < len(args) else ""
+    del args[i:i + 2]
+if len(args) != 3:
+    sys.exit("usage: shader_diff.py <old.spv> <new.spv> <tag> [--renderdoc <RenderDoc install folder>]")
+SPV_CROSS = os.path.join(renderdoc, "plugins", "spirv", "spirv-cross.exe")
+if not renderdoc or not os.path.isfile(SPV_CROSS):
+    sys.exit("spirv-cross.exe not found. Pass --renderdoc <RenderDoc install folder> "
+             "or set DOOMFIX_RENDERDOC (current value: %r)." % renderdoc)
 
 def strip_names(src, dst):
     w = open(src, "rb").read()
@@ -23,8 +39,9 @@ def normalise(code):
     code = re.sub(r"\b_m\d+\b", "_mN", code)
     return [l.rstrip() for l in code.split("\n") if l.strip()]
 
-a, b, tag = sys.argv[1], sys.argv[2], sys.argv[3]
-outdir = os.path.dirname(os.path.abspath(sys.argv[0])) + r"\..\shader_diff"
+a, b, tag = args
+outdir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "shader_diff")
+os.makedirs(outdir, exist_ok=True)
 sa, sb = os.path.join(outdir, tag + "_old_stripped.spv"), os.path.join(outdir, tag + "_new_stripped.spv")
 strip_names(a, sa); strip_names(b, sb)
 ga = normalise(decompile(sa, sa[:-4] + ".glsl")); gb = normalise(decompile(sb, sb[:-4] + ".glsl"))

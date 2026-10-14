@@ -1,11 +1,11 @@
 # For every distinct (shader, uniform block) bound with range < block size: which members lie beyond the
 # bound range, and does the shader actually reference them? Exports SPIR-V + spirv-cross GLSL per shader.
 import sys, os, csv, subprocess, re
-sys.path.insert(0, r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
+sys.path.insert(0, os.environ.get("DOOMFIX_SCRIPTS", "."))  # set by analysis/run_analysis.ps1
 import renderdoc as rd
 from rdcommon import *
 
-SPIRV_DIR = r"C:\Program Files\RenderDoc\plugins\spirv"
+SPIRV_DIR = os.path.join(RENDERDOC_DIR, "plugins", "spirv")
 DIR = os.path.join(OUTDIR, "shaders", "ubo_cases")
 STAGE = {"Vertex": rd.ShaderStage.Vertex, "Pixel": rd.ShaderStage.Pixel, "Compute": rd.ShaderStage.Compute}
 

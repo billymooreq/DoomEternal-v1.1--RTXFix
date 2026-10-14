@@ -6,7 +6,7 @@
 #   DOOMFIX_PHASE     "eid,..." events to replay to (each after a full-frame replay) and report how much the
 #                     binning wrote into the light tile buckets (+1920000) and light bitfield (+0)
 import sys, os, struct
-sys.path.insert(0, r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
+sys.path.insert(0, os.environ.get("DOOMFIX_SCRIPTS", "."))  # set by analysis/run_analysis.ps1
 import renderdoc as rd
 from rdcommon import *
 

@@ -2,12 +2,12 @@
 # Cases are read from analysis/s4_cases.txt: "<tag> <x> <y> <target-tex-suffix> [<draw eid>|-]".
 # Writes analysis/<tag>_*.txt and analysis/shaders/*.
 import sys, os, math, subprocess
-sys.path.insert(0, r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
+sys.path.insert(0, os.environ.get("DOOMFIX_SCRIPTS", "."))  # set by analysis/run_analysis.ps1
 import renderdoc as rd
 from rdcommon import *
 
 SUB = rd.Subresource(0, 0, 0)
-SPIRV_DIR = r"C:\Program Files\RenderDoc\plugins\spirv"
+SPIRV_DIR = os.path.join(RENDERDOC_DIR, "plugins", "spirv")
 SHADER_DIR = os.path.join(OUTDIR, "shaders")
 CASES = [("weapon_dark", 1437, 917, "53374", 15976)]
 _cf = os.path.join(OUTDIR, "s4_cases.txt")

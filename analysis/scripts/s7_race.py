@@ -3,10 +3,10 @@
 # 3) repeatability of GPU results of the weapon draw (original shader, and instrumented variants)
 # 4) Debug Vertex for the triangle under the weapon pixel + GPU post-VS SH outputs
 import sys, os, struct
-sys.path.insert(0, r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
+sys.path.insert(0, os.environ.get("DOOMFIX_SCRIPTS", "."))  # set by analysis/run_analysis.ps1
 import renderdoc as rd
 from rdcommon import *
-g = {"_IMPORT_ONLY": True, "__file__": r"C:\Users\vippr\Documents\doomfix\analysis\scripts\s4_debug.py"}
+g = {"_IMPORT_ONLY": True, "__file__": os.path.join(SCRIPTS_DIR, "s4_debug.py")}
 exec(open(g["__file__"]).read(), g)
 var_str = g["var_str"]
 

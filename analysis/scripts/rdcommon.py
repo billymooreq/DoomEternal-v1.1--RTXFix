@@ -3,11 +3,30 @@
 import os, sys, time, traceback
 import renderdoc as rd
 
-# DOOMFIX_CAPTURE — путь к захвату (по умолчанию capture1.rdc), DOOMFIX_OUT — подкаталог analysis/
-# для результатов (по умолчанию сам analysis/, как при разборе capture1).
-ROOT = r"C:\Users\vippr\Documents\doomfix"
-CAPTURE = os.environ.get("DOOMFIX_CAPTURE") or os.path.join(ROOT, "capture1.rdc")
-BASE_OUTDIR = os.path.join(ROOT, "analysis")
+# Paths come from the environment; analysis/run_analysis.ps1 sets them and checks them first:
+#   DOOMFIX_SCRIPTS    this folder (qrenderdoc --python provides neither __file__ nor argv)
+#   DOOMFIX_CAPTURE    the .rdc to open
+#   DOOMFIX_OUT        optional subfolder of analysis/ for the results (default: analysis/ itself)
+#   DOOMFIX_RENDERDOC  RenderDoc install folder (default: the folder of the running qrenderdoc.exe)
+SCRIPTS_DIR = os.environ.get("DOOMFIX_SCRIPTS", "")
+CAPTURE = os.environ.get("DOOMFIX_CAPTURE", "")
+RENDERDOC_DIR = os.environ.get("DOOMFIX_RENDERDOC") or os.path.dirname(sys.executable)
+
+
+def _fail(message):
+    """qrenderdoc has no console: leave the error in %TEMP% and quit instead of hanging."""
+    path = os.path.join(os.environ.get("TEMP", "."), "doomfix_analysis_error.txt")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(message + "\n")
+    os._exit(1)
+
+
+if not SCRIPTS_DIR or not os.path.isfile(os.path.join(SCRIPTS_DIR, "rdcommon.py")):
+    _fail("DOOMFIX_SCRIPTS is not set to analysis/scripts. Run the scripts through analysis/run_analysis.ps1.")
+if not CAPTURE or not os.path.isfile(CAPTURE):
+    _fail("DOOMFIX_CAPTURE is not set or the file does not exist: %r. "
+          "Pass -Capture <path to .rdc> to analysis/run_analysis.ps1." % CAPTURE)
+BASE_OUTDIR = os.path.dirname(os.path.abspath(SCRIPTS_DIR))
 OUTDIR = os.path.join(BASE_OUTDIR, os.environ["DOOMFIX_OUT"]) if os.environ.get("DOOMFIX_OUT") else BASE_OUTDIR
 os.makedirs(OUTDIR, exist_ok=True)
 

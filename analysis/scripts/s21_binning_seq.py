@@ -1,11 +1,11 @@
 # Compact API sequence around the clustered binning: barriers (stages/access per barrier), dispatches with
 # their compute shader and indirect buffer. Range from env DOOMFIX_RANGE="first,last".
 import sys, os, re
-sys.path.insert(0, r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
+sys.path.insert(0, os.environ.get("DOOMFIX_SCRIPTS", "."))  # set by analysis/run_analysis.ps1
 import renderdoc as rd
 from rdcommon import *
 g = {"_IMPORT_ONLY": True}
-exec(open(r"C:\Users\vippr\Documents\doomfix\analysis\scripts\s8_barriers_atlas.py").read().split("def body")[0], g)
+exec(open(os.path.join(SCRIPTS_DIR, "s8_barriers_atlas.py")).read().split("def body")[0], g)
 sd_str = g["sd_str"]
 
 FIRST, LAST = [int(x) for x in os.environ.get("DOOMFIX_RANGE", "15755,15890").split(",")]

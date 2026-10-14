@@ -2,7 +2,7 @@
 # vertex (octree walk samples, SH key, SH atlas samples), atlas texel contents at the key, atlas checksums.
 # Env: DOOMFIX_DRAW, DOOMFIX_PIXEL="x,y", DOOMFIX_TARGET (HDR target id for Pixel History).
 import sys, os, struct, hashlib
-sys.path.insert(0, r"C:\Users\vippr\Documents\doomfix\analysis\scripts")
+sys.path.insert(0, os.environ.get("DOOMFIX_SCRIPTS", "."))  # set by analysis/run_analysis.ps1
 import renderdoc as rd
 from rdcommon import *
 
