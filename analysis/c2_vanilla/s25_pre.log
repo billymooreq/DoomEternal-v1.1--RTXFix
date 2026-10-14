@@ -1,4 +1,4 @@
-capture C:/Users/vippr/Documents/doomfix/capture2_vanillaDOOM.rdc opened in 14.7s
+capture <repo>/capture2_vanillaDOOM.rdc opened in 14.7s
 builder 15610 vkCmdDispatch() cs=65368: ['ssbo104=1899@4981760+768000', 'ssbo113=1899@384000+768000', 'ssbo121=1899@1152000+768000', 'ssbo143=1192@0+128']
 builder 15614 vkCmdDispatch() cs=65362: ['ssbo149=1899@4213760+768000', 'ssbo250=1899@4981760+768000']
 builder 15617 vkCmdDispatch() cs=65364: ['ssbo103=1899@384000+768000', 'ssbo163=1899@0+384000', 'ssbo473=1899@1152000+768000']
@@ -7,9 +7,9 @@ args after 15561: 1163:[2, 6, 9, 18, 22, 21, 12, 0]  1175:[3, 5, 7, 3, 3, 1, 0, 
 args after 15660: 1163:[2, 6, 9, 18, 22, 21, 12, 0]  1175:[3, 5, 7, 3, 3, 1, 0, 0]  1189:[1, 1, 3, 9, 23, 31, 112, 0]
 EXCEPTION:
 Traceback (most recent call last):
-  File "C:\Users\vippr\Documents\doomfix\analysis\scripts\rdcommon.py", line 49, in run
+  File "<repo>\analysis\scripts\rdcommon.py", line 49, in run
     body(ctrl, log)
-  File "C:/Users/vippr/Documents/doomfix/analysis/scripts/s25_lists.py", line 42, in body
+  File "<repo>/analysis/scripts/s25_lists.py", line 42, in body
     ctrl.SetFrameEvent(int(os.environ["DOOMFIX_LIST_EID"]), True)
   File "os.py", line 675, in __getitem__
 KeyError: 'DOOMFIX_LIST_EID'

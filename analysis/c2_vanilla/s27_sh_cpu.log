@@ -1,4 +1,4 @@
-capture C:/Users/vippr/Documents/doomfix/capture2_vanillaDOOM.rdc opened in 14.6s
+capture <repo>/capture2_vanillaDOOM.rdc opened in 14.6s
 camera origin used: [28.1457, -1613.5, 18.8116]
 viewVector taken from outputs: ['_output18_1', '_output18_2', '_output18_3']
 vertex 1765: world=[28.266, -1613.273, 18.716] leaf=[0.3059, 0.2196, 0.3765, 0.5255] key=0x8660384e SHkey=[204, 112, 78] SH0(CPU)=[0.0, 0.0, 0.0, 0.0]

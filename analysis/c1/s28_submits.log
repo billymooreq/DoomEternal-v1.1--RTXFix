@@ -1,4 +1,4 @@
-capture C:/Users/vippr/Documents/doomfix/capture1.rdc opened in 15.3s
+capture <repo>/capture1.rdc opened in 15.3s
      1 vkQueueSubmit queue=171 batches=1 cbs=['1'] waits=['1808'] masks=['ALL_COMMANDS'] signals=['1795']
    265 vkQueueSubmit queue=173 batches=1 cbs=['1'] waits=[] masks=[] signals=['235']
    333 vkQueueSubmit queue=174 batches=1 cbs=['1'] waits=['1795'] masks=['ALL_COMMANDS'] signals=['1824']

@@ -1,14 +1,14 @@
-capture C:/Users/vippr/Documents/doomfix/capture3_11_fixed.rdc opened in 15.5s
+capture <repo>/capture3_11_fixed.rdc opened in 15.5s
 === case weapon (1437,917) on 53374
 [weapon] draw 18764 dumped; issues: ['Vertex main: _viewUniforms (set0 b0) 800 bytes needed, 768 provided (VkBuffer len 524288, offset 5120)', 'Vertex main: _instanceUniforms (set1 b0) 128 bytes needed, 112 provided (VkBuffer len 112, offset 0)', 'Vertex main: _surfaceUniforms (set2 b0) 144 bytes needed, 96 provided (VkBuffer len 96, offset 0)', 'Pixel main: _viewUniforms (set0 b0) 800 bytes needed, 768 provided (VkBuffer len 524288, offset 5120)', 'Pixel main: _instanceUniforms (set1 b0) 128 bytes needed, 112 provided (VkBuffer len 112, offset 0)', 'Pixel main: _surfaceUniforms (set2 b0) 144 bytes needed, 96 provided (VkBuffer len 96, offset 0)']
   spirv-dis.exe rc=0 
   spirv-cross.exe rc=0 
   spirv-cross.exe rc=0 
-exported shader C:\Users\vippr\Documents\doomfix\analysis\c3_fixed\shaders\vert_15508 targets: ['SPIR-V (RenderDoc)', 'KHR_pipeline_executable_properties', 'AMDIL', 'GCN (gfx804)', 'GCN (gfx900)', 'GCN (gfx902)', 'GCN (gfx906)', 'RDNA (gfx1010)', 'RDNA (gfx1012)', 'RDNA2 (gfx1030)', 'RDNA2 (gfx1031)', 'RDNA2 (gfx1032)', 'RDNA2 (gfx1034)', 'RDNA2 (gfx1035)']
+exported shader <repo>\analysis\c3_fixed\shaders\vert_15508 targets: ['SPIR-V (RenderDoc)', 'KHR_pipeline_executable_properties', 'AMDIL', 'GCN (gfx804)', 'GCN (gfx900)', 'GCN (gfx902)', 'GCN (gfx906)', 'RDNA (gfx1010)', 'RDNA (gfx1012)', 'RDNA2 (gfx1030)', 'RDNA2 (gfx1031)', 'RDNA2 (gfx1032)', 'RDNA2 (gfx1034)', 'RDNA2 (gfx1035)']
   spirv-dis.exe rc=0 
   spirv-cross.exe rc=0 
   spirv-cross.exe rc=1 SPIRV-Cross threw an exception: Shader model 5.1 or higher is required to use bindless resources or NonUniformResourceIndex.
 
-exported shader C:\Users\vippr\Documents\doomfix\analysis\c3_fixed\shaders\frag_15507 targets: ['SPIR-V (RenderDoc)', 'KHR_pipeline_executable_properties', 'AMDIL', 'GCN (gfx804)', 'GCN (gfx900)', 'GCN (gfx902)', 'GCN (gfx906)', 'RDNA (gfx1010)', 'RDNA (gfx1012)', 'RDNA2 (gfx1030)', 'RDNA2 (gfx1031)', 'RDNA2 (gfx1032)', 'RDNA2 (gfx1034)', 'RDNA2 (gfx1035)']
-[weapon] debug trace 3243 steps -> C:\Users\vippr\Documents\doomfix\analysis\c3_fixed\weapon_draw18764_px1437_917_trace.txt ; NaN/Inf=0
+exported shader <repo>\analysis\c3_fixed\shaders\frag_15507 targets: ['SPIR-V (RenderDoc)', 'KHR_pipeline_executable_properties', 'AMDIL', 'GCN (gfx804)', 'GCN (gfx900)', 'GCN (gfx902)', 'GCN (gfx906)', 'RDNA (gfx1010)', 'RDNA (gfx1012)', 'RDNA2 (gfx1030)', 'RDNA2 (gfx1031)', 'RDNA2 (gfx1032)', 'RDNA2 (gfx1034)', 'RDNA2 (gfx1035)']
+[weapon] debug trace 3243 steps -> <repo>\analysis\c3_fixed\weapon_draw18764_px1437_917_trace.txt ; NaN/Inf=0
 done in 23.0s

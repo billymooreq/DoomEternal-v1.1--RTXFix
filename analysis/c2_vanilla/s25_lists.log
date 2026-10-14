@@ -1,4 +1,4 @@
-capture C:/Users/vippr/Documents/doomfix/capture2_vanillaDOOM.rdc opened in 14.7s
+capture <repo>/capture2_vanillaDOOM.rdc opened in 14.7s
 args after 15511: 1163:[2, 3, 3, 1, 1, 0, 0, 0]  1175:[5, 2, 1, 1, 1, 0, 0, 0]  1189:[1, 1, 1, 2, 1, 2, 0, 0]
 args after 15561: 1163:[2, 6, 9, 18, 22, 21, 12, 0]  1175:[3, 5, 7, 3, 3, 1, 0, 0]  1189:[1, 1, 3, 9, 23, 31, 112, 0]
 args after 15660: 1163:[2, 6, 9, 18, 22, 21, 12, 0]  1175:[3, 5, 7, 3, 3, 1, 0, 0]  1189:[1, 1, 3, 9, 23, 31, 112, 0]

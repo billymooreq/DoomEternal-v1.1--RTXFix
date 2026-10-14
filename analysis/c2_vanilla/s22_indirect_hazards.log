@@ -1,4 +1,4 @@
-capture C:/Users/vippr/Documents/doomfix/capture2_vanillaDOOM.rdc opened in 15.4s
+capture <repo>/capture2_vanillaDOOM.rdc opened in 15.4s
 barriers: 77 (normalized list in barriers_normalized.txt)
 
 == heuristic stage/access mismatches ==

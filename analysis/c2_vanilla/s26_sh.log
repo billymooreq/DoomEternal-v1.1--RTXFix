@@ -1,4 +1,4 @@
-capture C:/Users/vippr/Documents/doomfix/capture2_vanillaDOOM.rdc opened in 14.8s
+capture <repo>/capture2_vanillaDOOM.rdc opened in 14.8s
 draw 15696 pixel (1437,917): primitive 3086
 VS 3D texture 3D Image 563032 256x256x24 R8G8B8A8_UNORM md5=249495f465625cd5a2785ae847866823 nonzero=93.6%
 VS 3D texture 3D Image 563046 256x256x102 R16G16B16A16_FLOAT md5=43ce9535c9c0cb3055affd210d4b2c9b nonzero=79.7%

@@ -1,4 +1,4 @@
-capture C:/Users/vippr/Documents/doomfix/capture2_vanillaDOOM.rdc opened in 15.1s
+capture <repo>/capture2_vanillaDOOM.rdc opened in 15.1s
 save 2D Color Attachment 1348 -> <Result: 'Success'>
 save Swapchain Image 100578 -> <Result: 'Success'>
 save Swapchain Image 100579 -> <Result: 'Success'>

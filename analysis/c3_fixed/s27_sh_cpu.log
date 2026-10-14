@@ -1,4 +1,4 @@
-capture C:/Users/vippr/Documents/doomfix/capture3_11_fixed.rdc opened in 15.1s
+capture <repo>/capture3_11_fixed.rdc opened in 15.1s
 camera origin used: [28.145, -1613.56, 18.8076]
 viewVector taken from outputs: ['vofi_Scalar4', 'vofi_Scalar5', 'vofi_Scalar6']
 vertex 1765: world=[28.263, -1613.332, 18.712] leaf=[0.3059, 0.2196, 0.3765, 0.5255] key=0x8660384e SHkey=[204, 112, 78] SH0(CPU)=[0.0, 0.0, 0.0, 0.0]

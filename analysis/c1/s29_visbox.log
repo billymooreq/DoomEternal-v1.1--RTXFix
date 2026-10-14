@@ -1,4 +1,4 @@
-capture C:/Users/vippr/Documents/doomfix/capture1.rdc opened in 15.3s
+capture <repo>/capture1.rdc opened in 15.3s
 visbox bitfield Buffer 216814: 1024 bytes, non-zero bytes 121, set bits 401
 list buffer 1753 usage CS_RWResource: n=76, dispatches [15781, 15783, 15785, 15787, 15789, 15791, 15794, 15796, 15798, 15800, 15802, 15804]
 list buffer 1753 usage PS_RWResource: n=7720, dispatches []

@@ -13,9 +13,9 @@ draw 16139 vs=14636 ps=14635: 64/64 vertices with non-zero SH0, max |SH0| = 0.23
 draw 16144 vs=14636 ps=14635: 64/64 vertices with non-zero SH0, max |SH0| = 0.1475
 EXCEPTION:
 Traceback (most recent call last):
-  File "C:\Users\vippr\Documents\doomfix\analysis\scripts\rdcommon.py", line 44, in run
+  File "<repo>\analysis\scripts\rdcommon.py", line 44, in run
     body(ctrl, log)
-  File "C:/Users/vippr/Documents/doomfix/analysis/scripts/s13_sh_others.py", line 32, in body
+  File "<repo>/analysis/scripts/s13_sh_others.py", line 32, in body
     v = struct.unpack_from("<4f", raw, i * mf.vertexByteStride + o)
 struct.error: unpack_from requires a buffer of at least 1376 bytes for unpacking 16 bytes at offset 1360 (actual buffer size is 1344)
 

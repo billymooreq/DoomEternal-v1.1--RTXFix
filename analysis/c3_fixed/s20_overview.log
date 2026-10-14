@@ -1,4 +1,4 @@
-capture C:/Users/vippr/Documents/doomfix/capture3_11_fixed.rdc opened in 15.2s
+capture <repo>/capture3_11_fixed.rdc opened in 15.2s
 API: GraphicsAPI.Vulkan vendor=GPUVendor.nVidia localRenderer=GraphicsAPI.Vulkan
 vkCreateDevice ppEnabledExtensionNames{$el=VK_KHR_swapchain, $el=VK_KHR_dedicated_allocation, $el=VK_KHR_8bit_storage, $el=VK_KHR_16bit_storage, $el=VK_KHR_shader_float16_int8, $el=VK_EXT_descriptor_indexing, $el=VK_KHR_driver_properties, $el=VK_EXT_hdr_metadata, $el=VK_EXT_full_screen_exclusive, $el=VK_KHR_external_memory_win32}, pEnabledFeatures=}, pAllocator=, Device=9}
   Indirect sub-command                 86
