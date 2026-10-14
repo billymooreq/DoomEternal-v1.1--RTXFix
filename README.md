@@ -1,4 +1,4 @@
-# doomfix — black weapon fix for DOOM Eternal 1.1 on NVIDIA
+# DoomEternal-v1.1--RTXFix — fix environment lighting for DOOM Eternal 1.1 on NVIDIA
 
 **English** | [Русский](README.ru.md)
 
@@ -19,9 +19,6 @@ and the world loses its local lights, decals and volumetric light. doomfix is a 
   game's lighting code, exactly as id Software did themselves in later patches. Everything else passes through as is.
 - **Open source** (MIT license): you can read every line and build it yourself.
 - **Easy to remove:** `uninstall.bat` takes it out completely.
-
-**Speedrunners:** whether a tool like this is allowed in runs is up to the moderators of each leaderboard.
-Please check your leaderboard's rules before submitting runs made with it.
 
 ## Compatibility
 
