@@ -1,0 +1,5 @@
+LIBRARY doomfix_layer
+EXPORTS
+    DoomFix_NegotiateLoaderLayerInterfaceVersion
+    DoomFix_GetInstanceProcAddr
+    DoomFix_GetDeviceProcAddr

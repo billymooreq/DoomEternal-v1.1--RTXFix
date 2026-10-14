@@ -1,0 +1,22 @@
+{
+  "file_format_version": "1.2.0",
+  "layer": {
+    "name": "@DOOMFIX_LAYER_NAME@",
+    "type": "GLOBAL",
+    "library_path": ".\\$<TARGET_FILE_NAME:doomfix_layer>",
+    "api_version": "1.4.341",
+    "implementation_version": "1",
+    "description": "doomfix @PROJECT_VERSION@: hides VK_AMD_memory_overallocation_behavior from the application",
+    "functions": {
+      "vkNegotiateLoaderLayerInterfaceVersion": "DoomFix_NegotiateLoaderLayerInterfaceVersion",
+      "vkGetInstanceProcAddr": "DoomFix_GetInstanceProcAddr",
+      "vkGetDeviceProcAddr": "DoomFix_GetDeviceProcAddr"
+    },
+    "enable_environment": {
+      "DOOMFIX_ENABLE": "1"
+    },
+    "disable_environment": {
+      "DOOMFIX_DISABLE": "1"
+    }
+  }
+}
