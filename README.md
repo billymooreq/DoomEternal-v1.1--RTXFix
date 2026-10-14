@@ -34,14 +34,14 @@ GPU, driver version, game version and whether the weapon looks right.
 
 ## Installation
 
-> **There are no ready-made downloads yet**, so for now doomfix has to be built from source:
-> see [docs/BUILDING.md](docs/BUILDING.md). Pre-built versions will appear on the [Releases](../../releases) page,
-> and then installation will be just this:
-
-1. Download the latest `doomfix-<version>.zip` from [Releases](../../releases).
+1. Open [Releases](../../releases) and download `doomfix-<version>.zip` from the *Assets* of the newest release.
 2. Unpack it anywhere you like, for example `Documents\doomfix`. Keep this folder: the launcher and the uninstaller live there.
 3. Run `install.bat`. No administrator rights are needed.
-4. Start the game with `run_doom_fixed.bat`.
+
+Then start the game with `run_doom_fixed.bat` (see [Usage](#usage)).
+
+Every release is built from this source code by GitHub Actions and lists the SHA256 of the zip in its description.
+Releases marked *Pre-release* are test builds. To build doomfix yourself instead, see [docs/BUILDING.md](docs/BUILDING.md).
 
 ## Usage
 
