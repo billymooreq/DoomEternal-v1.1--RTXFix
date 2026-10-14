@@ -123,7 +123,9 @@ so a software Vulkan driver is enough. Google Chrome and Microsoft Edge ship Swi
 Vulkan 1.3) together with a Vulkan loader (`vulkan-1.dll`), and both browsers are preinstalled on the Windows runners.
 `test_swiftshader.ps1` takes them from the newest installed Chrome or Edge, installs the freshly built layer
 for the current user, copies the test next to the browser's loader and runs it with `VK_DRIVER_FILES` pointing at
-SwiftShader only. Nothing is downloaded. It works locally too, but note that it **reinstalls** doomfix from the given
+SwiftShader only. Nothing is downloaded. The runners run as an elevated administrator, and an elevated process's
+Vulkan loader ignores layers registered under `HKCU`, so in that case the script also registers the layer under `HKLM`
+for the duration of the test (the same applies to `doomfix_barrier_test` run from an elevated prompt). It works locally too, but note that it **reinstalls** doomfix from the given
 build folder (close the game first). If a future runner image drops SwiftShader from both browsers, the step fails
 with "SwiftShader not found" instead of silently skipping the test.
 

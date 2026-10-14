@@ -51,6 +51,23 @@ Write-Host "SwiftShader: $icd"
 # --- 2. Install the layer --------------------------------------------------------------------
 & (Join-Path $PSScriptRoot 'install.ps1') -SourceDir $bin
 
+# An elevated process has high integrity, and then the Vulkan loader ignores layers registered under HKCU
+# (loader_windows.c: use_secondary_hive). The GitHub runners run everything as an elevated administrator, so
+# there the installed manifest is also registered under HKLM for the duration of the test.
+$hklmKey = 'HKLM:\SOFTWARE\Khronos\Vulkan\ImplicitLayers'
+$manifest = Join-Path $env:LOCALAPPDATA 'doomfix\layer\VK_LAYER_DOOMFIX.json'
+$elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(
+    [Security.Principal.WindowsBuiltInRole]::Administrator)
+$addedHklm = $false
+if ($elevated) {
+    if (-not (Test-Path $hklmKey)) { New-Item -Path $hklmKey -Force | Out-Null }
+    if (-not ((Get-Item $hklmKey).Property -contains $manifest)) {
+        New-ItemProperty -Path $hklmKey -Name $manifest -Value 0 -PropertyType DWord -Force | Out-Null
+        $addedHklm = $true
+    }
+    Write-Host "Elevated process: the loader skips HKCU layers, registered the manifest under $hklmKey for the test."
+}
+
 # --- 3. Run the test -------------------------------------------------------------------------
 $work = Join-Path ([System.IO.Path]::GetTempPath()) "doomfix_swiftshader_$PID"
 New-Item -ItemType Directory -Force $work | Out-Null
@@ -65,5 +82,6 @@ try {
 } finally {
     Remove-Item Env:\VK_DRIVER_FILES, Env:\VK_ICD_FILENAMES -ErrorAction SilentlyContinue
     Remove-Item -Recurse -Force $work -ErrorAction SilentlyContinue
+    if ($addedHklm) { Remove-ItemProperty -Path $hklmKey -Name $manifest -ErrorAction SilentlyContinue }
 }
 if ($code -ne 0) { throw "doomfix_barrier_test failed with exit code $code." }
