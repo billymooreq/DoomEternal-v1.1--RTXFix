@@ -61,20 +61,21 @@ and in [TECHNICAL.md](TECHNICAL.md#layer-order).
 ## Test program
 
 `doomfix_barrier_test.exe` checks the indirect-barrier-fix through the real Vulkan loader, without the game.
-It creates a Vulkan 1.3 device and records barriers with the masks taken from a game capture, plus edge cases
-(an execution-only barrier, a buffer barrier, an already correct barrier, `vkCmdWaitEvents`,
-`vkCmdPipelineBarrier2`, `vkCmdWaitEvents2`). Nothing is submitted to the GPU; the layer log shows what was
-passed down to the driver. With `--soak`, four threads also re-record command buffers for about 12 seconds to
-check the counters and the periodic log report.
+It tests the **installed** layer, so run `install.bat` first. For each mode (`on`, `strict`, `aggressive`, `off`)
+it starts itself in a child process with `DOOMFIX_ENABLE=1`, debug logging and a separate log folder. The child
+creates a Vulkan 1.3 device and records barriers with the masks taken from a game capture, plus edge cases
+(an execution-only barrier, a buffer barrier, an already correct barrier, a barrier that only `strict` changes,
+`vkCmdWaitEvents`, `vkCmdPipelineBarrier2`, `vkCmdWaitEvents2`). Nothing is submitted to the GPU. The parent then
+reads the layer log and compares what was passed down to the driver with the expected masks for that mode.
 
 ```bat
 install.bat
-cmd /c "set DOOMFIX_ENABLE=1&& set DOOMFIX_LOG_LEVEL=debug&& build\bin\doomfix_barrier_test.exe"
+build\bin\doomfix_barrier_test.exe
 ```
 
-Then open the newest `%LOCALAPPDATA%\doomfix\logs\doomfix_barrier_test_*.log`. Every case except the
-"already correct" and "compute → compute" barriers must be reported as `PATCHED`, and `vkCmdWaitEvents2`
-must produce a `WARN` (it is intentionally left unchanged).
+It prints `ok` or `FAIL` for every case and ends with `ALL PASSED` (exit code 0). On failure the layer logs are
+kept and their folder is printed. With `--soak`, an extra run in mode `on` has four threads re-record command
+buffers for about 12 seconds and checks that the layer's counters match the number of recorded barriers.
 
 The program also prints whether `VK_AMD_memory_overallocation_behavior` is visible to it. With the default settings it
 must be visible whenever the driver exposes it; with `DOOMFIX_HIDE_OVERALLOCATION=1` it must not be. Drivers that do not
@@ -91,7 +92,7 @@ doomfix-<version>\
   bin\doomfix_layer.dll
   bin\VK_LAYER_DOOMFIX.json
   scripts\install.ps1  scripts\uninstall.ps1  scripts\launch.ps1  scripts\steam_mode.ps1
-  install.bat  uninstall.bat  run_doom_fixed.bat  run_fix_off.bat  run_fix_aggressive.bat
+  install.bat  uninstall.bat  run_doom_fixed.bat  run_fix_strict.bat  run_fix_off.bat  run_fix_aggressive.bat
   enable_steam_mode.bat  disable_steam_mode.bat
   README.md  README.ru.md  LICENSE
 ```
@@ -104,7 +105,7 @@ $v = 'doomfix-0.2.0'; $d = "dist\$v"
 New-Item -ItemType Directory -Force "$d\bin", "$d\scripts" | Out-Null
 Copy-Item build-release\bin\doomfix_layer.dll, build-release\bin\VK_LAYER_DOOMFIX.json "$d\bin"
 Copy-Item scripts\install.ps1, scripts\uninstall.ps1, scripts\launch.ps1, scripts\steam_mode.ps1 "$d\scripts"
-Copy-Item install.bat, uninstall.bat, run_doom_fixed.bat, run_fix_off.bat, run_fix_aggressive.bat, enable_steam_mode.bat, disable_steam_mode.bat, README.md, README.ru.md, LICENSE $d
+Copy-Item install.bat, uninstall.bat, run_doom_fixed.bat, run_fix_strict.bat, run_fix_off.bat, run_fix_aggressive.bat, enable_steam_mode.bat, disable_steam_mode.bat, README.md, README.ru.md, LICENSE $d
 Compress-Archive -Path $d -DestinationPath "dist\$v.zip" -Force
 ```
 
