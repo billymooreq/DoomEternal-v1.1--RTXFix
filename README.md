@@ -71,11 +71,12 @@ The last line repeats every few seconds while you play, with growing numbers.
 
 ### Modes
 
-The fix has three modes, selected with the `DOOMFIX_INDIRECT_FIX` variable. Each mode has its own launcher:
+The fix has four modes, selected with the `DOOMFIX_INDIRECT_FIX` variable. Each mode has its own launcher:
 
 | Mode | Launcher | What it does |
 |---|---|---|
-| `on` (default) | `run_doom_fixed.bat` | The fix. Use this one. |
+| `on` (default) | `run_doom_fixed.bat` | The fix, exactly as id Software made it in later updates. Use this one. |
+| `strict` | `run_fix_strict.bat` | `on` plus one extra safety wait (this was `on` in v0.2). Try it if `on` ever shows flickering or missing lights. |
 | `off` | `run_fix_off.bat` | The layer is loaded but changes nothing, to compare before/after. |
 | `aggressive` | `run_fix_aggressive.bat` | Uses heavier, "wait for everything" barriers. A fallback in case `on` is ever not enough; normally not needed. |
 

@@ -51,7 +51,8 @@ without copies; only an array that actually changes is copied, into a per-thread
 
 | `DOOMFIX_INDIRECT_FIX` | Effect on barriers with `DRAW_INDIRECT` in `dstStageMask` |
 |---|---|
-| `on` (default) | adds `INDIRECT_COMMAND_READ` to `dstAccessMask` of every memory and buffer barrier; if there are none, adds a global `VkMemoryBarrier` (writes of the source stages → `INDIRECT_COMMAND_READ`). Write-after-read case: if `srcStageMask` has `COMPUTE_SHADER`, `DRAW_INDIRECT` is added to it so that the argument buffers are not rewritten while earlier indirect calls still read them (the current game version does without this; it is a harmless extra). |
+| `on` (default) | the same change id Software made in later updates: adds `INDIRECT_COMMAND_READ` to `dstAccessMask` of every memory and buffer barrier; if there are none, adds a global `VkMemoryBarrier` (writes of the source stages → `INDIRECT_COMMAND_READ`). `srcStageMask` is not changed. |
+| `strict` | `on` plus a write-after-read guard: if `srcStageMask` has `COMPUTE_SHADER`, `DRAW_INDIRECT` is added to it, so that the argument buffers are not rewritten while earlier indirect calls still read them. The current game version does without this; it was the `on` behavior in v0.2 and is kept in case `on` ever shows flicker or missing lights. |
 | `aggressive` | turns such a barrier into a full one: `ALL_COMMANDS → ALL_COMMANDS`, `MEMORY_WRITE → MEMORY_READ \| MEMORY_WRITE` (image barriers keep their layouts). Fallback only. |
 | `off` | changes nothing, only counts and logs what would be patched; for before/after comparisons. |
 
@@ -133,7 +134,7 @@ from that line, a `WARN` suggests re-running the installer.
 |---|---|
 | `DOOMFIX_ENABLE=1` | turns the layer on for this process (checked by the loader) |
 | `DOOMFIX_DISABLE=1` | turns it off even if `DOOMFIX_ENABLE=1` |
-| `DOOMFIX_INDIRECT_FIX` | `on` (default) / `off` / `aggressive` |
+| `DOOMFIX_INDIRECT_FIX` | `on` (default) / `strict` / `aggressive` / `off` |
 | `DOOMFIX_LOG_LEVEL` | `debug` / `info` (default) / `warn` / `error` |
 | `DOOMFIX_DATA_DIR` | data root, default `%LOCALAPPDATA%\doomfix` |
 | `DOOMFIX_LOG_DIR` | log folder, default `<DATA_DIR>\logs` |

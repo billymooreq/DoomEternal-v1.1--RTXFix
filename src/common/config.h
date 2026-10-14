@@ -17,9 +17,9 @@ namespace doomfix {
 //   DOOMFIX_HIDE_OVERALLOCATION=1    скрыть VK_AMD_memory_overallocation_behavior (по умолчанию нет;
 //                                    нужно только для захватов RenderDoc, см. docs/TECHNICAL.md)
 //   DOOMFIX_HIDE_DEVICE_EXTENSIONS=A,B   дополнительно скрыть эти расширения устройства
-//   DOOMFIX_INDIRECT_FIX=off|on|aggressive   исправление барьеров перед indirect-командами
-//                                            (по умолчанию on)
-enum class IndirectFixMode { Off, On, Aggressive };
+//   DOOMFIX_INDIRECT_FIX=off|on|strict|aggressive   исправление барьеров перед indirect-командами
+//                                                   (по умолчанию on)
+enum class IndirectFixMode { Off, On, Strict, Aggressive };
 
 struct Config {
   bool enabled = false;

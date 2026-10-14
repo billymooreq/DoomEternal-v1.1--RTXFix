@@ -9,7 +9,7 @@
   Steam, which would drop these variables) and the chosen DOOMFIX_INDIRECT_FIX mode.
 
 .PARAMETER Mode
-  DOOMFIX_INDIRECT_FIX mode: on (default), off (no fix, for comparison) or aggressive.
+  DOOMFIX_INDIRECT_FIX mode: on (default), strict, off (no fix, for comparison) or aggressive.
 .PARAMETER ConfigFile
   Where the game folder is remembered. The .bat files pass a file next to themselves.
 .PARAMETER Reconfigure
@@ -18,7 +18,7 @@
   Find the game and check the installation, but do not start the game.
 #>
 param(
-    [ValidateSet('on', 'off', 'aggressive')][string]$Mode = 'on',
+    [ValidateSet('on', 'strict', 'off', 'aggressive')][string]$Mode = 'on',
     [string]$ConfigFile = (Join-Path (Split-Path $PSScriptRoot -Parent) 'doomfix_game_path.txt'),
     [switch]$Reconfigure,
     [switch]$DryRun

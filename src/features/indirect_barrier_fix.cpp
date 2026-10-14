@@ -6,10 +6,12 @@
 // аргументы, списки источников и проб остаются пустыми, и оружие от первого лица выходит чёрным
 // (analysis/report.md, раздел 6). Фича правит такие барьеры при записи командного буфера:
 //
-//   on (по умолчанию)  dstAccessMask |= INDIRECT_COMMAND_READ у memory/buffer-барьеров; если их
-//                      нет — добавляется глобальный VkMemoryBarrier (запись → INDIRECT_COMMAND_READ);
-//                      WAR: при COMPUTE_SHADER в srcStageMask добавляется DRAW_INDIRECT;
-//   aggressive         такой барьер превращается в полный ALL_COMMANDS → ALL_COMMANDS,
+//   on (по умолчанию)  ровно как id в поздних патчах: dstAccessMask |= INDIRECT_COMMAND_READ у
+//                      memory/buffer-барьеров; если их нет — добавляется глобальный VkMemoryBarrier
+//                      (запись → INDIRECT_COMMAND_READ). srcStageMask не меняется;
+//   strict             то же плюс WAR: при COMPUTE_SHADER в srcStageMask добавляется DRAW_INDIRECT
+//                      (indirect-чтения предыдущей фазы завершаются до перезаписи аргументов);
+//   aggressive        такой барьер превращается в полный ALL_COMMANDS → ALL_COMMANDS,
 //                      MEMORY_WRITE → MEMORY_READ|MEMORY_WRITE;
 //   off                ничего не меняется, барьеры только считаются (для A/B-сравнения).
 //
@@ -96,6 +98,7 @@ const char* ModeName(IndirectFixMode mode) {
   switch (mode) {
     case IndirectFixMode::Off: return "off";
     case IndirectFixMode::On: return "on";
+    case IndirectFixMode::Strict: return "strict";
     case IndirectFixMode::Aggressive: return "aggressive";
   }
   return "?";
@@ -172,11 +175,12 @@ thread_local ScratchV2 t_v2;
 
 // --- Барьеры vkCmdPipelineBarrier / vkCmdWaitEvents --------------------------------------------
 // У vkCmdWaitEvents srcStageMask обязан совпадать со stageMask из vkCmdSetEvent, поэтому для
-// событий первая область синхронизации не меняется.
+// событий первая область синхронизации не меняется. war = режим strict.
 
-bool NeedsPatchV1(const BarrierSet& b, bool isWaitEvents) {
-  if (!isWaitEvents && (b.srcStageMask & kComputeStage) && !(b.srcStageMask & kIndirectStage)) {
-    return true;  // WAR
+bool NeedsPatchV1(const BarrierSet& b, bool isWaitEvents, bool war) {
+  if (war && !isWaitEvents && (b.srcStageMask & kComputeStage) &&
+      !(b.srcStageMask & kIndirectStage)) {
+    return true;
   }
   if (b.memoryBarrierCount == 0 && b.bufferMemoryBarrierCount == 0) return true;
   for (uint32_t i = 0; i < b.memoryBarrierCount; ++i) {
@@ -188,8 +192,8 @@ bool NeedsPatchV1(const BarrierSet& b, bool isWaitEvents) {
   return false;
 }
 
-void ApplyOnV1(BarrierSet& b, bool isWaitEvents) {
-  if (!isWaitEvents && (b.srcStageMask & kComputeStage)) {
+void ApplyOnV1(BarrierSet& b, bool isWaitEvents, bool war) {
+  if (war && !isWaitEvents && (b.srcStageMask & kComputeStage)) {
     b.srcStageMask |= Low<VkPipelineStageFlags>(kIndirectStage);
   }
   if (b.memoryBarrierCount == 0 && b.bufferMemoryBarrierCount == 0) {
@@ -285,10 +289,11 @@ bool NeedsAccess(const B& m) {
   return (m.dstStageMask & kIndirectStage) && !CoversIndirectRead(m.dstAccessMask);
 }
 
+// access: менять dstAccessMask (не для image-барьеров); war: режим strict.
 template <typename B>
-bool AnyNeeds(uint32_t count, const B* barriers, bool access) {
+bool AnyNeeds(uint32_t count, const B* barriers, bool access, bool war) {
   for (uint32_t i = 0; i < count; ++i) {
-    if (NeedsWar(barriers[i]) || (access && NeedsAccess(barriers[i]))) return true;
+    if ((war && NeedsWar(barriers[i])) || (access && NeedsAccess(barriers[i]))) return true;
   }
   return false;
 }
@@ -300,26 +305,27 @@ bool NeedsGlobalV2(const VkDependencyInfo& d) {
          AnyIndirectDst(d.imageMemoryBarrierCount, d.pImageMemoryBarriers);
 }
 
-bool NeedsPatchV2(const VkDependencyInfo& d) {
-  return NeedsGlobalV2(d) || AnyNeeds(d.memoryBarrierCount, d.pMemoryBarriers, true) ||
-         AnyNeeds(d.bufferMemoryBarrierCount, d.pBufferMemoryBarriers, true) ||
-         AnyNeeds(d.imageMemoryBarrierCount, d.pImageMemoryBarriers, false);
+bool NeedsPatchV2(const VkDependencyInfo& d, bool war) {
+  return NeedsGlobalV2(d) || AnyNeeds(d.memoryBarrierCount, d.pMemoryBarriers, true, war) ||
+         AnyNeeds(d.bufferMemoryBarrierCount, d.pBufferMemoryBarriers, true, war) ||
+         AnyNeeds(d.imageMemoryBarrierCount, d.pImageMemoryBarriers, false, war);
 }
 
 template <typename B>
-void FixV2(B& m, bool access) {
+void FixV2(B& m, bool access, bool war) {
   if (!(m.dstStageMask & kIndirectStage)) return;
-  if (m.srcStageMask & kComputeStage) m.srcStageMask |= kIndirectStage;
+  if (war && (m.srcStageMask & kComputeStage)) m.srcStageMask |= kIndirectStage;
   if (access && !CoversIndirectRead(m.dstAccessMask)) m.dstAccessMask |= kIndirectRead;
 }
 
-const VkDependencyInfo* ApplyOnV2(const VkDependencyInfo& d) {
+const VkDependencyInfo* ApplyOnV2(const VkDependencyInfo& d, bool war) {
   ScratchV2& t = t_v2;
   t.info = d;
   const bool global = NeedsGlobalV2(d);
-  if (global || AnyNeeds(d.memoryBarrierCount, d.pMemoryBarriers, true)) {
+  const bool memFix = global || AnyNeeds(d.memoryBarrierCount, d.pMemoryBarriers, true, war);
+  if (memFix) {
     t.mem.assign(d.pMemoryBarriers, d.pMemoryBarriers + d.memoryBarrierCount);
-    for (auto& m : t.mem) FixV2(m, true);
+    for (auto& m : t.mem) FixV2(m, true, war);
   }
   if (global) {
     VkPipelineStageFlags2 src = 0;
@@ -328,22 +334,22 @@ const VkDependencyInfo* ApplyOnV2(const VkDependencyInfo& d) {
         src |= d.pImageMemoryBarriers[i].srcStageMask;
       }
     }
-    if (src & kComputeStage) src |= kIndirectStage;
+    if (war && (src & kComputeStage)) src |= kIndirectStage;
     t.mem.push_back(VkMemoryBarrier2{VK_STRUCTURE_TYPE_MEMORY_BARRIER_2, nullptr, src,
                                      WritesForStages(src), kIndirectStage, kIndirectRead});
   }
-  if (global || AnyNeeds(d.memoryBarrierCount, d.pMemoryBarriers, true)) {
+  if (memFix) {
     t.info.memoryBarrierCount = static_cast<uint32_t>(t.mem.size());
     t.info.pMemoryBarriers = t.mem.data();
   }
-  if (AnyNeeds(d.bufferMemoryBarrierCount, d.pBufferMemoryBarriers, true)) {
+  if (AnyNeeds(d.bufferMemoryBarrierCount, d.pBufferMemoryBarriers, true, war)) {
     t.buf.assign(d.pBufferMemoryBarriers, d.pBufferMemoryBarriers + d.bufferMemoryBarrierCount);
-    for (auto& m : t.buf) FixV2(m, true);
+    for (auto& m : t.buf) FixV2(m, true, war);
     t.info.pBufferMemoryBarriers = t.buf.data();
   }
-  if (AnyNeeds(d.imageMemoryBarrierCount, d.pImageMemoryBarriers, false)) {
+  if (AnyNeeds(d.imageMemoryBarrierCount, d.pImageMemoryBarriers, false, war)) {
     t.img.assign(d.pImageMemoryBarriers, d.pImageMemoryBarriers + d.imageMemoryBarrierCount);
-    for (auto& m : t.img) FixV2(m, false);
+    for (auto& m : t.img) FixV2(m, false, war);
     t.info.pImageMemoryBarriers = t.img.data();
   }
   return &t.info;
@@ -424,7 +430,7 @@ class IndirectBarrierFix final : public Feature {
     if (FirstCall(api)) DF_LOG_INFO("indirect-barrier-fix: first call of %s", entryPoint);
     if (!info || !HasIndirectDst(*info)) return;
     indirect_[api].fetch_add(1, std::memory_order_relaxed);
-    const bool needs = mode_ == IndirectFixMode::Aggressive || NeedsPatchV2(*info);
+    const bool needs = mode_ == IndirectFixMode::Aggressive || NeedsPatchV2(*info, War());
     if (!needs) {
       alreadyOk_.fetch_add(1, std::memory_order_relaxed);
     } else {
@@ -432,7 +438,8 @@ class IndirectBarrierFix final : public Feature {
       const bool detail = first || log::Enabled(log::Level::Debug);
       const std::string before = detail ? DescribeV2(*info) : std::string();
       if (mode_ != IndirectFixMode::Off) {
-        info = mode_ == IndirectFixMode::Aggressive ? ApplyAggressiveV2(*info) : ApplyOnV2(*info);
+        info = mode_ == IndirectFixMode::Aggressive ? ApplyAggressiveV2(*info)
+                                                    : ApplyOnV2(*info, War());
       }
       patched_[api].fetch_add(1, std::memory_order_relaxed);
       if (detail) LogPatch(api, cb, first, before, DescribeV2(*info), false);
@@ -464,20 +471,26 @@ class IndirectBarrierFix final : public Feature {
     if (FirstCall(api)) DF_LOG_INFO("indirect-barrier-fix: first call of %s", kApiNames[api]);
     if (!(b.dstStageMask & Low<VkPipelineStageFlags>(kIndirectStage))) return;
     indirect_[api].fetch_add(1, std::memory_order_relaxed);
-    const bool needs = mode_ == IndirectFixMode::Aggressive || NeedsPatchV1(b, isWaitEvents);
+    const bool needs =
+        mode_ == IndirectFixMode::Aggressive || NeedsPatchV1(b, isWaitEvents, War());
     if (!needs) {
       alreadyOk_.fetch_add(1, std::memory_order_relaxed);
     } else {
       const bool first = FirstPatch(api);
       const bool detail = first || log::Enabled(log::Level::Debug);
       const std::string before = detail ? DescribeV1(b) : std::string();
-      if (mode_ == IndirectFixMode::On) ApplyOnV1(b, isWaitEvents);
+      if (mode_ == IndirectFixMode::On || mode_ == IndirectFixMode::Strict) {
+        ApplyOnV1(b, isWaitEvents, War());
+      }
       if (mode_ == IndirectFixMode::Aggressive) ApplyAggressiveV1(b, isWaitEvents);
       patched_[api].fetch_add(1, std::memory_order_relaxed);
       if (detail) LogPatch(api, cb, first, before, DescribeV1(b), isWaitEvents);
     }
     MaybeReport();
   }
+
+  // WAR-добавка DRAW_INDIRECT в srcStageMask — только в режиме strict.
+  bool War() const { return mode_ == IndirectFixMode::Strict; }
 
   bool FirstCall(Api api) {
     return !firstCall_[api].load(std::memory_order_relaxed) && !firstCall_[api].exchange(true);
