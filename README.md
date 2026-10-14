@@ -25,6 +25,8 @@ and the world loses its local lights, decals and volumetric light. doomfix is a 
 | | |
 |---|---|
 | **Tested** | GeForce RTX 4070, NVIDIA driver 617.42, DOOM Eternal 1.1 (Steam) |
+             | RTX 3070 | Driver (616.64)
+             | RTX 3070Ti | Driver (Unknown)
 | **Should work** | any NVIDIA GPU with a recent driver that shows the black-weapon bug |
 | **AMD** | the bug does not happen on AMD; the layer does not break anything there |
 | **OS** | Windows only (64-bit) |
