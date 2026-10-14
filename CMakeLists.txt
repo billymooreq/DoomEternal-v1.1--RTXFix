@@ -19,6 +19,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(DOOMFIX_LAYER_NAME "VK_LAYER_DOOMFIX" CACHE STRING "Имя Vulkan-слоя")
 set(DOOMFIX_VULKAN_HEADERS_TAG "v1.4.341" CACHE STRING "Тег Vulkan-Headers, если SDK не найден")
 option(DOOMFIX_USE_SDK_HEADERS "Брать заголовки из установленного Vulkan SDK, если он есть" ON)
+option(DOOMFIX_BUILD_TESTS "Собирать тестовую программу doomfix_barrier_test.exe" ON)
 
 # --- Заголовки Vulkan ---------------------------------------------------------
 # Слою нужны только заголовки (vulkan.h, vk_layer.h); vulkan-1.lib не линкуется.
@@ -62,6 +63,14 @@ target_compile_definitions(doomfix_layer PRIVATE
   DOOMFIX_VERSION="${PROJECT_VERSION}"
 )
 target_compile_options(doomfix_layer PRIVATE /W4 /permissive- /utf-8)
+
+# --- Тест фичи indirect-barrier-fix (запускается вручную, см. README) -------------------
+if(DOOMFIX_BUILD_TESTS)
+  add_executable(doomfix_barrier_test tests/barrier_test.cpp)
+  target_link_libraries(doomfix_barrier_test PRIVATE Vulkan::Headers)
+  target_compile_definitions(doomfix_barrier_test PRIVATE NOMINMAX WIN32_LEAN_AND_MEAN)
+  target_compile_options(doomfix_barrier_test PRIVATE /W4 /permissive- /utf-8)
+endif()
 
 # --- Манифест слоя -------------------------------------------------------------
 configure_file(layer/VK_LAYER_DOOMFIX.json.in ${CMAKE_CURRENT_BINARY_DIR}/layer_manifest.json.in @ONLY)
