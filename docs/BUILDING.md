@@ -101,7 +101,7 @@ It can be assembled from a Release build like this:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\build.ps1 -Config Release -BuildDir build-release
-$v = 'doomfix-0.2.0'; $d = "dist\$v"
+$v = 'doomfix-0.3.0'; $d = "dist\$v"
 New-Item -ItemType Directory -Force "$d\bin", "$d\scripts" | Out-Null
 Copy-Item build-release\bin\doomfix_layer.dll, build-release\bin\VK_LAYER_DOOMFIX.json "$d\bin"
 Copy-Item scripts\install.ps1, scripts\uninstall.ps1, scripts\launch.ps1, scripts\steam_mode.ps1 "$d\scripts"
