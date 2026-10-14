@@ -2,8 +2,8 @@
 
 [← README](../README.md) · [Technical notes](TECHNICAL.md)
 
-This page is for building doomfix from source, running its test program, packaging a release and running the
-RenderDoc analysis scripts. To just use the fix, see the [README](../README.md).
+This page is for building doomfix from source, running its test program, packaging a release, the GitHub Actions
+workflows and the RenderDoc analysis scripts. To just use the fix, see the [README](../README.md).
 
 ## Prerequisites
 
@@ -76,6 +76,7 @@ build\bin\doomfix_barrier_test.exe
 It prints `ok` or `FAIL` for every case and ends with `ALL PASSED` (exit code 0). On failure the layer logs are
 kept and their folder is printed. With `--soak`, an extra run in mode `on` has four threads re-record command
 buffers for about 12 seconds and checks that the layer's counters match the number of recorded barriers.
+On a machine without a suitable GPU, use `scripts\test_swiftshader.ps1` (see [CI and releases](#ci-and-releases)).
 
 The program also prints whether `VK_AMD_memory_overallocation_behavior` is visible to it. With the default settings it
 must be visible whenever the driver exposes it; with `DOOMFIX_HIDE_OVERALLOCATION=1` it must not be. Drivers that do not
@@ -97,17 +98,60 @@ doomfix-<version>\
   README.md  README.ru.md  LICENSE
 ```
 
-It can be assembled from a Release build like this:
+`scripts\package.ps1` assembles it from a Release build, exactly as the release workflow does:
 
-```powershell
+```bat
 powershell -ExecutionPolicy Bypass -File scripts\build.ps1 -Config Release -BuildDir build-release
-$v = 'doomfix-0.3.0'; $d = "dist\$v"
-New-Item -ItemType Directory -Force "$d\bin", "$d\scripts" | Out-Null
-Copy-Item build-release\bin\doomfix_layer.dll, build-release\bin\VK_LAYER_DOOMFIX.json "$d\bin"
-Copy-Item scripts\install.ps1, scripts\uninstall.ps1, scripts\launch.ps1, scripts\steam_mode.ps1 "$d\scripts"
-Copy-Item install.bat, uninstall.bat, run_doom_fixed.bat, run_fix_strict.bat, run_fix_off.bat, run_fix_aggressive.bat, enable_steam_mode.bat, disable_steam_mode.bat, README.md, README.ru.md, LICENSE $d
-Compress-Archive -Path $d -DestinationPath "dist\$v.zip" -Force
+powershell -ExecutionPolicy Bypass -File scripts\package.ps1
 ```
+
+The result is `dist\doomfix-<version>.zip` plus `dist\doomfix-<version>.zip.sha256`. The version comes from
+`project(doomfix VERSION ...)` in `CMakeLists.txt`; `-Version 0.3.1-rc1` adds a suffix, but the numeric part must match.
+
+## CI and releases
+
+Two GitHub Actions workflows run on `windows-latest` and use the same scripts as above.
+
+**Build** (`.github/workflows/build.yml`), on every push to `main` and every pull request:
+
+1. `scripts\build.ps1 -Config Release` (MSVC, CMake, Ninja, Vulkan-Headers `v1.4.341`).
+2. `scripts\test_swiftshader.ps1`: runs `doomfix_barrier_test` on SwiftShader, see below.
+3. `scripts\package.ps1`: the zip is uploaded as the run's artifact (Actions → the run → *Artifacts*).
+
+**Test without a GPU.** The runners have no GPU, but the test only records command buffers and never submits them,
+so a software Vulkan driver is enough. Google Chrome and Microsoft Edge ship SwiftShader (`vk_swiftshader.dll`,
+Vulkan 1.3) together with a Vulkan loader (`vulkan-1.dll`), and both browsers are preinstalled on the Windows runners.
+`test_swiftshader.ps1` takes them from the newest installed Chrome or Edge, installs the freshly built layer
+for the current user, copies the test next to the browser's loader and runs it with `VK_DRIVER_FILES` pointing at
+SwiftShader only. Nothing is downloaded. It works locally too, but note that it **reinstalls** doomfix from the given
+build folder (close the game first). If a future runner image drops SwiftShader from both browsers, the step fails
+with "SwiftShader not found" instead of silently skipping the test.
+
+**Release** (`.github/workflows/release.yml`), on a pushed tag `v*`:
+
+1. Checks the tag: it must be `v<major>.<minor>.<patch>` with an optional suffix (`v0.3.1`, `v0.3.1-rc1`), and the
+   numeric part must equal the version in `CMakeLists.txt`. Otherwise the run fails before building.
+2. Builds, tests and packages exactly like the Build workflow, as `doomfix-<tag without v>.zip`.
+3. Creates a [build provenance attestation](https://docs.github.com/actions/security-for-github-actions/using-artifact-attestations)
+   for `doomfix_layer.dll` and the zip (`actions/attest-build-provenance`). Anyone can then check that a file was
+   built by this workflow from the tagged commit: `gh attestation verify <file> --repo billymooreq/DoomEternal-v1.1--RTXFix`.
+   GitHub offers attestations only for public repositories (private ones need GitHub Enterprise Cloud), so the step
+   is skipped while the repository is private, and the release notes then leave out the verification paragraph.
+4. Publishes a GitHub Release with the zip and its `.sha256`. The text comes from `.github/release-notes.md`
+   (placeholders `{{VERSION}}`, `{{ZIP}}`, `{{SHA256}}`, `{{REPO}}`, `{{TAG}}`, `{{VERIFY}}`). A tag with a suffix
+   is published as a **pre-release**.
+
+To make a release:
+
+```bat
+rem 1. set project(doomfix VERSION x.y.z ...) in CMakeLists.txt and the version in the README log examples, commit
+git tag -a vX.Y.Z -m "doomfix X.Y.Z"
+git push origin main vX.Y.Z
+```
+
+Use a suffix (`vX.Y.Z-rc1`) to try the process first: it produces a pre-release that can be deleted afterwards
+(`gh release delete vX.Y.Z-rc1 --cleanup-tag`). The actions are pinned to commit SHAs (the comment next to each
+shows the version).
 
 ## Analysis scripts
 

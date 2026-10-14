@@ -1,0 +1,95 @@
+# On a tag v<major>.<minor>.<patch>[-suffix]: checks the tag against CMakeLists.txt, builds and tests the
+# same way as build.yml, attests the build provenance and publishes a GitHub Release with the zip and its
+# SHA256. Tags with a suffix (v0.3.1-rc1, v0.4.0-beta2) become pre-releases. See docs/BUILDING.md.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: windows-latest
+    permissions:
+      contents: write      # create the release
+      id-token: write      # sign the provenance attestation
+      attestations: write  # store it
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+
+      - name: Check the tag against CMakeLists.txt
+        id: version
+        run: |
+          $tag = $env:GITHUB_REF_NAME
+          if ($tag -notmatch '^v(\d+\.\d+\.\d+)(-[0-9A-Za-z.]+)?$') {
+            Write-Output "::error::Tag '$tag' must look like v1.2.3 or v1.2.3-rc1."
+            exit 1
+          }
+          $tagVersion = $Matches[1]
+          $prerelease = [bool]$Matches[2]
+          $cmake = [regex]::Match((Get-Content CMakeLists.txt -Raw), 'project\(doomfix VERSION (\d+\.\d+\.\d+)').Groups[1].Value
+          if ($tagVersion -ne $cmake) {
+            Write-Output "::error::Tag '$tag' is version $tagVersion, but CMakeLists.txt says $cmake. Set project(doomfix VERSION $tagVersion ...), commit, and tag that commit."
+            exit 1
+          }
+          "version=$($tag.Substring(1))" >> $env:GITHUB_OUTPUT
+          "prerelease=$($prerelease.ToString().ToLower())" >> $env:GITHUB_OUTPUT
+
+      - name: Build (Release)
+        run: .\scripts\build.ps1 -Config Release -BuildDir build-release
+
+      - name: Test on SwiftShader (software Vulkan, no GPU on the runner)
+        run: .\scripts\test_swiftshader.ps1 -BuildDir build-release
+
+      - name: Package
+        id: package
+        run: .\scripts\package.ps1 -BuildDir build-release -OutDir dist -Version '${{ steps.version.outputs.version }}'
+
+      # GitHub only offers artifact attestations for public repositories (and private ones on
+      # GitHub Enterprise Cloud), so this step is skipped while the repository is private.
+      - name: Attest build provenance
+        id: attest
+        if: ${{ !github.event.repository.private }}
+        uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4
+        with:
+          subject-path: |
+            build-release/bin/doomfix_layer.dll
+            ${{ steps.package.outputs.zip }}
+
+      - name: Write the release notes
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          ZIP_NAME: ${{ steps.package.outputs.name }}.zip
+          SHA256: ${{ steps.package.outputs.sha256 }}
+          ATTESTED: ${{ steps.attest.outcome == 'success' }}
+        run: |
+          $notes = Get-Content .github\release-notes.md -Raw
+          $verify = if ($env:ATTESTED -eq 'true') {
+            "The DLL and the zip have a [build provenance attestation](https://github.com/$env:GITHUB_REPOSITORY/attestations): " +
+            "they were built by this repository's release workflow from the tagged commit. To check it, install the " +
+            "[GitHub CLI](https://cli.github.com) and run:`n`n" +
+            '```' + "`ngh attestation verify $env:ZIP_NAME --repo $env:GITHUB_REPOSITORY`n" + '```'
+          } else { '' }
+          $values = [ordered]@{
+            '{{VERSION}}' = $env:VERSION; '{{ZIP}}' = $env:ZIP_NAME; '{{SHA256}}' = $env:SHA256
+            '{{REPO}}' = $env:GITHUB_REPOSITORY; '{{TAG}}' = $env:GITHUB_REF_NAME; '{{VERIFY}}' = $verify
+          }
+          foreach ($key in $values.Keys) { $notes = $notes.Replace($key, $values[$key]) }
+          if ($notes -match '\{\{\w+\}\}') { Write-Output "::error::Unfilled placeholder $($Matches[0]) in .github/release-notes.md"; exit 1 }
+          Set-Content release-notes.md $notes -Encoding utf8NoBOM
+
+      - name: Create the GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $zip = '${{ steps.package.outputs.zip }}'
+          $flags = @('--verify-tag', '--title', "doomfix ${{ steps.version.outputs.version }}", '--notes-file', 'release-notes.md')
+          if ('${{ steps.version.outputs.prerelease }}' -eq 'true') { $flags += '--prerelease' }
+          gh release create $env:GITHUB_REF_NAME $zip "$zip.sha256" @flags
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
