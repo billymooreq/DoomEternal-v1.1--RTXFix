@@ -18,7 +18,8 @@ and the world loses its local lights, decals and volumetric light. doomfix is a 
 - **Gameplay and timings are not affected.** The layer adds one synchronization flag to three GPU barriers in the
   game's lighting code, exactly as id Software did themselves in later patches. Everything else passes through as is.
 - **Open source** (MIT license): you can read every line and build it yourself.
-- **Easy to remove:** `uninstall.bat` takes it out completely.
+- **No data collection:** doomfix never connects to the network. Details: [PRIVACY.md](PRIVACY.md).
+- **Easy to remove:** *Settings → Apps* (or `uninstall.bat` for the zip) takes it out completely.
 
 ## Compatibility
 | | |
@@ -36,27 +37,53 @@ GPU, driver version, game version and whether the weapon looks right.
 
 ## Installation
 
-1. Open [Releases](../../releases) and download `doomfix-<version>.zip` from the *Assets* of the newest release.
-2. Unpack it anywhere you like, for example `Documents\doomfix`. Keep this folder: the launcher and the uninstaller live there.
-3. Run `install.bat`. No administrator rights are needed.
+Open [Releases](../../releases) and pick one of the two downloads in the *Assets* of the newest release.
+Both install the same layer for your Windows user; no administrator rights are needed.
 
-Then start the game with `run_doom_fixed.bat` (see [Usage](#usage)).
+**Installer (recommended): `doomfix-<version>-setup.exe`**
 
-Every release is built from this source code by GitHub Actions and lists the SHA256 of the zip in its description.
+1. Run it. It finds DOOM Eternal in your Steam library (or click *Browse* to choose the folder with
+   `DOOMEternalx64vk.exe`).
+2. Choose whether you want a desktop shortcut (a Start menu shortcut is always created).
+3. Start the game with the **DOOM Eternal (doomfix)** shortcut (desktop or Start menu).
+
+The installer is not code-signed yet (see the [code signing policy](docs/CODE_SIGNING_POLICY.md)), so Windows may show
+*Windows protected your PC*: click *More info*, then *Run anyway*.
+
+**Zip, without an exe installer: `doomfix-<version>.zip`**
+
+1. Unpack it anywhere you like, for example `Documents\doomfix`. Keep this folder: the launcher and the uninstaller live there.
+2. Run `install.bat`.
+3. Start the game with `run_doom_fixed.bat` (see [Usage](#usage)).
+
+Already installed doomfix with `install.bat` and now want the installer? Just run it: it replaces the old installation
+in place, and you can delete the old doomfix folder afterwards.
+
+**Upgrading from 0.3.1:** the optional *Steam mode* (`enable_steam_mode.bat`) is gone, see
+[Pressing Play in Steam](#pressing-play-in-steam). If you had turned it on, the installer and `install.bat` turn it off
+and tell you so; restart Steam afterwards.
+
+Every release is built from this source code by GitHub Actions and lists the SHA256 of both downloads in its description.
 Releases marked *Pre-release* are test builds. To build doomfix yourself instead, see [docs/BUILDING.md](docs/BUILDING.md).
 
 ## Usage
 
 ### Starting the game
 
-Double-click **`run_doom_fixed.bat`**. That's it.
+**Installer:** double-click the **DOOM Eternal (doomfix)** shortcut. That's it. Keep Steam running.
+If the game folder changes, the shortcut asks for the new one.
 
-The first time, it finds DOOM Eternal in your Steam library and asks you to confirm the folder
-(or asks you to type it in if the game is somewhere else). The folder is remembered, so from then on the game
-just starts. Keep Steam running.
+**Zip:** double-click **`run_doom_fixed.bat`**. The first time, it finds DOOM Eternal in your Steam library and asks
+you to confirm the folder (or asks you to type it in if the game is somewhere else). The folder is remembered, so from
+then on the game just starts. Keep Steam running.
 
-**Optional, starting from Steam:** if you would rather press Play in Steam, run `enable_steam_mode.bat` once
-(it offers to restart Steam for you). `disable_steam_mode.bat` turns this off again.
+### Pressing Play in Steam
+
+Pressing Play in Steam starts the game **without** the fix. doomfix is turned on only for the game started by the
+doomfix shortcut or `run_doom_fixed.bat`, and never for other programs. Steam itself still has to run.
+
+Version 0.3.1 had an optional *Steam mode* that turned the layer on for every Vulkan game started from Steam. It is
+removed: that included online games with anti-cheat, which is an unnecessary risk.
 
 ### Checking that it works
 
@@ -73,7 +100,9 @@ The last line repeats every few seconds while you play, with growing numbers.
 
 ### Modes
 
-The fix has four modes, selected with the `DOOMFIX_INDIRECT_FIX` variable. Each mode has its own launcher:
+The fix has four modes, selected with the `DOOMFIX_INDIRECT_FIX` variable. The zip has a launcher for each mode;
+with the installer, start `%LOCALAPPDATA%\doomfix\doomfix_launcher.exe --mode <mode>` (for example from a copy of the
+shortcut with `--mode strict` added to its target).
 
 | Mode | Launcher | What it does |
 |---|---|---|
@@ -84,35 +113,41 @@ The fix has four modes, selected with the `DOOMFIX_INDIRECT_FIX` variable. Each 
 
 ## Uninstall
 
-1. Run `uninstall.bat`.
-2. Delete the doomfix folder.
-3. Optional: delete `%LOCALAPPDATA%\doomfix` (only log files are left there).
+- **Installer:** *Settings → Apps → Installed apps → doomfix → Uninstall*.
+- **Zip:** run `uninstall.bat`, then delete the doomfix folder.
+
+Both remove the layer and its registry entries. Log files are kept: delete `%LOCALAPPDATA%\doomfix`
+afterwards if you do not need them.
 
 ## Troubleshooting
 
 **The fix does not work: the weapon is still black.**
-Make sure that nothing involved runs **as administrator**: not the game, not Steam, not `run_doom_fixed.bat`.
+Make sure the game was started with the doomfix shortcut or `run_doom_fixed.bat`, not with Play in Steam, and that
+nothing involved runs **as administrator**: not the game, not the shortcut, not `run_doom_fixed.bat`.
 Windows does not load doomfix into programs started as administrator, so the game then runs without the fix.
-Also check the *Compatibility* tab in the properties of `DOOMEternalx64vk.exe` and `steam.exe`: the box
-*Run this program as an administrator* must be unticked. The launcher warns you if it was started as administrator.
+Also check the *Compatibility* tab in the properties of `DOOMEternalx64vk.exe`: the box
+*Run this program as an administrator* must be unticked. The doomfix shortcut and the installer warn you about this.
 
 **The game starts, but the weapon is still black and no new log appears.**
 DOOM Eternal can restart itself through Steam, and the restarted game no longer has the doomfix variables.
-The launcher prevents this by setting `SteamAppId=782330`; make sure Steam is running before you use it.
-If you start the game from Steam, run `enable_steam_mode.bat` and let it restart Steam.
+The doomfix shortcut and `run_doom_fixed.bat` prevent this by setting `SteamAppId=782330`; make sure Steam is running
+before you use them.
 
-**`install.bat` warns about another loader settings file.**
+**The installer or `install.bat` warns about another loader settings file.**
 That file comes from Vulkan Configurator (vkconfig), part of the Vulkan SDK. The Vulkan loader only uses one such file,
-so doomfix does not overwrite it. Close vkconfig or turn off its "Vulkan Loader Management", then run `install.bat` again.
+so doomfix does not overwrite it. Close vkconfig or turn off its "Vulkan Loader Management", then run the installer
+(or `install.bat`) again.
 
-**My antivirus complains about `doomfix_layer.dll`.**
-The DLL is not code-signed and loads into the game like an overlay does, which some antivirus programs dislike.
+**My antivirus or SmartScreen complains about doomfix.**
+The files are not code-signed yet, and the DLL loads into the game like an overlay does, which some antivirus programs
+dislike. Every release has SHA256 checksums and a build provenance attestation to check that the files come from
+this repository.
 The source code is open: you can build the DLL yourself ([docs/BUILDING.md](docs/BUILDING.md)) and/or add an exception
 for the doomfix folder and `%LOCALAPPDATA%\doomfix\layer`.
 
 **There is no log at all.**
-Check that `install.bat` finished without errors, and that the game was started with `DOOMFIX_ENABLE=1`
-(through the launcher, or from Steam after `enable_steam_mode.bat`). `run_doom_fixed.bat -DryRun` checks the installation and
+Check that the installer or `install.bat` finished without errors, and that the game was started with
+`DOOMFIX_ENABLE=1` (through the doomfix shortcut or `run_doom_fixed.bat`). `run_doom_fixed.bat -DryRun` checks the installation and
 the game folder without starting the game.
 
 ## How it works
@@ -136,6 +171,11 @@ with the current game version: [analysis/report.md](analysis/report.md) (in Russ
   [Vulkan-Headers](https://github.com/KhronosGroup/Vulkan-Headers) by Khronos,
   [SPIRV-Cross](https://github.com/KhronosGroup/SPIRV-Cross).
 - DOOM Eternal is © id Software / Bethesda. This project is not affiliated with or endorsed by them.
+
+## Privacy and code signing
+
+- [PRIVACY.md](PRIVACY.md): doomfix collects and sends no data; what it stores on your computer and in the registry.
+- [Code signing policy](docs/CODE_SIGNING_POLICY.md): which files are signed and how releases are built.
 
 ## License
 
