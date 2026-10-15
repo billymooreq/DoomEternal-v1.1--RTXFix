@@ -42,11 +42,11 @@ New-Item -ItemType Directory -Force (Join-Path $stage 'bin'), (Join-Path $stage 
 
 $files = @{
     'bin'     = @('doomfix_layer.dll', 'VK_LAYER_DOOMFIX.json') | ForEach-Object { Join-Path $bin $_ }
-    'scripts' = @('install.ps1', 'uninstall.ps1', 'launch.ps1', 'steam_mode.ps1') |
+    'scripts' = @('install.ps1', 'uninstall.ps1', 'launch.ps1') |
         ForEach-Object { Join-Path $root "scripts\$_" }
     '.'       = @('install.bat', 'uninstall.bat', 'run_doom_fixed.bat', 'run_fix_strict.bat', 'run_fix_off.bat',
-                  'run_fix_aggressive.bat', 'enable_steam_mode.bat', 'disable_steam_mode.bat',
-                  'README.md', 'README.ru.md', 'LICENSE') | ForEach-Object { Join-Path $root $_ }
+                  'run_fix_aggressive.bat',
+                  'README.md', 'README.ru.md', 'PRIVACY.md', 'LICENSE') | ForEach-Object { Join-Path $root $_ }
 }
 foreach ($dir in $files.Keys) {
     foreach ($f in $files[$dir]) {

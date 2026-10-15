@@ -11,6 +11,8 @@
      registered in HKLM (RenderDoc does that) would sit above doomfix.
 
   The layer only activates in processes started with DOOMFIX_ENABLE=1, so other applications are not affected.
+  The launchers set that variable for the game alone. The "Steam mode" of v0.3.1 stored it for the whole user,
+  so that every Vulkan program got the layer; if that variable is still there, it is removed.
 
 .PARAMETER SourceDir
   Folder with doomfix_layer.dll and VK_LAYER_DOOMFIX.json. Default: ..\bin (release zip), then
@@ -112,6 +114,16 @@ if ($NoOrdering) {
         Write-Host "Layer order: $LayerName first, closest to the application; $scope"
         Write-Host "  $SettingsKey -> $SettingsFile"
     }
+}
+
+# --- 4. Old Steam mode (v0.3.1) ------------------------------------------------------------------
+# enable_steam_mode.bat stored DOOMFIX_ENABLE=1 for the user, which turned the layer on in every Vulkan program
+# started from Steam (games with anti-cheat included). The launchers now set it for the game alone.
+if ([Environment]::GetEnvironmentVariable('DOOMFIX_ENABLE', 'User')) {
+    # Also notifies running programs (WM_SETTINGCHANGE), so Explorer stops passing it to new programs.
+    [Environment]::SetEnvironmentVariable('DOOMFIX_ENABLE', $null, 'User')
+    Write-Warning ('Steam mode from an older doomfix version was turned off. Launch the game with ' +
+        'run_doom_fixed.bat. Restart Steam to apply.')
 }
 
 Write-Host ""
