@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(doomfix VERSION 0.3.1 LANGUAGES CXX)
+project(doomfix VERSION 0.3.1 LANGUAGES CXX RC)
 
 if(NOT WIN32)
   message(FATAL_ERROR "doomfix собирается только под Windows")
@@ -41,6 +41,22 @@ else()
   FetchContent_MakeAvailable(VulkanHeaders)
 endif()
 
+# Ресурс версии (Свойства → Подробно): название продукта и версия видны пользователю и нужны для
+# подписи кода. Добавляет в цель сгенерированный .rc из src/version.rc.in.
+function(doomfix_add_version_resource target description filetype)
+  set(DOOMFIX_RC_NAME ${target})
+  set(DOOMFIX_RC_DESCRIPTION "${description}")
+  set(DOOMFIX_RC_FILETYPE ${filetype})
+  get_target_property(type ${target} TYPE)
+  if(type STREQUAL "SHARED_LIBRARY")
+    set(DOOMFIX_RC_FILENAME ${target}.dll)
+  else()
+    set(DOOMFIX_RC_FILENAME ${target}.exe)
+  endif()
+  configure_file(src/version.rc.in ${CMAKE_CURRENT_BINARY_DIR}/${target}_version.rc @ONLY)
+  target_sources(${target} PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/${target}_version.rc)
+endfunction()
+
 # --- Слой ---------------------------------------------------------------------
 add_library(doomfix_layer SHARED
   src/doomfix_layer.def
@@ -63,6 +79,19 @@ target_compile_definitions(doomfix_layer PRIVATE
   DOOMFIX_VERSION="${PROJECT_VERSION}"
 )
 target_compile_options(doomfix_layer PRIVATE /W4 /permissive- /utf-8)
+doomfix_add_version_resource(doomfix_layer "doomfix Vulkan layer for DOOM Eternal 1.1" VFT_DLL)
+
+# --- Лаунчер для ярлыков установщика (без PowerShell и консоли) ---------------------
+add_executable(doomfix_launcher WIN32
+  src/launcher/launcher.cpp
+  src/launcher/launcher.manifest
+  src/common/util.cpp
+)
+target_include_directories(doomfix_launcher PRIVATE src)
+target_compile_definitions(doomfix_launcher PRIVATE NOMINMAX WIN32_LEAN_AND_MEAN UNICODE _UNICODE)
+target_compile_options(doomfix_launcher PRIVATE /W4 /permissive- /utf-8)
+target_link_libraries(doomfix_launcher PRIVATE advapi32 ole32 shell32 user32)
+doomfix_add_version_resource(doomfix_launcher "Starts DOOM Eternal with the doomfix layer" VFT_APP)
 
 # --- Тест фичи indirect-barrier-fix (запускается вручную, см. README) -------------------
 if(DOOMFIX_BUILD_TESTS)
