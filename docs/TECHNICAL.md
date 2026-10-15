@@ -122,8 +122,8 @@ The order is therefore set with the loader's own mechanism (loader 1.3.2xx and n
 - The rule is global, but changes nothing for processes without `DOOMFIX_ENABLE=1`. It can be limited to one exe with
   `install.ps1 -GameExe "<game folder>\DOOMEternalx64vk.exe"`; the loader compares that path case-sensitively, so the
   global default is more robust.
-- If a loader settings file is already registered by Vulkan Configurator (vkconfig), `install.ps1` leaves it alone and
-  prints a warning: the loader uses only one such file.
+- If a loader settings file is already registered by Vulkan Configurator (vkconfig), `install.ps1` and the installer
+  leave it alone and warn: the loader uses only one such file.
 
 The log line `chain below doomfix: ...` lists the DLLs of all layers below doomfix; if RenderDoc is loaded but missing
 from that line, a `WARN` suggests re-running the installer.
@@ -132,7 +132,7 @@ from that line, a `WARN` suggests re-running the installer.
 
 | Variable | Meaning |
 |---|---|
-| `DOOMFIX_ENABLE=1` | turns the layer on for this process (checked by the loader) |
+| `DOOMFIX_ENABLE=1` | turns the layer on for this process (checked by the loader). The doomfix shortcut and the `run_*.bat` launchers set it for the game process only, never for the user or the system |
 | `DOOMFIX_DISABLE=1` | turns it off even if `DOOMFIX_ENABLE=1` |
 | `DOOMFIX_INDIRECT_FIX` | `on` (default) / `strict` / `aggressive` / `off` |
 | `DOOMFIX_LOG_LEVEL` | `debug` / `info` (default) / `warn` / `error` |
@@ -183,8 +183,11 @@ src/features/feature.h               feature interface (events from the core)
 src/features/features.cpp            list of enabled features
 src/features/hide_device_extensions.cpp
 src/features/indirect_barrier_fix.cpp
+src/launcher/                        doomfix_launcher.exe (the installer's shortcuts start the game through it)
+src/version.rc.in                    version resource of the DLL and the launcher
 tests/barrier_test.cpp               doomfix_barrier_test.exe
-scripts/                             build, install, uninstall, launch (PowerShell)
+installer/doomfix.iss                the installer (Inno Setup)
+scripts/                             build, package, installer, install, uninstall, launch, tests (PowerShell)
 *.bat                                user entry points: install, uninstall, launchers
 analysis/                            RenderDoc analysis scripts and the investigation report
 docs/                                this documentation
