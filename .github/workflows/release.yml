@@ -1,6 +1,7 @@
 # On a tag v<major>.<minor>.<patch>[-suffix]: checks the tag against CMakeLists.txt, builds and tests the
-# same way as build.yml, attests the build provenance and publishes a GitHub Release with the zip and its
-# SHA256. Tags with a suffix (v0.3.1-rc1, v0.4.0-beta2) become pre-releases. See docs/BUILDING.md.
+# same way as build.yml, attests the build provenance and publishes a GitHub Release with the installer,
+# the zip and their SHA256 files. Tags with a suffix (v0.3.1-rc1, v0.4.0-beta2) become pre-releases.
+# See docs/BUILDING.md.
 name: Release
 
 on:
@@ -51,6 +52,18 @@ jobs:
         id: package
         run: .\scripts\package.ps1 -BuildDir build-release -OutDir dist -Version '${{ steps.version.outputs.version }}'
 
+      - name: Install Inno Setup
+        run: choco install innosetup --version=6.7.1 --allow-downgrade --no-progress -y
+
+      # Code signing of doomfix_layer.dll and doomfix_launcher.exe will go here, before the installer is
+      # built from them (the installer itself is signed after the next step).
+      - name: Build the installer
+        id: installer
+        run: .\scripts\build_installer.ps1 -BinDir build-release\bin -OutDir dist -Version '${{ steps.version.outputs.version }}'
+
+      - name: Test the installer (install over install.bat, reinstall, uninstall)
+        run: .\scripts\test_installer.ps1 -Setup '${{ steps.installer.outputs.setup }}' -BinDir build-release\bin
+
       # GitHub only offers artifact attestations for public repositories (and private ones on
       # GitHub Enterprise Cloud), so this step is skipped while the repository is private.
       - name: Attest build provenance
@@ -58,26 +71,34 @@ jobs:
         if: ${{ !github.event.repository.private }}
         uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4
         with:
+          # Relative paths with '/': subject-path is a glob pattern, and a '\' there may be read as an escape.
           subject-path: |
             build-release/bin/doomfix_layer.dll
-            ${{ steps.package.outputs.zip }}
+            build-release/bin/doomfix_launcher.exe
+            dist/${{ steps.installer.outputs.setup_name }}
+            dist/${{ steps.package.outputs.name }}.zip
 
       - name: Write the release notes
         env:
           VERSION: ${{ steps.version.outputs.version }}
           ZIP_NAME: ${{ steps.package.outputs.name }}.zip
           SHA256: ${{ steps.package.outputs.sha256 }}
+          SETUP_NAME: ${{ steps.installer.outputs.setup_name }}
+          SETUP_SHA256: ${{ steps.installer.outputs.setup_sha256 }}
           ATTESTED: ${{ steps.attest.outcome == 'success' }}
         run: |
           $notes = Get-Content .github\release-notes.md -Raw
           $verify = if ($env:ATTESTED -eq 'true') {
-            "The DLL and the zip have a [build provenance attestation](https://github.com/$env:GITHUB_REPOSITORY/attestations): " +
-            "they were built by this repository's release workflow from the tagged commit. To check it, install the " +
+            "The installer, the zip, the DLL and the launcher have a " +
+            "[build provenance attestation](https://github.com/$env:GITHUB_REPOSITORY/attestations): they were built " +
+            "by this repository's release workflow from the tagged commit. To check it, install the " +
             "[GitHub CLI](https://cli.github.com) and run:`n`n" +
-            '```' + "`ngh attestation verify $env:ZIP_NAME --repo $env:GITHUB_REPOSITORY`n" + '```'
+            '```' + "`ngh attestation verify $env:SETUP_NAME --repo $env:GITHUB_REPOSITORY`n" +
+            "gh attestation verify $env:ZIP_NAME --repo $env:GITHUB_REPOSITORY`n" + '```'
           } else { '' }
           $values = [ordered]@{
             '{{VERSION}}' = $env:VERSION; '{{ZIP}}' = $env:ZIP_NAME; '{{SHA256}}' = $env:SHA256
+            '{{SETUP}}' = $env:SETUP_NAME; '{{SETUP_SHA256}}' = $env:SETUP_SHA256
             '{{REPO}}' = $env:GITHUB_REPOSITORY; '{{TAG}}' = $env:GITHUB_REF_NAME; '{{VERIFY}}' = $verify
           }
           foreach ($key in $values.Keys) { $notes = $notes.Replace($key, $values[$key]) }
@@ -89,7 +110,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           $zip = '${{ steps.package.outputs.zip }}'
+          $setup = '${{ steps.installer.outputs.setup }}'
           $flags = @('--verify-tag', '--title', "doomfix ${{ steps.version.outputs.version }}", '--notes-file', 'release-notes.md')
           if ('${{ steps.version.outputs.prerelease }}' -eq 'true') { $flags += '--prerelease' }
-          gh release create $env:GITHUB_REF_NAME $zip "$zip.sha256" @flags
+          gh release create $env:GITHUB_REF_NAME $setup "$setup.sha256" $zip "$zip.sha256" @flags
           if ($LASTEXITCODE) { exit $LASTEXITCODE }

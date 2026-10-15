@@ -2,8 +2,8 @@
 
 [← README](../README.md) · [Technical notes](TECHNICAL.md)
 
-This page is for building doomfix from source, running its test program, packaging a release, the GitHub Actions
-workflows and the RenderDoc analysis scripts. To just use the fix, see the [README](../README.md).
+This page is for building doomfix from source, running its test program, packaging a release (zip and installer),
+the GitHub Actions workflows and the RenderDoc analysis scripts. To just use the fix, see the [README](../README.md).
 
 ## Prerequisites
 
@@ -13,6 +13,7 @@ workflows and the RenderDoc analysis scripts. To just use the fix, see the [READ
 | Visual Studio 2022 Build Tools with the **Desktop development with C++** workload | MSVC compiler, Windows SDK, and the CMake + Ninja that ship with it | `winget install --id Microsoft.VisualStudio.2022.BuildTools -e --override "--passive --wait --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended"` (about 5–7 GB, asks for administrator rights) |
 | Git | to clone the repository; CMake also uses it to download Vulkan-Headers when no Vulkan SDK is installed | `winget install --id Git.Git -e` |
 | Vulkan SDK *(optional)* | if present, its headers are used instead of downloading Vulkan-Headers; it also brings the validation layers | `winget install KhronosGroup.VulkanSDK` (see the note about vkconfig below) |
+| Inno Setup 6 *(optional)* | only to build the installer | `winget install JRSoftware.InnoSetup` (for the current user, no administrator rights) |
 | RenderDoc 1.46 *(optional)* | only for the analysis scripts in `analysis/` | <https://renderdoc.org> |
 
 `--includeRecommended` adds MSVC x64, the Windows SDK and "C++ CMake tools for Windows" (CMake and Ninja).
@@ -34,7 +35,11 @@ powershell -ExecutionPolicy Bypass -File scripts\build.ps1
 into `build\`. The output goes to `build\bin\`:
 
 - `doomfix_layer.dll`, `VK_LAYER_DOOMFIX.json` (the layer manifest) and the `.pdb`;
+- `doomfix_launcher.exe`, the launcher behind the installer's shortcuts (`src/launcher/`, see [The installer](#the-installer));
 - `doomfix_barrier_test.exe`, the test program (turn it off with `-DDOOMFIX_BUILD_TESTS=OFF`).
+
+The DLL and the launcher carry a version resource (product name, version, description; *Properties → Details*)
+generated from `src/version.rc.in`.
 
 The default configuration is `RelWithDebInfo`; use `-Config Release` for another one.
 If no Vulkan SDK is installed, the first configure downloads Vulkan-Headers `v1.4.341` with Git.
@@ -92,10 +97,9 @@ The launchers and the installer work both in the repository (DLL in `build\bin\`
 doomfix-<version>\
   bin\doomfix_layer.dll
   bin\VK_LAYER_DOOMFIX.json
-  scripts\install.ps1  scripts\uninstall.ps1  scripts\launch.ps1  scripts\steam_mode.ps1
+  scripts\install.ps1  scripts\uninstall.ps1  scripts\launch.ps1
   install.bat  uninstall.bat  run_doom_fixed.bat  run_fix_strict.bat  run_fix_off.bat  run_fix_aggressive.bat
-  enable_steam_mode.bat  disable_steam_mode.bat
-  README.md  README.ru.md  LICENSE
+  README.md  README.ru.md  PRIVACY.md  LICENSE
 ```
 
 `scripts\package.ps1` assembles it from a Release build, exactly as the release workflow does:
@@ -108,6 +112,43 @@ powershell -ExecutionPolicy Bypass -File scripts\package.ps1
 The result is `dist\doomfix-<version>.zip` plus `dist\doomfix-<version>.zip.sha256`. The version comes from
 `project(doomfix VERSION ...)` in `CMakeLists.txt`; `-Version 0.3.1-rc1` adds a suffix, but the numeric part must match.
 
+## The installer
+
+`installer\doomfix.iss` is an [Inno Setup 6](https://jrsoftware.org/isinfo.php) script. It installs for the current
+user only (`PrivilegesRequired=lowest`), into the same folders and registry values as `install.ps1`, so it replaces
+an installation made with `install.bat` in place. The header of the script lists everything it writes; uninstalling
+from *Settings → Apps* does what `uninstall.ps1` does (logs are kept). The wizard is in English and Russian.
+
+The shortcuts start `doomfix_launcher.exe`, a small native program (no console, no PowerShell) that does what
+`scripts\launch.ps1` does: it reads the game folder from `doomfix_game_path.txt` next to itself (written by the
+installer; if it is missing or wrong, the launcher asks with a folder dialog), sets `DOOMFIX_ENABLE=1`,
+`SteamAppId=782330` and `DOOMFIX_INDIRECT_FIX` in an environment block for the game process only (never for its own
+process, the user or the system) and starts the game from its folder. It warns when it runs as
+administrator. Options: `--mode on|strict|off|aggressive`, `--choose-game`, `--dry-run` (check only, exit code 0 when
+the game and the layer are found), `--check-processes` (used by the installer and the uninstaller: the exit code says
+whether the game is running, whether it runs as administrator, and whether the launcher itself does).
+
+The installer is built in a separate step from files that are already built, so that they can be signed in between:
+
+```bat
+powershell -ExecutionPolicy Bypass -File scripts\build.ps1 -Config Release -BuildDir build-release
+powershell -ExecutionPolicy Bypass -File scripts\build_installer.ps1
+```
+
+`build_installer.ps1` takes `doomfix_layer.dll`, `VK_LAYER_DOOMFIX.json` and `doomfix_launcher.exe` from
+`build-release\bin` (`-BinDir`), finds `ISCC.exe` (or `-Iscc`), and writes `dist\doomfix-<version>-setup.exe` with a
+`.sha256` file. `-Version` works as for `package.ps1`. No executable packer (UPX or similar) is used.
+
+`scripts\test_installer.ps1` checks the installer end to end: an `install.ps1` installation plus a stale registration
+from another folder, a silent install over it with a fake game folder, a silent reinstall without the desktop
+shortcut, and a silent uninstall, checking files, registry values, shortcuts and the "Installed apps" entry after each
+step. Before `install.ps1`, the installer and the uninstaller it sets `DOOMFIX_ENABLE=1` for the user, as the old
+Steam mode of v0.3.1 did, and checks that each of them removes it. On a developer machine it leaves doomfix
+**uninstalled** at the end; install it again afterwards.
+
+The installer accepts the usual Inno Setup switches (`/SILENT`, `/VERYSILENT`, `/SUPPRESSMSGBOXES`, `/LOG=<file>`,
+`/TASKS="desktopicon"` or `/TASKS=""`) and `/GAMEDIR=<folder>`.
+
 ## CI and releases
 
 Two GitHub Actions workflows run on `windows-latest` and use the same scripts as above.
@@ -116,7 +157,10 @@ Two GitHub Actions workflows run on `windows-latest` and use the same scripts as
 
 1. `scripts\build.ps1 -Config Release` (MSVC, CMake, Ninja, Vulkan-Headers `v1.4.341`).
 2. `scripts\test_swiftshader.ps1`: runs `doomfix_barrier_test` on SwiftShader, see below.
-3. `scripts\package.ps1`: the zip is uploaded as the run's artifact (Actions → the run → *Artifacts*).
+3. `scripts\package.ps1`: the zip.
+4. Inno Setup 6.7.1 from Chocolatey (pinned; it is usually preinstalled on the runner already), then
+   `scripts\build_installer.ps1` and `scripts\test_installer.ps1`.
+5. The zip and the installer are uploaded as the run's artifacts (Actions → the run → *Artifacts*).
 
 **Test without a GPU.** The runners have no GPU, but the test only records command buffers and never submits them,
 so a software Vulkan driver is enough. Google Chrome and Microsoft Edge ship SwiftShader (`vk_swiftshader.dll`,
@@ -133,14 +177,16 @@ with "SwiftShader not found" instead of silently skipping the test.
 
 1. Checks the tag: it must be `v<major>.<minor>.<patch>` with an optional suffix (`v0.3.1`, `v0.3.1-rc1`), and the
    numeric part must equal the version in `CMakeLists.txt`. Otherwise the run fails before building.
-2. Builds, tests and packages exactly like the Build workflow, as `doomfix-<tag without v>.zip`.
+2. Builds, tests and packages exactly like the Build workflow, as `doomfix-<tag without v>.zip` and
+   `doomfix-<tag without v>-setup.exe`.
 3. Creates a [build provenance attestation](https://docs.github.com/actions/security-for-github-actions/using-artifact-attestations)
-   for `doomfix_layer.dll` and the zip (`actions/attest-build-provenance`). Anyone can then check that a file was
+   for `doomfix_layer.dll`, `doomfix_launcher.exe`, the installer and the zip (`actions/attest-build-provenance`). Anyone can then check that a file was
    built by this workflow from the tagged commit: `gh attestation verify <file> --repo billymooreq/DoomEternal-v1.1--RTXFix`.
    GitHub offers attestations only for public repositories (private ones need GitHub Enterprise Cloud), so the step
    is skipped while the repository is private, and the release notes then leave out the verification paragraph.
-4. Publishes a GitHub Release with the zip and its `.sha256`. The text comes from `.github/release-notes.md`
-   (placeholders `{{VERSION}}`, `{{ZIP}}`, `{{SHA256}}`, `{{REPO}}`, `{{TAG}}`, `{{VERIFY}}`). A tag with a suffix
+4. Publishes a GitHub Release with the installer, the zip and their `.sha256` files. The text comes from
+   `.github/release-notes.md` (placeholders `{{VERSION}}`, `{{SETUP}}`, `{{SETUP_SHA256}}`, `{{ZIP}}`, `{{SHA256}}`,
+   `{{REPO}}`, `{{TAG}}`, `{{VERIFY}}`). A tag with a suffix
    is published as a **pre-release**.
 
 To make a release:
