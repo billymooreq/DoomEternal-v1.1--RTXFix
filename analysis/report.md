@@ -279,7 +279,7 @@ void VKAPI_CALL CmdPipelineBarrier(VkCommandBuffer cb, VkPipelineStageFlags src,
 
 Все три захвата открывались только на чтение: даты изменения и размеры файлов после всех прогонов не изменились.
 
-**Кадры.** [c3_fixed/swapchain_54581.png](c3_fixed/swapchain_54581.png) и [c2_vanilla/swapchain_100579.png](c2_vanilla/swapchain_100579.png): оружие освещено одинаково, объёмный свет на месте. На c1 ([final_swapchain.png](final_swapchain.png)) оружие чёрное.
+**Кадры.** Итоговые кадры swapchain c3 и c2 (полные кадры игры, в репозиторий не входят) совпадают: оружие освещено одинаково, объёмный свет на месте. На итоговом кадре c1 оружие чёрное.
 
 ### 10.1. Фикс подтверждён на `capture3_11_fixed`
 
