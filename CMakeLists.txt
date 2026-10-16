@@ -85,10 +85,15 @@ doomfix_add_version_resource(doomfix_layer "doomfix Vulkan layer for DOOM Eterna
 add_executable(doomfix_launcher WIN32
   src/launcher/launcher.cpp
   src/launcher/launcher.manifest
+  src/common/config.cpp
+  src/common/log.cpp
   src/common/util.cpp
 )
 target_include_directories(doomfix_launcher PRIVATE src)
-target_compile_definitions(doomfix_launcher PRIVATE NOMINMAX WIN32_LEAN_AND_MEAN UNICODE _UNICODE)
+target_compile_definitions(doomfix_launcher PRIVATE
+  NOMINMAX WIN32_LEAN_AND_MEAN UNICODE _UNICODE
+  DOOMFIX_VERSION="${PROJECT_VERSION}"
+)
 target_compile_options(doomfix_launcher PRIVATE /W4 /permissive- /utf-8)
 target_link_libraries(doomfix_launcher PRIVATE advapi32 ole32 shell32 user32)
 doomfix_add_version_resource(doomfix_launcher "Starts DOOM Eternal with the doomfix layer" VFT_APP)
