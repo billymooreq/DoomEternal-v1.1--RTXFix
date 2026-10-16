@@ -1,11 +1,11 @@
 # Code signing policy
 
-Free code signing provided by [SignPath.io](https://signpath.io), certificate by
+Planned: free code signing provided by [SignPath.io](https://signpath.io), certificate by
 [SignPath Foundation](https://signpath.org).
 
-> **Status:** the application to SignPath Foundation is pending. Until it is approved and signing is set up, release
-> files are **not** code-signed; their integrity can be checked with the SHA256 checksums and the GitHub build
-> provenance attestations published with every release.
+> **Status:** Releases are currently not code-signed. We plan to reapply to SignPath Foundation once the project is
+> more widely known. Until then, the integrity of release files can be checked with the SHA256 checksums and the
+> GitHub build provenance attestations published with every release.
 
 ## What is signed
 

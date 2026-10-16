@@ -56,7 +56,7 @@ off and tell you so; restart Steam afterwards.
 - [Technical notes](https://github.com/{{REPO}}/blob/{{TAG}}/docs/TECHNICAL.md): what exactly the layer changes and why
 - [Privacy](https://github.com/{{REPO}}/blob/{{TAG}}/PRIVACY.md): doomfix collects and sends nothing
 - [Code signing policy](https://github.com/{{REPO}}/blob/{{TAG}}/docs/CODE_SIGNING_POLICY.md): which files are signed and how releases are built
-- Code signing: application pending with SignPath Foundation. Once approved: free code signing provided by SignPath.io, certificate by SignPath Foundation.
+- Releases are not code-signed yet; every build is made by GitHub Actions from the public source, with SHA256 checksums and build attestation.
 
 ## Checksums
 
