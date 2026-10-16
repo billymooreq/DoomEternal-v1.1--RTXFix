@@ -2,13 +2,13 @@
 
 **English** | [Русский](README.ru.md)
 
-On current NVIDIA drivers, DOOM Eternal **1.1** draws the shaded parts of the first-person weapon pitch black,
-and the world loses its local lights, decals and volumetric light. doomfix is a small Vulkan layer that fixes this
-**without rolling your driver back to 516.94**, which is not even possible on RTX 40 and RTX 50 cards.
+On current NVIDIA drivers, DOOM Eternal **1.1** loses its lighting: local lights, decals and volumetric light disappear.
+doomfix is a small Vulkan layer that fixes this **without rolling your driver back to 516.94**, which is not even
+possible on RTX 40 and RTX 50 cards.
 
 | Before | After |
 |---|---|
-| ![Before: the weapon is black](docs/images/before.png) | ![After: the weapon is lit](docs/images/after.png) |
+| ![Before: lighting is missing](docs/images/before.png) | ![After: lighting is back](docs/images/after.png) |
 
 ## Is this safe?
 
@@ -18,76 +18,94 @@ and the world loses its local lights, decals and volumetric light. doomfix is a 
 - **Gameplay and timings are not affected.** The layer adds one synchronization flag to three GPU barriers in the
   game's lighting code, exactly as id Software did themselves in later patches. Everything else passes through as is.
 - **Open source** (MIT license): you can read every line and build it yourself.
+- **Built in the open:** every release is built from this source by GitHub Actions, with SHA256 checksums and build
+  attestation.
 - **No data collection:** doomfix never connects to the network. Details: [PRIVACY.md](PRIVACY.md).
 - **Easy to remove:** *Settings → Apps* (or `uninstall.bat` for the zip) takes it out completely.
 
 ## Compatibility
-| | |
-|---|---|
-| **Game** | DOOM Eternal 1.1 (Steam) |
-| **Tested** | GeForce GTX 1070, driver 582.78 |
-| | GeForce RTX 3060, driver 617.42 |
-| | GeForce RTX 3070, driver 616.64 |
-| | GeForce RTX 3070 Ti, driver unknown |
-| | GeForce RTX 4070, driver 617.42 |
-| | GeForce RTX 4070 Ti Super, driver unknown |
-| | GeForce RTX 5070 Ti, driver 617.14 |
-| **Should work** | any NVIDIA GPU with a recent driver that shows the black-weapon bug |
-| **AMD** | the bug does not happen on AMD; the layer does not break anything there |
-| **OS** | Windows only (64-bit) |
 
-Tried it on another GPU or driver? Please share the result, good or bad, in [Issues](../../issues):
-GPU, driver version, game version and whether the weapon looks right.
+- **Game:** DOOM Eternal 1.1 (Steam), Windows 64-bit.
+- **GPU:** NVIDIA with a recent driver. AMD is not affected.
+
+### Tested by
+
+| Tester | GPU | Driver | Result |
+|---|---|---|---|
+| Callmesync_ | GeForce GTX 1070 | 582.78 | ✅ works ¹ |
+| archerthe | GeForce RTX 3060 | 617.42 | ✅ works |
+| Bodynuke | GeForce RTX 3070 | 616.64 | ✅ works ² |
+| GhostDMG_ | GeForce RTX 3070 Ti | unknown | ✅ works |
+| billymoore (author) | GeForce RTX 4070 | 617.42 | ✅ works |
+| lavvy_lav | GeForce RTX 4070 Ti Super | unknown | ✅ works |
+| Fisukki | GeForce RTX 5070 Ti | 617.14 | ✅ works |
+
+¹ **Callmesync_**: "ate the fps apparently". Note: the lower FPS is most likely the cost of the lighting that is back;
+without the fix the game skips this work.
+
+² **Bodynuke**: "Profile settings reset on their own". Note: doomfix does not touch the game's settings; most likely
+version 1.1 and the current version of the game share settings files with different contents.
+
+Tried it on another GPU or driver? Share the result, good or bad, in [Issues](../../issues): GPU, driver version and
+whether the lighting is back.
 
 ## Installation
 
-Open [Releases](../../releases) and pick one of the two downloads in the *Assets* of the newest release.
-Both install the same layer for your Windows user; no administrator rights are needed.
+Download the newest version from [Releases](../../releases/latest). No administrator rights needed.
 
-**Installer (recommended): `doomfix-<version>-setup.exe`**
+1. Run `doomfix-<version>-setup.exe`.
+2. Confirm the game folder (it is found in your Steam library automatically).
+3. Play with the **DOOM Eternal (doomfix)** shortcut while Steam is running.
 
-1. Run it. It finds DOOM Eternal in your Steam library (or click *Browse* to choose the folder with
-   `DOOMEternalx64vk.exe`).
-2. Choose whether you want a desktop shortcut (a Start menu shortcut is always created).
-3. Start the game with the **DOOM Eternal (doomfix)** shortcut (desktop or Start menu).
+> [!NOTE]
+> Windows may show *Windows protected your PC*: click **More info → Run anyway**.
+> The installer is not code-signed yet.
 
-The installer is not code-signed yet (see the [code signing policy](docs/CODE_SIGNING_POLICY.md)), so Windows may show
-*Windows protected your PC*: click *More info*, then *Run anyway*.
+> [!IMPORTANT]
+> Pressing **Play** in Steam starts the game **without** the fix.
 
-**Zip, without an exe installer: `doomfix-<version>.zip`**
+<details>
+<summary>Zip version, without the installer</summary>
 
-1. Unpack it anywhere you like, for example `Documents\doomfix`. Keep this folder: the launcher and the uninstaller live there.
+1. Unpack `doomfix-<version>.zip` into a folder you will keep, for example `Documents\doomfix`.
 2. Run `install.bat`.
-3. Start the game with `run_doom_fixed.bat` (see [Usage](#usage)).
+3. Play with `run_doom_fixed.bat` while Steam is running. Do not run it as administrator.
 
-Already installed doomfix with `install.bat` and now want the installer? Just run it: it replaces the old installation
-in place, and you can delete the old doomfix folder afterwards.
+To switch to the installer later, just run it: it replaces the zip installation.
+</details>
 
-**Upgrading from 0.3.1:** the optional *Steam mode* (`enable_steam_mode.bat`) is gone, see
-[Pressing Play in Steam](#pressing-play-in-steam). If you had turned it on, the installer and `install.bat` turn it off
-and tell you so; restart Steam afterwards.
+## Uninstall
 
-Every release is built from this source code by GitHub Actions and lists the SHA256 of both downloads in its description.
-Releases marked *Pre-release* are test builds. To build doomfix yourself instead, see [docs/BUILDING.md](docs/BUILDING.md).
+- **Installer:** *Settings → Apps → Installed apps → doomfix → Uninstall*.
+- **Zip:** run `uninstall.bat`, then delete the doomfix folder.
 
-## Usage
+Log files stay in `%LOCALAPPDATA%\doomfix`; delete it if you do not need them.
 
-### Starting the game
+## Troubleshooting
 
-**Installer:** double-click the **DOOM Eternal (doomfix)** shortcut. That's it. Keep Steam running.
-If the game folder changes, the shortcut asks for the new one.
+| Problem | What to do |
+|---|---|
+| Lighting is still missing | Start the game with the **doomfix shortcut**, not Play in Steam. Steam must be running. |
+| Windows or antivirus warns about doomfix | The files are not code-signed yet. Click *More info → Run anyway*, or add an exception for `%LOCALAPPDATA%\doomfix`. |
+| Installer warns about "another loader settings file" | Close Vulkan Configurator (vkconfig) and run the installer again. |
+| Still not working | [Open an issue](../../issues) and attach the files from `%LOCALAPPDATA%\doomfix\logs`. |
 
-**Zip:** double-click **`run_doom_fixed.bat`**. The first time, it finds DOOM Eternal in your Steam library and asks
-you to confirm the folder (or asks you to type it in if the game is somewhere else). The folder is remembered, so from
-then on the game just starts. Keep Steam running.
+## How it works
 
-### Pressing Play in Steam
+Every frame, DOOM Eternal sorts lights, decals and reflection probes into a 3D grid of small "clusters" on the GPU.
+This happens in two steps: the first step writes down how much work the second step has to do, and the second step
+reads those numbers. Before the read, the game has to tell the GPU to make the freshly written numbers visible,
+and version 1.1 forgets one flag for that (`VK_ACCESS_INDIRECT_COMMAND_READ_BIT`) in three places.
+AMD GPUs happen to see the right numbers anyway; current NVIDIA drivers read stale zeros, so every cluster keeps only
+the sun, and local lights, decals and volumetric light disappear. doomfix adds the missing flag while the game records
+its GPU commands: the same change id Software made in later updates.
 
-Pressing Play in Steam starts the game **without** the fix. doomfix is turned on only for the game started by the
-doomfix shortcut or `run_doom_fixed.bat`, and never for other programs. Steam itself still has to run.
+More details: [docs/TECHNICAL.md](docs/TECHNICAL.md). The full investigation with RenderDoc captures and a comparison
+with the current game version: [analysis/report.md](analysis/report.md) (in Russian).
 
-Version 0.3.1 had an optional *Steam mode* that turned the layer on for every Vulkan game started from Steam. It is
-removed: that included online games with anti-cheat, which is an unnecessary risk.
+## Technical details
+
+For curious users and bug reports; you do not need any of this to use doomfix.
 
 ### Checking that it works
 
@@ -115,65 +133,13 @@ shortcut with `--mode strict` added to its target).
 | `off` | `run_fix_off.bat` | The layer is loaded but changes nothing, to compare before/after. |
 | `aggressive` | `run_fix_aggressive.bat` | Uses heavier, "wait for everything" barriers. A fallback in case `on` is ever not enough; normally not needed. |
 
-## Uninstall
-
-- **Installer:** *Settings → Apps → Installed apps → doomfix → Uninstall*.
-- **Zip:** run `uninstall.bat`, then delete the doomfix folder.
-
-Both remove the layer and its registry entries. Log files are kept: delete `%LOCALAPPDATA%\doomfix`
-afterwards if you do not need them.
-
-## Troubleshooting
-
-**The fix does not work: the weapon is still black.**
-Make sure the game was started with the doomfix shortcut or `run_doom_fixed.bat`, not with Play in Steam.
-Windows does not load doomfix into programs that run **as administrator**. The doomfix shortcut takes care of that:
-even when the shortcut itself is started as administrator, when User Account Control (UAC) is turned off
-(`EnableLUA` is 0), or when *Run this program as an administrator* is ticked on the *Compatibility* tab of
-`DOOMEternalx64vk.exe`, it starts the game without administrator rights, so the fix works.
-`run_doom_fixed.bat` cannot do that: do not run it as administrator, untick that box for the game, and with UAC
-turned off use the installer instead (or turn UAC back on and restart Windows).
-The doomfix shortcut writes `%LOCALAPPDATA%\doomfix\logs\doomfix_launcher_<date-time>_<pid>.log`, which shows
-whether it ran as administrator, why, and with which rights the game was started.
-
-**The game starts, but the weapon is still black and no new log appears.**
-DOOM Eternal can restart itself through Steam, and the restarted game no longer has the doomfix variables.
-The doomfix shortcut and `run_doom_fixed.bat` prevent this by setting `SteamAppId=782330`; make sure Steam is running
-before you use them.
-
-**The installer or `install.bat` warns about another loader settings file.**
-That file comes from Vulkan Configurator (vkconfig), part of the Vulkan SDK. The Vulkan loader only uses one such file,
-so doomfix does not overwrite it. Close vkconfig or turn off its "Vulkan Loader Management", then run the installer
-(or `install.bat`) again.
-
-**My antivirus or SmartScreen complains about doomfix.**
-The files are not code-signed yet, and the DLL loads into the game like an overlay does, which some antivirus programs
-dislike. Every release has SHA256 checksums and a build provenance attestation to check that the files come from
-this repository.
-The source code is open: you can build the DLL yourself ([docs/BUILDING.md](docs/BUILDING.md)) and/or add an exception
-for the doomfix folder and `%LOCALAPPDATA%\doomfix\layer`.
-
-**There is no log at all.**
-Check that the installer or `install.bat` finished without errors, and that the game was started with
-`DOOMFIX_ENABLE=1` (through the doomfix shortcut or `run_doom_fixed.bat`). `run_doom_fixed.bat -DryRun` checks the installation and
-the game folder without starting the game.
-
-## How it works
-
-Every frame, DOOM Eternal sorts lights, decals and reflection probes into a 3D grid of small "clusters" on the GPU.
-This happens in two steps: the first step writes down how much work the second step has to do, and the second step
-reads those numbers. Before the read, the game has to tell the GPU to make the freshly written numbers visible,
-and version 1.1 forgets one flag for that (`VK_ACCESS_INDIRECT_COMMAND_READ_BIT`) in three places.
-AMD GPUs happen to see the right numbers anyway; current NVIDIA drivers read stale zeros, so every cluster ends up
-with only the sun, and a weapon in shadow gets no light at all. doomfix adds the missing flag while the game records
-its GPU commands: the same change id Software made in later updates.
-
-More details: [docs/TECHNICAL.md](docs/TECHNICAL.md). The full investigation with RenderDoc captures and a comparison
-with the current game version: [analysis/report.md](analysis/report.md) (in Russian).
+Everything else (what exactly the layer changes, the log, the launcher, administrator rights):
+[docs/TECHNICAL.md](docs/TECHNICAL.md). To build doomfix yourself: [docs/BUILDING.md](docs/BUILDING.md).
 
 ## Credits
 
 - **billymooreq**: investigation and fix.
+- Thanks to the testers listed in [Tested by](#tested-by) for checking doomfix on their GPUs.
 - The investigation and the code were done with the help of [Claude Code](https://claude.com/claude-code) by Anthropic.
 - Tools: [RenderDoc](https://renderdoc.org) by Baldur Karlsson (capture analysis),
   [Vulkan-Headers](https://github.com/KhronosGroup/Vulkan-Headers) by Khronos,

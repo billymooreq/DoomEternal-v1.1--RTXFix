@@ -1,5 +1,5 @@
-Fixes DOOM Eternal **1.1** on current NVIDIA drivers: the first-person weapon is no longer pitch black in shadow,
-and local lights, decals and volumetric light are back. No driver rollback, no changes to game files.
+Fixes DOOM Eternal **1.1** on current NVIDIA drivers: the lighting is back, with local lights, decals and volumetric
+light. No driver rollback, no changes to game files.
 doomfix adds the one synchronization flag that version 1.1 forgets in three GPU barriers, the same change
 id Software made in later updates. [Русская версия описания](https://github.com/{{REPO}}/blob/{{TAG}}/README.ru.md)
 
@@ -52,7 +52,7 @@ off and tell you so; restart Steam afterwards.
 
 ## More
 
-- [README](https://github.com/{{REPO}}/blob/{{TAG}}/README.md): usage, modes, troubleshooting
+- [README](https://github.com/{{REPO}}/blob/{{TAG}}/README.md): installation, troubleshooting, tested GPUs, modes
 - [Technical notes](https://github.com/{{REPO}}/blob/{{TAG}}/docs/TECHNICAL.md): what exactly the layer changes and why
 - [Privacy](https://github.com/{{REPO}}/blob/{{TAG}}/PRIVACY.md): doomfix collects and sends nothing
 - [Code signing policy](https://github.com/{{REPO}}/blob/{{TAG}}/docs/CODE_SIGNING_POLICY.md): which files are signed and how releases are built
