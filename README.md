@@ -10,6 +10,38 @@ possible on RTX 40 and RTX 50 cards.
 |---|---|
 | ![Before: lighting is missing](docs/images/before.png) | ![After: lighting is back](docs/images/after.png) |
 
+## Installation
+
+Download the newest version from [Releases](../../releases/latest). No administrator rights needed.
+
+1. Run `doomfix-<version>-setup.exe`.
+2. Confirm the game folder (it is found in your Steam library automatically).
+3. Play with the **DOOM Eternal (doomfix)** shortcut while Steam is running.
+
+> [!NOTE]
+> Windows may show *Windows protected your PC*: click **More info → Run anyway**.
+> The installer is not code-signed yet.
+
+> [!IMPORTANT]
+> Pressing **Play** in Steam starts the game **without** the fix.
+
+<details>
+<summary>Zip version, without the installer</summary>
+
+1. Unpack `doomfix-<version>.zip` into a folder you will keep, for example `Documents\doomfix`.
+2. Run `install.bat`.
+3. Play with `run_doom_fixed.bat` while Steam is running. Do not run it as administrator.
+
+To switch to the installer later, just run it: it replaces the zip installation.
+</details>
+
+## Uninstall
+
+- **Installer:** *Settings → Apps → Installed apps → doomfix → Uninstall*.
+- **Zip:** run `uninstall.bat`, then delete the doomfix folder.
+
+Log files stay in `%LOCALAPPDATA%\doomfix`; delete it if you do not need them.
+
 ## Is this safe?
 
 - It is a **Vulkan layer**: the same kind of add-on that ReShade, MSI Afterburner / RivaTuner and the Steam overlay use.
@@ -48,38 +80,6 @@ version 1.1 and the current version of the game share settings files with differ
 
 Tried it on another GPU or driver? Share the result, good or bad, in [Issues](../../issues): GPU, driver version and
 whether the lighting is back.
-
-## Installation
-
-Download the newest version from [Releases](../../releases/latest). No administrator rights needed.
-
-1. Run `doomfix-<version>-setup.exe`.
-2. Confirm the game folder (it is found in your Steam library automatically).
-3. Play with the **DOOM Eternal (doomfix)** shortcut while Steam is running.
-
-> [!NOTE]
-> Windows may show *Windows protected your PC*: click **More info → Run anyway**.
-> The installer is not code-signed yet.
-
-> [!IMPORTANT]
-> Pressing **Play** in Steam starts the game **without** the fix.
-
-<details>
-<summary>Zip version, without the installer</summary>
-
-1. Unpack `doomfix-<version>.zip` into a folder you will keep, for example `Documents\doomfix`.
-2. Run `install.bat`.
-3. Play with `run_doom_fixed.bat` while Steam is running. Do not run it as administrator.
-
-To switch to the installer later, just run it: it replaces the zip installation.
-</details>
-
-## Uninstall
-
-- **Installer:** *Settings → Apps → Installed apps → doomfix → Uninstall*.
-- **Zip:** run `uninstall.bat`, then delete the doomfix folder.
-
-Log files stay in `%LOCALAPPDATA%\doomfix`; delete it if you do not need them.
 
 ## Troubleshooting
 
