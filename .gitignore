@@ -39,3 +39,9 @@ analysis/**/swapchain_*.png
 analysis/**/scene_hdr_*.png
 analysis/final_swapchain.png
 analysis/post_*.png
+# Material taken from the game's frame and shaders that was committed earlier and removed from the
+# repository (kept locally): weapon coverage masks from the game's render, and shader export logs
+# with pixel history.
+analysis/**/draw*_depth_overlay.png
+analysis/**/weapon_draws_zero_map.png
+analysis/**/s4_debug.log
