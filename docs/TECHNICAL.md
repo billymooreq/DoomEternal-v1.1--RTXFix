@@ -147,7 +147,7 @@ from that line, a `WARN` suggests re-running the installer.
 `%LOCALAPPDATA%\doomfix\logs\<exe>_<date-time>_<pid>.log`, one file per process. A typical game start:
 
 ```
-INFO  doomfix 0.4.0 (VK_LAYER_DOOMFIX) loaded into <game folder>\DOOMEternalx64vk.exe, pid 1234
+INFO  doomfix 0.4.1 (VK_LAYER_DOOMFIX) loaded into <game folder>\DOOMEternalx64vk.exe, pid 1234
 INFO    hide-device-extensions: VK_AMD_memory_overallocation_behavior hiding OFF (set DOOMFIX_HIDE_OVERALLOCATION=1 for RenderDoc captures)
 INFO    indirect-barrier-fix: mode=on (DOOMFIX_INDIRECT_FIX="on")
 INFO  feature: hide-device-extensions

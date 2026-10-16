@@ -3,6 +3,13 @@ and local lights, decals and volumetric light are back. No driver rollback, no c
 doomfix adds the one synchronization flag that version 1.1 forgets in three GPU barriers, the same change
 id Software made in later updates. [Русская версия описания](https://github.com/{{REPO}}/blob/{{TAG}}/README.ru.md)
 
+## What's new in 0.4.1
+
+- The installer has a new dark look: fire on the whole window, the text on dark panels (English and Russian).
+- `setup.exe` and the doomfix launcher have their own "DF" icon; the shortcuts keep the game's icon.
+- Nothing else changed: the fix, the installation folders and uninstalling work exactly as in 0.4.0.
+  Already on 0.4.0? Just run the new installer over it.
+
 ## Install
 
 There are two ways; pick one.
