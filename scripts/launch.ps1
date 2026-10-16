@@ -76,13 +76,31 @@ function Read-GameDir {
 
 # --- 0. Not as administrator -----------------------------------------------------------------
 # The Vulkan loader ignores layers registered for the current user (HKCU, where install.bat puts doomfix)
-# in programs that run elevated. A game started from an elevated launcher would run without the fix.
-$elevated = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole(
-    [Security.Principal.WindowsBuiltInRole]::Administrator)
-if ($elevated) {
+# in processes with the integrity level High or above (loader_environment.c, is_high_integrity), and the
+# game inherits it from this script. So this checks exactly that, not membership in Administrators.
+function Get-IntegrityLevel {
+    # The mandatory label SID S-1-16-<level> of this process; .NET does not list it among the groups.
+    $line = & "$env:SystemRoot\System32\whoami.exe" /groups /fo csv /nh | Where-Object { $_ -match '"S-1-16-\d+"' } |
+        Select-Object -First 1
+    if ($line -match '"S-1-16-(\d+)"') { return [int]$Matches[1] }
+    return 0   # unknown: the loader treats that as not elevated too
+}
+$elevated = (Get-IntegrityLevel) -ge 0x3000   # SECURITY_MANDATORY_HIGH_RID
+$uacOff = (Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System' -Name EnableLUA `
+    -ErrorAction SilentlyContinue).EnableLUA -eq 0
+if ($elevated -and $uacOff) {
+    Write-Warning ('User Account Control (UAC) is turned off on this PC, so every program runs as administrator, ' +
+        'this launcher and the game too. Windows does not load the doomfix layer into programs that run as ' +
+        'administrator, so the fix will NOT work with run_doom_fixed.bat. Use the doomfix installer instead ' +
+        '(doomfix-<version>-setup.exe from the Releases page): its shortcut starts the game without ' +
+        'administrator rights, so the fix works with UAC off. Or turn UAC back on: set EnableLUA to 1 in ' +
+        'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System and restart Windows.')
+} elseif ($elevated) {
     Write-Warning ('This launcher is running as administrator. Windows does not load the doomfix layer into ' +
         'programs started as administrator, so the fix will NOT work. Close this window and start ' +
         'run_doom_fixed.bat with a normal double-click, not "Run as administrator".')
+}
+if ($elevated) {
     if (-not $DryRun -and -not ((Read-Host 'Start the game anyway, without the fix? [y/N]') -match '^\s*y')) {
         Write-Host 'Cancelled.'
         exit 1

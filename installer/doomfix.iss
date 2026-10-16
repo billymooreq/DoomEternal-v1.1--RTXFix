@@ -102,6 +102,7 @@ en.ShortcutsGroup=Shortcuts:
 en.TaskDesktopIcon=Create a desktop shortcut
 en.LaunchGame=Start DOOM Eternal with doomfix
 en.SetupElevated=Setup is running as administrator.%n%ndoomfix is installed for the current Windows user, and Windows does not load it into programs that run as administrator. If you chose "Run as administrator", it is better to close Setup and start it with a normal double-click.%n%nContinue anyway?
+en.SetupUacOff=User Account Control (UAC) is turned off on this PC, so Setup and all other programs run as administrator.%n%nThat is fine: doomfix is installed for your Windows user as usual, and the doomfix shortcut starts the game without administrator rights, so the fix works. Pressing Play in Steam starts the game without the fix.
 en.GameElevated=DOOM Eternal is running as administrator, so doomfix cannot work in it. Close the game and start it with the doomfix shortcut, not as administrator.
 en.SteamModeRemoved=Steam mode from an older doomfix version was turned off. Launch the game with the doomfix shortcut. Restart Steam to apply.
 en.CloseGame=DOOM Eternal is running. Close the game, then click Retry.
@@ -119,6 +120,7 @@ ru.ShortcutsGroup=Ярлыки:
 ru.TaskDesktopIcon=Создать ярлык на рабочем столе
 ru.LaunchGame=Запустить DOOM Eternal с doomfix
 ru.SetupElevated=Установщик запущен от имени администратора.%n%ndoomfix устанавливается для текущего пользователя Windows, а Windows не загружает его в программы, запущенные от имени администратора. Если вы выбрали «Запуск от имени администратора», лучше закрыть установщик и запустить его обычным двойным щелчком.%n%nВсё равно продолжить?
+ru.SetupUacOff=На этом компьютере выключен контроль учётных записей (UAC), поэтому установщик и все остальные программы работают от имени администратора.%n%nЭто не помешает: doomfix устанавливается для вашего пользователя Windows как обычно, а ярлык doomfix запускает игру без прав администратора, поэтому исправление работает. Кнопка «Играть» в Steam запускает игру без исправления.
 ru.GameElevated=DOOM Eternal запущен от имени администратора, поэтому doomfix в нём работать не может. Закройте игру и запустите её ярлыком doomfix, не от имени администратора.
 ru.SteamModeRemoved=Режим Steam из старой версии doomfix выключен. Запускайте игру ярлыком doomfix. Перезапустите Steam, чтобы изменение вступило в силу.
 ru.CloseGame=DOOM Eternal запущен. Закройте игру и нажмите «Повтор».
@@ -175,6 +177,7 @@ const
   GameRunning = 1;
   GameElevated = 2;
   SelfElevated = 4;
+  UacOff = 8;
 
 var
   GamePage: TInputDirWizardPage;
@@ -407,7 +410,10 @@ begin
   Result := True;
   ExtractTemporaryFile('doomfix_launcher.exe');
   Flags := SetupProcessFlags;
-  if ((Flags and SelfElevated) <> 0) and
+  // With UAC off every program runs as administrator; the launcher lowers the game's rights itself.
+  if ((Flags and SelfElevated) <> 0) and ((Flags and UacOff) <> 0) then
+    SuppressibleMsgBox(CustomMessage('SetupUacOff'), mbInformation, MB_OK, IDOK)
+  else if ((Flags and SelfElevated) <> 0) and
      (SuppressibleMsgBox(CustomMessage('SetupElevated'), mbConfirmation, MB_YESNO or MB_DEFBUTTON2, IDYES) <> IDYES) then begin
     Result := False;
     Exit;
