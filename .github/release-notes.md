@@ -1,64 +1,30 @@
-Fixes DOOM Eternal **1.1** on current NVIDIA drivers: the lighting is back, with local lights, decals and volumetric
-light. No driver rollback, no changes to game files.
-doomfix adds the one synchronization flag that version 1.1 forgets in three GPU barriers, the same change
-id Software made in later updates. [Русская версия описания](https://github.com/{{REPO}}/blob/{{TAG}}/README.ru.md)
-
-## What's new in 0.4.2
-
-- The doomfix shortcut now works even when the game would otherwise run as administrator: with User Account Control
-  (UAC) turned off, when the shortcut itself is started as administrator (for example from a tool that runs as
-  administrator), and when *Run this program as an administrator* is ticked for `DOOMEternalx64vk.exe`. It starts the
-  game without administrator rights, so Windows loads the fix. `run_doom_fixed.bat` from the zip cannot do this and
-  still warns.
-- Clearer messages: a separate one when UAC is turned off, in the doomfix shortcut, the installer and
-  `run_doom_fixed.bat`.
-- The doomfix shortcut writes a short diagnostic log, `%LOCALAPPDATA%\doomfix\logs\doomfix_launcher_<date-time>_<pid>.log`:
-  whether it ran as administrator and why, and with which rights the game was started. Attach it to bug reports.
-- The fix itself, the installation folders and uninstalling are unchanged. Already on 0.4.0 or 0.4.1? Just run the
-  new installer over it.
+Fixes missing lighting in DOOM Eternal **1.1** on current NVIDIA drivers: local lights, decals and volumetric light
+are back. No driver rollback, no game files changed. [Русский](https://github.com/{{REPO}}/blob/{{TAG}}/README.ru.md)
 
 ## Install
 
-There are two ways; pick one.
+1. Download and run **{{SETUP}}** below.
+2. Confirm the game folder.
+3. Play with the **DOOM Eternal (doomfix)** shortcut while Steam is running.
 
-### Installer (recommended)
+> [!NOTE]
+> Windows may show *Windows protected your PC*: click **More info → Run anyway**.
 
-1. Download **{{SETUP}}** below and run it. No administrator rights are needed.
-2. Confirm the game folder it finds in your Steam library, and choose whether you want a desktop shortcut.
-3. Start the game with the **DOOM Eternal (doomfix)** shortcut.
+> [!IMPORTANT]
+> Pressing **Play** in Steam starts the game **without** the fix.
 
-The installer is not code-signed yet, so Windows may show *Windows protected your PC*: click *More info*, then
-*Run anyway*. Uninstall from *Settings → Apps → Installed apps → doomfix*.
+Don't want an installer? Use **{{ZIP}}**, see the [README](https://github.com/{{REPO}}/blob/{{TAG}}/README.md#installation).
 
-### Zip, without an exe installer
+## What's new in 0.4.2
 
-1. Download **{{ZIP}}** below and unpack it anywhere, for example `Documents\doomfix`. Keep this folder.
-2. Run `install.bat` (no administrator rights needed).
-3. Start the game with `run_doom_fixed.bat`. The first time, confirm the game folder it finds in your Steam library.
+- The doomfix shortcut now works even when Windows would start the game as administrator, for example with
+  User Account Control turned off or with *Run this program as an administrator* ticked.
+- If something goes wrong, the shortcut writes a short log: attach the files from `%LOCALAPPDATA%\doomfix\logs`
+  to your bug report.
+- Already have doomfix? Just run the new installer over it.
 
-To uninstall, run `uninstall.bat`, then delete the doomfix folder.
-
-Both ways install the same layer to the same place. Already installed doomfix with `install.bat`? The installer
-replaces that installation; you can then delete the old doomfix folder.
-
-Pressing Play in Steam starts the game without the fix: use the doomfix shortcut or `run_doom_fixed.bat`
-(with Steam running).
-
-### Upgrading from 0.3.1
-
-The optional Steam mode (`enable_steam_mode.bat`) is removed: it turned doomfix on for every Vulkan game started
-from Steam, including online games with anti-cheat. If you had turned it on, the installer and `install.bat` turn it
-off and tell you so; restart Steam afterwards.
-
-## More
-
-- [README](https://github.com/{{REPO}}/blob/{{TAG}}/README.md): installation, troubleshooting, tested GPUs, modes
-- [Technical notes](https://github.com/{{REPO}}/blob/{{TAG}}/docs/TECHNICAL.md): what exactly the layer changes and why
-- [Privacy](https://github.com/{{REPO}}/blob/{{TAG}}/PRIVACY.md): doomfix collects and sends nothing
-- [Code signing policy](https://github.com/{{REPO}}/blob/{{TAG}}/docs/CODE_SIGNING_POLICY.md): which files are signed and how releases are built
-- Releases are not code-signed yet; every build is made by GitHub Actions from the public source, with SHA256 checksums and build attestation.
-
-## Checksums
+<details>
+<summary>Checksums and verification</summary>
 
 SHA256 (also in the `.sha256` files next to the downloads):
 
@@ -70,3 +36,10 @@ SHA256 (also in the `.sha256` files next to the downloads):
 In PowerShell, `Get-FileHash .\{{SETUP}}` (or `.\{{ZIP}}`) must print the same value (in capital letters).
 
 {{VERIFY}}
+
+</details>
+
+[README](https://github.com/{{REPO}}/blob/{{TAG}}/README.md) ·
+[Troubleshooting](https://github.com/{{REPO}}/blob/{{TAG}}/README.md#troubleshooting) ·
+[Privacy](https://github.com/{{REPO}}/blob/{{TAG}}/PRIVACY.md) ·
+[Code signing policy](https://github.com/{{REPO}}/blob/{{TAG}}/docs/CODE_SIGNING_POLICY.md)
