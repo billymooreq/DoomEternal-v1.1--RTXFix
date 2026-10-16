@@ -50,8 +50,8 @@ Log files stay in `%LOCALAPPDATA%\doomfix`; delete it if you do not need them.
 - **Gameplay and timings are not affected.** The layer adds one synchronization flag to three GPU barriers in the
   game's lighting code, exactly as id Software did themselves in later patches. Everything else passes through as is.
 - **Open source** (MIT license): you can read every line and build it yourself.
-- **Built in the open:** every release is built from this source by GitHub Actions, with SHA256 checksums and build
-  attestation.
+- **Built in the open:** every release is built automatically on GitHub from this public source code, so what you
+  download is exactly what is here.
 - **No data collection:** doomfix never connects to the network. Details: [PRIVACY.md](PRIVACY.md).
 - **Easy to remove:** *Settings → Apps* (or `uninstall.bat` for the zip) takes it out completely.
 
