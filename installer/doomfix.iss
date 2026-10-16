@@ -5,6 +5,8 @@
 ;   /DOutputDir=<folder>       where doomfix-<AppVersion>-setup.exe goes
 ;
 ; The files from BinDir are taken as they are, so they can be signed before this script runs.
+; The artwork comes from installer\assets (generate.py, scripts\build_assets.ps1). /DUITest makes a test build
+; that stops on the Installing page for screenshots; never release one.
 ;
 ; Installs for the current user only, like scripts\install.ps1, and into the same folders, so an
 ; installation made with install.bat is replaced in place:
@@ -30,6 +32,7 @@
   #define OutputDir AddBackslash(SourcePath) + "..\dist"
 #endif
 #define RootDir AddBackslash(SourcePath) + ".."
+#define AssetsDir AddBackslash(SourcePath) + "assets"
 #define RepoUrl "https://github.com/billymooreq/DoomEternal-v1.1--RTXFix"
 #define ShortcutName "DOOM Eternal (doomfix)"
 
@@ -58,7 +61,13 @@ DisableReadyPage=yes
 ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 MinVersion=10.0
-WizardStyle=modern
+; Look: the built-in dark style, fire on the whole window and the content on dark panels (see the "Look" part of
+; [Code]). The artwork is drawn by installer\assets\generate.py (scripts\build_assets.ps1).
+WizardStyle=modern dark hidebevels
+WizardBackColor=#1c1210
+WizardImageFile=
+WizardSmallImageFile=
+SetupIconFile={#AssetsDir}\doomfix.ico
 ShowLanguageDialog=auto
 ; Removing the old Steam mode variable changes the user environment: tell Explorer about it (Setup and the
 ; uninstaller both broadcast WM_SETTINGCHANGE).
@@ -134,6 +143,9 @@ Source: "{#RootDir}\README.md"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#RootDir}\README.ru.md"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#RootDir}\PRIVACY.md"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#RootDir}\LICENSE"; DestDir: "{app}"; DestName: "LICENSE.txt"; Flags: ignoreversion
+; Wizard backgrounds for 100 to 200% DPI, loaded in [Code] (welcome/finish pages and the other pages differ).
+Source: "{#AssetsDir}\back_welcome_*.png"; Flags: dontcopy
+Source: "{#AssetsDir}\back_inner_*.png"; Flags: dontcopy
 
 [Icons]
 Name: "{autoprograms}\{#ShortcutName}"; Filename: "{app}\doomfix_launcher.exe"; WorkingDir: "{app}"; IconFilename: "{code:GetShortcutIcon}"; Comment: "{cm:LaunchGame}"
@@ -167,6 +179,9 @@ const
 var
   GamePage: TInputDirWizardPage;
   FinishedLayoutDone: Boolean;
+  WelcomeBack, InnerBack: TArrayOfGraphic;
+  ShownBack: Integer;
+  NextFrame: TBitmapImage;
 
 // --- Helpers -----------------------------------------------------------------------------------
 
@@ -401,28 +416,202 @@ begin
     SuppressibleMsgBox(CustomMessage('GameElevated'), mbInformation, MB_OK, IDOK);
 end;
 
+// --- Look -------------------------------------------------------------------------------------------
+// The approved design: fire on the whole window, all text and controls on dark opaque panels, flat dark buttons
+// with capital letters, the main button framed in red. The panels are part of the background
+// images (installer\assets\generate.py): the custom style draws transparent controls over the window background,
+// so only there do they show behind every control. The controls are placed with the same layout, in units of the
+// 497x360 design, scaled to the client area that the background images fill.
+
+const
+  DesignW = 497;
+  DesignH = 360;
+  BackWelcome = 1;
+  BackInner = 2;
+
+function DX(V: Integer): Integer;
+begin
+  Result := Round(V * WizardForm.ClientWidth / DesignW);
+end;
+
+function DY(V: Integer): Integer;
+begin
+  Result := Round(V * WizardForm.ClientHeight / DesignH);
+end;
+
+// Client coordinates of the pages (WelcomePage, InnerPage, FinishedPage) start at the outer notebook.
+function PX(V: Integer): Integer;
+begin
+  Result := DX(V) - WizardForm.OuterNotebook.Left;
+end;
+
+function PY(V: Integer): Integer;
+begin
+  Result := DY(V) - WizardForm.OuterNotebook.Top;
+end;
+
+// Capital letters in any language. AnsiUppercase goes through the ANSI code page (Cyrillic becomes question marks),
+// Uppercase only handles a-z, and non-ASCII string literals in [Code] are not Unicode. The Windows API converts the
+// string buffer in place.
+function CharUpperBuff(Buf: String; Len: DWORD): DWORD;
+  external 'CharUpperBuffW@user32.dll stdcall';
+
+function UpperText(const S: String): String;
+begin
+  Result := S;
+  if Result <> '' then
+    CharUpperBuff(Result, Length(Result));
+end;
+
+procedure LoadBack(const Kind: String; var Images: TArrayOfGraphic);
+var
+  Sizes: TArrayOfString;
+  I: Integer;
+  Name: String;
+begin
+  Sizes := ['596x432', '796x576', '994x720', '1193x864', '1272x922'];
+  SetLength(Images, GetArrayLength(Sizes));
+  for I := 0 to GetArrayLength(Sizes) - 1 do begin
+    Name := 'back_' + Kind + '_' + Sizes[I] + '.png';
+    ExtractTemporaryFile(Name);
+    Images[I] := TPngImage.Create;
+    Images[I].LoadFromFile(ExpandConstant('{tmp}\') + Name);
+  end;
+end;
+
+procedure ShowBack(Which: Integer);
+begin
+  if Which = ShownBack then Exit;
+  ShownBack := Which;
+  if Which = BackWelcome then
+    WizardSetBackImage(WelcomeBack, True, True, 255)
+  else
+    WizardSetBackImage(InnerBack, True, True, 255);
+end;
+
+procedure PlaceOnPage(C: TControl; L, T, R, B: Integer);
+begin
+  C.Left := PX(L);
+  C.Top := PY(T);
+  C.Width := PX(R) - PX(L);
+  C.Height := PY(B) - PY(T);
+end;
+
+// A bold heading in capitals on one line above the separator of the panel: the font gets smaller if the text
+// does not fit.
+procedure SetHeading(L: TNewStaticText; const Caption: String; MaxWidth: Integer);
+begin
+  L.Caption := UpperText(Caption);
+  L.Font.Style := [fsBold];
+  L.Font.Size := 12;
+  L.WordWrap := False;
+  L.AutoSize := True;
+  while (L.Width > MaxWidth) and (L.Font.Size > 8) do
+    L.Font.Size := L.Font.Size - 1;
+  L.AutoSize := False;
+  L.Width := MaxWidth;
+end;
+
+// Welcome and finish pages: the large logo in the background, a panel from (40,104) to (457,306) with the
+// separator at y = 144 (generate.py: WELCOME_PANEL, WELCOME_SEPARATOR_Y).
+procedure PlaceWelcomeTitle(Title: TNewStaticText);
+begin
+  Title.Left := PX(56);
+  Title.Top := PY(118);
+  SetHeading(Title, Title.Caption, DX(441) - DX(56));
+end;
+
+procedure LayoutWelcomePage;
+begin
+  WizardForm.WizardBitmapImage.Visible := False;
+  PlaceOnPage(WizardForm.WelcomeLabel1, 56, 118, 441, 140);
+  PlaceWelcomeTitle(WizardForm.WelcomeLabel1);
+  PlaceOnPage(WizardForm.WelcomeLabel2, 56, 154, 441, 296);
+end;
+
+// Other pages: the small logo in the background; title, description and content in the panel from (18,50) to
+// (479,316) with the separator at y = 102 (generate.py: INNER_PANEL, INNER_SEPARATOR_Y).
+procedure LayoutInnerPages;
+begin
+  WizardForm.PageNameLabel.Parent := WizardForm.InnerPage;
+  WizardForm.PageDescriptionLabel.Parent := WizardForm.InnerPage;
+  WizardForm.MainPanel.Visible := False;
+  PlaceOnPage(WizardForm.InnerNotebook, 34, 112, 463, 304);
+  PlaceOnPage(WizardForm.PageNameLabel, 34, 62, 463, 82);
+  PlaceOnPage(WizardForm.PageDescriptionLabel, 34, 82, 463, 98);
+end;
+
+// Buttons at the bottom right in bold capitals. The main button gets a red frame: a bitmap with a dark middle
+// right behind it, shown only while the button is (not on the Installing page).
+procedure LayoutButtons;
+var
+  Frame: Integer;
+begin
+  WizardForm.CancelButton.SetBounds(DX(401), DY(326), DX(483) - DX(401), DY(348) - DY(326));
+  WizardForm.NextButton.SetBounds(DX(313), DY(326), DX(395) - DX(313), DY(348) - DY(326));
+  WizardForm.BackButton.SetBounds(DX(225), DY(326), DX(307) - DX(225), DY(348) - DY(326));
+  WizardForm.CancelButton.Font.Style := [fsBold];
+  WizardForm.NextButton.Font.Style := [fsBold];
+  WizardForm.BackButton.Font.Style := [fsBold];
+  GamePage.Buttons[0].Font.Style := [fsBold];
+  GamePage.Buttons[0].Caption := UpperText(GamePage.Buttons[0].Caption);
+
+  Frame := DX(1);
+  if Frame < 1 then Frame := 1;
+  NextFrame := TBitmapImage.Create(WizardForm);
+  NextFrame.Parent := WizardForm;
+  NextFrame.SetBounds(WizardForm.NextButton.Left - Frame, WizardForm.NextButton.Top - Frame,
+    WizardForm.NextButton.Width + 2 * Frame, WizardForm.NextButton.Height + 2 * Frame);
+  NextFrame.Bitmap.Width := NextFrame.Width;
+  NextFrame.Bitmap.Height := NextFrame.Height;
+  with NextFrame.Bitmap.Canvas do begin
+    Brush.Color := $1A1A1E;  // RGB(30, 26, 26)
+    Pen.Color := $1E28EB;    // RGB(235, 40, 30)
+    Pen.Width := Frame;
+    Rectangle(Frame div 2, Frame div 2, NextFrame.Width - (Frame - 1) div 2, NextFrame.Height - (Frame - 1) div 2);
+  end;
+  NextFrame.SendToBack;
+end;
+
+procedure UppercaseButtons;
+begin
+  WizardForm.BackButton.Caption := UpperText(WizardForm.BackButton.Caption);
+  WizardForm.NextButton.Caption := UpperText(WizardForm.NextButton.Caption);
+  WizardForm.CancelButton.Caption := UpperText(WizardForm.CancelButton.Caption);
+end;
+
 procedure InitializeWizard;
 begin
   GamePage := CreateInputDirPage(wpWelcome, CustomMessage('GamePageCaption'),
     CustomMessage('GamePageDescription'), CustomMessage('GamePageText'), False, '');
   GamePage.Add('');
   GamePage.Values[0] := InitialGameDir;
+
+  LoadBack('welcome', WelcomeBack);
+  LoadBack('inner', InnerBack);
+  LayoutWelcomePage;
+  LayoutInnerPages;
+  LayoutButtons;
 end;
 
 // The last page says where doomfix is installed, replacing the standard text (and its "Click Finish to exit Setup."
 // line). The folder is shown in a read-only memo without a border: unlike a label, it wraps a long path without
 // spaces at any character, and the path can be selected and copied. The "Start the game" check box goes below.
-procedure CurPageChanged(CurPageID: Integer);
+// Like the welcome page, everything sits in the panel under the large logo.
+procedure LayoutFinishedPage;
 var
+  LineHeight: Integer;
   Text: TNewStaticText;
   PathBox: TNewMemo;
   Shortcut: TNewStaticText;
-  LineHeight: Integer;
 begin
-  if (CurPageID <> wpFinished) or FinishedLayoutDone then Exit;
-  FinishedLayoutDone := True;
+  WizardForm.WizardBitmapImage2.Visible := False;
+  PlaceOnPage(WizardForm.FinishedHeadingLabel, 56, 118, 441, 140);
+  PlaceWelcomeTitle(WizardForm.FinishedHeadingLabel);
+
   Text := WizardForm.FinishedLabel;
   Text.Caption := CustomMessage('FinishedInstalledTo');
+  PlaceOnPage(Text, 56, 154, 441, 170);
   WizardForm.AdjustLabelHeight(Text);
   LineHeight := Text.Height;
 
@@ -432,7 +621,6 @@ begin
   PathBox.Width := Text.Width;
   PathBox.Top := Text.Top + Text.Height + ScaleY(2);
   PathBox.Font.Assign(Text.Font);
-  PathBox.Color := clWindow;
   PathBox.BorderStyle := bsNone;
   PathBox.ReadOnly := True;
   PathBox.WordWrap := True;
@@ -449,10 +637,55 @@ begin
   Shortcut.AutoSize := False;
   Shortcut.WordWrap := True;
   Shortcut.Caption := CustomMessage('FinishedShortcut');
-  Shortcut.Top := PathBox.Top + PathBox.Height + ScaleY(12);
+  Shortcut.Top := PathBox.Top + PathBox.Height + DY(10);
   WizardForm.AdjustLabelHeight(Shortcut);
 
-  WizardForm.RunList.Top := Shortcut.Top + Shortcut.Height + ScaleY(16);
+  WizardForm.RunList.Left := Text.Left;
+  WizardForm.RunList.Width := Text.Width;
+  WizardForm.RunList.Top := Shortcut.Top + Shortcut.Height + DY(12);
+  WizardForm.RunList.Height := DY(18);
+end;
+
+#ifdef UITest
+procedure UITestPause;
+var
+  F: TSetupForm;
+begin
+  F := CreateCustomForm(ScaleX(200), ScaleY(60), False, False);
+  try
+    F.Caption := 'UITest pause';
+    F.Position := poDesigned;
+    F.Left := 0;
+    F.Top := 0;
+    F.ShowModal;
+  finally
+    F.Free;
+  end;
+end;
+#endif
+
+procedure CurPageChanged(CurPageID: Integer);
+begin
+  if (CurPageID = wpWelcome) or (CurPageID = wpFinished) then
+    ShowBack(BackWelcome)
+  else begin
+    ShowBack(BackInner);
+    SetHeading(WizardForm.PageNameLabel, WizardForm.PageNameLabel.Caption, DX(463) - DX(34));
+  end;
+  if (CurPageID = wpFinished) and not FinishedLayoutDone then begin
+    FinishedLayoutDone := True;
+    LayoutFinishedPage;
+  end;
+  // The style draws the default button translucent when it has no focus (fire would show through it).
+  if (CurPageID = wpFinished) and WizardForm.NextButton.CanFocus then
+    WizardForm.ActiveControl := WizardForm.NextButton;
+  UppercaseButtons;
+  NextFrame.Visible := WizardForm.NextButton.Visible;
+#ifdef UITest
+  // Test builds only (/DUITest): stop on the Installing page until the screenshot script closes this small form.
+  if CurPageID = wpInstalling then
+    UITestPause;
+#endif
 end;
 
 function NextButtonClick(CurPageID: Integer): Boolean;

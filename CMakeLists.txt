@@ -92,6 +92,11 @@ target_compile_definitions(doomfix_launcher PRIVATE NOMINMAX WIN32_LEAN_AND_MEAN
 target_compile_options(doomfix_launcher PRIVATE /W4 /permissive- /utf-8)
 target_link_libraries(doomfix_launcher PRIVATE advapi32 ole32 shell32 user32)
 doomfix_add_version_resource(doomfix_launcher "Starts DOOM Eternal with the doomfix layer" VFT_APP)
+# Иконка из installer/assets (её рисует installer/assets/generate.py, см. scripts/build_assets.ps1).
+set(DOOMFIX_ICON_FILE ${CMAKE_CURRENT_SOURCE_DIR}/installer/assets/doomfix.ico)
+configure_file(src/launcher/launcher_icon.rc.in ${CMAKE_CURRENT_BINARY_DIR}/launcher_icon.rc @ONLY)
+target_sources(doomfix_launcher PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/launcher_icon.rc)
+set_property(SOURCE ${CMAKE_CURRENT_BINARY_DIR}/launcher_icon.rc APPEND PROPERTY OBJECT_DEPENDS ${DOOMFIX_ICON_FILE})
 
 # --- Тест фичи indirect-barrier-fix (запускается вручную, см. README) -------------------
 if(DOOMFIX_BUILD_TESTS)

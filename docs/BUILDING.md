@@ -13,7 +13,8 @@ the GitHub Actions workflows and the RenderDoc analysis scripts. To just use the
 | Visual Studio 2022 Build Tools with the **Desktop development with C++** workload | MSVC compiler, Windows SDK, and the CMake + Ninja that ship with it | `winget install --id Microsoft.VisualStudio.2022.BuildTools -e --override "--passive --wait --add Microsoft.VisualStudio.Workload.VCTools --includeRecommended"` (about 5–7 GB, asks for administrator rights) |
 | Git | to clone the repository; CMake also uses it to download Vulkan-Headers when no Vulkan SDK is installed | `winget install --id Git.Git -e` |
 | Vulkan SDK *(optional)* | if present, its headers are used instead of downloading Vulkan-Headers; it also brings the validation layers | `winget install KhronosGroup.VulkanSDK` (see the note about vkconfig below) |
-| Inno Setup 6 *(optional)* | only to build the installer | `winget install JRSoftware.InnoSetup` (for the current user, no administrator rights) |
+| Inno Setup 6.7 or later *(optional)* | only to build the installer | `winget install JRSoftware.InnoSetup` (for the current user, no administrator rights) |
+| Python 3 *(optional)* | only to redraw the installer artwork (`scripts\build_assets.ps1`) | <https://www.python.org> |
 | RenderDoc 1.46 *(optional)* | only for the analysis scripts in `analysis/` | <https://renderdoc.org> |
 
 `--includeRecommended` adds MSVC x64, the Windows SDK and "C++ CMake tools for Windows" (CMake and Ninja).
@@ -148,6 +149,36 @@ Steam mode of v0.3.1 did, and checks that each of them removes it. On a develope
 
 The installer accepts the usual Inno Setup switches (`/SILENT`, `/VERYSILENT`, `/SUPPRESSMSGBOXES`, `/LOG=<file>`,
 `/TASKS="desktopicon"` or `/TASKS=""`) and `/GAMEDIR=<folder>`.
+
+### Installer artwork
+
+The wizard uses Inno Setup's built-in dark style (`WizardStyle=modern dark hidebevels`) with a background picture on
+the whole window, set per page with `WizardSetBackImage` (one set for the welcome and finish pages with the large logo,
+one for the other pages). The "Look" part of the `[Code]` section places the labels, the page content and the buttons
+on the dark panels of the background, using the same 497x360 design layout as the pictures, and frames the main button
+in red. The panels are drawn into the pictures and not made of controls, because the style draws transparent controls
+over the window background.
+
+Everything in `installer\assets` is drawn by `installer\assets\generate.py` from fixed random seeds (Pillow + numpy),
+without any third-party artwork:
+
+- `back_welcome_<size>.png`, `back_inner_<size>.png`: the backgrounds in the sizes Inno Setup uses at 100, 125, 150,
+  175 and 200% DPI (596x432 to 1272x922); Setup picks the best match;
+- `doomfix.ico`: the icon of `setup.exe` and `doomfix_launcher.exe` ("DF" on fire, 16 to 256 px; the small sizes use a
+  calmer background so that they stay readable). The installed shortcuts keep the game's icon.
+
+The lettering uses Inter Display Black ([Inter](https://github.com/rsms/inter) 4.1, SIL Open Font License, see
+`installer\assets\fonts\OFL.txt`); it is baked into the pictures and not shipped in the installer. The generated
+files are committed, so building the installer needs no Python. To change them, edit `generate.py` and run:
+
+```bat
+powershell -ExecutionPolicy Bypass -File scripts\build_assets.ps1
+```
+
+It creates a Python environment in `build-assets\.venv` with the versions from `installer\assets\requirements.txt`.
+
+For screenshots of every page, compile with `/DUITest`: such a build stops on the Installing page until a small window
+"UITest pause" is closed. Never release a `/DUITest` build.
 
 ## CI and releases
 

@@ -1,0 +1,2 @@
+// Иконка лаунчера («DF» на огне, installer/assets/doomfix.ico). Explorer берёт первую группу иконок в файле.
+1 ICON "@DOOMFIX_ICON_FILE@"

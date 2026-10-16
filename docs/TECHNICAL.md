@@ -187,6 +187,7 @@ src/launcher/                        doomfix_launcher.exe (the installer's short
 src/version.rc.in                    version resource of the DLL and the launcher
 tests/barrier_test.cpp               doomfix_barrier_test.exe
 installer/doomfix.iss                the installer (Inno Setup)
+installer/assets/                    installer artwork and its generator (generate.py), Inter font license
 scripts/                             build, package, installer, install, uninstall, launch, tests (PowerShell)
 *.bat                                user entry points: install, uninstall, launchers
 analysis/                            RenderDoc analysis scripts and the investigation report
