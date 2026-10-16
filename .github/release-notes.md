@@ -3,12 +3,19 @@ and local lights, decals and volumetric light are back. No driver rollback, no c
 doomfix adds the one synchronization flag that version 1.1 forgets in three GPU barriers, the same change
 id Software made in later updates. [Русская версия описания](https://github.com/{{REPO}}/blob/{{TAG}}/README.ru.md)
 
-## What's new in 0.4.1
+## What's new in 0.4.2
 
-- The installer has a new dark look: fire on the whole window, the text on dark panels (English and Russian).
-- `setup.exe` and the doomfix launcher have their own "DF" icon; the shortcuts keep the game's icon.
-- Nothing else changed: the fix, the installation folders and uninstalling work exactly as in 0.4.0.
-  Already on 0.4.0? Just run the new installer over it.
+- The doomfix shortcut now works even when the game would otherwise run as administrator: with User Account Control
+  (UAC) turned off, when the shortcut itself is started as administrator (for example from a tool that runs as
+  administrator), and when *Run this program as an administrator* is ticked for `DOOMEternalx64vk.exe`. It starts the
+  game without administrator rights, so Windows loads the fix. `run_doom_fixed.bat` from the zip cannot do this and
+  still warns.
+- Clearer messages: a separate one when UAC is turned off, in the doomfix shortcut, the installer and
+  `run_doom_fixed.bat`.
+- The doomfix shortcut writes a short diagnostic log, `%LOCALAPPDATA%\doomfix\logs\doomfix_launcher_<date-time>_<pid>.log`:
+  whether it ran as administrator and why, and with which rights the game was started. Attach it to bug reports.
+- The fix itself, the installation folders and uninstalling are unchanged. Already on 0.4.0 or 0.4.1? Just run the
+  new installer over it.
 
 ## Install
 
