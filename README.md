@@ -122,11 +122,15 @@ afterwards if you do not need them.
 ## Troubleshooting
 
 **The fix does not work: the weapon is still black.**
-Make sure the game was started with the doomfix shortcut or `run_doom_fixed.bat`, not with Play in Steam, and that
-nothing involved runs **as administrator**: not the game, not the shortcut, not `run_doom_fixed.bat`.
-Windows does not load doomfix into programs started as administrator, so the game then runs without the fix.
-Also check the *Compatibility* tab in the properties of `DOOMEternalx64vk.exe`: the box
-*Run this program as an administrator* must be unticked. The doomfix shortcut and the installer warn you about this.
+Make sure the game was started with the doomfix shortcut or `run_doom_fixed.bat`, not with Play in Steam.
+Windows does not load doomfix into programs that run **as administrator**. The doomfix shortcut takes care of that:
+even when the shortcut itself is started as administrator, when User Account Control (UAC) is turned off
+(`EnableLUA` is 0), or when *Run this program as an administrator* is ticked on the *Compatibility* tab of
+`DOOMEternalx64vk.exe`, it starts the game without administrator rights, so the fix works.
+`run_doom_fixed.bat` cannot do that: do not run it as administrator, untick that box for the game, and with UAC
+turned off use the installer instead (or turn UAC back on and restart Windows).
+The doomfix shortcut writes `%LOCALAPPDATA%\doomfix\logs\doomfix_launcher_<date-time>_<pid>.log`, which shows
+whether it ran as administrator, why, and with which rights the game was started.
 
 **The game starts, but the weapon is still black and no new log appears.**
 DOOM Eternal can restart itself through Steam, and the restarted game no longer has the doomfix variables.

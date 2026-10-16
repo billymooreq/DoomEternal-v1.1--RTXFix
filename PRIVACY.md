@@ -25,6 +25,20 @@ start; it is never stored for your Windows user or the system. A log contains:
   file names of other Vulkan layers loaded into the program;
 - what the fix changed (counts of patched GPU barriers).
 
+The doomfix launcher (`doomfix_launcher.exe`, which the installer's shortcuts start) writes its own log file to the
+same folder each time it runs, named `doomfix_launcher_<date-time>_<pid>.log`. It contains:
+
+- the date and time, the process and thread IDs, the doomfix and Windows versions;
+- the full paths of the launcher, of the game's exe file and of the shortcut it was started from (these can include
+  your Windows user name);
+- the file name of the program that started the launcher (usually `explorer.exe`);
+- whether the launcher runs as administrator and why: the integrity level of the process, the User Account Control
+  settings of Windows (`EnableLUA`, `ConsentPromptBehaviorAdmin`, `FilterAdministratorToken`), whether the account is
+  the built-in Administrator, and the compatibility settings of the launcher and the game, such as *Run this program
+  as an administrator*;
+- where the doomfix layer is registered, whether Steam is running, whether the game started and with which
+  integrity level (if the launcher runs as administrator, it starts the game without administrator rights).
+
 Log files are not deleted automatically, and the uninstaller keeps them; delete the `logs` folder yourself if you do
 not need it. If you attach a log to a GitHub issue, look through it first: it is published together with the
 issue, and you may want to replace your user name in paths.
