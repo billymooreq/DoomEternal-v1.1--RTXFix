@@ -1,4 +1,4 @@
-# DoomEternal-v1.1--RTXFix — fix environment lighting for DOOM Eternal 1.1 on NVIDIA
+# RTXFix — fix environment lighting for DOOM Eternal 1.1 on NVIDIA
 
 **English** | [Русский](README.ru.md)
 
