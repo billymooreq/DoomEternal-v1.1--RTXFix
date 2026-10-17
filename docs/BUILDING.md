@@ -178,7 +178,14 @@ powershell -ExecutionPolicy Bypass -File scripts\build_assets.ps1
 It creates a Python environment in `build-assets\.venv` with the versions from `installer\assets\requirements.txt`.
 
 For screenshots of every page, compile with `/DUITest`: such a build stops on the Installing page until a small window
-"UITest pause" is closed. Never release a `/DUITest` build.
+"UITest pause" is closed. It is safe to run next to a real installation: it has its own AppId, installs only into
+the folder given with `/DIR=...` and changes nothing else (no registry values, shortcuts, uninstaller or "Installed
+apps" entry; "Start DOOM Eternal" does nothing). Never release a `/DUITest` build.
+
+The wizard's buttons and check boxes are pictures from `installer\assets\ui` with the caption written on them at run
+time; a timer in `[Code]` switches between the normal, hover, pressed and focus pictures. The real Inno Setup buttons
+stay on the form with a size of 0x0 and keep the keyboard (Enter, Esc, Tab, Alt+letter); see the "Look" part of
+`installer\doomfix.iss`.
 
 ## CI and releases
 
