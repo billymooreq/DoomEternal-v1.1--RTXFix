@@ -1,4 +1,4 @@
-"""Generates the installer artwork: wizard backgrounds and the "DF" icon.
+"""Generates the installer artwork: wizard backgrounds, buttons and other controls, and the "DF" icon.
 
 Everything is drawn procedurally (Pillow + numpy) from fixed random seeds, so every run produces the same
 images; no third-party artwork is used. The only external asset is the Inter Display Black font (SIL OFL 1.1,
@@ -7,11 +7,16 @@ see fonts/OFL.txt), which is baked into the images and is not shipped in the ins
 Run it through scripts\\build_assets.ps1, which sets up the Python environment. Output, next to this file:
   back_welcome_<w>x<h>.png  welcome and finish pages: fire, large DOOMFIX logo and RTX tag, the content panel
   back_inner_<w>x<h>.png    other pages: fire, small DOOMFIX logo and RTX tag at the top left, the content panel
+                            with its red heading line
+  ui/<name>_<w>.png         for each background width w: the buttons (button_*, browse_*: normal, hover, pressed,
+                            focus, disabled; without text), the path field (edit), the check boxes (check_on_*,
+                            check_off_*) and the heading lines of the welcome and finish pages (line_red, line_green)
   doomfix.ico               the icon of setup.exe and doomfix_launcher.exe, 16 to 256 px
 
 The background sizes are the wizard image areas of Inno Setup 6.7 at 100, 125, 150, 175 and 200% DPI (see the
-WizardBackImageFile help topic); Setup picks the best match. The layout uses the coordinates of the 497x360
-design (installer/doomfix.iss places the panels and controls with the same numbers).
+WizardBackImageFile help topic); Setup picks the best match. The panels use the coordinates of the 497x360
+design, the controls pixels of the 596x432 client area at 100% (installer/doomfix.iss places everything with the
+same numbers).
 """
 import math
 import random
@@ -189,42 +194,212 @@ def tag(img, x_center, y, size, s, text="RTX"):
     return img
 
 
-# Layout shared with the "Look" part of installer/doomfix.iss (design units). The panels are part of the image:
-# the custom style draws transparent controls over the window background, so a panel made of a control would not
-# show behind every control.
-PANEL = (34, 30, 30)
-PANEL_BORDER = (140, 70, 50)
-SEPARATOR = (150, 130, 125)
-WELCOME_PANEL = (40, 104, 457, 306)   # welcome and finish pages
+# Layout shared with the "Look" part of installer/doomfix.iss. Two kinds of units: design units of the 497x360
+# layout (panels, labels; s = pixels per unit) and pixels of the window at 100% DPI, whose client area is 596x432
+# (button, field and chamfer sizes; p = pixels per pixel at 100%). The panels are part of the background image: the
+# custom style draws transparent controls over the window background, so a panel made of a control would not show
+# behind every control.
+WELCOME_PANEL = (40, 104, 455, 279)   # welcome and finish pages
 WELCOME_SEPARATOR_Y = 144
-INNER_PANEL = (18, 50, 479, 316)      # all other pages
+INNER_PANEL = (18, 50, 479, 306)      # all other pages
 INNER_SEPARATOR_Y = 102
 PANEL_PADDING = 16
 
+BORDER = (0x7A, 0x5F, 0x57)
+RED = (0xD8, 0x26, 0x1A)
+DARK_RED = (0x8E, 0x14, 0x0C)
+GREEN_LINE = (0x3D, 0xDC, 0x56)
+SS = 4                                # supersampling of the antialiased shapes
 
-def panel(img, box, sep_y, s):
-    d = ImageDraw.Draw(img)
-    lw = max(1, round(s))
-    x0, y0, x1, y1 = (round(v * s) for v in box)
-    d.rectangle([x0, y0, x1 - 1, y1 - 1], fill=PANEL, outline=PANEL_BORDER, width=lw)
-    sy = round(sep_y * s)
-    d.line([x0 + round(PANEL_PADDING * s), sy, x1 - round(PANEL_PADDING * s), sy], fill=SEPARATOR, width=lw)
-    return img
+
+def chamfer_points(x0, y0, x1, y1, tl, tr, br, bl):
+    """A rectangle with its corners cut at 45 degrees; tl..bl are the cut lengths along each side."""
+    return [(x0 + tl, y0), (x1 - tr, y0), (x1, y0 + tr), (x1, y1 - br), (x1 - br, y1), (x0 + bl, y1),
+            (x0, y1 - bl), (x0, y0 + tl)]
+
+
+def shape_mask(size, points, inset=0.0):
+    """Antialiased coverage (0..1, float array) of a polygon, optionally shrunk by `inset` pixels."""
+    w, h = size
+    k = int(round(inset * SS))
+    pad = k + SS  # empty margin, so that the shrinking also works where the shape touches the image edge
+    m = Image.new("L", (w * SS + 2 * pad, h * SS + 2 * pad), 0)
+    ImageDraw.Draw(m).polygon([(x * SS + pad, y * SS + pad) for x, y in points], fill=255)
+    if k > 0:
+        m = m.filter(ImageFilter.MinFilter(2 * k + 1))
+    m = m.crop((pad, pad, pad + w * SS, pad + h * SS))
+    return np.asarray(m.resize((w, h), Image.BOX), float) / 255
+
+
+def outline_mask(size, points, width):
+    """The band of `width` pixels just inside the polygon's edge."""
+    return np.clip(shape_mask(size, points) - shape_mask(size, points, width), 0, 1)
+
+
+def over(base, color, alpha):
+    """Composites a color (RGB tuple or HxWx3 array) with per-pixel alpha (HxW) over an RGB float array."""
+    a = alpha[..., None]
+    return base * (1 - a) + np.asarray(color, float) * a
+
+
+def scanlines(h, w, p, y0=0):
+    """1 = row of a scanline: 1 px lines every 3 px at 100%, scaled."""
+    step = max(2, round(3 * p))
+    lh = max(1, round(p))
+    rows = ((np.arange(h) - y0) % step) < lh
+    return np.repeat(rows[:, None], w, axis=1).astype(float)
+
+
+def vgradient(h, w, top, bottom, y0=0, y1=None):
+    """HxWx3 colors from `top` at row y0 to `bottom` at row y1."""
+    y1 = h - 1 if y1 is None else y1
+    t = np.clip((np.arange(h) - y0) / max(1, y1 - y0), 0, 1)[:, None, None]
+    col = np.asarray(top, float) * (1 - t) + np.asarray(bottom, float) * t
+    return np.repeat(col, w, axis=1)
+
+
+def panel(img, box, s, p):
+    """Dark see-through panel: chamfered corners (18 px top left and bottom right, 6 px elsewhere), 1 px frame,
+    vertical gradient, faint scanlines and a faint inner line 5 px from the edge."""
+    w, h = img.size
+    x0, y0, x1, y1 = (v * s for v in box)
+    big, small = 18 * p, 6 * p
+    lw = max(1, round(p))
+    pts = chamfer_points(x0, y0, x1, y1, big, small, big, small)
+    fill = shape_mask((w, h), pts)
+    base = np.asarray(img, float)
+    ya, yb = int(y0), int(y1)
+    color = vgradient(h, w, (28, 22, 21), (16, 12, 12), ya, yb)
+    alpha = (0.86 + 0.04 * np.clip((np.arange(h) - ya) / max(1, yb - ya), 0, 1))[:, None]
+    base = over(base, color, fill * alpha)
+    base = over(base, (255, 255, 255), fill * scanlines(h, w, p, ya) * 0.045)
+    d = 5 * p
+    inner = chamfer_points(x0 + d, y0 + d, x1 - d, y1 - d, 14 * p, 4 * p, 14 * p, 4 * p)
+    base = over(base, (255, 255, 255), outline_mask((w, h), inner, lw) * 0.06)
+    base = over(base, BORDER, outline_mask((w, h), pts, lw))
+    return Image.fromarray(base.clip(0, 255).astype(np.uint8))
+
+
+def separator_line(length, height, start):
+    """RGBA line under a heading: `start` color to faint white at 60% of the length, then fading out."""
+    t = np.linspace(0, 1, length)
+    k = np.clip(t / 0.6, 0, 1)[:, None]
+    rgb = np.asarray(start, float) * (1 - k) + np.array([255.0, 255, 255]) * k
+    a = np.where(t <= 0.6, 1 - 0.88 * np.clip(t / 0.6, 0, 1), 0.12 * (1 - (t - 0.6) / 0.4))
+    row = np.concatenate([rgb, (a * 255)[:, None]], axis=1)
+    return Image.fromarray(np.repeat(row[None], height, axis=0).clip(0, 255).astype(np.uint8), "RGBA")
+
+
+def separator_geometry(box, sep_y, s, p):
+    x0, _, x1, _ = box
+    left = round((x0 + PANEL_PADDING) * s)
+    return left, round(sep_y * s), round((x1 - PANEL_PADDING) * s) - left, max(1, round(p))
 
 
 def background(kind, w, h):
-    s = w / BASE_W
+    s, p = w / BASE_W, w / 596
     if kind == "welcome":
+        # The heading line is not part of this image: it is red on the welcome page and green on the finish page
+        # (ui/line_*.png, placed by installer/doomfix.iss).
         img = hellscape(w, h, seed=7)
         img = logo(img, "DOOMFIX", BASE_W / 2, 14, 34, s, center=True)
         img = tag(img, BASE_W / 2, 60, 11, s)
-        img = panel(img, WELCOME_PANEL, WELCOME_SEPARATOR_Y, s)
+        img = panel(img, WELCOME_PANEL, s, p)
     else:
         img = hellscape(w, h, seed=19)
         img = logo(img, "DOOMFIX", 18, 10, 16, s, stroke=5)
         img = tag(img, 136, 11, 9, s)
-        img = panel(img, INNER_PANEL, INNER_SEPARATOR_Y, s)
+        img = panel(img, INNER_PANEL, s, p)
+        x, y, length, lh = separator_geometry(INNER_PANEL, INNER_SEPARATOR_Y, s, p)
+        img = img.convert("RGBA")
+        img.alpha_composite(separator_line(length, lh, RED), (x, y))
+        img = img.convert("RGB")
     return img
+
+
+# --- Buttons and the path field ------------------------------------------------------------------
+# Drawn without text; installer/doomfix.iss writes the caption on them at run time (the captions depend on the
+# language and the page). One set per background size, named after the background width.
+
+BUTTON_W, BROWSE_W, BUTTON_H = 104, 96, 34
+EDIT_W = 410                          # inner page content width (514 px) - Browse - 8 px gap
+BUTTON_STATES = ("normal", "hover", "pressed", "focus", "disabled")
+
+
+def button_image(w, h, p, state):
+    """A stretched hexagon: the left and right sides meet in a point 10 px deep."""
+    d = 10 * p
+    pts = [(d, 0), (w - d, 0), (w, h / 2), (w - d, h), (d, h), (0, h / 2)]
+    lw = max(1, round(p))
+    fill = shape_mask((w, h), pts)
+    base = np.zeros((h, w, 3))
+    if state == "hover":
+        base = vgradient(h, w, RED, DARK_RED)
+        border = (0xFF, 0xB0, 0x8A)
+    elif state == "pressed":
+        base[:] = DARK_RED
+        border = (0xFF, 0xB0, 0x8A)
+    else:
+        base = vgradient(h, w, (0x2C, 0x24, 0x23), (0x1A, 0x15, 0x15))
+        border = (0xF0, 0xE6, 0xE2) if state == "focus" else BORDER
+    base = over(base, (255, 255, 255), scanlines(h, w, p) * 0.045)
+    base = over(base, border, np.clip(outline_mask((w, h), pts, lw) / np.maximum(fill, 1e-6), 0, 1))
+    alpha = fill * (0.45 if state == "disabled" else 1.0)
+    rgba = np.concatenate([base, (alpha * 255)[..., None]], axis=2)
+    return Image.fromarray(rgba.clip(0, 255).astype(np.uint8), "RGBA")
+
+
+def edit_frame(w, h, p):
+    """The path field: 1 px frame, 8 px chamfers at the top left and bottom right, dark fill."""
+    c = 8 * p
+    pts = chamfer_points(0, 0, w, h, c, 0, c, 0)
+    fill = shape_mask((w, h), pts)
+    base = np.zeros((h, w, 3))
+    base[:] = (0x12, 0x0E, 0x0E)
+    base = over(base, BORDER, np.clip(outline_mask((w, h), pts, max(1, round(p))) / np.maximum(fill, 1e-6), 0, 1))
+    rgba = np.concatenate([base, (fill * 255)[..., None]], axis=2)
+    return Image.fromarray(rgba.clip(0, 255).astype(np.uint8), "RGBA")
+
+
+CHECK_SIZE = 16
+
+
+def check_box(n, p, checked, state):
+    """A check box: dark square with a 1 px frame, a red tick when checked."""
+    lw = max(1, round(p))
+    pts = [(0, 0), (n, 0), (n, n), (0, n)]
+    fill = shape_mask((n, n), pts)
+    base = np.zeros((n, n, 3))
+    base[:] = (0x12, 0x0E, 0x0E)
+    border = {"hover": (0xFF, 0xB0, 0x8A), "focus": (0xF0, 0xE6, 0xE2)}.get(state, BORDER)
+    if checked:
+        tick = Image.new("L", (n * SS, n * SS), 0)
+        k = n * SS / 16
+        ImageDraw.Draw(tick).line([(3.5 * k, 8.5 * k), (6.5 * k, 11.5 * k), (12.5 * k, 4.5 * k)], fill=255,
+                                  width=max(2, round(2.2 * k)), joint="curve")
+        base = over(base, RED, np.asarray(tick.resize((n, n), Image.BOX), float) / 255)
+    base = over(base, border, outline_mask((n, n), pts, lw))
+    rgba = np.concatenate([base, (fill * 255)[..., None]], axis=2)
+    return Image.fromarray(rgba.clip(0, 255).astype(np.uint8), "RGBA")
+
+
+def ui_images(w):
+    """{file name: image} for the background width w."""
+    s, p = w / BASE_W, w / 596
+    bh = round(BUTTON_H * p)
+    out = {}
+    for state in BUTTON_STATES:
+        out[f"button_{state}_{w}.png"] = button_image(round(BUTTON_W * p), bh, p, state)
+        out[f"browse_{state}_{w}.png"] = button_image(round(BROWSE_W * p), bh, p, state)
+    out[f"edit_{w}.png"] = edit_frame(round(EDIT_W * p), bh, p)
+    for checked in (False, True):
+        for state in ("normal", "hover", "focus"):
+            out[f"check_{'on' if checked else 'off'}_{state}_{w}.png"] = check_box(round(CHECK_SIZE * p), p, checked,
+                                                                                    state)
+    _, _, length, lh = separator_geometry(WELCOME_PANEL, WELCOME_SEPARATOR_Y, s, p)
+    out[f"line_red_{w}.png"] = separator_line(length, lh, RED)
+    out[f"line_green_{w}.png"] = separator_line(length, lh, GREEN_LINE)
+    return out
 
 
 # --- Icon ---------------------------------------------------------------------------------------
@@ -274,6 +449,14 @@ def main():
             path = HERE / f"back_{kind}_{w}x{h}.png"
             background(kind, w, h).save(path, optimize=True)
             print(f"{path.name}: {path.stat().st_size // 1024} KB")
+    ui = HERE / "ui"
+    ui.mkdir(exist_ok=True)
+    total = 0
+    for w, _ in SIZES:
+        for name, im in ui_images(w).items():
+            im.save(ui / name, optimize=True)
+            total += (ui / name).stat().st_size
+    print(f"ui/: {len(list(ui.glob('*.png')))} files, {total // 1024} KB")
     icons = [icon_image(sz) for sz in ICON_SIZES]
     ico = HERE / "doomfix.ico"
     icons[-1].save(ico, format="ICO", sizes=[(sz, sz) for sz in ICON_SIZES], append_images=icons[:-1])
