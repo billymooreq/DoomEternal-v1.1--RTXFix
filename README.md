@@ -113,7 +113,7 @@ Every game start writes a log file to `%LOCALAPPDATA%\doomfix\logs\DOOMEternalx6
 Once you are in a level, it should contain lines like these:
 
 ```
-INFO  doomfix 0.4.2 (VK_LAYER_DOOMFIX) loaded into <game folder>\DOOMEternalx64vk.exe, pid 1234
+INFO  doomfix 0.4.3 (VK_LAYER_DOOMFIX) loaded into <game folder>\DOOMEternalx64vk.exe, pid 1234
 INFO  indirect-barrier-fix [on]: PATCHED vkCmdPipelineBarrier in command buffer 000002CD804070D0
 INFO  indirect-barrier-fix [on]: barriers with DRAW_INDIRECT dst 1800 (+1800), patched 1800 (+1800), ...
 ```

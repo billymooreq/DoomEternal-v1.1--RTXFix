@@ -15,13 +15,10 @@ are back. No driver rollback, no game files changed. [Русский](https://gi
 
 Don't want an installer? Use **{{ZIP}}**, see the [README](https://github.com/{{REPO}}/blob/{{TAG}}/README.md#installation).
 
-## What's new in 0.4.2
+## What's new in 0.4.3
 
-- The doomfix shortcut now works even when Windows would start the game as administrator, for example with
-  User Account Control turned off or with *Run this program as an administrator* ticked.
-- If something goes wrong, the shortcut writes a short log: attach the files from `%LOCALAPPDATA%\doomfix\logs`
-  to your bug report.
-- Already have doomfix? Just run the new installer over it.
+- New look for the installer: redesigned panels and buttons.
+- Shorter welcome page.
 
 <details>
 <summary>Checksums and verification</summary>
