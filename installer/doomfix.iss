@@ -86,8 +86,8 @@ Name: "en"; MessagesFile: "compiler:Default.isl"
 Name: "ru"; MessagesFile: "compiler:Languages\Russian.isl"
 
 [Messages]
-en.WelcomeLabel2=This will install [name/ver] for your Windows user.%n%ndoomfix fixes DOOM Eternal 1.1 on current NVIDIA drivers: the first-person weapon is no longer black in shadow, and local lights, decals and volumetric light are back. Game files are not changed, and no administrator rights are needed.%n%nClose DOOM Eternal before you continue.
-ru.WelcomeLabel2=Будет установлен [name/ver] для вашего пользователя Windows.%n%ndoomfix исправляет DOOM Eternal 1.1 на современных драйверах NVIDIA: оружие в руках больше не чёрное в тени, возвращаются локальные источники света, декали и объёмный свет. Файлы игры не изменяются, права администратора не нужны.%n%nПеред продолжением закройте DOOM Eternal.
+en.WelcomeLabel2=This will install [name/ver] for your Windows user.%n%nClose DOOM Eternal before you continue.
+ru.WelcomeLabel2=Будет установлен [name/ver] для вашего пользователя Windows.%n%nПеред продолжением закройте DOOM Eternal.
 
 [CustomMessages]
 ; Text of the last page, set in CurPageChanged; the installation folder goes between the two lines.
